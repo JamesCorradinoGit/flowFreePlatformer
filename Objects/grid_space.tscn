@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bv270jvy7v0b3"]
+
+[ext_resource type="Texture2D" uid="uid://3iigp300to3s" path="res://Assets/outlinedSquare.png" id="1_o55yo"]
+
+[node name="gridSpace" type="Sprite2D" unique_id=569746188]
+self_modulate = Color(1, 1, 1, 0.52156866)
+texture = ExtResource("1_o55yo")
+
+[node name="spawnSpot" type="Marker2D" parent="." unique_id=501769295]

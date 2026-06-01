@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://doqyyu3i4xx34"]
+
+[ext_resource type="PackedScene" uid="uid://ccugvwenhhjgr" path="res://Objects/node_start_KB.tscn" id="2_sblpm"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="3_2wwxx"]
+[ext_resource type="PackedScene" uid="uid://cvslsain1kjbi" path="res://Objects/player.tscn" id="3_r34rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
+size = Vector2(336.5, 20)
+
+[node name="main" type="Node2D" unique_id=152571204]
+
+[node name="nodeStartKB" parent="." unique_id=458349843 instance=ExtResource("2_sblpm")]
+position = Vector2(542, 550)
+lineIntersectCutsOffFullLine = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=822140468]
+position = Vector2(171, 158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1374384403]
+shape = SubResource("RectangleShape2D_sblpm")
+
+[node name="player" parent="." unique_id=1944998453 instance=ExtResource("3_r34rm")]
+position = Vector2(69, 71)
+
+[node name="nodeStartKB2" parent="." unique_id=913909175 instance=ExtResource("2_sblpm")]
+position = Vector2(574, 550)
+lineIntersectCutsOffFullLine = false
+reciever = true
+
+[node name="grid" parent="." unique_id=1092430806 instance=ExtResource("3_2wwxx")]
+position = Vector2(451, 224)
+gridSizeX = 5
+gridSizeY = 5

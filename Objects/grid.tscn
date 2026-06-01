@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cn2l4bfyirf14"]
+
+[ext_resource type="Script" uid="uid://b4vdtxghtu025" path="res://Scripts/grid.gd" id="1_f6ty6"]
+[ext_resource type="PackedScene" uid="uid://bv270jvy7v0b3" path="res://Objects/grid_space.tscn" id="2_f6ty6"]
+
+[node name="grid" type="Node2D" unique_id=1092430806]
+script = ExtResource("1_f6ty6")
+gridNode = ExtResource("2_f6ty6")
