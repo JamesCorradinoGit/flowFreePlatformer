@@ -16,8 +16,6 @@ class_name lineNodeKB
 @onready var colArea: Area2D = $connectLine/colArea
 @onready var recieveSprite: Sprite2D = $recieveSprite
 
-#TODO FIX COLLISIONS FOR WRONG COLORS
-
 var dragging: bool = false
 var lineConnected: bool = false
 var parentedToGrid:bool = false
@@ -76,11 +74,13 @@ func checkLinePoints(direction:String):
 			changeHori = SNAP
 	var newSnapPos = Vector2(connectLine.get_point_position(connectLine.get_point_count()-1).x+changeHori, connectLine.get_point_position(connectLine.get_point_count()-1).y+changeVert)
 	var oldPos = connectLine.get_point_position(connectLine.get_point_count()-1)
+	
 	if self.parentedToGrid:
 		if to_global(newSnapPos).x < get_parent().global_position.x or to_global(newSnapPos).x >= get_parent().totalGridPosX:
 			return
 		if to_global(newSnapPos).y < get_parent().global_position.y or to_global(newSnapPos).y >= get_parent().totalGridPosY:
 			return
+
 	if !lineConnected:
 		for i in range(connectLine.get_point_count()):
 			if connectLine.get_point_position(i).is_equal_approx(newSnapPos) and intersect == false:
@@ -91,6 +91,9 @@ func checkLinePoints(direction:String):
 		if intersect:
 			handleIntersect(intersectCutoff)
 		else:
+			var otherNodeTest:lineNodeKB = getLineNodesAtPoint(to_global(newSnapPos))
+			if otherNodeTest != null and otherNodeTest.lineColor != self.lineColor:
+				return
 			connectLine.add_point(newSnapPos)
 			addCollision(oldPos, newSnapPos)
 			self.onDrag.emit()
@@ -132,6 +135,19 @@ func checkClosestPoint(posToCheck:Vector2, lineToCheck, rangeToCheck:int) -> int
 			print(loopPos, posToCheck)
 			index = i
 	return index
+func getLineNodesAtPoint(pos:Vector2):
+	var world2D = get_world_2d().direct_space_state
+	var queryTemp = PhysicsPointQueryParameters2D.new()
+	queryTemp.position = pos
+	queryTemp.collide_with_areas = true
+	queryTemp.collide_with_bodies = true
+	
+	var resu = world2D.intersect_point(queryTemp)
+	if resu != []:
+		for result in resu:
+			if result["collider"].owner is lineNodeKB:
+				return result["collider"].owner
+	return null
 
 func _on_col_area_area_entered(area: Area2D) -> void:
 	if colArea == Globals.selectedLineArea and area.get_parent() is Line2D:
@@ -150,9 +166,6 @@ func _on_line_node_collision_area_entered(area: Area2D) -> void:
 		print("connect")
 		area.owner.lineConnected = true
 		self.connectSuccess.emit()
-	elif area.name == "colArea" and area.owner != self and self.lineColor != area.owner.lineColor:
-		area.owner.handleIntersect(area.owner.connectLine.get_point_count()-2) #TODO lock move after connect
-		self.connectFailed.emit()
 
 func _on_line_node_collision_area_exited(area: Area2D) -> void:
 	if area.get_parent() is Line2D:

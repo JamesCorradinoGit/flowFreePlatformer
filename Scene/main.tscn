@@ -16,12 +16,12 @@ position = Vector2(171, 158)
 shape = SubResource("RectangleShape2D_sblpm")
 
 [node name="player" parent="." unique_id=1944998453 instance=ExtResource("3_r34rm")]
-position = Vector2(69, 71)
+position = Vector2(80, 107)
 
 [node name="grid" parent="." unique_id=1092430806 instance=ExtResource("3_2wwxx")]
-position = Vector2(416, 243)
-gridSizeX = 5
-gridSizeY = 5
+position = Vector2(441, 159)
+gridSizeX = 7
+gridSizeY = 7
 
 [node name="nodeStartKB" parent="grid" unique_id=458349843 instance=ExtResource("2_sblpm")]
 position = Vector2(64, 64)
@@ -29,6 +29,6 @@ lineIntersectCutsOffFullLine = false
 
 [node name="nodeStartKB2" parent="grid" unique_id=913909175 instance=ExtResource("2_sblpm")]
 position = Vector2(128, 128)
-lineColor = Color(1, 0.45, 0.45, 1)
+lineColor = Color(1, 0.33999997, 0.33999997, 1)
 lineIntersectCutsOffFullLine = false
 reciever = true
