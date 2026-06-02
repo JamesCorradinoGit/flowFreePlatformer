@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name lineNodeKB
 
 @export var lineColor:Color = Color.WHITE
 @export_subgroup("collisions")
@@ -15,8 +16,11 @@ extends Sprite2D
 @onready var colArea: Area2D = $connectLine/colArea
 @onready var recieveSprite: Sprite2D = $recieveSprite
 
+#TODO FIX COLLISIONS FOR WRONG COLORS
+
 var dragging: bool = false
 var lineConnected: bool = false
+var parentedToGrid:bool = false
 const SNAP:int = Globals.globalSnap
 
 @warning_ignore_start("unused_signal")
@@ -34,6 +38,8 @@ func _ready() -> void:
 		endButton.disabled = true
 		endButton.hide()
 		recieveSprite.show()
+	if get_parent() is gridObject:
+		parentedToGrid = true
 
 func _process(_delta: float) -> void:
 	if dragging:
@@ -59,7 +65,6 @@ func checkLinePoints(direction:String):
 	var intersectCutoff = connectLine.get_point_count()
 	var changeVert:int = 0
 	var changeHori:int = 0
-	
 	match direction:
 		"up":
 			changeVert = -SNAP
@@ -71,7 +76,11 @@ func checkLinePoints(direction:String):
 			changeHori = SNAP
 	var newSnapPos = Vector2(connectLine.get_point_position(connectLine.get_point_count()-1).x+changeHori, connectLine.get_point_position(connectLine.get_point_count()-1).y+changeVert)
 	var oldPos = connectLine.get_point_position(connectLine.get_point_count()-1)
-	
+	if self.parentedToGrid:
+		if to_global(newSnapPos).x < get_parent().global_position.x or to_global(newSnapPos).x >= get_parent().totalGridPosX:
+			return
+		if to_global(newSnapPos).y < get_parent().global_position.y or to_global(newSnapPos).y >= get_parent().totalGridPosY:
+			return
 	if !lineConnected:
 		for i in range(connectLine.get_point_count()):
 			if connectLine.get_point_position(i).is_equal_approx(newSnapPos) and intersect == false:
@@ -144,7 +153,7 @@ func _on_line_node_collision_area_entered(area: Area2D) -> void:
 	elif area.name == "colArea" and area.owner != self and self.lineColor != area.owner.lineColor:
 		area.owner.handleIntersect(area.owner.connectLine.get_point_count()-2) #TODO lock move after connect
 		self.connectFailed.emit()
-	
+
 func _on_line_node_collision_area_exited(area: Area2D) -> void:
 	if area.get_parent() is Line2D:
 		area.owner.lineConnected = false

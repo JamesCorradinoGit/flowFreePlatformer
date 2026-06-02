@@ -11,7 +11,7 @@ shader_parameter/origin = Color(1, 1, 1, 1)
 shader_parameter/newColor = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fock"]
-radius = 16.0
+radius = 14.0
 
 [node name="nodeStartKB" type="Sprite2D" unique_id=458349843 groups=["flowLines"]]
 z_index = 3
