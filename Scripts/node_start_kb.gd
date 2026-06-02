@@ -74,13 +74,21 @@ func checkLinePoints(direction:String):
 			changeHori = SNAP
 	var newSnapPos = Vector2(connectLine.get_point_position(connectLine.get_point_count()-1).x+changeHori, connectLine.get_point_position(connectLine.get_point_count()-1).y+changeVert)
 	var oldPos = connectLine.get_point_position(connectLine.get_point_count()-1)
-	
+	"""
+	var test = Sprite2D.new()
+	test.texture = recieveSprite.texture
+	test.global_position = Vector2(newSnapPos.x-(changeHori/2), newSnapPos.y-(changeVert/2)) 
+	add_child(test)
+	"""
+	#BUG IS WITH POINT NOT BEING AT A UNIFORM POSITION EVERY TIME
 	if self.parentedToGrid:
 		if to_global(newSnapPos).x < get_parent().global_position.x or to_global(newSnapPos).x >= get_parent().totalGridPosX:
 			return
 		if to_global(newSnapPos).y < get_parent().global_position.y or to_global(newSnapPos).y >= get_parent().totalGridPosY:
 			return
-
+	@warning_ignore("integer_division")
+	if getObstacleNodesAtPoint(to_global(Vector2(newSnapPos.x-(changeHori/2), newSnapPos.y-(changeVert/2)))):
+		return
 	if !lineConnected:
 		for i in range(connectLine.get_point_count()):
 			if connectLine.get_point_position(i).is_equal_approx(newSnapPos) and intersect == false:
@@ -148,6 +156,18 @@ func getLineNodesAtPoint(pos:Vector2):
 			if result["collider"].owner is lineNodeKB:
 				return result["collider"].owner
 	return null
+func getObstacleNodesAtPoint(pos:Vector2):
+	var world2D = get_world_2d().direct_space_state
+	var queryTemp = PhysicsPointQueryParameters2D.new()
+	queryTemp.position = pos
+	queryTemp.collide_with_areas = true
+	queryTemp.collide_with_bodies = true
+	
+	var resu = world2D.intersect_point(queryTemp)
+	for result in resu:
+		if result["collider"].owner.is_in_group("flowLineObstacle"):
+			return true
+	return false
 
 func _on_col_area_area_entered(area: Area2D) -> void:
 	if colArea == Globals.selectedLineArea and area.get_parent() is Line2D:

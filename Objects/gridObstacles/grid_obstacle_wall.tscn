@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d1bo7tvue53ss" path="res://Assets/gridWallSprite.png" id="1_oqi3b"]
 [ext_resource type="Script" uid="uid://ckm2c44ubmp0t" path="res://Scripts/grid_obstacle_wall.gd" id="2_h3y66"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_oqi3b"]
-a = Vector2(0, -16)
-b = Vector2(0, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3y66"]
+size = Vector2(2, 32)
 
 [node name="gridObstacleWall" type="Sprite2D" unique_id=374241153 groups=["flowLineObstacle"]]
 texture = ExtResource("1_oqi3b")
@@ -14,6 +13,6 @@ script = ExtResource("2_h3y66")
 [node name="obstacleCollision" type="Area2D" parent="." unique_id=545292850]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacleCollision" unique_id=119580375]
-shape = SubResource("SegmentShape2D_oqi3b")
+shape = SubResource("RectangleShape2D_h3y66")
 
 [connection signal="area_entered" from="obstacleCollision" to="." method="_on_obstacle_collision_area_entered"]
