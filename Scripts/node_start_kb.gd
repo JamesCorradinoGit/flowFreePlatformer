@@ -3,7 +3,7 @@ class_name lineNodeKB
 
 @export var lineColor:Color = Color.WHITE
 @export_subgroup("collisions")
-@export var lineIntersectCutsOffFullLine:bool
+@export var lineIntersectCutsOffFullLine:bool = false
 @export var cols:Array = []
 @export var arCols:Array = []
 @export_subgroup("")

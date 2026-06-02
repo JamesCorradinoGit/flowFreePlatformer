@@ -19,7 +19,6 @@ z_as_relative = false
 material = SubResource("ShaderMaterial_22m4q")
 texture = ExtResource("1_3fock")
 script = ExtResource("2_3fock")
-lineIntersectCutsOffFullLine = true
 cols = [Vector2(0, 0)]
 arCols = [Vector2(0, 0)]
 

@@ -38,6 +38,10 @@ func _ready() -> void:
 					instGNode.topObstacle = modIndex.topModify
 				if modIndex.bottomModify != null:
 					instGNode.bottomObstacle = modIndex.bottomModify
+				if modIndex.lineNodeAdd != null:
+					print("line priority")
+				elif modIndex.middleCellModify != null: #TODO implement
+					print("middle priority")
 			match c:
 				0:
 					instGNode.leftObstacle = gridBorder
