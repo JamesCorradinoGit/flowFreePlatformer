@@ -6,6 +6,7 @@ extends Sprite2D
 @export var topObstacle:PackedScene
 @export var bottomObstacle:PackedScene
 @export var middleNode:PackedScene
+@export var addedLine:Sprite2D
 
 @onready var spawnSpot: Marker2D = $spawnSpot
 
@@ -33,3 +34,7 @@ func _ready() -> void:
 		var obstInst = middleNode.instantiate().duplicate()
 		obstInst.position = spawnSpot.position
 		add_child(obstInst)
+	if addedLine != null:
+		var obstInst = addedLine
+		get_parent().find_child("flowLines").add_child(obstInst)
+		obstInst.global_position = self.spawnSpot.global_position

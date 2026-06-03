@@ -4,13 +4,32 @@
 [ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="3_2wwxx"]
 [ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gridModifierResource.gd" id="3_3amdw"]
 [ext_resource type="PackedScene" uid="uid://cvslsain1kjbi" path="res://Objects/player.tscn" id="3_r34rm"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gridModifierLineResource.gd" id="4_3amdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
 size = Vector2(336.5, 20)
 
+[sub_resource type="Resource" id="Resource_ow1sv"]
+script = ExtResource("4_3amdw")
+color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
 [sub_resource type="Resource" id="Resource_1xcnr"]
 script = ExtResource("3_3amdw")
 cellToModify = 1
+lineNodeAdd = SubResource("Resource_ow1sv")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_3amdw"]
+script = ExtResource("4_3amdw")
+color = Color(1, 1, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_75buv"]
+script = ExtResource("3_3amdw")
+cellToModify = 7
+lineNodeAdd = SubResource("Resource_3amdw")
 metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [node name="main" type="Node2D" unique_id=152571204]
@@ -27,13 +46,12 @@ position = Vector2(80, 107)
 [node name="grid" parent="." unique_id=1092430806 instance=ExtResource("3_2wwxx")]
 position = Vector2(441, 159)
 gridSizeX = 7
-gridSizeY = 7
-gridModifiers = Array[ExtResource("3_3amdw")]([SubResource("Resource_1xcnr")])
+gridModifiers = Array[ExtResource("3_3amdw")]([SubResource("Resource_1xcnr"), SubResource("Resource_75buv")])
 
-[node name="nodeStartKB" parent="grid" unique_id=458349843 instance=ExtResource("2_sblpm")]
-position = Vector2(64, 64)
+[node name="nodeStartKB" parent="." unique_id=458349843 instance=ExtResource("2_sblpm")]
+position = Vector2(1006, 240)
 
-[node name="nodeStartKB2" parent="grid" unique_id=913909175 instance=ExtResource("2_sblpm")]
-position = Vector2(128, 128)
+[node name="nodeStartKB2" parent="." unique_id=913909175 instance=ExtResource("2_sblpm")]
+position = Vector2(1070, 304)
 lineColor = Color(1, 0.33999997, 0.33999997, 1)
 reciever = true

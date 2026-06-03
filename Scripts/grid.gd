@@ -11,6 +11,7 @@ class_name gridObject
 @onready var totalGridPosX = global_position.x + (Globals.globalSnap * self.gridSizeX)
 @onready var totalGridPosY = global_position.y + (Globals.globalSnap * self.gridSizeY)
 @onready var totalCells = self.gridSizeX*self.gridSizeY
+@onready var lineNodeTscn:PackedScene = load("uid://ccugvwenhhjgr")
 
 var cellNumsToModify:Array[int] = []
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 	var ind = 1
 	var maxGridIndexX = gridSizeX-1
 	var maxGridIndexY = gridSizeY-1
+	print(maxGridIndexY)
 	for r in range(gridSizeY):
 		for c in range(gridSizeX):
 			var instGNode = gNode.duplicate()
@@ -39,7 +41,10 @@ func _ready() -> void:
 				if modIndex.bottomModify != null:
 					instGNode.bottomObstacle = modIndex.bottomModify
 				if modIndex.lineNodeAdd != null:
-					print("line priority")
+					var line:lineNodeKB = lineNodeTscn.instantiate().duplicate()
+					line.lineColor = modIndex.lineNodeAdd.color
+					line.reciever = modIndex.lineNodeAdd.reciver
+					instGNode.addedLine = line
 				elif modIndex.middleCellModify != null: #TODO implement
 					print("middle priority")
 			match c:
