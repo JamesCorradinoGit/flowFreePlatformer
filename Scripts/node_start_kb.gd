@@ -26,7 +26,7 @@ signal startDrag
 signal onDrag
 signal submitDrag
 signal connectSuccess
-signal connectFailed
+signal connectBreak
 
 func _ready() -> void:
 	connectLine.default_color = lineColor
@@ -80,7 +80,6 @@ func checkLinePoints(direction:String):
 	test.global_position = Vector2(newSnapPos.x-(changeHori/2), newSnapPos.y-(changeVert/2)) 
 	add_child(test)
 	"""
-	#BUG IS WITH POINT NOT BEING AT A UNIFORM POSITION EVERY TIME
 	if self.parentedToGrid:
 		if to_global(newSnapPos).x < get_parent().global_position.x or to_global(newSnapPos).x >= get_parent().totalGridPosX:
 			return
@@ -108,6 +107,7 @@ func checkLinePoints(direction:String):
 			endButton.position = connectLine.get_point_position(connectLine.get_point_count()-1) - (endButton.size/2)
 	elif lineConnected:
 		handleIntersect(connectLine.get_point_count()-2)
+		self.connectBreak.emit()
 func addCollision(oldPos:Vector2, newPos:Vector2):
 	var colBox = CollisionShape2D.new()
 	var shape = SegmentShape2D.new()
@@ -183,9 +183,8 @@ func _on_col_area_area_entered(area: Area2D) -> void:
 
 func _on_line_node_collision_area_entered(area: Area2D) -> void:
 	if area.name == "colArea" and area.owner != self and self.lineColor == area.owner.lineColor and self.reciever == true:
-		print("connect")
 		area.owner.lineConnected = true
-		self.connectSuccess.emit()
+		area.owner.connectSuccess.emit()
 
 func _on_line_node_collision_area_exited(area: Area2D) -> void:
 	if area.get_parent() is Line2D:

@@ -6,17 +6,25 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(64, 64)
 
-[node name="player" type="CharacterBody2D" unique_id=1944998453]
+[node name="player" type="CharacterBody2D" unique_id=1944998453 node_paths=PackedStringArray("coyoteTimer")]
 z_index = 4
 z_as_relative = false
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_y0qk3")
+coyoteTimer = NodePath("coyoteTimer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829080737]
+[node name="playerCollision" type="CollisionShape2D" parent="." unique_id=829080737]
 z_index = 4
 z_as_relative = false
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1509045721]
+[node name="playerSprite" type="Sprite2D" parent="." unique_id=1509045721]
 z_index = 4
 z_as_relative = false
 texture = ExtResource("2_3y5cq")
+
+[node name="coyoteTimer" type="Timer" parent="." unique_id=1906630927]
+wait_time = 0.075
+one_shot = true
+
+[connection signal="timeout" from="coyoteTimer" to="." method="_on_coyote_timer_timeout"]

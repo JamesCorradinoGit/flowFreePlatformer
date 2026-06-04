@@ -12,8 +12,11 @@ class_name gridObject
 @onready var totalGridPosY = global_position.y + (Globals.globalSnap * self.gridSizeY)
 @onready var totalCells = self.gridSizeX*self.gridSizeY
 @onready var lineNodeTscn:PackedScene = load("uid://ccugvwenhhjgr")
+@onready var flowLinesVar: Node = $flowLines
 
 var cellNumsToModify:Array[int] = []
+var linesToFill:int = 0
+var currentFilledLines:int = 0
 
 func _ready() -> void:
 	for mod:gridModifier in gridModifiers:
@@ -25,7 +28,6 @@ func _ready() -> void:
 	var ind = 1
 	var maxGridIndexX = gridSizeX-1
 	var maxGridIndexY = gridSizeY-1
-	print(maxGridIndexY)
 	for r in range(gridSizeY):
 		for c in range(gridSizeX):
 			var instGNode = gNode.duplicate()
@@ -53,13 +55,27 @@ func _ready() -> void:
 				maxGridIndexX:
 					instGNode.rightObstacle = gridBorder
 			instGNode.position = Vector2(instPosX, instPosY)
-			match r:
-				0:
-					instGNode.topObstacle = gridBorder
-				maxGridIndexY:
-					instGNode.bottomObstacle = gridBorder
+			if r == 0:
+				instGNode.topObstacle = gridBorder
+			if r == maxGridIndexY:
+				instGNode.bottomObstacle = gridBorder
 			add_child(instGNode)
 			instPosX += Globals.globalSnap
 			ind+=1
 		instPosX = 0
 		instPosY += Globals.globalSnap
+	@warning_ignore("integer_division")
+	linesToFill = flowLinesVar.get_child_count()/2
+	for line:lineNodeKB in flowLinesVar.get_children():
+		if line.reciever == false:
+			line.connect("connectSuccess", onLineConnect)
+			line.connect("connectBreak", onLineDisconnect)
+	print(linesToFill)
+
+func onLineConnect():
+	currentFilledLines += 1
+	if currentFilledLines == linesToFill:
+		print("done")
+func onLineDisconnect():
+	currentFilledLines -= 1
+	print(currentFilledLines)
