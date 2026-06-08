@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dwknq61gwy020"]
+
+[ext_resource type="Shader" uid="uid://cdsblpo7j46gd" path="res://Assets/Shaders/levelPortalMaterial.gdshader" id="1_cx32l"]
+[ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/circle.png" id="1_kf16i"]
+[ext_resource type="Texture2D" uid="uid://cqfscjrjcauc5" path="res://Assets/tempPortalMask.png" id="2_7he6r"]
+[ext_resource type="Script" uid="uid://m7qcdv2ggwvv" path="res://Scripts/level_portal.gd" id="4_28j0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7he6r"]
+shader = ExtResource("1_cx32l")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/portalMask = ExtResource("2_7he6r")
+shader_parameter/clockwise = true
+shader_parameter/speed = 1.226000058235
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7he6r"]
+radius = 18.0
+
+[node name="levelPortal" type="Sprite2D" unique_id=607780592]
+material = SubResource("ShaderMaterial_7he6r")
+texture = ExtResource("1_kf16i")
+script = ExtResource("4_28j0h")
+
+[node name="portalCollision" type="Area2D" parent="." unique_id=57223023]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalCollision" unique_id=355194340]
+shape = SubResource("CircleShape2D_7he6r")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="portalCollision" to="." method="_on_portal_collision_body_entered"]

@@ -20,6 +20,11 @@ config/icon="res://icon.png"
 
 Globals="*uid://cn6ukld3xkn8h"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

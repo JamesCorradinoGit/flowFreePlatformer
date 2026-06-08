@@ -17,6 +17,9 @@ class_name gridObject
 var cellNumsToModify:Array[int] = []
 var linesToFill:int = 0
 var currentFilledLines:int = 0
+var gridCompleted:bool = false
+
+signal gridCompletedSig
 
 func _ready() -> void:
 	for mod:gridModifier in gridModifiers:
@@ -70,12 +73,11 @@ func _ready() -> void:
 		if line.reciever == false:
 			line.connect("connectSuccess", onLineConnect)
 			line.connect("connectBreak", onLineDisconnect)
-	print(linesToFill)
 
 func onLineConnect():
 	currentFilledLines += 1
 	if currentFilledLines == linesToFill:
-		print("done")
+		gridCompleted = true
+		self.gridCompletedSig.emit()
 func onLineDisconnect():
 	currentFilledLines -= 1
-	print(currentFilledLines)
