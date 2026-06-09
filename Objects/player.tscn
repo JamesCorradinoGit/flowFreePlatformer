@@ -47,7 +47,7 @@ _data = {
 [node name="player" type="CharacterBody2D" unique_id=1944998453 node_paths=PackedStringArray("coyoteTimer")]
 z_index = 4
 z_as_relative = false
-scale = Vector2(0.8, 0.8)
+scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_y0qk3")
@@ -56,6 +56,7 @@ coyoteTimer = NodePath("coyoteTimer")
 [node name="playerCollision" type="CollisionShape2D" parent="." unique_id=829080737]
 z_index = 4
 z_as_relative = false
+scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="playerSprite" type="Sprite2D" parent="." unique_id=1509045721]
