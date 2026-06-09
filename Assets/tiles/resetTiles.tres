@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://c3audkiq4kknj"]
+
+[ext_resource type="PackedScene" uid="uid://bf4ibu1edk4hc" path="res://Objects/void_block.tscn" id="1_6wq00"]
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="2_6wq00"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lex0t"]
+scenes/1/scene = ExtResource("1_6wq00")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lex0t"]
+texture = ExtResource("2_6wq00")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_lex0t")
+sources/0 = SubResource("TileSetScenesCollectionSource_lex0t")

@@ -1,12 +1,19 @@
 extends CharacterBody2D
 
 @export var coyoteTimer:Timer
+@export var tweenTime:float = 0.5
 
 const SPEED = 325.0
 const JUMP_VELOCITY = -450.0
 
 var heldJump:bool = false
 var canJump:bool = true
+var isRespawning:bool = false
+
+signal triggerRespawn
+
+func _ready() -> void:
+	triggerRespawn.connect(respawnFunc)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -31,8 +38,24 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
 	move_and_slide()
+
+func respawnFunc(): 
+	if get_parent() is level:
+		set_physics_process(false)
+		
+		var tween = create_tween()
+		tween.tween_property($playerSprite, "self_modulate:a", 0.0, tweenTime)
+		tween.play()
+		await get_tree().create_timer(tweenTime).timeout
+		
+		tween.stop()
+		global_position = get_parent().playerSpawn.global_position
+		tween.tween_property($playerSprite, "self_modulate:a", 1.0, tweenTime)
+		tween.play()
+		await(get_tree().create_timer(tweenTime+0.75).timeout)
+		set_physics_process(true)
+		isRespawning = false
 
 func _on_coyote_timer_timeout() -> void:
 	canJump = false

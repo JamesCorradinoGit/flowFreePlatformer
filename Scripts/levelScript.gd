@@ -1,7 +1,9 @@
 extends Node2D
+class_name level
 
 @export var playerSpawn:Marker2D
 @export var goalPortal:levelPortal
+@export var resetTileset:TileMapLayer
 
 var player:PackedScene = load("uid://cvslsain1kjbi")
 

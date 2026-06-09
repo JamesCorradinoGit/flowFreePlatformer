@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bf4ibu1edk4hc"]
+
+[ext_resource type="Texture2D" uid="uid://c6224lbr5xhga" path="res://Assets/fadeTile.png" id="1_rtlot"]
+[ext_resource type="Script" uid="uid://c8euxfkdqgyd0" path="res://Scripts/void_block.gd" id="2_x02l0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x02l0"]
+size = Vector2(32, 20)
+
+[node name="voidBlock" type="Sprite2D" unique_id=1476509691]
+texture = ExtResource("1_rtlot")
+script = ExtResource("2_x02l0")
+
+[node name="voidArea" type="Area2D" parent="." unique_id=953056727]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voidArea" unique_id=693728468]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_x02l0")
+
+[connection signal="body_entered" from="voidArea" to="." method="_on_void_area_body_entered"]
