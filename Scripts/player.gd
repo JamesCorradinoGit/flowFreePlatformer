@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var coyoteTimer:Timer
 @export var tweenTime:float = 0.5
-@onready var playerSprite: Sprite2D = $playerSprite
+@onready var playerSprite: AnimatedSprite2D = $playerSprite
 
 const SPEED = 325.0
 const JUMP_VELOCITY = -450.0
@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		#region animation
+		#TODO implement
+		#endregion
 	move_and_slide()
 
 func respawnFunc(): 
