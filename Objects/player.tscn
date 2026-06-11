@@ -141,7 +141,7 @@ animations = [{
 "duration": 0.3,
 "texture": SubResource("AtlasTexture_eq7mc")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }]
@@ -166,8 +166,8 @@ z_index = 4
 z_as_relative = false
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_3y5cq")
-animation = &"idle"
-frame_progress = 0.5390998
+animation = &"run"
+autoplay = "idle"
 
 [node name="coyoteTimer" type="Timer" parent="." unique_id=1906630927]
 wait_time = 0.075

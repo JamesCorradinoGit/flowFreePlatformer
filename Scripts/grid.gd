@@ -20,6 +20,7 @@ var currentFilledLines:int = 0
 var gridCompleted:bool = false
 
 signal gridCompletedSig
+signal gridCompleteBreakSig
 
 func _ready() -> void:
 	for mod:gridModifier in gridModifiers:
@@ -81,3 +82,6 @@ func onLineConnect():
 		self.gridCompletedSig.emit()
 func onLineDisconnect():
 	currentFilledLines -= 1
+	if currentFilledLines == linesToFill - 1:
+		gridCompleted = false
+		self.gridCompleteBreakSig.emit()

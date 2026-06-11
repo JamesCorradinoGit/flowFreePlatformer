@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var playerSprite: AnimatedSprite2D = $playerSprite
 
 const SPEED = 325.0
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -425.0
 
 var heldJump:bool = false
 var canJump:bool = true
@@ -19,6 +19,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if Globals.isAlreadyDragging == true:
+		velocity = Vector2.ZERO
 	if Globals.isAlreadyDragging == false:
 		#region jump
 		if is_on_floor() and canJump == false:
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		if (is_on_floor() == false) and canJump and coyoteTimer.is_stopped():
 			coyoteTimer.start()
 		#endregion
-		
+		#region baseMovement
 		var direction := Input.get_axis("moveLeft", "moveRight")
 		
 		if direction > 0:
@@ -45,10 +47,21 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-		#region animation
-		#TODO implement
 		#endregion
+	#region animation
+	if is_on_floor() == false:
+		if velocity.y > 0.0:
+			playerSprite.animation = "fall"
+			playerSprite.play()
+		elif velocity.y < 0.0:
+			playerSprite.animation = "jump"
+	elif velocity.x != 0:
+		playerSprite.animation = "run"
+		playerSprite.play()
+	else:
+		playerSprite.animation = "idle"
+		playerSprite.play()
+	#endregion
 	move_and_slide()
 
 func respawnFunc(): 
