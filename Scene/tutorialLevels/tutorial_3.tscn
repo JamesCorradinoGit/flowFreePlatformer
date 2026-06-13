@@ -1,0 +1,161 @@
+[gd_scene format=4 uid="uid://4q723qfa1ncn"]
+
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/levelScript.gd" id="1_ct1r7"]
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="2_qp1v1"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="3_kqb1r"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gridModifierResource.gd" id="3_v8kve"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gridModifierLineResource.gd" id="4_dtcub"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="4_kqb1r"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="5_guouh"]
+
+[sub_resource type="Resource" id="Resource_671pk"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_88i5t"]
+script = ExtResource("3_v8kve")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_671pk")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_a6xap"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_5o6tm"]
+script = ExtResource("3_v8kve")
+cellToModify = 8
+lineNodeAdd = SubResource("Resource_a6xap")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_pvjw1"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_v8kve"]
+script = ExtResource("3_v8kve")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_pvjw1")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_hnv08"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_dtcub"]
+script = ExtResource("3_v8kve")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_hnv08")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_ihgej"]
+script = ExtResource("4_dtcub")
+color = Color(0.03137255, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_nxxgy"]
+script = ExtResource("3_v8kve")
+cellToModify = 26
+lineNodeAdd = SubResource("Resource_ihgej")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_l5gw7"]
+script = ExtResource("4_dtcub")
+color = Color(0.03137255, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_qob3u"]
+script = ExtResource("3_v8kve")
+cellToModify = 10
+lineNodeAdd = SubResource("Resource_l5gw7")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_0ttnx"]
+script = ExtResource("4_dtcub")
+color = Color(0, 1, 0.050980393, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_hnapp"]
+script = ExtResource("3_v8kve")
+cellToModify = 9
+lineNodeAdd = SubResource("Resource_0ttnx")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_w2tj5"]
+script = ExtResource("4_dtcub")
+color = Color(0, 1, 0.050980393, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_cqkyg"]
+script = ExtResource("3_v8kve")
+cellToModify = 19
+lineNodeAdd = SubResource("Resource_w2tj5")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_v6dll"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0.9843137, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_6b6qi"]
+script = ExtResource("3_v8kve")
+cellToModify = 30
+lineNodeAdd = SubResource("Resource_v6dll")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_b11x5"]
+script = ExtResource("4_dtcub")
+color = Color(1, 0.9843137, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_o43ws"]
+script = ExtResource("3_v8kve")
+cellToModify = 12
+lineNodeAdd = SubResource("Resource_b11x5")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[node name="tutorial3" type="Node2D" unique_id=445927504 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
+script = ExtResource("1_ct1r7")
+playerSpawn = NodePath("spawnPoint")
+goalPortal = NodePath("levelPortal")
+resetTileset = NodePath("tiles/deathTiles")
+gridParent = NodePath("grids")
+
+[node name="grids" type="Node" parent="." unique_id=1531433660]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("4_kqb1r")]
+position = Vector2(361, 451)
+gridSizeX = 8
+gridModifiers = Array[ExtResource("3_v8kve")]([SubResource("Resource_88i5t"), SubResource("Resource_5o6tm")])
+
+[node name="grid2" parent="grids" unique_id=429261566 instance=ExtResource("4_kqb1r")]
+position = Vector2(457, 192)
+gridSizeX = 5
+gridSizeY = 6
+gridModifiers = Array[ExtResource("3_v8kve")]([SubResource("Resource_v8kve"), SubResource("Resource_dtcub"), SubResource("Resource_nxxgy"), SubResource("Resource_qob3u"), SubResource("Resource_hnapp"), SubResource("Resource_cqkyg"), SubResource("Resource_6b6qi"), SubResource("Resource_o43ws")])
+
+[node name="tiles" type="Node" parent="." unique_id=1622592805]
+
+[node name="groundTiles" type="TileMapLayer" parent="tiles" unique_id=1920813893]
+tile_map_data = PackedByteArray("AAAAAA8AAAABAAAAAAABAA8AAAABAAAAAAACAA8AAAABAAAAAAADAA8AAAABAAAAAAAEAA8AAAABAAAAAAAFAA8AAAABAAAAAAAGAA8AAAABAAAAAAAIAA8AAAACAAAAAAAHAA8AAAABAAAAAAAIABAAAAACAAEAAAAIABEAAAACAAEAAAAIABIAAAACAAEAAAAIABMAAAACAAEAAAAIABQAAAACAAEAAAAFABEAAAABAAEAAAAFABAAAAABAAEAAAAEABAAAAABAAEAAAADABAAAAABAAEAAAACABAAAAABAAEAAAABABAAAAABAAEAAAAAABAAAAABAAEAAAAAABEAAAABAAEAAAAAABIAAAABAAEAAAAAABMAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAABABMAAAABAAEAAAABABIAAAABAAEAAAABABEAAAABAAEAAAACABEAAAABAAEAAAACABIAAAABAAEAAAACABMAAAABAAEAAAACABQAAAABAAEAAAADABQAAAABAAEAAAADABMAAAABAAEAAAADABIAAAABAAEAAAADABEAAAABAAEAAAAEABEAAAABAAEAAAAEABIAAAABAAEAAAAEABMAAAABAAEAAAAEABQAAAABAAEAAAAFABQAAAABAAEAAAAFABMAAAABAAEAAAAFABIAAAABAAEAAAAGABIAAAABAAEAAAAGABEAAAABAAEAAAAGABAAAAABAAEAAAAHABAAAAABAAEAAAAHABEAAAABAAEAAAAHABIAAAABAAEAAAAHABMAAAABAAEAAAAGABMAAAABAAEAAAAGABQAAAABAAEAAAAHABQAAAABAAEAAAAXAAkAAAAFAAAAAAAXAAoAAAACAAUAAAAXAAsAAAACAAUAAAAXAAwAAAAGAAYAAAAXAA4AAAACAAUAAAAYAA8AAAABAAAAAAAZAA8AAAABAAAAAAAaAA8AAAABAAAAAAAbAA8AAAABAAAAAAAcAA8AAAABAAAAAAAdAA8AAAABAAAAAAAeAA8AAAABAAAAAAAfAA8AAAABAAAAAAAgAA8AAAABAAAAAAAhAA8AAAABAAAAAAAiAA8AAAABAAAAAAAjAA8AAAABAAAAAAAXAA8AAAAHAAUAADAXABAAAAAAAAEAAAAXABEAAAAAAAEAAAAXABIAAAAAAAEAAAAXABMAAAAAAAEAAAAXABQAAAAAAAEAAAAdABIAAAABAAEAAAAdABEAAAABAAEAAAAdABAAAAABAAEAAAAcABAAAAABAAEAAAAbABAAAAABAAEAAAAaABAAAAABAAEAAAAZABAAAAABAAEAAAAYABAAAAABAAEAAAAYABEAAAABAAEAAAAYABIAAAABAAEAAAAYABMAAAABAAEAAAAYABQAAAABAAEAAAAZABQAAAABAAEAAAAZABMAAAABAAEAAAAZABIAAAABAAEAAAAZABEAAAABAAEAAAAaABEAAAABAAEAAAAaABIAAAABAAEAAAAaABMAAAABAAEAAAAaABQAAAABAAEAAAAbABQAAAABAAEAAAAbABMAAAABAAEAAAAbABIAAAABAAEAAAAbABEAAAABAAEAAAAcABEAAAABAAEAAAAcABIAAAABAAEAAAAcABMAAAABAAEAAAAcABQAAAABAAEAAAAdABQAAAABAAEAAAAdABMAAAABAAEAAAAeABMAAAABAAEAAAAeABIAAAABAAEAAAAeABEAAAABAAEAAAAeABAAAAABAAEAAAAfABAAAAABAAEAAAAfABEAAAABAAEAAAAfABIAAAABAAEAAAAfABMAAAABAAEAAAAfABQAAAABAAEAAAAeABQAAAABAAEAAAAgABQAAAABAAEAAAAgABMAAAABAAEAAAAgABIAAAABAAEAAAAgABEAAAABAAEAAAAgABAAAAABAAEAAAAhABAAAAABAAEAAAAhABEAAAABAAEAAAAhABIAAAABAAEAAAAhABMAAAABAAEAAAAhABQAAAABAAEAAAAiABQAAAABAAEAAAAiABMAAAABAAEAAAAiABIAAAABAAEAAAAiABEAAAABAAEAAAAiABAAAAABAAEAAAAjABAAAAABAAEAAAAjABEAAAABAAEAAAAjABIAAAABAAEAAAAjABMAAAABAAEAAAAjABQAAAABAAEAAAAVAAwAAAAEAAEAAAAWAAwAAAABAAQAAAAXAA0AAAACAAUAAAD//w4AAAACAAEAAAD//w0AAAACAAEAAAD//wwAAAACAAEAAAD//wsAAAACAAEAAAD//woAAAACAAEAAAD//wkAAAACAAEAAAD//wgAAAACAAEAAAD//wcAAAACAAEAAAD//wYAAAACAAEAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD//wEAAAACAAEAAAD//wAAAAACAAEAAAAAAP//AAABAAIAAAABAP//AAABAAIAAAACAP//AAABAAIAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAABAAIAAAAJAP//AAABAAIAAAAKAP//AAABAAIAAAALAP//AAABAAIAAAAMAP//AAABAAIAAAANAP//AAABAAIAAAAOAP//AAABAAIAAAAPAP//AAABAAIAAAAQAP//AAABAAIAAAARAP//AAABAAIAAAASAP//AAABAAIAAAATAP//AAABAAIAAAAUAP//AAABAAIAAAAVAP//AAABAAIAAAAWAP//AAABAAIAAAAXAP//AAABAAIAAAAYAP//AAABAAIAAAAZAP//AAABAAIAAAAaAP//AAABAAIAAAAbAP//AAABAAIAAAAcAP//AAABAAIAAAAdAP//AAABAAIAAAAeAP//AAABAAIAAAAfAP//AAABAAIAAAAgAP//AAABAAIAAAAhAP//AAABAAIAAAAiAP//AAABAAIAAAAjAP//AAABAAIAAAAkAAAAAAAAAAEAAAAkAAEAAAAAAAEAAAAkAAIAAAAAAAEAAAAkAAMAAAAAAAEAAAAkAAQAAAAAAAEAAAAkAAUAAAAAAAEAAAAkAAYAAAAAAAEAAAAkAAcAAAAAAAEAAAAkAAgAAAAAAAEAAAAkAAkAAAAAAAEAAAAkAAoAAAAAAAEAAAAkAAsAAAAAAAEAAAAkAAwAAAAAAAEAAAAkAA0AAAAAAAEAAAAkAA4AAAAAAAEAAAAkAA8AAAAEAAQAAAAkABAAAAABAAEAAAAkAP//AAAEAAUAAAD/////AAAFAAUAAAD//w8AAAAFAAQAAAA=")
+tile_set = ExtResource("2_qp1v1")
+
+[node name="deathTiles" type="TileMapLayer" parent="tiles" unique_id=214847861]
+z_index = 6
+tile_map_data = PackedByteArray("AAAJABIAAAAAAAAAAQAKABIAAAAAAAAAAQALABIAAAAAAAAAAQAMABIAAAAAAAAAAQANABIAAAAAAAAAAQAOABIAAAAAAAAAAQAPABIAAAAAAAAAAQAQABIAAAAAAAAAAQARABIAAAAAAAAAAQASABIAAAAAAAAAAQATABIAAAAAAAAAAQAUABIAAAAAAAAAAQAVABIAAAAAAAAAAQAWABIAAAAAAAAAAQAJABMAAQAAAAAAAAAJABQAAQAAAAAAAAAKABQAAQAAAAAAAAALABQAAQAAAAAAAAAMABQAAQAAAAAAAAANABQAAQAAAAAAAAAOABQAAQAAAAAAAAAPABQAAQAAAAAAAAAQABQAAQAAAAAAAAARABQAAQAAAAAAAAASABQAAQAAAAAAAAATABQAAQAAAAAAAAAUABQAAQAAAAAAAAAVABQAAQAAAAAAAAAWABQAAQAAAAAAAAAWABMAAQAAAAAAAAAVABMAAQAAAAAAAAAUABMAAQAAAAAAAAATABMAAQAAAAAAAAASABMAAQAAAAAAAAARABMAAQAAAAAAAAAQABMAAQAAAAAAAAAPABMAAQAAAAAAAAAOABMAAQAAAAAAAAANABMAAQAAAAAAAAAMABMAAQAAAAAAAAALABMAAQAAAAAAAAAKABMAAQAAAAAAAAA=")
+tile_set = ExtResource("3_kqb1r")
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("5_guouh")]
+position = Vector2(952, 425)
+
+[node name="spawnPoint" type="Marker2D" parent="." unique_id=84939368]
+position = Vector2(129, 427)

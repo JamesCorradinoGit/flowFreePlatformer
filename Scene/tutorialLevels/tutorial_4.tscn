@@ -1,0 +1,36 @@
+[gd_scene format=4 uid="uid://kw77c331n75d"]
+
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/levelScript.gd" id="1_awqdh"]
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="1_q4eaa"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="2_jscie"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="3_jscie"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="5_8pt62"]
+
+[node name="tutorial4" type="Node2D" unique_id=1321624825 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
+script = ExtResource("1_awqdh")
+playerSpawn = NodePath("spawnPoint")
+goalPortal = NodePath("levelPortal")
+resetTileset = NodePath("tiles/resetTiles")
+gridParent = NodePath("grids")
+
+[node name="grids" type="Node" parent="." unique_id=282028762]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("3_jscie")]
+position = Vector2(510, 126)
+gridSizeX = 4
+gridSizeY = 12
+
+[node name="tiles" type="Node" parent="." unique_id=490879139]
+
+[node name="groundTiles" type="TileMapLayer" parent="tiles" unique_id=914309641]
+tile_map_data = PackedByteArray("AAAAABAAAAABAAAAAAABABAAAAABAAAAAAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAACABMAAAABAAEAAAACABIAAAABAAEAAAACABEAAAABAAEAAAABABEAAAABAAEAAAAAABEAAAABAAEAAAAAABIAAAABAAEAAAAAABMAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAABABMAAAABAAEAAAABABIAAAABAAEAAAACABQAAAABAAEAAAADABQAAAABAAEAAAADABMAAAABAAEAAAADABIAAAABAAEAAAADABEAAAABAAEAAAAEABEAAAABAAEAAAAEABIAAAABAAEAAAAEABMAAAABAAEAAAAEABQAAAABAAEAAAAFABQAAAABAAEAAAAFABMAAAABAAEAAAAFABIAAAABAAEAAAAFABEAAAABAAEAAAALABAAAAACAAAAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAACAAEAAAALABQAAAACAAEAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAJABAAAAABAAAAAAAKABAAAAABAAAAAAAIABMAAAABAAEAAAAIABIAAAABAAEAAAAIABEAAAABAAEAAAAHABEAAAABAAEAAAAGABEAAAABAAEAAAAGABIAAAABAAEAAAAGABMAAAABAAEAAAAGABQAAAABAAEAAAAHABQAAAABAAEAAAAHABMAAAABAAEAAAAHABIAAAABAAEAAAAIABQAAAABAAEAAAAJABQAAAABAAEAAAAJABMAAAABAAEAAAAJABIAAAABAAEAAAAJABEAAAABAAEAAAAKABEAAAABAAEAAAAKABIAAAABAAEAAAAKABMAAAABAAEAAAAKABQAAAABAAEAAAAEAAQAAAAEAAEAAAAJAAQAAAAGAAEAAAAFAAQAAAABAAQAAAAGAAQAAAABAAQAAAAHAAQAAAABAAQAAAAIAAQAAAABAAQAAAAXAAcAAAAEAAEAAAAYAAcAAAABAAQAAAAZAAcAAAABAAQAAAAaAAcAAAABAAQAAAAbAAcAAAAGAAEAAAAGAAkAAAAEAAEAAAAHAAkAAAABAAQAAAAIAAkAAAABAAQAAAAJAAkAAAABAAQAAAAKAAkAAAAGAAEAAAAXAAwAAAAEAAEAAAAYAAwAAAABAAQAAAAZAAwAAAABAAQAAAAaAAwAAAABAAQAAAAbAAwAAAAGAAEAAAA=")
+tile_set = ExtResource("1_q4eaa")
+
+[node name="resetTiles" type="TileMapLayer" parent="tiles" unique_id=1399372191]
+tile_set = ExtResource("2_jscie")
+
+[node name="spawnPoint" type="Marker2D" parent="." unique_id=772624467]
+position = Vector2(185, 463)
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("5_8pt62")]
+position = Vector2(223, 102)
