@@ -146,7 +146,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" unique_id=1944998453 node_paths=PackedStringArray("coyoteTimer")]
+[node name="player" type="CharacterBody2D" unique_id=1944998453 node_paths=PackedStringArray("coyoteTimer") groups=["flowLineObstacle"]]
 z_index = 4
 z_as_relative = false
 scale = Vector2(2, 2)

@@ -165,7 +165,11 @@ func getObstacleNodesAtPoint(pos:Vector2):
 	
 	var resu = world2D.intersect_point(queryTemp)
 	for result in resu:
-		if result["collider"].owner.is_in_group("flowLineObstacle"):
+		if result["collider"].owner == null:
+			print(result)
+			if result["collider"].is_in_group("flowLineObstacle"):
+				return true
+		elif result["collider"].owner.is_in_group("flowLineObstacle"):
 			return true
 	return false
 

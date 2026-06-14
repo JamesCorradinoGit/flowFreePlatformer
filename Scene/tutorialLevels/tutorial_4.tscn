@@ -4,7 +4,193 @@
 [ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="1_q4eaa"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="2_jscie"]
 [ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="3_jscie"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gridModifierResource.gd" id="3_vn4yf"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gridModifierLineResource.gd" id="4_bijoy"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="5_8pt62"]
+
+[sub_resource type="Resource" id="Resource_fpdy1"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_v36wj"]
+script = ExtResource("3_vn4yf")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_fpdy1")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_4ht57"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_xafhg"]
+script = ExtResource("3_vn4yf")
+cellToModify = 3
+lineNodeAdd = SubResource("Resource_4ht57")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_eh1l6"]
+script = ExtResource("4_bijoy")
+color = Color(0.03137255, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_wetuh"]
+script = ExtResource("3_vn4yf")
+cellToModify = 4
+lineNodeAdd = SubResource("Resource_eh1l6")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_q4a1n"]
+script = ExtResource("4_bijoy")
+color = Color(0.03137255, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_4grqp"]
+script = ExtResource("3_vn4yf")
+cellToModify = 16
+lineNodeAdd = SubResource("Resource_q4a1n")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_vn4yf"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0.9843137, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_bijoy"]
+script = ExtResource("3_vn4yf")
+cellToModify = 10
+lineNodeAdd = SubResource("Resource_vn4yf")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_3xn5h"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0.9843137, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_b4wck"]
+script = ExtResource("3_vn4yf")
+cellToModify = 12
+lineNodeAdd = SubResource("Resource_3xn5h")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_d6g2x"]
+script = ExtResource("4_bijoy")
+color = Color(0, 1, 0.050980393, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_b8bdg"]
+script = ExtResource("3_vn4yf")
+cellToModify = 17
+lineNodeAdd = SubResource("Resource_d6g2x")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_ose2j"]
+script = ExtResource("4_bijoy")
+color = Color(0, 1, 0.050980393, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_lr366"]
+script = ExtResource("3_vn4yf")
+cellToModify = 39
+lineNodeAdd = SubResource("Resource_ose2j")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_jdimu"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0.43529412, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_stggm"]
+script = ExtResource("3_vn4yf")
+cellToModify = 23
+lineNodeAdd = SubResource("Resource_jdimu")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_eu1qu"]
+script = ExtResource("4_bijoy")
+color = Color(1, 0.43529412, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_1wjiq"]
+script = ExtResource("3_vn4yf")
+cellToModify = 37
+lineNodeAdd = SubResource("Resource_eu1qu")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_6hnr7"]
+script = ExtResource("4_bijoy")
+color = Color(0.5176471, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_bih4h"]
+script = ExtResource("3_vn4yf")
+cellToModify = 38
+lineNodeAdd = SubResource("Resource_6hnr7")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_elil8"]
+script = ExtResource("4_bijoy")
+color = Color(0.5176471, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_n4pqi"]
+script = ExtResource("3_vn4yf")
+cellToModify = 26
+lineNodeAdd = SubResource("Resource_elil8")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_83eev"]
+script = ExtResource("4_bijoy")
+color = Color(0.9843137, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_4d00d"]
+script = ExtResource("3_vn4yf")
+cellToModify = 48
+lineNodeAdd = SubResource("Resource_83eev")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_5ff5c"]
+script = ExtResource("4_bijoy")
+color = Color(0.9843137, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_vjky4"]
+script = ExtResource("3_vn4yf")
+cellToModify = 46
+lineNodeAdd = SubResource("Resource_5ff5c")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_litnb"]
+script = ExtResource("4_bijoy")
+color = Color(0, 0.96862745, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_5q3cy"]
+script = ExtResource("3_vn4yf")
+cellToModify = 45
+lineNodeAdd = SubResource("Resource_litnb")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_lky7m"]
+script = ExtResource("4_bijoy")
+color = Color(0, 0.96862745, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_5lskn"]
+script = ExtResource("3_vn4yf")
+cellToModify = 32
+lineNodeAdd = SubResource("Resource_lky7m")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [node name="tutorial4" type="Node2D" unique_id=1321624825 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
 script = ExtResource("1_awqdh")
@@ -16,17 +202,20 @@ gridParent = NodePath("grids")
 [node name="grids" type="Node" parent="." unique_id=282028762]
 
 [node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("3_jscie")]
-position = Vector2(510, 126)
+position = Vector2(488, 144)
 gridSizeX = 4
 gridSizeY = 12
+gridModifiers = Array[ExtResource("3_vn4yf")]([SubResource("Resource_v36wj"), SubResource("Resource_xafhg"), SubResource("Resource_wetuh"), SubResource("Resource_4grqp"), SubResource("Resource_bijoy"), SubResource("Resource_b4wck"), SubResource("Resource_b8bdg"), SubResource("Resource_lr366"), SubResource("Resource_stggm"), SubResource("Resource_1wjiq"), SubResource("Resource_bih4h"), SubResource("Resource_n4pqi"), SubResource("Resource_4d00d"), SubResource("Resource_vjky4"), SubResource("Resource_5q3cy"), SubResource("Resource_5lskn")])
 
 [node name="tiles" type="Node" parent="." unique_id=490879139]
 
 [node name="groundTiles" type="TileMapLayer" parent="tiles" unique_id=914309641]
-tile_map_data = PackedByteArray("AAAAABAAAAABAAAAAAABABAAAAABAAAAAAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAACABMAAAABAAEAAAACABIAAAABAAEAAAACABEAAAABAAEAAAABABEAAAABAAEAAAAAABEAAAABAAEAAAAAABIAAAABAAEAAAAAABMAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAABABMAAAABAAEAAAABABIAAAABAAEAAAACABQAAAABAAEAAAADABQAAAABAAEAAAADABMAAAABAAEAAAADABIAAAABAAEAAAADABEAAAABAAEAAAAEABEAAAABAAEAAAAEABIAAAABAAEAAAAEABMAAAABAAEAAAAEABQAAAABAAEAAAAFABQAAAABAAEAAAAFABMAAAABAAEAAAAFABIAAAABAAEAAAAFABEAAAABAAEAAAALABAAAAACAAAAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAACAAEAAAALABQAAAACAAEAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAJABAAAAABAAAAAAAKABAAAAABAAAAAAAIABMAAAABAAEAAAAIABIAAAABAAEAAAAIABEAAAABAAEAAAAHABEAAAABAAEAAAAGABEAAAABAAEAAAAGABIAAAABAAEAAAAGABMAAAABAAEAAAAGABQAAAABAAEAAAAHABQAAAABAAEAAAAHABMAAAABAAEAAAAHABIAAAABAAEAAAAIABQAAAABAAEAAAAJABQAAAABAAEAAAAJABMAAAABAAEAAAAJABIAAAABAAEAAAAJABEAAAABAAEAAAAKABEAAAABAAEAAAAKABIAAAABAAEAAAAKABMAAAABAAEAAAAKABQAAAABAAEAAAAEAAQAAAAEAAEAAAAJAAQAAAAGAAEAAAAFAAQAAAABAAQAAAAGAAQAAAABAAQAAAAHAAQAAAABAAQAAAAIAAQAAAABAAQAAAAXAAcAAAAEAAEAAAAYAAcAAAABAAQAAAAZAAcAAAABAAQAAAAaAAcAAAABAAQAAAAbAAcAAAAGAAEAAAAGAAkAAAAEAAEAAAAHAAkAAAABAAQAAAAIAAkAAAABAAQAAAAJAAkAAAABAAQAAAAKAAkAAAAGAAEAAAAXAAwAAAAEAAEAAAAYAAwAAAABAAQAAAAZAAwAAAABAAQAAAAaAAwAAAABAAQAAAAbAAwAAAAGAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAABAAAAABAAAAAAABABAAAAABAAAAAAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAACABMAAAABAAEAAAACABIAAAABAAEAAAACABEAAAABAAEAAAABABEAAAABAAEAAAAAABEAAAABAAEAAAAAABIAAAABAAEAAAAAABMAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAABABMAAAABAAEAAAABABIAAAABAAEAAAACABQAAAABAAEAAAADABQAAAABAAEAAAADABMAAAABAAEAAAADABIAAAABAAEAAAADABEAAAABAAEAAAAEABEAAAABAAEAAAAEABIAAAABAAEAAAAEABMAAAABAAEAAAAEABQAAAABAAEAAAAFABQAAAABAAEAAAAFABMAAAABAAEAAAAFABIAAAABAAEAAAAFABEAAAABAAEAAAALABAAAAACAAAAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAACAAEAAAALABQAAAACAAEAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAJABAAAAABAAAAAAAKABAAAAABAAAAAAAIABMAAAABAAEAAAAIABIAAAABAAEAAAAIABEAAAABAAEAAAAHABEAAAABAAEAAAAGABEAAAABAAEAAAAGABIAAAABAAEAAAAGABMAAAABAAEAAAAGABQAAAABAAEAAAAHABQAAAABAAEAAAAHABMAAAABAAEAAAAHABIAAAABAAEAAAAIABQAAAABAAEAAAAJABQAAAABAAEAAAAJABMAAAABAAEAAAAJABIAAAABAAEAAAAJABEAAAABAAEAAAAKABEAAAABAAEAAAAKABIAAAABAAEAAAAKABMAAAABAAEAAAAKABQAAAABAAEAAAAEAAQAAAAEAAEAAAAJAAQAAAAGAAEAAAAFAAQAAAABAAQAAAAGAAQAAAABAAQAAAAHAAQAAAABAAQAAAAIAAQAAAABAAQAAAAXAAcAAAAEAAEAAAAYAAcAAAABAAQAAAAZAAcAAAABAAQAAAAaAAcAAAABAAQAAAAbAAcAAAAGAAEAAAAGAAkAAAAEAAEAAAAHAAkAAAABAAQAAAAIAAkAAAABAAQAAAAJAAkAAAABAAQAAAAKAAkAAAAGAAEAAAAXAA0AAAAEAAEAAAAYAA0AAAABAAQAAAAZAA0AAAABAAQAAAAaAA0AAAABAAQAAAAbAA0AAAAGAAEAAAD//w8AAAACAAEAAAD//w4AAAACAAEAAAD//w0AAAACAAEAAAD//wwAAAACAAEAAAD//wsAAAACAAEAAAD//woAAAACAAEAAAD//wkAAAACAAEAAAD//wgAAAACAAEAAAD//wcAAAACAAEAAAD//wYAAAACAAEAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD//wEAAAACAAEAAAD//wAAAAACAAEAAAAAAP//AAABAAIAAAABAP//AAABAAIAAAACAP//AAABAAIAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAABAAIAAAAJAP//AAABAAIAAAAKAP//AAABAAIAAAALAP//AAABAAIAAAAMAP//AAABAAIAAAANAP//AAABAAIAAAAOAP//AAABAAIAAAAPAP//AAABAAIAAAAQAP//AAABAAIAAAARAP//AAABAAIAAAASAP//AAABAAIAAAATAP//AAABAAIAAAAUAP//AAABAAIAAAAVAP//AAABAAIAAAAWAP//AAABAAIAAAAXAP//AAABAAIAAAAYAP//AAABAAIAAAAZAP//AAABAAIAAAAaAP//AAABAAIAAAAbAP//AAABAAIAAAAcAP//AAABAAIAAAAdAP//AAABAAIAAAAeAP//AAABAAIAAAAfAP//AAABAAIAAAAgAP//AAABAAIAAAAhAP//AAABAAIAAAAiAP//AAABAAIAAAAjAP//AAABAAIAAAAkAAAAAAAAAAEAAAAkAAEAAAAAAAEAAAAkAAIAAAAAAAEAAAAkAAMAAAAAAAEAAAAkAAQAAAAAAAEAAAAkAAUAAAAAAAEAAAAkAAYAAAAAAAEAAAAkAAcAAAAAAAEAAAAkAAgAAAAAAAEAAAAkAAkAAAAAAAEAAAAkAAoAAAAAAAEAAAAkAAsAAAAAAAEAAAAkAAwAAAAAAAEAAAAkAA0AAAAAAAEAAAAkAA4AAAAAAAEAAAAkAA8AAAAAAAEAAAAkABAAAAAAAAEAAAAkABEAAAAAAAEAAAAkABIAAAAAAAEAAAAkABMAAAAAAAEAAAAkABQAAAAAAAEAAAAkAP//AAAEAAUAAAD/////AAAFAAUAAAD//xAAAAAFAAQAAAA=")
 tile_set = ExtResource("1_q4eaa")
 
 [node name="resetTiles" type="TileMapLayer" parent="tiles" unique_id=1399372191]
+z_index = 6
+tile_map_data = PackedByteArray("AAAMABIAAAAAAAAAAQANABIAAAAAAAAAAQAOABIAAAAAAAAAAQAPABIAAAAAAAAAAQAQABIAAAAAAAAAAQARABIAAAAAAAAAAQASABIAAAAAAAAAAQATABIAAAAAAAAAAQAUABIAAAAAAAAAAQAVABIAAAAAAAAAAQAWABIAAAAAAAAAAQAXABIAAAAAAAAAAQAYABIAAAAAAAAAAQAZABIAAAAAAAAAAQAaABIAAAAAAAAAAQAbABIAAAAAAAAAAQAcABIAAAAAAAAAAQAdABIAAAAAAAAAAQAeABIAAAAAAAAAAQAfABIAAAAAAAAAAQAgABIAAAAAAAAAAQAhABIAAAAAAAAAAQAiABIAAAAAAAAAAQAjABIAAAAAAAAAAQAMABMAAQAAAAAAAAAMABQAAQAAAAAAAAANABMAAQAAAAAAAAANABQAAQAAAAAAAAAOABMAAQAAAAAAAAAOABQAAQAAAAAAAAAPABMAAQAAAAAAAAAPABQAAQAAAAAAAAAQABMAAQAAAAAAAAAQABQAAQAAAAAAAAARABMAAQAAAAAAAAARABQAAQAAAAAAAAASABMAAQAAAAAAAAASABQAAQAAAAAAAAATABMAAQAAAAAAAAATABQAAQAAAAAAAAAUABMAAQAAAAAAAAAUABQAAQAAAAAAAAAVABMAAQAAAAAAAAAVABQAAQAAAAAAAAAWABMAAQAAAAAAAAAWABQAAQAAAAAAAAAXABMAAQAAAAAAAAAXABQAAQAAAAAAAAAYABMAAQAAAAAAAAAYABQAAQAAAAAAAAAZABMAAQAAAAAAAAAZABQAAQAAAAAAAAAaABMAAQAAAAAAAAAaABQAAQAAAAAAAAAbABMAAQAAAAAAAAAbABQAAQAAAAAAAAAcABMAAQAAAAAAAAAcABQAAQAAAAAAAAAdABMAAQAAAAAAAAAdABQAAQAAAAAAAAAeABMAAQAAAAAAAAAeABQAAQAAAAAAAAAfABMAAQAAAAAAAAAfABQAAQAAAAAAAAAgABMAAQAAAAAAAAAgABQAAQAAAAAAAAAhABMAAQAAAAAAAAAhABQAAQAAAAAAAAAiABMAAQAAAAAAAAAiABQAAQAAAAAAAAAjABMAAQAAAAAAAAAjABQAAQAAAAAAAAA=")
 tile_set = ExtResource("2_jscie")
 
 [node name="spawnPoint" type="Marker2D" parent="." unique_id=772624467]

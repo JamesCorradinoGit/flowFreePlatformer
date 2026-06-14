@@ -1,0 +1,62 @@
+[gd_scene format=4 uid="uid://cvokm7rce33rh"]
+
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="1_bsn8e"]
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/levelScript.gd" id="1_uj8vk"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="2_e8b8t"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="2_mvfht"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gridModifierResource.gd" id="3_lgx4r"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gridModifierLineResource.gd" id="4_3lwpk"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="4_e8b8t"]
+
+[sub_resource type="Resource" id="Resource_1xq0i"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_hosa6"]
+script = ExtResource("3_lgx4r")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_1xq0i")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_bkihh"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_efd7r"]
+script = ExtResource("3_lgx4r")
+cellToModify = 50
+lineNodeAdd = SubResource("Resource_bkihh")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[node name="tutorial5" type="Node2D" unique_id=648413046 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
+script = ExtResource("1_uj8vk")
+playerSpawn = NodePath("spawnPoint")
+goalPortal = NodePath("levelPortal")
+resetTileset = NodePath("tiles/deathTiles")
+gridParent = NodePath("grids")
+
+[node name="grids" type="Node" parent="." unique_id=1869494578]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_e8b8t")]
+position = Vector2(480, 304)
+gridSizeX = 7
+gridSizeY = 9
+gridModifiers = Array[ExtResource("3_lgx4r")]([SubResource("Resource_hosa6"), SubResource("Resource_efd7r")])
+
+[node name="tiles" type="Node" parent="." unique_id=2143999996]
+
+[node name="groundTiles" type="TileMapLayer" parent="tiles" unique_id=104435406]
+tile_map_data = PackedByteArray("AAAOAAQAAAABAAAAAAAPAAQAAAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAASAAQAAAABAAAAAAATAAQAAAABAAAAAAAUAAQAAAABAAAAAAAVAAQAAAABAAAAAAAVAAUAAAAEAAUAAAAUAAUAAAABAAIAAAATAAUAAAABAAIAAAASAAUAAAABAAIAAAARAAUAAAABAAIAAAAQAAUAAAABAAIAAAAPAAUAAAABAAIAAAAOAAUAAAAFAAUAAAANAAQAAAAAAAAAAAANAAUAAAAAAAEAAAANAAYAAAAAAAEAAAANAAcAAAAAAAIAAAAOAAYAAAACAAEAAAAOAAcAAAACAAIAAAAWAAQAAAACAAAAAAAWAAUAAAACAAEAAAAWAAYAAAACAAEAAAAWAAcAAAACAAIAAAAVAAYAAAAAAAEAAAAVAAcAAAAAAAIAAAA=")
+tile_set = ExtResource("1_bsn8e")
+
+[node name="deathTiles" type="TileMapLayer" parent="tiles" unique_id=944917051]
+tile_set = ExtResource("2_mvfht")
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("4_e8b8t")]
+position = Vector2(573, 248)
+
+[node name="spawnPoint" type="Marker2D" parent="." unique_id=296405977]
+position = Vector2(578, 89)

@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Globals.isAlreadyDragging == true:
-		velocity = Vector2.ZERO
+		velocity.x = 0
 	if Globals.isAlreadyDragging == false:
 		#region jump
 		if is_on_floor() and canJump == false:
