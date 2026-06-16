@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gridModifierResource.gd" id="3_lgx4r"]
 [ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gridModifierLineResource.gd" id="4_3lwpk"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="4_e8b8t"]
+[ext_resource type="PackedScene" uid="uid://cm0dmoglwp1ru" path="res://Objects/menu_bg.tscn" id="8_3lwpk"]
 
 [sub_resource type="Resource" id="Resource_1xq0i"]
 script = ExtResource("4_3lwpk")
@@ -31,6 +32,144 @@ cellToModify = 50
 lineNodeAdd = SubResource("Resource_bkihh")
 metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
+[sub_resource type="Resource" id="Resource_lgx4r"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0.43529412, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_3lwpk"]
+script = ExtResource("3_lgx4r")
+cellToModify = 2
+lineNodeAdd = SubResource("Resource_lgx4r")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_ncl54"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0.43529412, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_2lbqd"]
+script = ExtResource("3_lgx4r")
+cellToModify = 57
+lineNodeAdd = SubResource("Resource_ncl54")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_b0efh"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0.9843137, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_3bidb"]
+script = ExtResource("3_lgx4r")
+cellToModify = 59
+lineNodeAdd = SubResource("Resource_b0efh")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_4xamf"]
+script = ExtResource("4_3lwpk")
+color = Color(1, 0.9843137, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_82yli"]
+script = ExtResource("3_lgx4r")
+cellToModify = 3
+lineNodeAdd = SubResource("Resource_4xamf")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_p7pkh"]
+script = ExtResource("4_3lwpk")
+color = Color(0, 1, 0.050980393, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_qthbe"]
+script = ExtResource("3_lgx4r")
+cellToModify = 4
+lineNodeAdd = SubResource("Resource_p7pkh")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_3m3p1"]
+script = ExtResource("4_3lwpk")
+color = Color(0, 1, 0.050980393, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_0wtb4"]
+script = ExtResource("3_lgx4r")
+cellToModify = 60
+lineNodeAdd = SubResource("Resource_3m3p1")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_vmiau"]
+script = ExtResource("4_3lwpk")
+color = Color(0.03137255, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_82xap"]
+script = ExtResource("3_lgx4r")
+cellToModify = 61
+lineNodeAdd = SubResource("Resource_vmiau")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_g82y6"]
+script = ExtResource("4_3lwpk")
+color = Color(0.03137255, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_umyuf"]
+script = ExtResource("3_lgx4r")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_g82y6")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_4ytr3"]
+script = ExtResource("4_3lwpk")
+color = Color(0.5176471, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_o6h0f"]
+script = ExtResource("3_lgx4r")
+cellToModify = 6
+lineNodeAdd = SubResource("Resource_4ytr3")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_7ylqj"]
+script = ExtResource("4_3lwpk")
+color = Color(0.5176471, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_y582l"]
+script = ExtResource("3_lgx4r")
+cellToModify = 63
+lineNodeAdd = SubResource("Resource_7ylqj")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_oikte"]
+script = ExtResource("4_3lwpk")
+color = Color(0.9843137, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_hqpno"]
+script = ExtResource("3_lgx4r")
+cellToModify = 7
+lineNodeAdd = SubResource("Resource_oikte")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_o4vr8"]
+script = ExtResource("4_3lwpk")
+color = Color(0.9843137, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_w0xym"]
+script = ExtResource("3_lgx4r")
+cellToModify = 56
+lineNodeAdd = SubResource("Resource_o4vr8")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
 [node name="tutorial5" type="Node2D" unique_id=648413046 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
 script = ExtResource("1_uj8vk")
 playerSpawn = NodePath("spawnPoint")
@@ -44,7 +183,7 @@ gridParent = NodePath("grids")
 position = Vector2(480, 304)
 gridSizeX = 7
 gridSizeY = 9
-gridModifiers = Array[ExtResource("3_lgx4r")]([SubResource("Resource_hosa6"), SubResource("Resource_efd7r")])
+gridModifiers = Array[ExtResource("3_lgx4r")]([SubResource("Resource_hosa6"), SubResource("Resource_efd7r"), SubResource("Resource_3lwpk"), SubResource("Resource_2lbqd"), SubResource("Resource_3bidb"), SubResource("Resource_82yli"), SubResource("Resource_qthbe"), SubResource("Resource_0wtb4"), SubResource("Resource_82xap"), SubResource("Resource_umyuf"), SubResource("Resource_o6h0f"), SubResource("Resource_y582l"), SubResource("Resource_hqpno"), SubResource("Resource_w0xym")])
 
 [node name="tiles" type="Node" parent="." unique_id=2143999996]
 
@@ -60,3 +199,5 @@ position = Vector2(573, 248)
 
 [node name="spawnPoint" type="Marker2D" parent="." unique_id=296405977]
 position = Vector2(578, 89)
+
+[node name="levelBG" parent="." unique_id=331160334 instance=ExtResource("8_3lwpk")]

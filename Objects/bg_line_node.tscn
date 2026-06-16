@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://brdcyfc41ies4"]
+
+[ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/circle.png" id="1_6d2m3"]
+
+[node name="bgLineNode" type="Sprite2D" unique_id=1584701703]
+texture = ExtResource("1_6d2m3")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cm0dmoglwp1ru"]
+
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="1_m0cy3"]
+[ext_resource type="Script" uid="uid://xwpja828r744" path="res://Scripts/pathFollower.gd" id="2_sreky"]
+[ext_resource type="Texture2D" uid="uid://bdn4qkvb8xg0g" path="res://icon.png" id="3_sw7yf"]
+
+[sub_resource type="Curve2D" id="Curve2D_m0cy3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 115, 0, 0, 0, 0, 325, 115, 0, 0, 0, 0, 325, 355, 0, 0, 0, 0, 1151, 355)
+}
+point_count = 4
+
+[node name="menuBG" type="Node2D" unique_id=331160334]
+
+[node name="BlackSquare" type="Sprite2D" parent="." unique_id=921397725]
+z_index = -6
+position = Vector2(575.75, 324)
+scale = Vector2(36.015625, 20.25)
+texture = ExtResource("1_m0cy3")
+
+[node name="paths" type="Node" parent="." unique_id=1421325378]
+
+[node name="path1" type="Path2D" parent="paths" unique_id=615249327]
+curve = SubResource("Curve2D_m0cy3")
+
+[node name="pathFollow1" type="PathFollow2D" parent="paths/path1" unique_id=2139857158]
+position = Vector2(0, 115)
+rotates = false
+cubic_interp = false
+script = ExtResource("2_sreky")
+speed = 2.5
+
+[node name="Icon" type="Sprite2D" parent="paths/path1/pathFollow1" unique_id=1030172150]
+texture = ExtResource("3_sw7yf")
