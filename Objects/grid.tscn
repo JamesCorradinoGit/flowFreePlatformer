@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn2l4bfyirf14"]
 
-[ext_resource type="Script" uid="uid://b4vdtxghtu025" path="res://Scripts/grid.gd" id="1_f6ty6"]
+[ext_resource type="Script" uid="uid://b4vdtxghtu025" path="res://Scripts/gameplay/grids/grid.gd" id="1_f6ty6"]
 [ext_resource type="PackedScene" uid="uid://bv270jvy7v0b3" path="res://Objects/grid_space.tscn" id="2_f6ty6"]
 [ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/gridObstacles/grid_obstacle_wall.tscn" id="3_pvrk4"]
 

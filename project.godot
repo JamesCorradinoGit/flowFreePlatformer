@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*uid://cn6ukld3xkn8h"
+GlobalSceneLoader="*uid://dn8d3ia3s44b7"
 
 [display]
 

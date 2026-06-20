@@ -2,26 +2,13 @@
 
 [ext_resource type="Shader" uid="uid://bsdy8foqh5g4" path="res://Assets/Shaders/simpleBlur.gdshader" id="1_pe2kr"]
 [ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_pe2kr"]
+[ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_qra4j"]
 [ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="3_sreky"]
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainButtonTheme.tres" id="3_sw7yf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pe2kr"]
 shader = ExtResource("1_pe2kr")
-shader_parameter/strength = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sreky"]
-bg_color = Color(0, 0, 0, 1)
-skew = Vector2(0.2, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 25
-corner_radius_bottom_right = 25
-
-[sub_resource type="Theme" id="Theme_sw7yf"]
-Button/font_sizes/font_size = 28
-Button/styles/normal = SubResource("StyleBoxFlat_sreky")
+shader_parameter/strength = 5
 
 [node name="menuUI" type="Control" unique_id=2107658906]
 layout_mode = 3
@@ -33,17 +20,21 @@ position = Vector2(867.99994, 324.99997)
 rotation = 1.5707964
 scale = Vector2(4.425, 4.425)
 texture = ExtResource("2_pe2kr")
+script = ExtResource("3_qra4j")
+pos1 = Vector2(867.99994, 324.99997)
+pos2 = Vector2(287, 324.99997)
+speed = 45.0
 
 [node name="buttons" type="Node" parent="." unique_id=878164077]
 
-[node name="Button" type="Button" parent="buttons" unique_id=58935672]
+[node name="playButton" type="Button" parent="buttons" unique_id=58935672]
 anchors_preset = -1
 anchor_left = 0.065972224
 anchor_top = 0.44753087
 anchor_right = 0.34895834
 anchor_bottom = 0.5493827
 offset_bottom = 3.0517578e-05
-theme = SubResource("Theme_sw7yf")
+theme = ExtResource("3_sw7yf")
 text = "PLAY"
 metadata/_edit_use_anchors_ = true
 

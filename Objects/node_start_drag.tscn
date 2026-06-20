@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8et3o20aig35"]
 
 [ext_resource type="Texture2D" uid="uid://bdn4qkvb8xg0g" path="res://icon.png" id="1_s0tg5"]
-[ext_resource type="Script" uid="uid://c6aifxnx223um" path="res://Scripts/draggable_object.gd" id="2_88eo7"]
+[ext_resource type="Script" uid="uid://c6aifxnx223um" path="res://Scripts/gameplay/grids/draggable_object.gd" id="2_88eo7"]
 
 [node name="nodeStart" type="Sprite2D" unique_id=301991492]
 texture = ExtResource("1_s0tg5")

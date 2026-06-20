@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bf4ibu1edk4hc"]
 
 [ext_resource type="Texture2D" uid="uid://c6224lbr5xhga" path="res://Assets/fadeTile.png" id="1_rtlot"]
-[ext_resource type="Script" uid="uid://c8euxfkdqgyd0" path="res://Scripts/void_block.gd" id="2_x02l0"]
+[ext_resource type="Script" uid="uid://c8euxfkdqgyd0" path="res://Scripts/gameplay/grids/void_block.gd" id="2_x02l0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x02l0"]
 size = Vector2(32, 20)
