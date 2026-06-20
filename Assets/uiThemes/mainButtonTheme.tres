@@ -738,7 +738,7 @@ cache/0/28/0/glyphs/91/uv_rect = Rect2(18, 53, 18, 18)
 cache/0/28/0/glyphs/91/texture_idx = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcnw6"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
+bg_color = Color(0.11489687, 0.1148968, 0.1148968, 1)
 skew = Vector2(0.25, 0)
 border_width_left = 2
 border_width_top = 2
