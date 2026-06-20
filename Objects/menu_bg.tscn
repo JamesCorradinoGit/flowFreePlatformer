@@ -1,34 +1,57 @@
 [gd_scene format=3 uid="uid://cm0dmoglwp1ru"]
 
-[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="1_m0cy3"]
-[ext_resource type="Script" uid="uid://xwpja828r744" path="res://Scripts/pathFollower.gd" id="2_sreky"]
-[ext_resource type="Texture2D" uid="uid://bdn4qkvb8xg0g" path="res://icon.png" id="3_sw7yf"]
+[ext_resource type="Shader" uid="uid://bsdy8foqh5g4" path="res://Assets/Shaders/simpleBlur.gdshader" id="1_pe2kr"]
+[ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_pe2kr"]
+[ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="3_sreky"]
 
-[sub_resource type="Curve2D" id="Curve2D_m0cy3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 115, 0, 0, 0, 0, 325, 115, 0, 0, 0, 0, 325, 355, 0, 0, 0, 0, 1151, 355)
-}
-point_count = 4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pe2kr"]
+shader = ExtResource("1_pe2kr")
+shader_parameter/strength = 30
 
-[node name="menuBG" type="Node2D" unique_id=331160334]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sreky"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
 
-[node name="BlackSquare" type="Sprite2D" parent="." unique_id=921397725]
-z_index = -6
-position = Vector2(575.75, 324)
-scale = Vector2(36.015625, 20.25)
-texture = ExtResource("1_m0cy3")
+[sub_resource type="Theme" id="Theme_sw7yf"]
+Button/font_sizes/font_size = 28
+Button/styles/normal = SubResource("StyleBoxFlat_sreky")
 
-[node name="paths" type="Node" parent="." unique_id=1421325378]
+[node name="menuUI" type="Control" unique_id=2107658906]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="path1" type="Path2D" parent="paths" unique_id=615249327]
-curve = SubResource("Curve2D_m0cy3")
+[node name="MenuBgImage" type="Sprite2D" parent="." unique_id=1094835766]
+material = SubResource("ShaderMaterial_pe2kr")
+position = Vector2(867.99994, 324.99997)
+rotation = 1.5707964
+scale = Vector2(4.425, 4.425)
+texture = ExtResource("2_pe2kr")
 
-[node name="pathFollow1" type="PathFollow2D" parent="paths/path1" unique_id=2139857158]
-position = Vector2(0, 115)
-rotates = false
-cubic_interp = false
-script = ExtResource("2_sreky")
-speed = 2.5
+[node name="buttons" type="Node" parent="." unique_id=878164077]
 
-[node name="Icon" type="Sprite2D" parent="paths/path1/pathFollow1" unique_id=1030172150]
-texture = ExtResource("3_sw7yf")
+[node name="Button" type="Button" parent="buttons" unique_id=58935672]
+anchors_preset = -1
+anchor_left = 0.065972224
+anchor_top = 0.44753087
+anchor_right = 0.34895834
+anchor_bottom = 0.5493827
+offset_bottom = 3.0517578e-05
+theme = SubResource("Theme_sw7yf")
+text = "PLAY"
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoMenu" type="TextureRect" parent="." unique_id=269304888]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 557.0864
+offset_bottom = 273.0
+texture = ExtResource("3_sreky")
+expand_mode = 1

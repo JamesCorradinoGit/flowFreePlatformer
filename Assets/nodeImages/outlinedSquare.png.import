@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3iigp300to3s"
-path="res://.godot/imported/outlinedSquare.png-e5f3f49236f945df6551d01c95a18d7d.ctex"
+path="res://.godot/imported/outlinedSquare.png-5836e9360248c9413bc67c4ef17b541f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outlinedSquare.png"
-dest_files=["res://.godot/imported/outlinedSquare.png-e5f3f49236f945df6551d01c95a18d7d.ctex"]
+source_file="res://Assets/nodeImages/outlinedSquare.png"
+dest_files=["res://.godot/imported/outlinedSquare.png-5836e9360248c9413bc67c4ef17b541f.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccugvwenhhjgr"]
 
-[ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/circle.png" id="1_3fock"]
+[ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/nodeImages/circle.png" id="1_3fock"]
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="1_34qoq"]
 [ext_resource type="Script" uid="uid://b0y80cip2kh8o" path="res://Scripts/node_start_kb.gd" id="2_3fock"]
-[ext_resource type="Texture2D" uid="uid://bgpahoibcxxeh" path="res://Assets/receiveNode.png" id="4_22m4q"]
+[ext_resource type="Texture2D" uid="uid://bgpahoibcxxeh" path="res://Assets/nodeImages/receiveNode.png" id="4_22m4q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_22m4q"]
 shader = ExtResource("1_34qoq")

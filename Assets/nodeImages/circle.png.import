@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1bo7tvue53ss"
-path="res://.godot/imported/gridWallSprite.png-5eaec8c3758b86802c3a3e4f7251f4af.ctex"
+uid="uid://da04a0wpk4ko7"
+path="res://.godot/imported/circle.png-d4476c61303c74a1f860265609f25a21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gridWallSprite.png"
-dest_files=["res://.godot/imported/gridWallSprite.png-5eaec8c3758b86802c3a3e4f7251f4af.ctex"]
+source_file="res://Assets/nodeImages/circle.png"
+dest_files=["res://.godot/imported/circle.png-d4476c61303c74a1f860265609f25a21.ctex"]
 
 [params]
 
