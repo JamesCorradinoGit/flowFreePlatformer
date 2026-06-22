@@ -6,12 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="3_sreky"]
 [ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainButtonTheme.tres" id="3_sw7yf"]
 [ext_resource type="Shader" uid="uid://wtc0h4gyuav5" path="res://Assets/Shaders/2dHighlight.gdshader" id="4_avkb5"]
+[ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="6_1iwo6"]
+[ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/tutorialLevels/tutorial_1.tscn" id="7_lot5p"]
+[ext_resource type="Script" uid="uid://bxdga27mcjvqr" path="res://Scripts/ui/mainMenu/quitButton.gd" id="8_qj2pb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pe2kr"]
 shader = ExtResource("1_pe2kr")
 shader_parameter/strength = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1iwo6"]
+shader = ExtResource("4_avkb5")
+shader_parameter/overwrite_color = false
+shader_parameter/default_color = Color(1, 1, 1, 1)
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_angle = -130.0
+shader_parameter/shine_duration = 7.5
+shader_parameter/shine_speed = 500.0
+shader_parameter/shine_width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lot5p"]
 shader = ExtResource("4_avkb5")
 shader_parameter/overwrite_color = false
 shader_parameter/default_color = Color(1, 1, 1, 1)
@@ -45,9 +58,29 @@ anchor_left = 0.065972224
 anchor_top = 0.44753087
 anchor_right = 0.34895834
 anchor_bottom = 0.5493827
-offset_bottom = 3.0517578e-05
+offset_bottom = -0.9999695
 theme = ExtResource("3_sw7yf")
 text = "PLAY"
+script = ExtResource("6_1iwo6")
+sceneToSwitch = ExtResource("7_lot5p")
+doTween = true
+tweenOffset = Vector2(15, 0)
+tweenTime = 0.05
+metadata/_edit_use_anchors_ = true
+
+[node name="quitButton" type="Button" parent="buttons" unique_id=542262661]
+material = SubResource("ShaderMaterial_lot5p")
+anchors_preset = -1
+anchor_left = 0.066840276
+anchor_top = 0.7191358
+anchor_right = 0.28817707
+anchor_bottom = 0.8194444
+theme = ExtResource("3_sw7yf")
+text = "QUIT"
+script = ExtResource("8_qj2pb")
+doTween = true
+tweenOffset = Vector2(15, 0)
+tweenTime = 0.05
 metadata/_edit_use_anchors_ = true
 
 [node name="LogoMenu" type="TextureRect" parent="." unique_id=269304888]
@@ -58,3 +91,10 @@ offset_right = 557.0864
 offset_bottom = 273.0
 texture = ExtResource("3_sreky")
 expand_mode = 1
+
+[connection signal="mouse_entered" from="buttons/playButton" to="buttons/playButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/playButton" to="buttons/playButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="buttons/playButton" to="buttons/playButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="buttons/quitButton" to="buttons/quitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/quitButton" to="buttons/quitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="buttons/quitButton" to="buttons/quitButton" method="_on_pressed"]
