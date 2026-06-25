@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Flow Free Platformer"
 config/description="Enter an interesting project description here!"
-run/main_scene="uid://doqyyu3i4xx34"
+run/main_scene="uid://cm0dmoglwp1ru"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
@@ -24,7 +24,6 @@ GlobalSceneLoader="*uid://dn8d3ia3s44b7"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

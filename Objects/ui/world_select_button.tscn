@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://m52nau0cwlhq"]
+
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainTheme.tres" id="1_xh62s"]
+[ext_resource type="Script" uid="uid://du5h6bma10tir" path="res://Scripts/ui/world_select_button.gd" id="2_hkgua"]
+
+[node name="worldSelectButton" type="Button" unique_id=977429778]
+z_index = 2
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = -1
+anchor_right = 0.1736111
+anchor_bottom = 0.07716049
+offset_right = -192.0
+offset_bottom = -42.0
+theme = ExtResource("1_xh62s")
+text = "N/A"
+script = ExtResource("2_hkgua")
+tweenOffset = Vector2(20, 0)
+tweenTime = 0.05
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
