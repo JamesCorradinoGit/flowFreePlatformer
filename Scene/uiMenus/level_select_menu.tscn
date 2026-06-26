@@ -4,23 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_uw582"]
 [ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_myoex"]
 [ext_resource type="PackedScene" uid="uid://m52nau0cwlhq" path="res://Objects/ui/world_select_button.tscn" id="4_uw582"]
-[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainTheme.tres" id="5_myoex"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qo37x"]
 shader = ExtResource("1_baub7")
 shader_parameter/strength = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baub7"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 30
-corner_radius_bottom_right = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo37x"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -61,7 +50,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_baub7")
 metadata/_edit_use_anchors_ = true
 
 [node name="worldVBox" type="VBoxContainer" parent="worldSelectBanner" unique_id=1675501989]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.060606062
 anchor_top = 0.022950819
 anchor_right = 0.9350649
@@ -73,14 +63,5 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "Tutorial"
 
-[node name="levelSelectionBanner" type="Panel" parent="." unique_id=1912600927]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.328125
-anchor_top = 0.13271604
-anchor_right = 0.9053819
-anchor_bottom = 0.8472222
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme = ExtResource("5_myoex")
-theme_override_styles/panel = SubResource("StyleBoxFlat_qo37x")
-metadata/_edit_use_anchors_ = true
+[node name="worldMenuPos" type="Marker2D" parent="." unique_id=1166342441]
+position = Vector2(386, 115)

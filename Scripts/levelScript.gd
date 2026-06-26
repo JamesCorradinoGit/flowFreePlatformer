@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if gridsComplete and portalInteracted:
-		print("all done")
+		onAllCompleted()
 		completeLevel.emit()
 		set_process(false)
 
@@ -46,3 +46,7 @@ func gridBreak():
 
 func onPortalReached():
 	portalInteracted = true
+
+func onAllCompleted():
+	Globals.completedLevels.append(self)
+	print(self)

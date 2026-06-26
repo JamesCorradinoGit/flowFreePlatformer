@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://caxx05yukbbbf"]
+
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/ui/uiThemes/mainTheme.tres" id="1_81p65"]
+
+[node name="worldDevBG" type="Panel" unique_id=2130001247]
+custom_minimum_size = Vector2(655, 391)
+anchors_preset = -1
+anchor_right = 0.5685764
+anchor_bottom = 0.60339504
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("1_81p65")
+metadata/_edit_use_anchors_ = true

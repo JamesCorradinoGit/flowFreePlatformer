@@ -1,13 +1,27 @@
 [gd_scene format=3 uid="uid://bexfihknk1j6j"]
 
-[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainTheme.tres" id="1_xh62s"]
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/ui/uiThemes/mainTheme.tres" id="1_xh62s"]
+[ext_resource type="Texture2D" uid="uid://bruxxwq13qjip" path="res://Assets/ui/lockIcon.png" id="2_3a1af"]
+[ext_resource type="Script" uid="uid://brny461u3ltxn" path="res://Scripts/ui/level_select_button.gd" id="2_wmfhg"]
 
 [node name="levelSelectButton" type="Button" unique_id=1011272094]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(84, 84)
 anchors_preset = -1
-anchor_right = 0.083333336
-anchor_bottom = 0.14814815
+anchor_right = 0.072916664
+anchor_bottom = 0.12962963
 theme = ExtResource("1_xh62s")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 50
 text = "1"
+script = ExtResource("2_wmfhg")
+metadata/_edit_use_anchors_ = true
+
+[node name="lockIcon" type="TextureRect" parent="." unique_id=1408812069]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09375
+anchor_top = 0.09375
+anchor_right = 0.8854167
+anchor_bottom = 0.8854167
+texture = ExtResource("2_3a1af")
 metadata/_edit_use_anchors_ = true

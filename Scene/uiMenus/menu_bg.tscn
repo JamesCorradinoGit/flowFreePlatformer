@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_apk6p"]
 [ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_12rhn"]
 [ext_resource type="Script" uid="uid://b2acnyaxkdyls" path="res://Scripts/ui/mainMenu/mainMenuUiCanvas.gd" id="4_m7716"]
-[ext_resource type="Shader" uid="uid://wtc0h4gyuav5" path="res://Assets/Shaders/2dHighlight.gdshader" id="5_ssypw"]
-[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainTheme.tres" id="6_b66ai"]
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/ui/uiThemes/mainTheme.tres" id="6_b66ai"]
 [ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="7_pfmvt"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="8_5yh7n"]
 [ext_resource type="Script" uid="uid://dy0o8wf26oywm" path="res://Scripts/ui/mainMenu/settings_button.gd" id="9_ubbdm"]
@@ -15,36 +14,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pe2kr"]
 shader = ExtResource("1_5yh7n")
 shader_parameter/strength = 5
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1iwo6"]
-shader = ExtResource("5_ssypw")
-shader_parameter/overwrite_color = false
-shader_parameter/default_color = Color(1, 1, 1, 1)
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_angle = -130.0
-shader_parameter/shine_duration = 7.5
-shader_parameter/shine_speed = 500.0
-shader_parameter/shine_width = 10.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj2pb"]
-shader = ExtResource("5_ssypw")
-shader_parameter/overwrite_color = false
-shader_parameter/default_color = Color(1, 1, 1, 1)
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_angle = -130.0
-shader_parameter/shine_duration = 7.5
-shader_parameter/shine_speed = 500.0
-shader_parameter/shine_width = 10.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lot5p"]
-shader = ExtResource("5_ssypw")
-shader_parameter/overwrite_color = false
-shader_parameter/default_color = Color(1, 1, 1, 1)
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_angle = -130.0
-shader_parameter/shine_duration = 7.5
-shader_parameter/shine_speed = 500.0
-shader_parameter/shine_width = 10.0
 
 [node name="menuUI" type="Control" unique_id=2107658906]
 layout_mode = 3
@@ -67,7 +36,6 @@ buttons = [NodePath("playButton"), NodePath("settingsButton"), NodePath("quitBut
 removeDist = 700.0
 
 [node name="playButton" type="Button" parent="mainMainMenu" unique_id=58935672]
-material = SubResource("ShaderMaterial_1iwo6")
 anchors_preset = -1
 anchor_left = 0.065972224
 anchor_top = 0.44753087
@@ -85,7 +53,6 @@ tweenTime = 0.05
 metadata/_edit_use_anchors_ = true
 
 [node name="settingsButton" type="Button" parent="mainMainMenu" unique_id=750842081 node_paths=PackedStringArray("canvasMenu")]
-material = SubResource("ShaderMaterial_qj2pb")
 anchors_preset = -1
 anchor_left = 0.065104164
 anchor_top = 0.58487654
@@ -101,7 +68,6 @@ canvasMenu = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="quitButton" type="Button" parent="mainMainMenu" unique_id=542262661]
-material = SubResource("ShaderMaterial_lot5p")
 anchors_preset = -1
 anchor_left = 0.066840276
 anchor_top = 0.7191358

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m52nau0cwlhq"]
 
-[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/uiThemes/mainTheme.tres" id="1_xh62s"]
+[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/ui/uiThemes/mainTheme.tres" id="1_xh62s"]
 [ext_resource type="Script" uid="uid://du5h6bma10tir" path="res://Scripts/ui/world_select_button.gd" id="2_hkgua"]
 
 [node name="worldSelectButton" type="Button" unique_id=977429778]
