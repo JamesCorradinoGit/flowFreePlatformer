@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bexfihknk1j6j"]
 
-[ext_resource type="Theme" uid="uid://hadh1jh3kcbo" path="res://Assets/ui/uiThemes/mainTheme.tres" id="1_xh62s"]
 [ext_resource type="Texture2D" uid="uid://bruxxwq13qjip" path="res://Assets/ui/lockIcon.png" id="2_3a1af"]
 [ext_resource type="Script" uid="uid://brny461u3ltxn" path="res://Scripts/ui/level_select_button.gd" id="2_wmfhg"]
 
@@ -9,7 +8,6 @@ custom_minimum_size = Vector2(84, 84)
 anchors_preset = -1
 anchor_right = 0.072916664
 anchor_bottom = 0.12962963
-theme = ExtResource("1_xh62s")
 theme_override_font_sizes/font_size = 50
 text = "1"
 script = ExtResource("2_wmfhg")

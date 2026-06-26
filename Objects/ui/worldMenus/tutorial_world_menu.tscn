@@ -29,23 +29,28 @@ metadata/_edit_use_anchors_ = true
 
 [node name="levelSelectButton" parent="levelsContainer" index="0" unique_id=1011272094 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+theme = null
 
 [node name="levelSelectButton2" parent="levelsContainer" index="1" unique_id=1518890300 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+theme = null
 text = "2"
 locked = true
 
 [node name="levelSelectButton3" parent="levelsContainer" index="2" unique_id=298973338 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+theme = null
 text = "3"
 locked = true
 
 [node name="levelSelectButton4" parent="levelsContainer" index="3" unique_id=458824433 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+theme = null
 text = "4"
 locked = true
 
 [node name="levelSelectButton5" parent="levelsContainer" index="4" unique_id=1200562430 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+theme = null
 text = "5"
 locked = true
