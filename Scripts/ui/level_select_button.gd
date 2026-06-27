@@ -2,8 +2,9 @@ extends Button
 
 @export var locked: bool = false
 @onready var lockIcon: TextureRect = $lockIcon
+@export var levelLockParam: PackedScene
+@export var levelToSwitch: PackedScene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if self.locked:
 		lockLevel()
@@ -17,3 +18,6 @@ func lockLevel():
 func unlockLevel():
 	lockIcon.visible = false
 	self.disabled = false
+
+func _on_pressed() -> void:
+	GlobalSceneLoader.loadScene(str(levelToSwitch.resource_path))

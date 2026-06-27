@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://dgxtrauffty57"]
+
+[ext_resource type="StyleBox" uid="uid://bo0vqjwfwviw6" path="res://Assets/ui/uiThemes/mainButtonTheme/mainUIButtonStyleBox.res" id="1_bhqum"]
+[ext_resource type="StyleBox" uid="uid://bobf7hpmo1xq8" path="res://Assets/ui/uiThemes/mainButtonTheme/hoverStyleButtonBox.res" id="2_a8xve"]
+[ext_resource type="StyleBox" uid="uid://c3fyp3rf3idkp" path="res://Assets/ui/uiThemes/mainButtonTheme/mainButtonThemeButtonPress.res" id="3_ydwbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhqum"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/styles/disabled = ExtResource("1_bhqum")
+Button/styles/hover = ExtResource("2_a8xve")
+Button/styles/normal = ExtResource("1_bhqum")
+Button/styles/pressed = ExtResource("3_ydwbk")
+Panel/styles/panel = SubResource("StyleBoxFlat_bhqum")

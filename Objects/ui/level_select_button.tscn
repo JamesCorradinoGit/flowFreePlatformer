@@ -23,3 +23,5 @@ anchor_right = 0.8854167
 anchor_bottom = 0.8854167
 texture = ExtResource("2_3a1af")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

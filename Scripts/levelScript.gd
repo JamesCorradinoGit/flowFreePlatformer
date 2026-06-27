@@ -49,4 +49,4 @@ func onPortalReached():
 
 func onAllCompleted():
 	Globals.completedLevels.append(self)
-	print(self)
+	print(Globals.completedLevels)

@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://caxx05yukbbbf" path="res://Objects/ui/world_dev_bg.tscn" id="1_untp1"]
 [ext_resource type="PackedScene" uid="uid://bexfihknk1j6j" path="res://Objects/ui/level_select_button.tscn" id="2_nx6uf"]
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="2_vyqs2"]
+[ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/tutorialLevels/tutorial_1.tscn" id="4_vyqs2"]
 
 [node name="tutorialWorldMenu" unique_id=2130001247 instance=ExtResource("1_untp1")]
+theme = ExtResource("2_vyqs2")
 
 [node name="tutorialLabel" type="Label" parent="." index="0" unique_id=737483154]
 layout_mode = 1
@@ -29,28 +32,24 @@ metadata/_edit_use_anchors_ = true
 
 [node name="levelSelectButton" parent="levelsContainer" index="0" unique_id=1011272094 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
-theme = null
+levelToSwitch = ExtResource("4_vyqs2")
 
 [node name="levelSelectButton2" parent="levelsContainer" index="1" unique_id=1518890300 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
-theme = null
 text = "2"
 locked = true
 
 [node name="levelSelectButton3" parent="levelsContainer" index="2" unique_id=298973338 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
-theme = null
 text = "3"
 locked = true
 
 [node name="levelSelectButton4" parent="levelsContainer" index="3" unique_id=458824433 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
-theme = null
 text = "4"
 locked = true
 
 [node name="levelSelectButton5" parent="levelsContainer" index="4" unique_id=1200562430 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
-theme = null
 text = "5"
 locked = true
