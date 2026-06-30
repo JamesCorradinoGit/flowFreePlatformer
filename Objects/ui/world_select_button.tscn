@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m52nau0cwlhq"]
 
-[ext_resource type="Script" uid="uid://du5h6bma10tir" path="res://Scripts/ui/world_select_button.gd" id="2_hkgua"]
+[ext_resource type="Script" uid="uid://du5h6bma10tir" path="res://Scripts/ui/worldLevelSelect/world_select_button.gd" id="2_hkgua"]
 
 [node name="worldSelectButton" type="Button" unique_id=977429778]
 z_index = 2

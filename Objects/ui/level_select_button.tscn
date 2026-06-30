@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bexfihknk1j6j"]
 
 [ext_resource type="Texture2D" uid="uid://bruxxwq13qjip" path="res://Assets/ui/lockIcon.png" id="2_3a1af"]
-[ext_resource type="Script" uid="uid://brny461u3ltxn" path="res://Scripts/ui/level_select_button.gd" id="2_wmfhg"]
+[ext_resource type="Script" uid="uid://brny461u3ltxn" path="res://Scripts/ui/worldLevelSelect/level_select_button.gd" id="2_wmfhg"]
 
 [node name="levelSelectButton" type="Button" unique_id=1011272094]
 custom_minimum_size = Vector2(84, 84)

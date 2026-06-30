@@ -17,7 +17,7 @@ func moveButtonsLeft():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "position", -removeDist, timeToRemove) #TODO disable buttons when clicked
+	tween.tween_property(self, "position:x", -removeDist, timeToRemove) #TODO disable buttons when clicked
 
 func disableAllButtons():
 	for button:Button in buttons:

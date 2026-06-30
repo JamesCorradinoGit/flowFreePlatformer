@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://cm0dmoglwp1ru"]
 
-[ext_resource type="Shader" uid="uid://bsdy8foqh5g4" path="res://Assets/Shaders/simpleBlur.gdshader" id="1_5yh7n"]
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_41dew"]
-[ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_apk6p"]
-[ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_12rhn"]
+[ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/menu_bg_image.tscn" id="2_vqvky"]
 [ext_resource type="Script" uid="uid://b2acnyaxkdyls" path="res://Scripts/ui/mainMenu/mainMenuUiCanvas.gd" id="4_m7716"]
 [ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="7_pfmvt"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="8_5yh7n"]
 [ext_resource type="Script" uid="uid://dy0o8wf26oywm" path="res://Scripts/ui/mainMenu/settings_button.gd" id="9_ubbdm"]
 [ext_resource type="Script" uid="uid://bxdga27mcjvqr" path="res://Scripts/ui/mainMenu/quitButton.gd" id="10_ir2tb"]
 [ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="11_outvd"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pe2kr"]
-shader = ExtResource("1_5yh7n")
-shader_parameter/strength = 5
 
 [node name="menuUI" type="Control" unique_id=2107658906]
 custom_minimum_size = Vector2(31.68, 0)
@@ -25,16 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_41dew")
 
-[node name="MenuBgImage" type="Sprite2D" parent="." unique_id=1094835766]
-material = SubResource("ShaderMaterial_pe2kr")
-position = Vector2(867.99994, 324.99997)
-rotation = 1.5707964
-scale = Vector2(4.425, 4.425)
-texture = ExtResource("2_apk6p")
-script = ExtResource("3_12rhn")
-pos1 = Vector2(867.99994, 324.99997)
-pos2 = Vector2(287, 324.99997)
-speed = 45.0
+[node name="MenuBgImage" parent="." unique_id=804250908 instance=ExtResource("2_vqvky")]
 
 [node name="mainMainMenu" type="Control" parent="." unique_id=191737567 node_paths=PackedStringArray("buttons")]
 custom_minimum_size = Vector2(1152, 648)

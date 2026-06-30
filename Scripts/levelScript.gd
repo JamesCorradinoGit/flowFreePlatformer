@@ -47,11 +47,16 @@ func gridComplete():
 func gridBreak():
 	instGridsCompleted -= 1
 	gridsComplete = false
+func disableAllGrids():
+	for grid:gridObject in self.gridParent.get_children():
+		grid.disableGrid()
 
 func onPortalReached():
 	portalInteracted = true
-#TODO inst endscreen
+
 func onAllCompleted():
+	if self.hasGrids:
+		disableAllGrids()
 	if Globals.completedLevels.find(self.name) == -1:
 		Globals.completedLevels.append(self.name)
 		print(Globals.completedLevels)

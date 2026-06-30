@@ -129,6 +129,8 @@ playerSpawn = NodePath("spawnPoint")
 goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
 gridParent = NodePath("grids")
+worldName = "Tutorial"
+lvlName = "Mixing Movement and Conduits"
 
 [node name="grids" type="Node" parent="." unique_id=1531433660]
 

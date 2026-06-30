@@ -84,3 +84,7 @@ func onLineDisconnect():
 	if currentFilledLines == linesToFill - 1:
 		gridCompleted = false
 		self.gridCompleteBreakSig.emit()
+
+func disableGrid():
+	for line:lineNodeKB in flowLinesVar.get_children():
+		line.endButton.disabled = true #TODO make ts work

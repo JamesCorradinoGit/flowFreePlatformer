@@ -175,6 +175,8 @@ playerSpawn = NodePath("spawnPoint")
 goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
 gridParent = NodePath("grids")
+worldName = "Tutorial"
+lvlName = "Freeform Puzzle Solving"
 
 [node name="grids" type="Node" parent="." unique_id=1869494578]
 

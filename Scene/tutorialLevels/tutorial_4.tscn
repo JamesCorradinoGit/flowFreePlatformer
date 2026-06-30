@@ -198,6 +198,8 @@ playerSpawn = NodePath("spawnPoint")
 goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/resetTiles")
 gridParent = NodePath("grids")
+worldName = "Tutorial"
+lvlName = "Climbing the Conduit Tower"
 
 [node name="grids" type="Node" parent="." unique_id=282028762]
 

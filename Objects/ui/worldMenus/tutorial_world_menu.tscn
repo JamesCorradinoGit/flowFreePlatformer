@@ -3,10 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://caxx05yukbbbf" path="res://Objects/ui/world_dev_bg.tscn" id="1_untp1"]
 [ext_resource type="PackedScene" uid="uid://bexfihknk1j6j" path="res://Objects/ui/level_select_button.tscn" id="2_nx6uf"]
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="2_vyqs2"]
+[ext_resource type="Script" uid="uid://mp2l00a7qs6o" path="res://Scripts/ui/worldLevelSelect/worldMenuBase.gd" id="3_aad52"]
 [ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/tutorialLevels/tutorial_1.tscn" id="4_vyqs2"]
+[ext_resource type="PackedScene" uid="uid://ct6q02ydlyr4m" path="res://Scene/tutorialLevels/tutorial_2.tscn" id="6_sxppb"]
+[ext_resource type="PackedScene" uid="uid://4q723qfa1ncn" path="res://Scene/tutorialLevels/tutorial_3.tscn" id="7_tm4e2"]
+[ext_resource type="PackedScene" uid="uid://kw77c331n75d" path="res://Scene/tutorialLevels/tutorial_4.tscn" id="8_k6580"]
+[ext_resource type="PackedScene" uid="uid://cvokm7rce33rh" path="res://Scene/tutorialLevels/tutorial_5.tscn" id="9_rskkf"]
 
-[node name="tutorialWorldMenu" unique_id=2130001247 instance=ExtResource("1_untp1")]
+[node name="tutorialWorldMenu" unique_id=2130001247 node_paths=PackedStringArray("levelButtons") instance=ExtResource("1_untp1")]
 theme = ExtResource("2_vyqs2")
+script = ExtResource("3_aad52")
+levelButtons = [NodePath("levelsContainer/levelSelectButton"), NodePath("levelsContainer/levelSelectButton2"), NodePath("levelsContainer/levelSelectButton3"), NodePath("levelsContainer/levelSelectButton4"), NodePath("levelsContainer/levelSelectButton5")]
 
 [node name="tutorialLabel" type="Label" parent="." index="0" unique_id=737483154]
 layout_mode = 1
@@ -34,22 +41,30 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 levelToSwitch = ExtResource("4_vyqs2")
 
-[node name="levelSelectButton2" parent="levelsContainer" index="1" unique_id=1518890300 instance=ExtResource("2_nx6uf")]
+[node name="levelSelectButton2" parent="levelsContainer" index="1" unique_id=1518890300 node_paths=PackedStringArray("levelLockParam") instance=ExtResource("2_nx6uf")]
 layout_mode = 2
 text = "2"
 locked = true
+levelLockParam = NodePath("../levelSelectButton")
+levelToSwitch = ExtResource("6_sxppb")
 
-[node name="levelSelectButton3" parent="levelsContainer" index="2" unique_id=298973338 instance=ExtResource("2_nx6uf")]
+[node name="levelSelectButton3" parent="levelsContainer" index="2" unique_id=298973338 node_paths=PackedStringArray("levelLockParam") instance=ExtResource("2_nx6uf")]
 layout_mode = 2
 text = "3"
 locked = true
+levelLockParam = NodePath("../levelSelectButton2")
+levelToSwitch = ExtResource("7_tm4e2")
 
-[node name="levelSelectButton4" parent="levelsContainer" index="3" unique_id=458824433 instance=ExtResource("2_nx6uf")]
+[node name="levelSelectButton4" parent="levelsContainer" index="3" unique_id=458824433 node_paths=PackedStringArray("levelLockParam") instance=ExtResource("2_nx6uf")]
 layout_mode = 2
 text = "4"
 locked = true
+levelLockParam = NodePath("../levelSelectButton3")
+levelToSwitch = ExtResource("8_k6580")
 
-[node name="levelSelectButton5" parent="levelsContainer" index="4" unique_id=1200562430 instance=ExtResource("2_nx6uf")]
+[node name="levelSelectButton5" parent="levelsContainer" index="4" unique_id=1200562430 node_paths=PackedStringArray("levelLockParam") instance=ExtResource("2_nx6uf")]
 layout_mode = 2
 text = "5"
 locked = true
+levelLockParam = NodePath("../levelSelectButton4")
+levelToSwitch = ExtResource("9_rskkf")

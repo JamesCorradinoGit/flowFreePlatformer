@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="3_fq745"]
 [ext_resource type="Texture2D" uid="uid://ci2y18bo7bvme" path="res://Assets/ui/resetIcon.png" id="3_x6av7"]
 [ext_resource type="Texture2D" uid="uid://b75bgm7ysll27" path="res://Assets/ui/menuIcon.png" id="4_26s4p"]
+[ext_resource type="Shader" uid="uid://xws8etdt7ct0" path="res://Assets/Shaders/simpleSimpleBlur.gdshader" id="6_2qrmw"]
 
 [sub_resource type="Animation" id="Animation_hqtk5"]
 length = 0.001
@@ -89,6 +90,10 @@ _data = {
 &"endCutscene": SubResource("Animation_x6av7")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k258f"]
+shader = ExtResource("6_2qrmw")
+shader_parameter/amount = 0.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtk5"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
@@ -144,7 +149,19 @@ menuScene = ExtResource("3_fq745")
 libraries/ = SubResource("AnimationLibrary_26s4p")
 autoplay = &"endCutscene"
 
+[node name="blurRect" type="ColorRect" parent="." unique_id=1973047092]
+z_index = 5
+material = SubResource("ShaderMaterial_k258f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="completeBanner" type="Panel" parent="." unique_id=40717971]
+z_index = 6
 custom_minimum_size = Vector2(1500, 119)
 layout_mode = 1
 anchors_preset = -1
@@ -173,6 +190,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="endingPanel" type="Panel" parent="." unique_id=86343407]
+z_index = 6
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2534722

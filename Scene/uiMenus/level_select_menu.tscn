@@ -1,33 +1,23 @@
 [gd_scene format=3 uid="uid://cs61ddbtdwywa"]
 
-[ext_resource type="Shader" uid="uid://bsdy8foqh5g4" path="res://Assets/Shaders/simpleBlur.gdshader" id="1_baub7"]
-[ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_uw582"]
-[ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_myoex"]
+[ext_resource type="Script" uid="uid://cdf68x5i50rcy" path="res://Scripts/ui/worldLevelSelect/level_select_menu.gd" id="1_myoex"]
+[ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/menu_bg_image.tscn" id="1_uw582"]
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="4_myoex"]
 [ext_resource type="PackedScene" uid="uid://m52nau0cwlhq" path="res://Objects/ui/world_select_button.tscn" id="4_uw582"]
+[ext_resource type="PackedScene" uid="uid://vout7s22sw5" path="res://Objects/ui/worldMenus/tutorial_world_menu.tscn" id="6_qo37x"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qo37x"]
-shader = ExtResource("1_baub7")
-shader_parameter/strength = 5
-
-[node name="levelSelectMenu" type="Control" unique_id=1720044366]
+[node name="levelSelectMenu" type="Control" unique_id=1720044366 node_paths=PackedStringArray("menuStartPos", "menuEndPos")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_myoex")
+menuStartPos = NodePath("worldMenuStartPos")
+menuEndPos = NodePath("worldMenuEndPos")
 
-[node name="MenuBgImage" type="Sprite2D" parent="." unique_id=1799247916]
-material = SubResource("ShaderMaterial_qo37x")
-position = Vector2(867.99994, 324.99997)
-rotation = 1.5707964
-scale = Vector2(4.425, 4.425)
-texture = ExtResource("2_uw582")
-script = ExtResource("3_myoex")
-pos1 = Vector2(867.99994, 324.99997)
-pos2 = Vector2(287, 324.99997)
-speed = 45.0
+[node name="MenuBgImage" parent="." unique_id=804250908 instance=ExtResource("1_uw582")]
 
 [node name="worldSelectBanner" type="Panel" parent="." unique_id=1310977897]
 layout_mode = 1
@@ -50,9 +40,14 @@ anchor_bottom = 0.97540987
 theme_override_constants/separation = 15
 metadata/_edit_use_anchors_ = true
 
-[node name="worldSelectButton" parent="worldSelectBanner/worldVBox" unique_id=977429778 instance=ExtResource("4_uw582")]
+[node name="worldSelectButton" parent="worldSelectBanner/worldVBox" unique_id=977429778 node_paths=PackedStringArray("levelSelectMenuNode") instance=ExtResource("4_uw582")]
 layout_mode = 2
 text = "Tutorial"
+levelSelectMenuNode = NodePath("../../..")
+worldMenu = ExtResource("6_qo37x")
 
-[node name="worldMenuPos" type="Marker2D" parent="." unique_id=1166342441]
+[node name="worldMenuStartPos" type="Marker2D" parent="." unique_id=393691066]
+position = Vector2(1300, 115)
+
+[node name="worldMenuEndPos" type="Marker2D" parent="." unique_id=1166342441]
 position = Vector2(386, 115)

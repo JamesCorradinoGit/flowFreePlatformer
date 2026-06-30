@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d26gc0v3r14ju"]
+
+[ext_resource type="Shader" uid="uid://bsdy8foqh5g4" path="res://Assets/Shaders/simpleBlur.gdshader" id="1_xf0oq"]
+[ext_resource type="Texture2D" uid="uid://jgh561a7mapc" path="res://Assets/menuBGImage.png" id="2_mg76u"]
+[ext_resource type="Script" uid="uid://cnin3yjpffwki" path="res://Scripts/ui/mainMenu/menuBGTween.gd" id="3_qttk8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qo37x"]
+shader = ExtResource("1_xf0oq")
+shader_parameter/strength = 5
+
+[node name="MenuBgImage" type="Sprite2D" unique_id=804250908]
+material = SubResource("ShaderMaterial_qo37x")
+position = Vector2(867.99994, 324.99997)
+rotation = 1.5707964
+scale = Vector2(4.425, 4.425)
+texture = ExtResource("2_mg76u")
+script = ExtResource("3_qttk8")
+pos1 = Vector2(867.99994, 324.99997)
+pos2 = Vector2(287, 324.99997)
+speed = 45.0
