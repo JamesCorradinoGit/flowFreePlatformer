@@ -6,8 +6,12 @@ class_name level
 @export var resetTileset:TileMapLayer
 @export var hasGrids:bool = true
 @export var gridParent:Node
+@export_category("Level Details")
+@export var worldName:String = ""
+@export var lvlName:String = ""
 
 var player:PackedScene = load("uid://cvslsain1kjbi")
+var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
 var numGrids:int = 0
 var instGridsCompleted:int = 0
 
@@ -46,7 +50,13 @@ func gridBreak():
 
 func onPortalReached():
 	portalInteracted = true
-
+#TODO inst endscreen
 func onAllCompleted():
-	Globals.completedLevels.append(self)
-	print(Globals.completedLevels)
+	if Globals.completedLevels.find(self.name) == -1:
+		Globals.completedLevels.append(self.name)
+		print(Globals.completedLevels)
+	var endInst:endScreen = endScreenS.instantiate()
+	endInst.instLevelName = self.lvlName
+	endInst.instWorldName = self.worldName
+	endInst.position = Vector2.ZERO
+	add_child(endInst)

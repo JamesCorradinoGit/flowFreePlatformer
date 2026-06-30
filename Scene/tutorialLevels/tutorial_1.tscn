@@ -16,6 +16,8 @@ script = ExtResource("1_8p3xh")
 playerSpawn = NodePath("spawnMarker")
 goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
+worldName = "Tutorial"
+lvlName = "An Introduction to Platforming"
 
 [node name="tiles" type="Node" parent="." unique_id=1256479140]
 

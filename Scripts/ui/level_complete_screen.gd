@@ -1,13 +1,19 @@
 extends Control
+class_name endScreen
 
-@export var levelCompleteBanner: Panel
+@export var menuScene:PackedScene
+@onready var endWorldLabel: Label = $endingPanel/endWorldLabel
+@onready var endNameLabel: Label = $endingPanel/endNameLabel
 
-var screenSizeX = DisplayServer.screen_get_size().x
-
-signal moveBanner
+var instWorldName:String = "N/A"
+var instLevelName:String = "N/A"
 
 func _ready() -> void:
-	moveBanner.connect(moveBannerFunc)
+	endWorldLabel.text = instWorldName
+	endNameLabel.text = instLevelName
 
-func moveBannerFunc():
-	pass
+func _on_menu_button_pressed() -> void:
+	GlobalSceneLoader.loadScene(str(menuScene.resource_path))
+
+func _on_reset_button_pressed() -> void:
+	GlobalSceneLoader.loadScene(str(get_tree().current_scene.scene_file_path))

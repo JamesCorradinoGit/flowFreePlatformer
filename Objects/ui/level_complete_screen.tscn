@@ -2,8 +2,134 @@
 
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_mn8it"]
 [ext_resource type="Script" uid="uid://csxkf4h5wg2i5" path="res://Scripts/ui/level_complete_screen.gd" id="2_hqtk5"]
+[ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="3_fq745"]
+[ext_resource type="Texture2D" uid="uid://ci2y18bo7bvme" path="res://Assets/ui/resetIcon.png" id="3_x6av7"]
+[ext_resource type="Texture2D" uid="uid://b75bgm7ysll27" path="res://Assets/ui/menuIcon.png" id="4_26s4p"]
 
-[node name="levelCompleteScreen" type="Control" unique_id=240577353 node_paths=PackedStringArray("levelCompleteBanner")]
+[sub_resource type="Animation" id="Animation_hqtk5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("completeBanner:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1152, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("completeBanner:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("endingPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(292, -295.275)]
+}
+
+[sub_resource type="Animation" id="Animation_x6av7"]
+resource_name = "endCutscene"
+length = 3.75
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("completeBanner:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 2),
+"points": PackedFloat32Array(1152, -0.25, 0, 0.23333333, 0.5, -1.5, -0.36666667, 91, 0, 0, -348, -0.23478293, 65.5, 0, 0, -1503.235, -0.10222769, 1057.735, 0, 0),
+"times": PackedFloat32Array(0, 0.6, 2, 2.6)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("completeBanner:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("endingPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 3.75),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector2(292, -306.24), Vector2(292, -306.24), Vector2(292, 167.815)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26s4p"]
+_data = {
+&"RESET": SubResource("Animation_hqtk5"),
+&"endCutscene": SubResource("Animation_x6av7")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtk5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6av7"]
+bg_color = Color(0.45840496, 0.45840508, 0.4584049, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26s4p"]
+bg_color = Color(0.11489687, 0.1148968, 0.1148968, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq745"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[node name="levelCompleteScreen" type="Control" unique_id=240577353]
+z_index = 15
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,22 +138,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_mn8it")
 script = ExtResource("2_hqtk5")
-levelCompleteBanner = NodePath("completeBanner")
+menuScene = ExtResource("3_fq745")
+
+[node name="completeCutsceneAnim" type="AnimationPlayer" parent="." unique_id=1232665404]
+libraries/ = SubResource("AnimationLibrary_26s4p")
+autoplay = &"endCutscene"
 
 [node name="completeBanner" type="Panel" parent="." unique_id=40717971]
+custom_minimum_size = Vector2(1500, 119)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
+anchor_left = 1.0008681
 anchor_top = 0.40895063
-anchor_right = 2.0
+anchor_right = 2.3029513
 anchor_bottom = 0.5925926
-offset_right = 0.0009765625
+offset_left = -1.0
+offset_right = -0.9975586
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="completeBannerLabel" type="Label" parent="completeBanner" unique_id=1573652815]
+custom_minimum_size = Vector2(1152.001, 119)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = -0.00066666666
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -36,3 +170,73 @@ theme_override_font_sizes/font_size = 66
 text = "LEVEL COMPLETE!"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="endingPanel" type="Panel" parent="." unique_id=86343407]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2534722
+anchor_top = -0.45567128
+anchor_right = 0.7465278
+anchor_bottom = -0.02269288
+metadata/_edit_use_anchors_ = true
+
+[node name="endWorldLabel" type="Label" parent="endingPanel" unique_id=1566321809]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17253521
+anchor_top = 0.047314372
+anchor_right = 0.82922536
+anchor_bottom = 0.19700964
+theme_override_font_sizes/font_size = 23
+text = "WORLD NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="endNameLabel" type="Label" parent="endingPanel" unique_id=457956081]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09683099
+anchor_top = 0.17918879
+anchor_right = 0.9049296
+anchor_bottom = 0.32888407
+theme_override_font_sizes/font_size = 30
+text = "LEVEL NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="resetButton" type="Button" parent="endingPanel" unique_id=203538984]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12676056
+anchor_top = 0.5819403
+anchor_right = 0.23943663
+anchor_bottom = 0.8100474
+theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fq745")
+icon = ExtResource("3_x6av7")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="menuButton" type="Button" parent="endingPanel" unique_id=156366199]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75176054
+anchor_top = 0.5819403
+anchor_right = 0.8644366
+anchor_bottom = 0.8100474
+theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fq745")
+icon = ExtResource("4_26s4p")
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="endingPanel/resetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="endingPanel/menuButton" to="." method="_on_menu_button_pressed"]
