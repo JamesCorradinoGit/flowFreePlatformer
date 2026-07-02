@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qo37x"]
 shader = ExtResource("1_xf0oq")
-shader_parameter/strength = 5
+shader_parameter/strength = 7
 
 [node name="MenuBgImage" type="Sprite2D" unique_id=804250908]
 material = SubResource("ShaderMaterial_qo37x")

@@ -8,6 +8,7 @@ extends Button
 
 var combinedTweenPos:Vector2
 var originPos:Vector2
+var doLocalButtonTween: bool = true
 
 #CONNECT SIGNALS
 
@@ -20,9 +21,11 @@ func _on_pressed() -> void:
 	GlobalSceneLoader.loadScene(str(sceneToSwitch.resource_path))
 
 func _on_mouse_entered() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)
+	if doLocalButtonTween:
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)
 
 func _on_mouse_exited() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", originPos, tweenTime)
+	if doLocalButtonTween:
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", originPos, tweenTime)

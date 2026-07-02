@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ctlqu1nu1jcwk"]
+
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_mj3q6"]
+[ext_resource type="Script" uid="uid://sa8r3wqm4xjd" path="res://Scripts/ui/mainMenu/settings_menu.gd" id="2_mvvmx"]
+
+[node name="settingsMenu" type="Panel" unique_id=1016451246]
+custom_minimum_size = Vector2(920, 500)
+anchors_preset = -1
+anchor_right = 0.7986111
+anchor_bottom = 0.77160496
+theme = ExtResource("1_mj3q6")
+script = ExtResource("2_mvvmx")
+metadata/_edit_use_anchors_ = true
+
+[node name="settingsLabel" type="Label" parent="." unique_id=1967767997]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3875
+anchor_top = 0.022
+anchor_right = 0.6125
+anchor_bottom = 0.148
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 45
+text = "SETTINGS"
+metadata/_edit_use_anchors_ = true
+
+[node name="graphicsContainer" type="MarginContainer" parent="." unique_id=1757562417]
+custom_minimum_size = Vector2(296, 314)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085869566
+anchor_top = 0.232
+anchor_right = 0.4076087
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="graphicsVbox" type="VBoxContainer" parent="graphicsContainer" unique_id=1932439606]
+custom_minimum_size = Vector2(296, 314)
+layout_mode = 2
+
+[node name="fullscreenLabel" type="Label" parent="graphicsContainer/graphicsVbox" unique_id=1476735114]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen mode:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fullscreenButton" type="OptionButton" parent="graphicsContainer/graphicsVbox" unique_id=1010166950]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+alignment = 1
+selected = 1
+item_count = 2
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="audioContainer" type="MarginContainer" parent="." unique_id=1508443319]
+custom_minimum_size = Vector2(296, 314)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5945652
+anchor_top = 0.232
+anchor_right = 0.91630435
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="audioVbox" type="VBoxContainer" parent="audioContainer" unique_id=283365738]
+custom_minimum_size = Vector2(296, 314)
+layout_mode = 2
+
+[node name="volumeLabel" type="Label" parent="audioContainer/audioVbox" unique_id=88569067]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "add settings :P"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backButton" type="Button" parent="." unique_id=2088391654]
+layout_mode = 0
+anchor_left = 0.025
+anchor_top = 0.026
+anchor_right = 0.19891304
+anchor_bottom = 0.118
+theme_override_font_sizes/font_size = 22
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="item_selected" from="graphicsContainer/graphicsVbox/fullscreenButton" to="." method="_on_fullscreen_button_item_selected"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

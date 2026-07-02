@@ -87,4 +87,6 @@ func onLineDisconnect():
 
 func disableGrid():
 	for line:lineNodeKB in flowLinesVar.get_children():
-		line.endButton.disabled = true #TODO make ts work
+		line.endButton.disabled = true
+		if line.dragging == true:
+			line.forceSubmitLine.emit()

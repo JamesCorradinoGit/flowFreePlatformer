@@ -18,6 +18,8 @@ func switchWorldMenu(newMenu:PackedScene):
 		currentWorldString = instWM.name
 		currentWorldSelectScreen = newMenu
 		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_IN_OUT)
 		add_child(instWM)
 		instWM.global_position = self.menuStartPos.global_position
 		tween.tween_property(instWM, "global_position", menuEndPos.position, 0.5)

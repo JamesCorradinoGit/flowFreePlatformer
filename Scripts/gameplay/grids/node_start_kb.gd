@@ -27,8 +27,10 @@ signal onDrag
 signal submitDrag
 signal connectSuccess
 signal connectBreak
+signal forceSubmitLine
 
 func _ready() -> void:
+	forceSubmitLine.connect(submitLine)
 	connectLine.default_color = lineColor
 	material = material.duplicate()
 	material.set_shader_parameter("newColor", lineColor)
@@ -50,13 +52,15 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("moveUp"):
 			checkLinePoints("up")
 		elif Input.is_action_just_pressed("moveDone"):
-			print("lineSubmit")
-			dragging = false
-			Globals.isAlreadyDragging = false
-			Globals.selectedLine = null
-			Globals.selectedLineArea = null
-			endButton.release_focus()
-			self.submitDrag.emit()
+			submitLine()
+func submitLine():
+	#print("lineSubmit")
+	dragging = false
+	Globals.isAlreadyDragging = false
+	Globals.selectedLine = null
+	Globals.selectedLineArea = null
+	endButton.release_focus()
+	self.submitDrag.emit()
 
 func checkLinePoints(direction:String):
 	var intersect:bool = false

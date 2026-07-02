@@ -7,6 +7,7 @@ extends Button
 
 var combinedTweenPos:Vector2
 var originPos:Vector2
+var doLocalButtonTween:bool = true
 
 #CONNECT SIGNALS
 
@@ -15,13 +16,19 @@ func _ready() -> void:
 		originPos = global_position
 		combinedTweenPos = global_position + tweenOffset
 
+func menuButtonsTweenFix():
+	var tween = create_tween()
+	var buttonReference = get_parent().find_child("playButton")
+	tween.tween_property(self, "global_position", Vector2(buttonReference.global_position.x, global_position.y), 0.2)
+
 func _on_pressed() -> void:
-	canvasMenu.removeButtonsLeft.emit()
-
+	canvasMenu.removeButtons.emit()
+	canvasMenu.showSettings.emit()
 func _on_mouse_entered() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)
-
+	if doLocalButtonTween:
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)
 func _on_mouse_exited() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", originPos, tweenTime)
+	if doLocalButtonTween:
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", originPos, tweenTime)

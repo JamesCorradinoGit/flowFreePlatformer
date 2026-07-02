@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_41dew"]
 [ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/menu_bg_image.tscn" id="2_vqvky"]
 [ext_resource type="Script" uid="uid://b2acnyaxkdyls" path="res://Scripts/ui/mainMenu/mainMenuUiCanvas.gd" id="4_m7716"]
+[ext_resource type="PackedScene" uid="uid://ctlqu1nu1jcwk" path="res://Scene/uiMenus/settings_menu.tscn" id="4_nnr2v"]
 [ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="7_pfmvt"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="8_5yh7n"]
 [ext_resource type="Script" uid="uid://dy0o8wf26oywm" path="res://Scripts/ui/mainMenu/settings_button.gd" id="9_ubbdm"]
@@ -10,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="11_outvd"]
 
 [node name="menuUI" type="Control" unique_id=2107658906]
-custom_minimum_size = Vector2(31.68, 0)
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,10 +19,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_41dew")
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuBgImage" parent="." unique_id=804250908 instance=ExtResource("2_vqvky")]
 
-[node name="mainMainMenu" type="Control" parent="." unique_id=191737567 node_paths=PackedStringArray("buttons")]
+[node name="extraMenuEndPos" type="Marker2D" parent="." unique_id=1998183971]
+position = Vector2(116, 74)
+
+[node name="mainMainMenu" type="Control" parent="." unique_id=191737567 node_paths=PackedStringArray("buttons", "extraMenuPos")]
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 1
 anchors_preset = 15
@@ -32,6 +37,8 @@ grow_vertical = 2
 script = ExtResource("4_m7716")
 buttons = [NodePath("playButton"), NodePath("settingsButton"), NodePath("quitButton")]
 removeDist = 700.0
+extraMenuPos = NodePath("../extraMenuEndPos")
+settingsMenuRef = ExtResource("4_nnr2v")
 metadata/_edit_use_anchors_ = true
 
 [node name="playButton" type="Button" parent="mainMainMenu" unique_id=58935672]
