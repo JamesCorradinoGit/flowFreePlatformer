@@ -7,42 +7,53 @@ class_name mainMenuCanvas
 @export_subgroup("Extra Menus")
 @export var extraMenuPos: Marker2D
 @export var settingsMenuRef: PackedScene
+@export var extrasMenuRef: PackedScene
 
 @warning_ignore_start("unused_signal")
 signal removeButtons
 signal showButtons
-signal moveButtonsLeftDone
 signal disableButtons
 signal enableButtons
-signal showSettings
-signal hideSettings
+signal showExtraMenu(menu:String)
+signal hideExtraMenu
+signal moveButtonsLeftDone #TODO change these for the 3rd time
 
-var isSettingsVisible: bool = false
-var settingsMenuInstRef: settingsMenu
-var settingsMenuTweenTime:float = 0.5
+var isExtraMenuVisible: bool = false
+var extraMenuInstRef: Control
+var extraMenuTweenTime:float = 0.5
 
 func _ready() -> void:
 	removeButtons.connect(moveButtonsOut)
 	showButtons.connect(moveButtonsIn)
 	disableButtons.connect(disableAllButtons)
 	enableButtons.connect(enableAllButtons)
-	showSettings.connect(showSettingsFunc)
-	hideSettings.connect(hideSettingsFunc)
+	showExtraMenu.connect(showExtraMenuFunc)
+	hideExtraMenu.connect(hideExtraMenuFunc)
 
-func showSettingsFunc():
-	var settingsInst:settingsMenu = settingsMenuRef.instantiate()
+func showExtraMenuFunc(menu:String):
+	var localExtraMenu
+	match menu:
+		"settings":
+			localExtraMenu = settingsMenuRef
+		"extras":
+			localExtraMenu = extrasMenuRef
+		_:
+			localExtraMenu = null
+			return
+	var extraMenuInst:Control = localExtraMenu.instantiate()
+	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	isSettingsVisible = true
+	isExtraMenuVisible = true
 	
-	settingsInst.global_position = Vector2(extraMenuPos.global_position.x, extraMenuPos.global_position.y + 1000)
-	add_child(settingsInst)
-	settingsMenuInstRef = settingsInst
-	tween.tween_property(settingsInst, "global_position", extraMenuPos.global_position, settingsMenuTweenTime)
-func hideSettingsFunc():
+	extraMenuInst.global_position = Vector2(extraMenuPos.global_position.x, extraMenuPos.global_position.y + 1000)
+	add_child(extraMenuInst)
+	extraMenuInstRef = extraMenuInst
+	tween.tween_property(extraMenuInst, "global_position", extraMenuPos.global_position, extraMenuTweenTime)
+func hideExtraMenuFunc():
 	var tween = create_tween()
-	tween.tween_property(settingsMenuInstRef, "global_position", Vector2(settingsMenuInstRef.global_position.x, settingsMenuInstRef.global_position.y + 1000), settingsMenuTweenTime)
+	tween.tween_property(extraMenuInstRef, "global_position", Vector2(extraMenuInstRef.global_position.x, extraMenuInstRef.global_position.y + 1000), extraMenuTweenTime)
 
 func moveButtonsOut():
 	disableButtons.emit()

@@ -15,5 +15,5 @@ func _on_fullscreen_button_item_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_back_button_pressed() -> void:
-	controlParent.hideSettings.emit()
+	controlParent.hideExtraMenu.emit()
 	controlParent.showButtons.emit()

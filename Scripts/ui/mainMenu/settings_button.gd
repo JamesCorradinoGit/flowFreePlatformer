@@ -23,7 +23,7 @@ func menuButtonsTweenFix():
 
 func _on_pressed() -> void:
 	canvasMenu.removeButtons.emit()
-	canvasMenu.showSettings.emit()
+	canvasMenu.showExtraMenu.emit("settings")
 func _on_mouse_entered() -> void:
 	if doLocalButtonTween:
 		var tween = create_tween()
