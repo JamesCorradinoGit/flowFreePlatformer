@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/menu_bg_image.tscn" id="2_vqvky"]
 [ext_resource type="Script" uid="uid://b2acnyaxkdyls" path="res://Scripts/ui/mainMenu/mainMenuUiCanvas.gd" id="4_m7716"]
 [ext_resource type="PackedScene" uid="uid://ctlqu1nu1jcwk" path="res://Scene/uiMenus/settings_menu.tscn" id="4_nnr2v"]
+[ext_resource type="PackedScene" uid="uid://divs03fvdqklu" path="res://Scene/uiMenus/extras_menu.tscn" id="5_5yh7n"]
 [ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="7_pfmvt"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="8_5yh7n"]
+[ext_resource type="Script" uid="uid://2glkqs1b2uci" path="res://Scripts/ui/mainMenu/extras_button.gd" id="8_41dew"]
 [ext_resource type="Script" uid="uid://dy0o8wf26oywm" path="res://Scripts/ui/mainMenu/settings_button.gd" id="9_ubbdm"]
 [ext_resource type="Script" uid="uid://bxdga27mcjvqr" path="res://Scripts/ui/mainMenu/quitButton.gd" id="10_ir2tb"]
 [ext_resource type="Texture2D" uid="uid://d2tpuna6hdjs1" path="res://flobLogo.png" id="11_outvd"]
@@ -35,53 +37,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_m7716")
-buttons = [NodePath("playButton"), NodePath("settingsButton"), NodePath("quitButton")]
+buttons = [NodePath("playButton"), NodePath("settingsButton"), NodePath("quitButton"), NodePath("extrasButton")]
 removeDist = 700.0
 extraMenuPos = NodePath("../extraMenuEndPos")
 settingsMenuRef = ExtResource("4_nnr2v")
+extrasMenuRef = ExtResource("5_5yh7n")
 metadata/_edit_use_anchors_ = true
 
 [node name="playButton" type="Button" parent="mainMainMenu" unique_id=58935672]
-layout_mode = 0
-anchor_left = 0.065972224
-anchor_top = 0.44753087
-anchor_right = 0.3263889
-anchor_bottom = 0.5478395
-offset_left = -1.0
-offset_right = -1.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048611112
+anchor_top = 0.41358024
+anchor_right = 0.3090278
+anchor_bottom = 0.5138888
 text = "PLAY"
 script = ExtResource("7_pfmvt")
 sceneToSwitch = ExtResource("8_5yh7n")
 doTween = true
 tweenOffset = Vector2(15, 0)
 tweenTime = 0.05
+metadata/_edit_use_anchors_ = true
 
 [node name="settingsButton" type="Button" parent="mainMainMenu" unique_id=750842081 node_paths=PackedStringArray("canvasMenu")]
-layout_mode = 0
-anchor_left = 0.065104164
-anchor_top = 0.58487654
-anchor_right = 0.30381945
-anchor_bottom = 0.6851852
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048611112
+anchor_top = 0.5509259
+anchor_right = 0.2873264
+anchor_bottom = 0.6512345
 text = "OPTIONS"
 script = ExtResource("9_ubbdm")
 doTween = true
 tweenOffset = Vector2(15, 0)
 tweenTime = 0.05
 canvasMenu = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="extrasButton" type="Button" parent="mainMainMenu" unique_id=303498005 node_paths=PackedStringArray("canvasMenu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048611112
+anchor_top = 0.6851852
+anchor_right = 0.265625
+anchor_bottom = 0.78549385
+text = "EXTRAS"
+script = ExtResource("8_41dew")
+doTween = true
+tweenOffset = Vector2(15, 0)
+tweenTime = 0.05
+canvasMenu = NodePath("..")
+metadata/_edit_use_anchors_ = true
 
 [node name="quitButton" type="Button" parent="mainMainMenu" unique_id=542262661]
-layout_mode = 0
-anchor_left = 0.066840276
-anchor_top = 0.7191358
-anchor_right = 0.28385416
-anchor_bottom = 0.8194444
-offset_left = -2.0
-offset_right = -2.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048611112
+anchor_top = 0.8194444
+anchor_right = 0.2439236
+anchor_bottom = 0.9197531
 text = "QUIT"
 script = ExtResource("10_ir2tb")
 doTween = true
 tweenOffset = Vector2(15, 0)
 tweenTime = 0.05
+metadata/_edit_use_anchors_ = true
 
 [node name="LogoMenu" type="TextureRect" parent="mainMainMenu" unique_id=269304888]
 layout_mode = 0
@@ -98,6 +118,9 @@ expand_mode = 1
 [connection signal="mouse_entered" from="mainMainMenu/settingsButton" to="mainMainMenu/settingsButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="mainMainMenu/settingsButton" to="mainMainMenu/settingsButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="mainMainMenu/settingsButton" to="mainMainMenu/settingsButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="mainMainMenu/extrasButton" to="mainMainMenu/extrasButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="mainMainMenu/extrasButton" to="mainMainMenu/extrasButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="mainMainMenu/extrasButton" to="mainMainMenu/extrasButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="mainMainMenu/quitButton" to="mainMainMenu/quitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="mainMainMenu/quitButton" to="mainMainMenu/quitButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="mainMainMenu/quitButton" to="mainMainMenu/quitButton" method="_on_pressed"]

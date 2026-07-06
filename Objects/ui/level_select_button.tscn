@@ -3,6 +3,125 @@
 [ext_resource type="Texture2D" uid="uid://bruxxwq13qjip" path="res://Assets/ui/lockIcon.png" id="2_3a1af"]
 [ext_resource type="Script" uid="uid://brny461u3ltxn" path="res://Scripts/ui/worldLevelSelect/level_select_button.gd" id="2_wmfhg"]
 
+[sub_resource type="Curve" id="Curve_3a1af"]
+_limits = [-5.0, 1.2, 0.0, 1.5]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 8.739848, 0, 0, Vector2(1.5, -5), 1.8522129, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_3a1af"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lockIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lockIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lockIcon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.875, 7.875)]
+}
+
+[sub_resource type="Animation" id="Animation_wmfhg"]
+resource_name = "lockJiggle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lockIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.36666667, 0.5),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3508111796508606, -0.3490658503988659, 0.3508111796508606, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jscw8"]
+resource_name = "unlockClick"
+length = 0.7
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"unlockDone",
+"time": 0.6667
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lockIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lockIcon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2667, 0.36666667, 0.46666667, 0.5666667, 0.6666667),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(7.875, 7.875), Vector2(7.875, 4.28), Vector2(7.875, 9), Vector2(7.875, 3), Vector2(7.875, 14), Vector2(7.875, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q74qg"]
+resource_name = "unlockIdle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lockIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q74qg"]
+_data = {
+&"RESET": SubResource("Animation_3a1af"),
+&"lockJiggle": SubResource("Animation_wmfhg"),
+&"unlockClick": SubResource("Animation_jscw8"),
+&"unlockIdle": SubResource("Animation_q74qg")
+}
+
 [node name="levelSelectButton" type="Button" unique_id=1011272094]
 custom_minimum_size = Vector2(84, 84)
 anchors_preset = -1
@@ -11,17 +130,32 @@ anchor_bottom = 0.12962963
 theme_override_font_sizes/font_size = 50
 text = "1"
 script = ExtResource("2_wmfhg")
+lockJettisonPositionCurve = SubResource("Curve_3a1af")
 metadata/_edit_use_anchors_ = true
 
-[node name="lockIcon" type="TextureRect" parent="." unique_id=1408812069]
-visible = false
+[node name="lockAnimations" type="AnimationPlayer" parent="." unique_id=1662094440]
+libraries/ = SubResource("AnimationLibrary_q74qg")
+
+[node name="lockIcon" type="TextureButton" parent="." unique_id=1586687345]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.09375
 anchor_top = 0.09375
 anchor_right = 0.8854167
 anchor_bottom = 0.8854167
-texture = ExtResource("2_3a1af")
-metadata/_edit_use_anchors_ = true
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_3a1af")
+texture_pressed = ExtResource("2_3a1af")
+texture_hover = ExtResource("2_3a1af")
+texture_disabled = ExtResource("2_3a1af")
+texture_focused = ExtResource("2_3a1af")
+stretch_mode = 0
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="lockIcon" to="." method="_on_lock_icon_mouse_entered"]
+[connection signal="mouse_exited" from="lockIcon" to="." method="_on_lock_icon_mouse_exited"]
+[connection signal="pressed" from="lockIcon" to="." method="_on_lock_icon_pressed"]

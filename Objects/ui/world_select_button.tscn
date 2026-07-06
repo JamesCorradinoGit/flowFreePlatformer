@@ -10,6 +10,7 @@ anchor_right = 0.1736111
 anchor_bottom = 0.07716049
 offset_right = -192.0
 offset_bottom = -42.0
+theme_override_font_sizes/font_size = 26
 text = "N/A"
 script = ExtResource("2_hkgua")
 tweenOffset = Vector2(20, 0)

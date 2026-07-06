@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_myoex")
 script = ExtResource("1_myoex")
 menuStartPos = NodePath("worldMenuStartPos")
 menuEndPos = NodePath("worldMenuEndPos")
@@ -23,11 +24,9 @@ menuEndPos = NodePath("worldMenuEndPos")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.018229166
-anchor_top = 0.12962963
+anchor_top = 0.084876545
 anchor_right = 0.21875
-anchor_bottom = 0.85339504
-offset_bottom = 3.0517578e-05
-theme = ExtResource("4_myoex")
+anchor_bottom = 0.80864197
 metadata/_edit_use_anchors_ = true
 
 [node name="worldVBox" type="VBoxContainer" parent="worldSelectBanner" unique_id=1675501989]
@@ -47,7 +46,19 @@ levelSelectMenuNode = NodePath("../../..")
 worldMenu = ExtResource("6_qo37x")
 
 [node name="worldMenuStartPos" type="Marker2D" parent="." unique_id=393691066]
-position = Vector2(1300, 115)
+position = Vector2(1300, 86)
 
 [node name="worldMenuEndPos" type="Marker2D" parent="." unique_id=1166342441]
-position = Vector2(386, 115)
+position = Vector2(386, 86)
+
+[node name="backButton" type="Button" parent="." unique_id=1887646493]
+layout_mode = 0
+anchor_left = 0.038194444
+anchor_top = 0.8595679
+anchor_right = 0.19965278
+anchor_bottom = 0.9382716
+theme_override_font_sizes/font_size = 24
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

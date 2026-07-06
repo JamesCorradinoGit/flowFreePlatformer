@@ -54,7 +54,6 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("moveDone"):
 			submitLine()
 func submitLine():
-	#print("lineSubmit")
 	dragging = false
 	Globals.isAlreadyDragging = false
 	Globals.selectedLine = null
@@ -185,6 +184,8 @@ func _on_col_area_area_entered(area: Area2D) -> void:
 			var intersectPoint = checkClosestPoint(connectLine.to_global(connectLine.get_point_position(connectLine.get_point_count()-1)), areaParent.connectLine, areaParent.connectLine.get_point_count()-1)
 			if intersectPoint != 0:
 				areaParent.handleIntersect(intersectPoint-1)
+				if areaParent.lineConnected:
+					areaParent.connectBreak.emit()
 			else:
 				areaParent.resetLine()
 

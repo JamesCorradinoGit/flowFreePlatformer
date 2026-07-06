@@ -27,3 +27,6 @@ func switchWorldMenu(newMenu:PackedScene):
 		instWM.introTweenComplete.emit()
 	else:
 		instWM.queue_free()
+
+func _on_back_button_pressed() -> void:
+	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")

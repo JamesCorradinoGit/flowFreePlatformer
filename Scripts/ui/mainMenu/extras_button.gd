@@ -8,7 +8,6 @@ extends Button
 var combinedTweenPos:Vector2
 var originPos:Vector2
 var doLocalButtonTween:bool = true
-@export var canvasMainMenu: mainMenuCanvas
 
 #CONNECT SIGNALS
 
