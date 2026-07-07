@@ -9,6 +9,7 @@ shader = ExtResource("1_xf0oq")
 shader_parameter/strength = 7
 
 [node name="MenuBgImage" type="Sprite2D" unique_id=804250908]
+z_index = -2
 material = SubResource("ShaderMaterial_qo37x")
 position = Vector2(867.99994, 324.99997)
 rotation = 1.5707964

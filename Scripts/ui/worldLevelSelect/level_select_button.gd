@@ -1,6 +1,7 @@
 extends Button
 class_name levelSelectButton
 
+@export var startUnlocked: bool = false
 @export var locked: bool = false
 @export var levelLockParam: levelSelectButton
 @export var levelToSwitch: PackedScene
@@ -11,30 +12,33 @@ class_name levelSelectButton
 
 var ownerMenuPanel: worldMenuBase
 
-#CONNECT SIGNALS
+signal levelUnlocked
 
 func _ready() -> void:
 	lockLevel()
+	if self.startUnlocked and checkIfLevelGlobalUnlocked(self.levelToSwitch) == false:
+		Globals.unlockedButtonLevels[self.levelToSwitch] = true
 	if self.locked == false or checkIfLevelGlobalUnlocked(self.levelToSwitch):
-		unlockLevel(false)
+		unlockLevel(false, self.levelToSwitch)
 	elif levelLockParam != null:
 		var tempLevelLockScene = levelLockParam.levelToSwitch.instantiate()
 		if checkIfLevelGlobalCompleted(tempLevelLockScene.name):
 			if owner is worldMenuBase:
-				lockAnimations.play("unlockIdle")
 				await owner.introTweenComplete
-				if Globals.unlockedButtonLevels.find(self.levelToSwitch) == -1:
-					Globals.unlockedButtonLevels.append(self.levelToSwitch)
-					unlockLevel(true)
+				if Globals.unlockedButtonLevels.has(self.levelToSwitch) == false:
+					Globals.unlockedButtonLevels[self.levelToSwitch] = false
+					unlockLevel(true, self.levelToSwitch)
 	if owner is worldMenuBase:
 		ownerMenuPanel = owner
 
 func lockLevel():
 	lockIcon.visible = true
 	self.disabled = true
-func unlockLevel(newUnlock: bool):
-	if newUnlock: #TODO make unlock animation
+func unlockLevel(newUnlock: bool, levelComparison:PackedScene):
+	lockAnimations.play("unlockIdle")
+	if newUnlock or Globals.unlockedButtonLevels[levelComparison] == false:
 		await lockIcon.pressed
+		Globals.unlockedButtonLevels[levelComparison] = true
 		lockAnimations.play("unlockClick")
 		await lockAnimations.animation_finished
 		await jettisonLock(100)
@@ -47,7 +51,7 @@ func checkIfLevelGlobalCompleted(levelName:String) -> bool:
 		return true
 	return false
 func checkIfLevelGlobalUnlocked(levelName:PackedScene) -> bool:
-	if Globals.unlockedButtonLevels.find(levelName) != -1:
+	if Globals.unlockedButtonLevels.has(levelName) != false:
 		return true
 	return false
 
@@ -91,4 +95,5 @@ func jettisonLock(strength: float):
 			lockIcon.position.x = (curveTime * strength) * randXDir
 			lockIcon.rotation += randXDir / randAmp
 			await get_tree().process_frame
+	levelUnlocked.emit()
 #endregion

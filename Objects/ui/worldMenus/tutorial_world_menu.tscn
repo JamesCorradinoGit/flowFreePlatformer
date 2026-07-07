@@ -54,6 +54,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="levelSelectButton" parent="levelsContainer" index="0" unique_id=1011272094 instance=ExtResource("2_nx6uf")]
 layout_mode = 2
+startUnlocked = true
 levelToSwitch = ExtResource("4_vyqs2")
 
 [node name="levelSelectButton2" parent="levelsContainer" index="1" unique_id=1518890300 node_paths=PackedStringArray("levelLockParam") instance=ExtResource("2_nx6uf")]

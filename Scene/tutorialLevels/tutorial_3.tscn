@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://4q723qfa1ncn"]
 
-[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/levelScript.gd" id="1_ct1r7"]
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_ct1r7"]
 [ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="2_qp1v1"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="3_kqb1r"]
 [ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifierResource.gd" id="3_v8kve"]

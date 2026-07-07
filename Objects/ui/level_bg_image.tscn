@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cb8b1y5gccm1m"]
+
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="1_x5ttp"]
+
+[node name="levelBGImage" type="Sprite2D" unique_id=2012676834]
+z_index = -2
+position = Vector2(578.5, 325.49997)
+scale = Vector2(37.15625, 21.343748)
+texture = ExtResource("1_x5ttp")

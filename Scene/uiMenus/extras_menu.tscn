@@ -66,6 +66,15 @@ text = "Flow Free by Big Duck Games and Noodlecake Games (Conduit System)
 Pico Park (Inspiration)
 Portal 2 (Inspiration)"
 
+[node name="scriptsCreditsLabel" type="Label" parent="extrasScroll/creditsVbox" unique_id=2020682924]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Scripts:"
+
+[node name="inspirationCredits2" type="Label" parent="extrasScroll/creditsVbox" unique_id=1841064390]
+layout_mode = 2
+text = "Trail Effect by 16BitDev on Youtube"
+
 [node name="shadersCreditsLabel" type="Label" parent="extrasScroll/creditsVbox" unique_id=312445766]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22

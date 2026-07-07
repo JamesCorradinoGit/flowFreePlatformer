@@ -6,4 +6,4 @@ var isAlreadyDragging:bool = false
 var selectedLine:Node2D = null
 var selectedLineArea:Area2D = null
 var completedLevels = []
-var unlockedButtonLevels: Array[PackedScene] = []
+var unlockedButtonLevels := {}

@@ -3,7 +3,8 @@
 [ext_resource type="Shader" uid="uid://cdsblpo7j46gd" path="res://Assets/Shaders/levelPortalMaterial.gdshader" id="1_cx32l"]
 [ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/nodeImages/circle.png" id="1_kf16i"]
 [ext_resource type="Texture2D" uid="uid://cqfscjrjcauc5" path="res://Assets/tempPortalMask.png" id="2_7he6r"]
-[ext_resource type="Script" uid="uid://m7qcdv2ggwvv" path="res://Scripts/level_portal.gd" id="4_28j0h"]
+[ext_resource type="Script" uid="uid://m7qcdv2ggwvv" path="res://Scripts/gameplay/levels/level_portal.gd" id="4_28j0h"]
+[ext_resource type="PackedScene" uid="uid://bnh5u8ejm53hq" path="res://Objects/end_portal_particles.tscn" id="5_wy0ey"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7he6r"]
 shader = ExtResource("1_cx32l")
@@ -25,5 +26,8 @@ script = ExtResource("4_28j0h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portalCollision" unique_id=355194340]
 shape = SubResource("CircleShape2D_7he6r")
 debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="endPortalParticles" parent="." unique_id=1964743972 instance=ExtResource("5_wy0ey")]
+z_index = -1
 
 [connection signal="body_entered" from="portalCollision" to="." method="_on_portal_collision_body_entered"]

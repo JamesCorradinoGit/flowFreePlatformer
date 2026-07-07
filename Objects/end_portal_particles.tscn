@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bnh5u8ejm53hq"]
+
+[sub_resource type="Curve" id="Curve_0t6of"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5024155, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wi3hn"]
+curve = SubResource("Curve_0t6of")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4rqgv"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+orbit_velocity_min = -1.5
+orbit_velocity_max = 1.5000001
+radial_velocity_min = -25.000021
+radial_velocity_max = 24.999977
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -3.6700022
+radial_accel_max = 20.819998
+tangential_accel_min = 27.759996
+tangential_accel_max = 27.759996
+scale_min = 2.5
+scale_max = 3.0
+color = Color(0.7166667, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+hue_variation_curve = SubResource("CurveTexture_wi3hn")
+
+[node name="endPortalParticles" type="GPUParticles2D" unique_id=1964743972]
+amount = 36
+process_material = SubResource("ParticleProcessMaterial_4rqgv")

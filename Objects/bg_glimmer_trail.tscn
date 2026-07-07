@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://chp5eer56d5o1"]
+
+[ext_resource type="Texture2D" uid="uid://c3tomh8mv6mw4" path="res://Assets/glimmerParticle.png" id="1_6fg75"]
+[ext_resource type="Script" uid="uid://dyxa008td6qti" path="res://Scripts/miscObjects/line2dTrail.gd" id="2_7fef7"]
+[ext_resource type="Script" uid="uid://sle1nw1os65b" path="res://Scripts/miscObjects/bg_glimmer_trail.gd" id="2_jljmq"]
+
+[sub_resource type="Curve" id="Curve_7fef7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7fef7"]
+offsets = PackedFloat32Array(0, 0.6380091, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.49, 0.49, 0.49, 0)
+
+[node name="bgGlimmerTrail" type="Sprite2D" unique_id=1824388214 node_paths=PackedStringArray("trailChild")]
+position = Vector2(0, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("1_6fg75")
+script = ExtResource("2_jljmq")
+colors = Array[Color]([Color(1, 0, 0, 1), Color(1, 0.54901963, 0, 1), Color(1, 0.88235295, 0, 0.99215686), Color(0.2, 1, 0, 1), Color(0, 0.68235296, 1, 1), Color(0.36862746, 0, 1, 1), Color(0.9843137, 0, 1, 1)])
+trailChild = NodePath("trail")
+waveAmp = 25.0
+waveFreq = 2.5
+speed = 150.0
+
+[node name="trail" type="Line2D" parent="." unique_id=676434230]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width_curve = SubResource("Curve_7fef7")
+gradient = SubResource("Gradient_7fef7")
+script = ExtResource("2_7fef7")
+MAX_LENGTH = 35

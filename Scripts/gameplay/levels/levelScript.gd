@@ -12,6 +12,7 @@ class_name level
 
 var player:PackedScene = load("uid://cvslsain1kjbi")
 var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
+var levelBG:PackedScene = load("uid://d26gc0v3r14ju")
 var numGrids:int = 0
 var instGridsCompleted:int = 0
 
@@ -33,7 +34,8 @@ func _ready() -> void:
 			grid.gridCompleteBreakSig.connect(gridBreak)
 	else:
 		gridsComplete = true
-
+	add_child(levelBG.instantiate())
+	
 func _process(_delta: float) -> void:
 	if gridsComplete and portalInteracted:
 		onAllCompleted()
