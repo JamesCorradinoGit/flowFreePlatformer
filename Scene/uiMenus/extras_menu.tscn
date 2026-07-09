@@ -55,6 +55,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Credits:"
 
+[node name="mainCreditsLabel" type="Label" parent="extrasScroll/creditsVbox" unique_id=1620277073]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Main Credits:"
+
+[node name="mainCredits" type="Label" parent="extrasScroll/creditsVbox" unique_id=2042715977]
+layout_mode = 2
+text = "Potheterr: Main Scripting, UI, Music, Art"
+
 [node name="InspirationCreditsLabel" type="Label" parent="extrasScroll/creditsVbox" unique_id=1251878865]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
@@ -71,7 +80,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Scripts:"
 
-[node name="inspirationCredits2" type="Label" parent="extrasScroll/creditsVbox" unique_id=1841064390]
+[node name="scriptsCrdits" type="Label" parent="extrasScroll/creditsVbox" unique_id=1841064390]
 layout_mode = 2
 text = "Trail Effect by 16BitDev on Youtube"
 
@@ -85,6 +94,9 @@ layout_mode = 2
 text = "Configurable Box Blur by Nighteyes (GodotShaders.com)
 Rotate Snippet (GodotShaders.com)
 Basic Background Blur (4.3) by kanavernum (GodotShaders.com)
-Simple 2D Highlight by Astral_Sheep (GodotShaders.com)"
+Simple 2D Highlight by Astral_Sheep (GodotShaders.com)
+Scrolling Line Background by SuperMatCat24 (GodotShaders.com)
+Stars shader v2.0 by Juprup (GodotShaders.com)
+"
 
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

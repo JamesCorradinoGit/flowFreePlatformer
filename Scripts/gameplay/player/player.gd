@@ -4,8 +4,9 @@ extends CharacterBody2D
 @export var tweenTime:float = 0.5
 @onready var playerSprite: AnimatedSprite2D = $playerSprite
 
-const SPEED = 325.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -425.0
+const ACCEL = 2200
 
 var heldJump:bool = false
 var canJump:bool = true
@@ -27,11 +28,9 @@ func _physics_process(delta: float) -> void:
 			canJump = true
 		if canJump:
 			if Input.is_action_just_pressed("jump"):
-				velocity.y = JUMP_VELOCITY
-				canJump = false
-		elif velocity.y < 0.0:
-			if Input.is_action_just_released("jump"):
-				velocity.y *= 0.2
+				jump("normalJump")
+		elif velocity.y < 0.0 and Input.is_action_just_released("jump"):
+				jump("jumpCancel")
 		if (is_on_floor() == false) and canJump and coyoteTimer.is_stopped():
 			coyoteTimer.start()
 		#endregion
@@ -46,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, direction*SPEED, ACCEL*delta)
 		#endregion
 	#region animation
 	if is_on_floor() == false:
@@ -63,6 +62,13 @@ func _physics_process(delta: float) -> void:
 		playerSprite.play()
 	#endregion
 	move_and_slide()
+func jump(jumpType:String):
+	match jumpType:
+		"normalJump":
+			velocity.y = JUMP_VELOCITY
+			canJump = false
+		"jumpCancel":
+			velocity.y *= 0.2
 
 func respawnFunc(): 
 	if get_parent() is level:

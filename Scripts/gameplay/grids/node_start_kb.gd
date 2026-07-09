@@ -15,6 +15,13 @@ class_name lineNodeKB
 @onready var colBody: StaticBody2D = $connectLine/colBody
 @onready var colArea: Area2D = $connectLine/colArea
 @onready var recieveSprite: Sprite2D = $recieveSprite
+@onready var lineHighlightSprite: Sprite2D = $lineHighlightSprite
+
+var levelParent:level
+
+var lineHighlighted: bool = false
+var lineHighlightTweenTime: float = 0.15
+var localLineActiveTween:Tween
 
 var dragging: bool = false
 var lineConnected: bool = false
@@ -34,12 +41,20 @@ func _ready() -> void:
 	connectLine.default_color = lineColor
 	material = material.duplicate()
 	material.set_shader_parameter("newColor", lineColor)
+	endButton.material = endButton.material.duplicate()
+	endButton.material.set_shader_parameter("newColor", lineColor)
+	lineHighlightSprite.self_modulate = lineColor
 	if self.reciever:
 		endButton.disabled = true
 		endButton.hide()
 		recieveSprite.show()
 	if get_parent() is gridObject:
 		parentedToGrid = true
+	
+	if get_tree().current_scene is level:
+		levelParent = get_tree().current_scene
+	else:
+		push_warning("No proper level parent")
 
 func _process(_delta: float) -> void:
 	if dragging:
@@ -55,13 +70,31 @@ func _process(_delta: float) -> void:
 			submitLine()
 func submitLine():
 	dragging = false
+	lineHighlightEnd()
 	Globals.isAlreadyDragging = false
 	Globals.selectedLine = null
 	Globals.selectedLineArea = null
 	endButton.release_focus()
+	levelParent.updateGroundColors.emit(Color(1.0, 1.0, 1.0, 1.0))
 	self.submitDrag.emit()
 
-func checkLinePoints(direction:String):
+func lineHighlightStart():
+	if lineHighlighted == false:
+		var tween = create_tween()
+		localLineActiveTween = tween
+		tween.set_loops()
+		tween.tween_property(lineHighlightSprite, "scale", Vector2(0.9, 0.9), lineHighlightTweenTime)
+		tween.tween_property(lineHighlightSprite, "scale", Vector2(0.7, 0.7), lineHighlightTweenTime)
+		lineHighlightSprite.visible = true
+		lineHighlighted = true
+func lineHighlightEnd():
+	localLineActiveTween.kill()
+	lineHighlightSprite.visible = false
+	lineHighlighted = false
+func updateLineHighlightPos(localPosition:Vector2):
+	lineHighlightSprite.position = localPosition
+
+func checkLinePoints(direction:String): #main functionallity
 	var intersect:bool = false
 	var intersectCutoff = connectLine.get_point_count()
 	var changeVert:int = 0
@@ -91,6 +124,7 @@ func checkLinePoints(direction:String):
 	@warning_ignore("integer_division")
 	if getObstacleNodesAtPoint(to_global(Vector2(newSnapPos.x-(changeHori/2), newSnapPos.y-(changeVert/2)))):
 		return
+	#ALL FOLLOWING CODE RUNS IF THE POINT IS VALID IN THE GRID
 	if !lineConnected:
 		for i in range(connectLine.get_point_count()):
 			if connectLine.get_point_position(i).is_equal_approx(newSnapPos) and intersect == false:
@@ -100,11 +134,13 @@ func checkLinePoints(direction:String):
 				break
 		if intersect:
 			handleIntersect(intersectCutoff)
-		else:
+		else: #Runs if move is valid and not intersecting with different colored conduits
 			var otherNodeTest:lineNodeKB = getLineNodesAtPoint(to_global(newSnapPos))
 			if otherNodeTest != null and otherNodeTest.lineColor != self.lineColor:
 				return
 			connectLine.add_point(newSnapPos)
+			if lineHighlighted:
+				updateLineHighlightPos(newSnapPos)
 			addCollision(oldPos, newSnapPos)
 			self.onDrag.emit()
 			endButton.position = connectLine.get_point_position(connectLine.get_point_count()-1) - (endButton.size/2)
@@ -136,6 +172,7 @@ func handleIntersect(index):
 			connectLine.remove_point(i)
 			removeCollision(i)
 			endButton.position = connectLine.get_point_position(connectLine.get_point_count()-1) - (endButton.size/2)
+			updateLineHighlightPos(connectLine.get_point_position(connectLine.get_point_count()-1))
 func resetLine():
 	handleIntersect(0)
 func checkClosestPoint(posToCheck:Vector2, lineToCheck, rangeToCheck:int) -> int:
@@ -202,7 +239,9 @@ func _on_line_node_collision_area_exited(area: Area2D) -> void:
 			endButton.show()
 
 func _on_kb_drag_button_pressed() -> void:
-	if Globals.isAlreadyDragging == false:
+	if Globals.isAlreadyDragging == false: #TODO link click with color
+		lineHighlightStart()
+		levelParent.updateGroundColors.emit(self.lineColor)
 		dragging = true
 		Globals.isAlreadyDragging = true
 		Globals.selectedLine = self

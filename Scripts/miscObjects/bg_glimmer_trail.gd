@@ -17,6 +17,8 @@ func _ready() -> void:
 	trailChild.self_modulate.a = 0.5
 
 func _process(delta: float) -> void:
+	if position.x > get_viewport().get_visible_rect().size.x + 100:
+		queue_free()
 	position.y = beginPosition.y + (sin(totalTime*waveFreq) * waveAmp)
 	position.x += delta * speed
 	rotation_degrees += delta*speed

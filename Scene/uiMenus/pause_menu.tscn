@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://0jki0fjckxxy"]
+
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_l5sqk"]
+[ext_resource type="Script" uid="uid://dv5ivnebfhpvq" path="res://Scripts/ui/pause_menu.gd" id="2_dsnrk"]
+[ext_resource type="Shader" uid="uid://xws8etdt7ct0" path="res://Assets/Shaders/simpleSimpleBlur.gdshader" id="3_7nr7p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftd2s"]
+shader = ExtResource("3_7nr7p")
+shader_parameter/amount = 0.0
+
+[node name="pauseMenu" type="Control" unique_id=388491543]
+z_index = 10
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l5sqk")
+script = ExtResource("2_dsnrk")
+
+[node name="blurRect" type="ColorRect" parent="." unique_id=2025335406]
+z_index = 9
+material = SubResource("ShaderMaterial_ftd2s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="pausePanel" type="Panel" parent="." unique_id=1929627322]
+z_index = 10
+custom_minimum_size = Vector2(386, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3324653
+anchor_top = -0.9259259
+anchor_right = 0.6675347
+anchor_bottom = -0.15432099
+metadata/_edit_use_anchors_ = true
+
+[node name="pausedLabel" type="Label" parent="pausePanel" unique_id=147062775]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27979276
+anchor_top = 0.048
+anchor_right = 0.7202073
+anchor_bottom = 0.17
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pausePanel" unique_id=2014693786]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10880829
+anchor_top = 0.354
+anchor_right = 0.8911917
+anchor_bottom = 0.922
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="continueButton" type="Button" parent="pausePanel/VBoxContainer" unique_id=731194187]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "CONTINUE"
+metadata/_edit_use_anchors_ = true
+
+[node name="restartButton" type="Button" parent="pausePanel/VBoxContainer" unique_id=88335403]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "RESTART"
+metadata/_edit_use_anchors_ = true
+
+[node name="menuButton" type="Button" parent="pausePanel/VBoxContainer" unique_id=1561295995]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "MENU"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="pausePanel/VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="pausePanel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="pausePanel/VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]

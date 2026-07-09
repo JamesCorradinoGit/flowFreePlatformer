@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifierResource.gd" id="3_lgx4r"]
 [ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifierLineResource.gd" id="4_3lwpk"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="4_e8b8t"]
+[ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="5_3lwpk"]
 
 [sub_resource type="Resource" id="Resource_1xq0i"]
 script = ExtResource("4_3lwpk")
@@ -169,14 +170,20 @@ cellToModify = 56
 lineNodeAdd = SubResource("Resource_o4vr8")
 metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
-[node name="tutorial5" type="Node2D" unique_id=648413046 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "gridParent")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xq0i"]
+shader = ExtResource("5_3lwpk")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[node name="tutorial5" type="Node2D" unique_id=648413046 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "groundTileset", "gridParent")]
 script = ExtResource("1_uj8vk")
 playerSpawn = NodePath("spawnPoint")
 goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
+groundTileset = NodePath("tiles/groundTiles")
 gridParent = NodePath("grids")
 worldName = "Tutorial"
-lvlName = "Freeform Puzzle Solving"
+lvlName = "The Jump"
 
 [node name="grids" type="Node" parent="." unique_id=1869494578]
 
@@ -189,6 +196,7 @@ gridModifiers = Array[ExtResource("3_lgx4r")]([SubResource("Resource_hosa6"), Su
 [node name="tiles" type="Node" parent="." unique_id=2143999996]
 
 [node name="groundTiles" type="TileMapLayer" parent="tiles" unique_id=104435406]
+material = SubResource("ShaderMaterial_1xq0i")
 tile_map_data = PackedByteArray("AAAOAAQAAAABAAAAAAAPAAQAAAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAASAAQAAAABAAAAAAATAAQAAAABAAAAAAAUAAQAAAABAAAAAAAVAAQAAAABAAAAAAAVAAUAAAAEAAUAAAAUAAUAAAABAAIAAAATAAUAAAABAAIAAAASAAUAAAABAAIAAAARAAUAAAABAAIAAAAQAAUAAAABAAIAAAAPAAUAAAABAAIAAAAOAAUAAAAFAAUAAAANAAQAAAAAAAAAAAANAAUAAAAAAAEAAAANAAYAAAAAAAEAAAANAAcAAAAAAAIAAAAOAAYAAAACAAEAAAAOAAcAAAACAAIAAAAWAAQAAAACAAAAAAAWAAUAAAACAAEAAAAWAAYAAAACAAEAAAAWAAcAAAACAAIAAAAVAAYAAAAAAAEAAAAVAAcAAAAAAAIAAAD//xQAAAACAAEAAAD//xMAAAACAAEAAAD//xIAAAACAAEAAAD//xEAAAACAAEAAAD//xAAAAACAAEAAAD//w8AAAACAAEAAAD//w4AAAACAAEAAAD//w0AAAACAAEAAAD//wwAAAACAAEAAAD//wsAAAACAAEAAAD//woAAAACAAEAAAD//wkAAAACAAEAAAD//wgAAAACAAEAAAD//wcAAAACAAEAAAD//wYAAAACAAEAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD//wEAAAACAAEAAAD//wAAAAACAAEAAAAkABQAAAAAAAEAAAAkABMAAAAAAAEAAAAkABIAAAAAAAEAAAAkABEAAAAAAAEAAAAkABAAAAAAAAEAAAAkAA8AAAAAAAEAAAAkAA4AAAAAAAEAAAAkAA0AAAAAAAEAAAAkAAwAAAAAAAEAAAAkAAsAAAAAAAEAAAAkAAoAAAAAAAEAAAAkAAkAAAAAAAEAAAAkAAgAAAAAAAEAAAAkAAcAAAAAAAEAAAAkAAYAAAAAAAEAAAAkAAUAAAAAAAEAAAAkAAQAAAAAAAEAAAAkAAMAAAAAAAEAAAAkAAIAAAAAAAEAAAAkAAEAAAAAAAEAAAAkAAAAAAAAAAEAAAA=")
 tile_set = ExtResource("1_bsn8e")
 

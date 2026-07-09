@@ -10,6 +10,7 @@ var instWorldName:String = "N/A"
 var instLevelName:String = "N/A"
 
 func _ready() -> void:
+	blurRect.material = blurRect.material.duplicate()
 	blurRect.material.set_shader_parameter("amount", 0.0)
 	endWorldLabel.text = instWorldName
 	endNameLabel.text = instLevelName

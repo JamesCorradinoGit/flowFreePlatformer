@@ -1,9 +1,33 @@
 [gd_scene format=3 uid="uid://cb8b1y5gccm1m"]
 
+[ext_resource type="Shader" uid="uid://dvx5iwxhvqcve" path="res://Assets/Shaders/starShader.gdshader" id="1_681vb"]
 [ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="1_x5ttp"]
+[ext_resource type="Script" uid="uid://co2aw6kbrl2u8" path="res://Scripts/ui/level_bg_image.gd" id="2_xr6be"]
+[ext_resource type="PackedScene" uid="uid://chp5eer56d5o1" path="res://Objects/bg_glimmer_trail.tscn" id="3_exg6n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exg6n"]
+shader = ExtResource("1_681vb")
+shader_parameter/horizontalMovement = 0.1
+shader_parameter/verticalMovement = 0.1
+shader_parameter/frequencyStar = 0.0999999977648
+shader_parameter/sizeStar = 100.0
+shader_parameter/brightnessStar = 3.0
+shader_parameter/shineFrequencyStar = 8.0
+shader_parameter/transparencyStar = 0.93999997898912
+shader_parameter/starIterations = 3
+shader_parameter/frequencyBgStar = 0.99599999026407
+shader_parameter/shineFrequencyBgStar = 1.0
+shader_parameter/transparencyBgStar = 0.73999998345952
+shader_parameter/colorBackground = Color(0, 0, 0, 1)
+shader_parameter/transparencyBackground = 0.0
+shader_parameter/seed = 27.0
 
 [node name="levelBGImage" type="Sprite2D" unique_id=2012676834]
-z_index = -2
-position = Vector2(578.5, 325.49997)
-scale = Vector2(37.15625, 21.343748)
+z_index = -35
+material = SubResource("ShaderMaterial_exg6n")
+position = Vector2(579, 326.5)
+scale = Vector2(37.1875, 21.406252)
 texture = ExtResource("1_x5ttp")
+script = ExtResource("2_xr6be")
+glimmerObject = ExtResource("3_exg6n")
+glimmerSpawnInterval = 0.9

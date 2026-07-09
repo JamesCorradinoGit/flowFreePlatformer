@@ -17,12 +17,15 @@ var cellNumsToModify:Array[int] = []
 var linesToFill:int = 0
 var currentFilledLines:int = 0
 var gridCompleted:bool = false
+var levelParent: level
 
 signal gridCompletedSig
 signal gridCompleteBreakSig
 
 func _ready() -> void:
-	for mod:gridModifier in gridModifiers:
+	if owner is level: #assign level parent var
+		levelParent = owner
+	for mod:gridModifier in gridModifiers: #grid modifiers
 		if mod.cellToModify <= totalCells:
 			cellNumsToModify.append(mod.cellToModify)
 	var gNode = gridNode.instantiate()
@@ -45,7 +48,7 @@ func _ready() -> void:
 					instGNode.topObstacle = modIndex.topModify
 				if modIndex.bottomModify != null:
 					instGNode.bottomObstacle = modIndex.bottomModify
-				if modIndex.lineNodeAdd != null:
+				if modIndex.lineNodeAdd != null: #check if there is a conduit node
 					var line:lineNodeKB = lineNodeTscn.instantiate().duplicate()
 					line.lineColor = modIndex.lineNodeAdd.color
 					line.reciever = modIndex.lineNodeAdd.reciver

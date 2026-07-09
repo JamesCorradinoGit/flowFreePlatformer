@@ -4,8 +4,15 @@
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="1_34qoq"]
 [ext_resource type="Script" uid="uid://b0y80cip2kh8o" path="res://Scripts/gameplay/grids/node_start_kb.gd" id="2_3fock"]
 [ext_resource type="Texture2D" uid="uid://bgpahoibcxxeh" path="res://Assets/nodeImages/receiveNode.png" id="4_22m4q"]
+[ext_resource type="Texture2D" uid="uid://dif07a2lxouow" path="res://Assets/nodeImages/smallCircle.png" id="4_qake6"]
+[ext_resource type="Texture2D" uid="uid://3iigp300to3s" path="res://Assets/nodeImages/outlinedSquare.png" id="6_ite5n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_22m4q"]
+shader = ExtResource("1_34qoq")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ite5n"]
 shader = ExtResource("1_34qoq")
 shader_parameter/origin = Color(1, 1, 1, 1)
 shader_parameter/newColor = Color(1, 1, 1, 1)
@@ -22,8 +29,9 @@ script = ExtResource("2_3fock")
 cols = [Vector2(0, 0)]
 arCols = [Vector2(0, 0)]
 
-[node name="kbDragButton" type="Button" parent="." unique_id=1228710774]
+[node name="kbDragButton" type="TextureButton" parent="." unique_id=2012540969]
 z_as_relative = false
+material = SubResource("ShaderMaterial_ite5n")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,6 +43,11 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 3
+texture_normal = ExtResource("4_qake6")
+texture_pressed = ExtResource("4_qake6")
+texture_hover = ExtResource("4_qake6")
+texture_disabled = ExtResource("4_qake6")
+texture_focused = ExtResource("4_qake6")
 
 [node name="connectLine" type="Line2D" parent="." unique_id=868076600]
 z_index = 2
@@ -64,6 +77,10 @@ debug_color = Color(0.95, 0, 0.57000035, 0.16078432)
 visible = false
 self_modulate = Color(1, 1, 1, 0.5294118)
 texture = ExtResource("4_22m4q")
+
+[node name="lineHighlightSprite" type="Sprite2D" parent="." unique_id=613685492]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_ite5n")
 
 [connection signal="pressed" from="kbDragButton" to="." method="_on_kb_drag_button_pressed"]
 [connection signal="area_entered" from="connectLine/colArea" to="." method="_on_col_area_area_entered"]
