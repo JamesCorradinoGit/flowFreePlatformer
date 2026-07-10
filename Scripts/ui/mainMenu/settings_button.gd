@@ -22,9 +22,11 @@ func menuButtonsTweenFix():
 	tween.tween_property(self, "global_position", Vector2(buttonReference.global_position.x, global_position.y), 0.2)
 
 func _on_pressed() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0)
 	canvasMenu.removeButtons.emit()
 	canvasMenu.showExtraMenu.emit("settings")
 func _on_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0)
 	if doLocalButtonTween:
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)

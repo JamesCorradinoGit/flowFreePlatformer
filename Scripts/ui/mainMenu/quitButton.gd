@@ -16,9 +16,11 @@ func _ready() -> void:
 		combinedTweenPos = global_position + tweenOffset
 
 func _on_pressed() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0)
 	get_tree().quit()
 
 func _on_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0)
 	if doLocalButtonTween:
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", combinedTweenPos, tweenTime)

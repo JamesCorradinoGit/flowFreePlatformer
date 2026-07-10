@@ -17,3 +17,7 @@ func _on_fullscreen_button_item_selected(index: int) -> void:
 func _on_back_button_pressed() -> void:
 	controlParent.hideExtraMenu.emit()
 	controlParent.showButtons.emit()
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
+
+func _on_back_button_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

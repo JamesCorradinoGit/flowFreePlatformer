@@ -93,4 +93,5 @@ text = "BACK"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="item_selected" from="graphicsContainer/graphicsVbox/fullscreenButton" to="." method="_on_fullscreen_button_item_selected"]
+[connection signal="mouse_entered" from="backButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

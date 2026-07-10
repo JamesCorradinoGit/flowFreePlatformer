@@ -9,6 +9,7 @@ shader = ExtResource("3_7nr7p")
 shader_parameter/amount = 0.0
 
 [node name="pauseMenu" type="Control" unique_id=388491543]
+process_mode = 3
 z_index = 10
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
@@ -87,6 +88,9 @@ layout_mode = 2
 text = "MENU"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="mouse_entered" from="pausePanel/VBoxContainer/continueButton" to="." method="_on_continue_button_mouse_entered"]
 [connection signal="pressed" from="pausePanel/VBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="mouse_entered" from="pausePanel/VBoxContainer/restartButton" to="." method="_on_restart_button_mouse_entered"]
 [connection signal="pressed" from="pausePanel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="pausePanel/VBoxContainer/menuButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="pausePanel/VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]

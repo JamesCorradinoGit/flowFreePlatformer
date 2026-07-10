@@ -16,10 +16,15 @@ run/main_scene="uid://cm0dmoglwp1ru"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/Audio/default_bus_layout.tres"
+
 [autoload]
 
 Globals="*uid://cn6ukld3xkn8h"
 GlobalSceneLoader="*uid://dn8d3ia3s44b7"
+GlobalAudioManager="*uid://cr3g35be6ymnn"
 
 [display]
 

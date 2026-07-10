@@ -99,4 +99,5 @@ Scrolling Line Background by SuperMatCat24 (GodotShaders.com)
 Stars shader v2.0 by Juprup (GodotShaders.com)
 "
 
+[connection signal="mouse_entered" from="backButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

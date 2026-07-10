@@ -11,6 +11,7 @@ class_name levelSelectButton
 @onready var lockAnimations: AnimationPlayer = $lockAnimations
 
 var ownerMenuPanel: worldMenuBase
+var doLockBasePressedState:bool = true
 
 signal levelUnlocked
 
@@ -35,6 +36,7 @@ func lockLevel():
 	lockIcon.visible = true
 	self.disabled = true
 func unlockLevel(newUnlock: bool, levelComparison:PackedScene):
+	doLockBasePressedState = false
 	lockAnimations.play("unlockIdle")
 	if newUnlock or Globals.unlockedButtonLevels[levelComparison] == false:
 		await lockIcon.pressed
@@ -57,10 +59,12 @@ func checkIfLevelGlobalUnlocked(levelName:PackedScene) -> bool:
 
 func _on_pressed() -> void:
 	if self.locked == false:
+		GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 		GlobalSceneLoader.loadScene(str(levelToSwitch.resource_path))
 
 func _on_mouse_entered() -> void:
 	if self.locked == false:
+		GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 		var levelInstTest:level = levelToSwitch.instantiate()
 		ownerMenuPanel.showLevelLabel.emit(levelInstTest.lvlName)
 		levelInstTest.queue_free()
@@ -71,7 +75,9 @@ func _on_mouse_exited() -> void:
 
 #region lock icon stuff
 func _on_lock_icon_pressed() -> void:
-	lockAnimations.play("lockJiggle")
+	if doLockBasePressedState:
+		lockAnimations.play("lockJiggle")
+		GlobalAudioManager.playGlobalSFX("uid://djei0iy7gunye", 3.0, randf_range(-0.25, 0.25)) #lock jiggle sfx
 
 func _on_lock_icon_mouse_entered() -> void:
 	var tween = create_tween()

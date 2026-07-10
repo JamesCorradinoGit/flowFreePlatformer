@@ -29,4 +29,8 @@ func switchWorldMenu(newMenu:PackedScene):
 		instWM.queue_free()
 
 func _on_back_button_pressed() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")
+
+func _on_back_button_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
