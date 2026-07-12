@@ -11,6 +11,8 @@ signal switchCurrentLoadedWorld(newMenu:PackedScene)
 
 func _ready() -> void:
 	switchCurrentLoadedWorld.connect(switchWorldMenu)
+	if GlobalAudioManager.activeSong == null:
+		GlobalAudioManager.playMusic(GlobalAudioManager.songList["menuWithoutIntro"], -10)
 
 func switchWorldMenu(newMenu:PackedScene):
 	var instWM:worldMenuBase = newMenu.instantiate()

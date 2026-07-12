@@ -20,6 +20,7 @@ groundTileset = NodePath("tiles/groundTiles")
 hasGrids = false
 worldName = "Tutorial"
 lvlName = "An Introduction to Platforming"
+lvlSongDictionaryKey = "tutorial"
 
 [node name="tiles" type="Node" parent="." unique_id=1256479140]
 

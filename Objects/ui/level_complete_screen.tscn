@@ -228,32 +228,31 @@ metadata/_edit_use_anchors_ = true
 [node name="resetButton" type="Button" parent="endingPanel" unique_id=203538984]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.12676056
+anchor_left = 0.082746476
 anchor_top = 0.5819403
-anchor_right = 0.23943663
+anchor_right = 0.38908452
 anchor_bottom = 0.8100474
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_fq745")
+text = "RESTART"
 icon = ExtResource("3_x6av7")
-icon_alignment = 1
-expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="menuButton" type="Button" parent="endingPanel" unique_id=156366199]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.75176054
+anchor_left = 0.67077464
 anchor_top = 0.5819403
-anchor_right = 0.8644366
+anchor_right = 0.91021127
 anchor_bottom = 0.8100474
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_fq745")
+text = "MENU"
 icon = ExtResource("4_26s4p")
-icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="endingPanel/resetButton" to="." method="_on_reset_button_pressed"]

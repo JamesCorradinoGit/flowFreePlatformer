@@ -29,6 +29,8 @@ func _ready() -> void:
 	enableButtons.connect(enableAllButtons)
 	showExtraMenu.connect(showExtraMenuFunc)
 	hideExtraMenu.connect(hideExtraMenuFunc)
+	if GlobalAudioManager.activeSong == null:
+		GlobalAudioManager.playMusic(GlobalAudioManager.songList["menuWithoutIntro"], -10)
 
 func showExtraMenuFunc(menu:String):
 	var localExtraMenu

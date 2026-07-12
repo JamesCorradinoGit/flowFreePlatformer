@@ -28,6 +28,9 @@ var lineConnected: bool = false
 var parentedToGrid:bool = false
 const SNAP:int = Globals.globalSnap
 
+var conduitAudioVolume:float = -5
+var moveAudioVolume:float = 3.0
+
 @warning_ignore_start("unused_signal")
 signal startDrag
 signal onDrag
@@ -69,6 +72,7 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("moveDone"):
 			submitLine()
 func submitLine():
+	GlobalAudioManager.playGlobalSFX("uid://255p0kw5tkjk", conduitAudioVolume, 2) #conduitSubmit
 	dragging = false
 	lineHighlightEnd()
 	Globals.isAlreadyDragging = false
@@ -129,23 +133,27 @@ func checkLinePoints(direction:String): #main functionallity
 		for i in range(connectLine.get_point_count()):
 			if connectLine.get_point_position(i).is_equal_approx(newSnapPos) and intersect == false:
 				intersect = true
-			if intersect:
+			if intersect: #finds if move is a backtrack
 				intersectCutoff = i
 				break
-		if intersect:
+		if intersect: #handles backtrack
 			handleIntersect(intersectCutoff)
-		else: #Runs if move is valid and not intersecting with different colored conduits
+			GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", moveAudioVolume, randf_range(-0.5, 0)) #hover sfx
+		else: #Runs if move is valid and not intersecting with other lines
 			var otherNodeTest:lineNodeKB = getLineNodesAtPoint(to_global(newSnapPos))
 			if otherNodeTest != null and otherNodeTest.lineColor != self.lineColor:
 				return
+			#Runs if move is valid and not intersecting with different colored conduits or lines
 			connectLine.add_point(newSnapPos)
 			if lineHighlighted:
 				updateLineHighlightPos(newSnapPos)
 			addCollision(oldPos, newSnapPos)
 			self.onDrag.emit()
+			GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", moveAudioVolume, randf_range(-0.25, .25)) #movesfx
 			endButton.position = connectLine.get_point_position(connectLine.get_point_count()-1) - (endButton.size/2)
 	elif lineConnected:
 		handleIntersect(connectLine.get_point_count()-2)
+		GlobalAudioManager.playGlobalSFX("uid://bjek1r4skq1sm", conduitAudioVolume,2) #disconnect sfx
 		self.connectBreak.emit()
 func addCollision(oldPos:Vector2, newPos:Vector2):
 	var colBox = CollisionShape2D.new()
@@ -222,6 +230,7 @@ func _on_col_area_area_entered(area: Area2D) -> void:
 			if intersectPoint != 0:
 				areaParent.handleIntersect(intersectPoint-1)
 				if areaParent.lineConnected:
+					GlobalAudioManager.playGlobalSFX("uid://bjek1r4skq1sm", 0, 2) #disconnect sfx
 					areaParent.connectBreak.emit()
 			else:
 				areaParent.resetLine()
@@ -230,6 +239,7 @@ func _on_line_node_collision_area_entered(area: Area2D) -> void:
 	if area.name == "colArea" and area.owner != self and self.lineColor == area.owner.lineColor and self.reciever == true:
 		area.owner.lineConnected = true
 		area.owner.connectSuccess.emit()
+		GlobalAudioManager.playGlobalSFX("uid://fqeqcaneo61f", conduitAudioVolume, 2) #connect sfx
 
 func _on_line_node_collision_area_exited(area: Area2D) -> void:
 	if area.get_parent() is Line2D:
@@ -239,7 +249,8 @@ func _on_line_node_collision_area_exited(area: Area2D) -> void:
 			endButton.show()
 
 func _on_kb_drag_button_pressed() -> void:
-	if Globals.isAlreadyDragging == false: #TODO link click with color
+	if Globals.isAlreadyDragging == false: 
+		GlobalAudioManager.playGlobalSFX("uid://cwypf34rwmfi5", conduitAudioVolume, 2) #conduitClick
 		lineHighlightStart()
 		levelParent.updateGroundColors.emit(self.lineColor)
 		dragging = true

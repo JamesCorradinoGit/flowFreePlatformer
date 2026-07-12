@@ -12,6 +12,8 @@ var heldJump:bool = false
 var canJump:bool = true
 var isRespawning:bool = false
 
+var wasLastFrameInAir:bool = false
+
 signal triggerRespawn
 
 func _ready() -> void:
@@ -20,11 +22,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if is_on_floor() and wasLastFrameInAir:
+		onLand()
 	if Globals.isAlreadyDragging == true:
 		velocity.x = 0
 	if Globals.isAlreadyDragging == false:
 		#region jump
 		if is_on_floor() and canJump == false:
+			wasLastFrameInAir = false
 			canJump = true
 		if canJump:
 			if Input.is_action_just_pressed("jump"):
@@ -62,13 +67,20 @@ func _physics_process(delta: float) -> void:
 		playerSprite.play()
 	#endregion
 	move_and_slide()
+	
+	if is_on_floor() == false:
+		wasLastFrameInAir = true
+
 func jump(jumpType:String):
 	match jumpType:
 		"normalJump":
+			GlobalAudioManager.playGlobalSFX("uid://7wrv6s08ncoi", -4.0, randf_range(-.25,0))
 			velocity.y = JUMP_VELOCITY
 			canJump = false
 		"jumpCancel":
 			velocity.y *= 0.2
+func onLand():
+	GlobalAudioManager.playGlobalSFX("uid://bxlxo4i5b2qj7", 0, 0.2)
 
 func respawnFunc(): 
 	if get_parent() is level:

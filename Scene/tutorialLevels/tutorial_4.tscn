@@ -207,6 +207,7 @@ groundTileset = NodePath("tiles/groundTiles")
 gridParent = NodePath("grids")
 worldName = "Tutorial"
 lvlName = "Climbing the Conduit Tower"
+lvlSongDictionaryKey = "tutorial"
 
 [node name="grids" type="Node" parent="." unique_id=282028762]
 

@@ -40,9 +40,11 @@ func unlockLevel(newUnlock: bool, levelComparison:PackedScene):
 	lockAnimations.play("unlockIdle")
 	if newUnlock or Globals.unlockedButtonLevels[levelComparison] == false:
 		await lockIcon.pressed
+		GlobalAudioManager.playGlobalSFX("uid://djei0iy7gunye", 3.0, randf_range(-0.25, 0.25)) #lock jiggle sfx
 		Globals.unlockedButtonLevels[levelComparison] = true
 		lockAnimations.play("unlockClick")
 		await lockAnimations.animation_finished
+		GlobalAudioManager.playGlobalSFX("uid://cura2dyhxdgw", 3.0, randf_range(-0.25, 0.25)) #lock explo sfx
 		await jettisonLock(100)
 	lockIcon.visible = false
 	self.disabled = false
@@ -61,6 +63,7 @@ func _on_pressed() -> void:
 	if self.locked == false:
 		GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 		GlobalSceneLoader.loadScene(str(levelToSwitch.resource_path))
+		GlobalAudioManager.fadeOutMusicRemove(0.25)
 
 func _on_mouse_entered() -> void:
 	if self.locked == false:
@@ -80,6 +83,7 @@ func _on_lock_icon_pressed() -> void:
 		GlobalAudioManager.playGlobalSFX("uid://djei0iy7gunye", 3.0, randf_range(-0.25, 0.25)) #lock jiggle sfx
 
 func _on_lock_icon_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 	var tween = create_tween()
 	tween.tween_property(lockIcon, "scale", Vector2(1.15, 1.15), 0.05)
 

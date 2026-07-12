@@ -1,6 +1,12 @@
 extends Node
 class_name AudioManager
 
+var activeSong: AudioStreamPlayer
+var songList: Dictionary = {
+	"menuWithoutIntro": "uid://dr5uum6ondds8",
+	"tutorial": "uid://qkj24y50dgh"
+}
+
 #Created by Potheterr
 func playGlobalSFX(sfxPath:String, decibels:float, pitchVariation:float = 0.0):
 	var audioInst = AudioStreamPlayer.new()
@@ -14,5 +20,23 @@ func playGlobalSFX(sfxPath:String, decibels:float, pitchVariation:float = 0.0):
 	await audioInst.finished
 	audioInst.queue_free()
 
-func playMusic():
-	pass
+func playMusic(songPath:String, decibels:float):
+	var audioInst = AudioStreamPlayer.new()
+	audioInst.process_mode = Node.PROCESS_MODE_ALWAYS
+	audioInst.stream = load(songPath)
+	audioInst.volume_db = decibels
+	audioInst.autoplay = true
+	audioInst.bus = "Music"
+	activeSong = audioInst
+	add_child(audioInst)
+func fadeOutMusicKeep(fadeTime:float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
+func fadeInMusicKeep(fadeTime:float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(activeSong, "volume_linear", 1, fadeTime)
+func fadeOutMusicRemove(fadeTime:float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
+	await tween.finished
+	activeSong.queue_free()

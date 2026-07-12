@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_l5sqk"]
 [ext_resource type="Script" uid="uid://dv5ivnebfhpvq" path="res://Scripts/ui/pause_menu.gd" id="2_dsnrk"]
 [ext_resource type="Shader" uid="uid://xws8etdt7ct0" path="res://Assets/Shaders/simpleSimpleBlur.gdshader" id="3_7nr7p"]
+[ext_resource type="Texture2D" uid="uid://ci2y18bo7bvme" path="res://Assets/ui/resetIcon.png" id="4_v1ffr"]
+[ext_resource type="Texture2D" uid="uid://b75bgm7ysll27" path="res://Assets/ui/menuIcon.png" id="5_sqxej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftd2s"]
 shader = ExtResource("3_7nr7p")
@@ -80,12 +82,14 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 text = "RESTART"
+icon = ExtResource("4_v1ffr")
 metadata/_edit_use_anchors_ = true
 
 [node name="menuButton" type="Button" parent="pausePanel/VBoxContainer" unique_id=1561295995]
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 text = "MENU"
+icon = ExtResource("5_sqxej")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="pausePanel/VBoxContainer/continueButton" to="." method="_on_continue_button_mouse_entered"]

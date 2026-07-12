@@ -14,6 +14,7 @@ func _on_portal_collision_body_entered(body: Node2D) -> void:
 		tween.tween_property(body, "global_position", global_position, self.tweenDuration)
 		tween.tween_property(body, "scale", Vector2.ZERO, self.tweenDuration)
 		tween.play()
+		GlobalAudioManager.playGlobalSFX("uid://ctarj8nx4hm6m", -2, 0.2)
 		await tween.finished
 		body.queue_free()
 		goalReached.emit()

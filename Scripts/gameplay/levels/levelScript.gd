@@ -10,6 +10,7 @@ class_name level
 @export_category("Level Details")
 @export var worldName:String = ""
 @export var lvlName:String = ""
+@export var lvlSongDictionaryKey:String = ""
 
 var player:PackedScene = load("uid://cvslsain1kjbi")
 var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
@@ -49,6 +50,11 @@ func _ready() -> void:
 	else:
 		gridsComplete = true
 	add_child(levelBG.instantiate())
+	
+	if self.lvlSongDictionaryKey != "" and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey):
+		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -10)
+	else:
+		push_warning("No song loaded in level")
 
 func _process(_delta: float) -> void:
 	if gridsComplete and portalInteracted:
