@@ -20,7 +20,7 @@ func playGlobalSFX(sfxPath:String, decibels:float, pitchVariation:float = 0.0):
 	await audioInst.finished
 	audioInst.queue_free()
 
-func playMusic(songPath:String, decibels:float):
+func playMusic(songPath:String, decibels:float, fadeIn:bool = true):
 	var audioInst = AudioStreamPlayer.new()
 	audioInst.process_mode = Node.PROCESS_MODE_ALWAYS
 	audioInst.stream = load(songPath)
@@ -29,13 +29,17 @@ func playMusic(songPath:String, decibels:float):
 	audioInst.bus = "Music"
 	activeSong = audioInst
 	add_child(audioInst)
-func fadeOutMusicKeep(fadeTime:float = 0.5):
+	if fadeIn:
+		audioInst.volume_linear = 0.0
+		var tween = create_tween()
+		tween.tween_property(audioInst, "volume_linear", db_to_linear(decibels), 0.25)
+func fadeOutMusicKeep(fadeTime:float = 0.25):
 	var tween = create_tween()
 	tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
-func fadeInMusicKeep(fadeTime:float = 0.5):
+func fadeInMusicKeep(fadeTime:float = 0.25):
 	var tween = create_tween()
 	tween.tween_property(activeSong, "volume_linear", 1, fadeTime)
-func fadeOutMusicRemove(fadeTime:float = 0.5):
+func fadeOutMusicRemove(fadeTime:float = 0.25):
 	var tween = create_tween()
 	tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
 	await tween.finished

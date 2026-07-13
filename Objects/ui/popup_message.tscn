@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://5pe1hsybkpns"]
+
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_7m6fj"]
+[ext_resource type="Script" uid="uid://6261oykd7sk" path="res://Scripts/ui/popup_message_object.gd" id="2_c5w6x"]
+
+[node name="popupMessage" type="Control" unique_id=1163234895]
+z_index = 20
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7m6fj")
+script = ExtResource("2_c5w6x")
+
+[node name="popupPanel" type="Panel" parent="." unique_id=1237748405]
+custom_minimum_size = Vector2(342, 209)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3141493
+anchor_top = 0.6419753
+anchor_right = -0.0172743
+anchor_bottom = 0.96450615
+offset_top = 3.0517578e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="popupNamePanel" type="Panel" parent="popupPanel" unique_id=764689357]
+custom_minimum_size = Vector2(198.54361, 44)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06375839
+anchor_top = -0.119617224
+anchor_right = 0.6520468
+anchor_bottom = 0.09090909
+metadata/_edit_use_anchors_ = true
+
+[node name="popupNameLabel" type="Label" parent="popupPanel/popupNamePanel" unique_id=1451230681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "POPUP LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="popupText" type="Label" parent="popupPanel" unique_id=704633366]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049707603
+anchor_top = 0.13397129
+anchor_right = 0.9502924
+anchor_bottom = 0.8660287
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "POPUP TEXT"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true

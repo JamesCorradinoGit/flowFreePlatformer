@@ -78,9 +78,48 @@ layout_mode = 2
 [node name="volumeLabel" type="Label" parent="audioContainer/audioVbox" unique_id=88569067]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "add settings :P"
+text = "Volume:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="masterVolumeLabel" type="Label" parent="audioContainer/audioVbox" unique_id=174653616]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Master:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="masterVolumeSlider" type="HSlider" parent="audioContainer/audioVbox" unique_id=976954483]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="musicVolumeLabel" type="Label" parent="audioContainer/audioVbox" unique_id=584476981]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Music:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="musicVolumeSlider" type="HSlider" parent="audioContainer/audioVbox" unique_id=47000627]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="sfxVolumeLabel" type="Label" parent="audioContainer/audioVbox" unique_id=1167149760]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Sound Effects:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfxVolumeSlider" type="HSlider" parent="audioContainer/audioVbox" unique_id=22202975]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="backButton" type="Button" parent="." unique_id=2088391654]
 layout_mode = 0
@@ -93,5 +132,8 @@ text = "BACK"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="item_selected" from="graphicsContainer/graphicsVbox/fullscreenButton" to="." method="_on_fullscreen_button_item_selected"]
+[connection signal="value_changed" from="audioContainer/audioVbox/masterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="audioContainer/audioVbox/musicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="audioContainer/audioVbox/sfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="mouse_entered" from="backButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

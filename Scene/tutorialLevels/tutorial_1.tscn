@@ -21,6 +21,11 @@ hasGrids = false
 worldName = "Tutorial"
 lvlName = "An Introduction to Platforming"
 lvlSongDictionaryKey = "tutorial"
+startWithPopup = true
+startingPopupName = "Tutorial"
+startingPopupMessage = "Welcome to Flob!
+Move with A & S and jump with W or SPACE! Reach the portal to complete the platforming section of a level.
+Your player is under this text box."
 
 [node name="tiles" type="Node" parent="." unique_id=1256479140]
 

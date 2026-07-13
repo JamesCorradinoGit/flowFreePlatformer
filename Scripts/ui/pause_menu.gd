@@ -36,6 +36,7 @@ func _on_continue_button_mouse_entered() -> void:
 func _on_restart_button_pressed() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalSceneLoader.loadScene(str(get_tree().current_scene.scene_file_path))
+	GlobalAudioManager.fadeOutMusicRemove(0.25)
 	get_tree().paused = false
 func _on_restart_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
@@ -43,6 +44,7 @@ func _on_restart_button_mouse_entered() -> void:
 func _on_menu_button_pressed() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")
+	GlobalAudioManager.fadeOutMusicRemove()
 	get_tree().paused = false
 func _on_menu_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

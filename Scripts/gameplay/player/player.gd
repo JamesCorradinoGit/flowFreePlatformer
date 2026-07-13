@@ -81,6 +81,7 @@ func jump(jumpType:String):
 			velocity.y *= 0.2
 func onLand():
 	GlobalAudioManager.playGlobalSFX("uid://bxlxo4i5b2qj7", 0, 0.2)
+	wasLastFrameInAir = false
 
 func respawnFunc(): 
 	if get_parent() is level:

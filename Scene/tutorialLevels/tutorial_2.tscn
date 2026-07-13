@@ -116,6 +116,10 @@ gridParent = NodePath("grids")
 worldName = "Tutorial"
 lvlName = "An Introduction to Conduits"
 lvlSongDictionaryKey = "tutorial"
+startWithPopup = true
+startingPopupName = "Tutorial"
+startingPopupMessage = "This level introduces conduits, a platform that YOU control! Click on an empty conduit and connect it to the reciever of the same color! Submit your line using SPACE or ENTER. Connect all conduits to complete a grid."
+startingPopupDuration = 10.0
 
 [node name="grids" type="Node" parent="." unique_id=498071362]
 

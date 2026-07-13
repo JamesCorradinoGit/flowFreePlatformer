@@ -12,8 +12,10 @@ config_version=5
 
 config/name="Flow Free Platformer"
 config/description="Enter an interesting project description here!"
-run/main_scene="uid://cm0dmoglwp1ru"
+run/main_scene="uid://tgpsh0ga5l8b"
 config/features=PackedStringArray("4.6")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [audio]
@@ -25,6 +27,7 @@ buses/default_bus_layout="res://Assets/Audio/default_bus_layout.tres"
 Globals="*uid://cn6ukld3xkn8h"
 GlobalSceneLoader="*uid://dn8d3ia3s44b7"
 GlobalAudioManager="*uid://cr3g35be6ymnn"
+GlobalPopup="*uid://diu5xy36c41ad"
 
 [display]
 

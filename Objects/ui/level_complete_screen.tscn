@@ -255,5 +255,7 @@ text = "MENU"
 icon = ExtResource("4_26s4p")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="mouse_entered" from="endingPanel/resetButton" to="." method="_on_reset_button_mouse_entered"]
 [connection signal="pressed" from="endingPanel/resetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="mouse_entered" from="endingPanel/menuButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="endingPanel/menuButton" to="." method="_on_menu_button_pressed"]

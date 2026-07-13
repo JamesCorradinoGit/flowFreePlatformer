@@ -11,6 +11,11 @@ class_name level
 @export var worldName:String = ""
 @export var lvlName:String = ""
 @export var lvlSongDictionaryKey:String = ""
+@export_category("Popup Starters")
+@export var startWithPopup:bool = false
+@export var startingPopupName:String
+@export_multiline() var startingPopupMessage:String
+@export var startingPopupDuration:float = 5.0
 
 var player:PackedScene = load("uid://cvslsain1kjbi")
 var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
@@ -51,11 +56,13 @@ func _ready() -> void:
 		gridsComplete = true
 	add_child(levelBG.instantiate())
 	
-	if self.lvlSongDictionaryKey != "" and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey):
-		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -10)
+	if self.lvlSongDictionaryKey != "" and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey) and GlobalAudioManager.activeSong == null:
+		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -12.0)
 	else:
 		push_warning("No song loaded in level")
-
+	
+	if self.startWithPopup:
+		GlobalPopup.showMessage(self.startingPopupName, self.startingPopupMessage, self.startingPopupDuration, self)
 func _process(_delta: float) -> void:
 	if gridsComplete and portalInteracted:
 		onAllCompleted()

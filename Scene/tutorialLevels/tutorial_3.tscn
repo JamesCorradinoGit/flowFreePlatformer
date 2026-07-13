@@ -139,6 +139,10 @@ gridParent = NodePath("grids")
 worldName = "Tutorial"
 lvlName = "Mixing Movement and Conduits"
 lvlSongDictionaryKey = "tutorial"
+startWithPopup = true
+startingPopupName = "Tutorial"
+startingPopupMessage = "Levels can contain multiple grids, which all need to be completed before a level can be finished.
+Your player is under this text box."
 
 [node name="grids" type="Node" parent="." unique_id=1531433660]
 
