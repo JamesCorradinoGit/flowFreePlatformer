@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Builds/Flobv0_1_0_1.exe
+Builds/Flow Free Platformer Demo.exe
