@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://6261oykd7sk" path="res://Scripts/ui/popup_message_object.gd" id="2_c5w6x"]
 
 [node name="popupMessage" type="Control" unique_id=1163234895]
-z_index = 20
+z_index = 10
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15

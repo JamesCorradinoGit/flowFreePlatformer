@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name gridObject
 
@@ -23,6 +24,9 @@ signal gridCompletedSig
 signal gridCompleteBreakSig
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if owner is level: #assign level parent var
 		levelParent = owner
 	for mod:gridModifier in gridModifiers: #grid modifiers
@@ -36,7 +40,7 @@ func _ready() -> void:
 	var maxGridIndexY = gridSizeY-1
 	for r in range(gridSizeY):
 		for c in range(gridSizeX):
-			var instGNode = gNode.duplicate()
+			var instGNode:gridSpace = gNode.duplicate()
 			instGNode.name = "gridNode"+str(ind)
 			if cellNumsToModify.find(ind) != -1:
 				var modIndex = self.gridModifiers[cellNumsToModify.find(ind)]
@@ -54,7 +58,8 @@ func _ready() -> void:
 					line.reciever = modIndex.lineNodeAdd.reciver
 					instGNode.addedLine = line
 				elif modIndex.middleCellModify != null: #TODO implement
-					print("middle priority")
+					if modIndex.middleCellModify is gridMiddleModifierObject:
+						instGNode.middleNode = modIndex.middleCellModify.instanceGridObject()
 			match c:
 				0:
 					instGNode.leftObstacle = gridBorder
@@ -76,6 +81,23 @@ func _ready() -> void:
 		if line.reciever == false:
 			line.connect("connectSuccess", onLineConnect)
 			line.connect("connectBreak", onLineDisconnect)
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		queue_redraw()
+func _draw() -> void:
+	@warning_ignore_start("integer_division")
+	if Engine.is_editor_hint():
+		var halfGlobalSnap = Globals.globalSnap / 2
+		var startingLinePos = halfGlobalSnap
+		draw_rect(Rect2(Vector2i(-Globals.globalSnap/2, -Globals.globalSnap/2), Vector2i(Globals.globalSnap * self.gridSizeX, Globals.globalSnap * self.gridSizeY)), Color.WHITE, false)
+		for x in range(self.gridSizeX - 1):
+			draw_line(Vector2(startingLinePos, -halfGlobalSnap), Vector2(startingLinePos, (self.gridSizeY * Globals.globalSnap)-halfGlobalSnap), Color.RED)
+			startingLinePos += Globals.globalSnap
+		startingLinePos = halfGlobalSnap
+		for y in range(self.gridSizeY - 1):
+			draw_line(Vector2(-halfGlobalSnap, startingLinePos), Vector2((self.gridSizeX * Globals.globalSnap)-halfGlobalSnap, startingLinePos), Color.ORANGE)
+			startingLinePos += Globals.globalSnap
 
 func onLineConnect():
 	currentFilledLines += 1

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Flow Free Platformer"
+config/name="Flob"
 config/description="Enter an interesting project description here!"
 run/main_scene="uid://tgpsh0ga5l8b"
 config/features=PackedStringArray("4.6")
@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 flowLines=""
 flowLineObstacle=""
+flowLineInteractableObstacle=""
 
 [input]
 

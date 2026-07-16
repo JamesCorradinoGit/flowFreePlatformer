@@ -1,17 +1,21 @@
 extends Sprite2D
+class_name gridSpace
 
 @export_category("Border Obstacles")
 @export var leftObstacle:PackedScene
 @export var rightObstacle:PackedScene
 @export var topObstacle:PackedScene
 @export var bottomObstacle:PackedScene
-@export var middleNode:PackedScene
+@export var middleNode:Node
 @export var addedLine:Sprite2D
 
 @onready var spawnSpot: Marker2D = $spawnSpot
 
+var gridParent:gridObject
+
 @warning_ignore_start("integer_division")
 func _ready() -> void:
+	gridParent = get_parent()
 	if leftObstacle != null:
 		var obstInst = leftObstacle.instantiate().duplicate()
 		obstInst.position = Vector2(-Globals.globalSnap/2,0)
@@ -31,9 +35,8 @@ func _ready() -> void:
 		obstInst.position = Vector2(0,Globals.globalSnap/2)
 		add_child(obstInst)
 	if middleNode != null:
-		var obstInst = middleNode.instantiate().duplicate()
-		obstInst.position = spawnSpot.position
-		add_child(obstInst)
+		middleNode.position = spawnSpot.position
+		add_child(middleNode)
 	if addedLine != null:
 		var obstInst = addedLine
 		get_parent().find_child("flowLines").add_child(obstInst)

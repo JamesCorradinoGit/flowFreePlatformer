@@ -21,6 +21,7 @@ func _on_menu_button_pressed() -> void:
 	GlobalSceneLoader.loadScene(str(menuScene.resource_path))
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalAudioManager.fadeOutMusicRemove()
+	Globals.isAlreadyDragging = false
 func _on_menu_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 
@@ -28,5 +29,6 @@ func _on_reset_button_pressed() -> void:
 	GlobalSceneLoader.loadScene(str(get_tree().current_scene.scene_file_path))
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalAudioManager.fadeOutMusicRemove()
+	Globals.isAlreadyDragging = false
 func _on_reset_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
