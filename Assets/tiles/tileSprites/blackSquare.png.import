@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6224lbr5xhga"
-path="res://.godot/imported/fadeTile.png-ac0441945b2b372b23f4b96ca3da729f.ctex"
+uid="uid://c7b30t5y42lkn"
+path="res://.godot/imported/blackSquare.png-216eb511a94d90c68a3ccc452f617908.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fadeTile.png"
-dest_files=["res://.godot/imported/fadeTile.png-ac0441945b2b372b23f4b96ca3da729f.ctex"]
+source_file="res://Assets/tiles/tileSprites/blackSquare.png"
+dest_files=["res://.godot/imported/blackSquare.png-216eb511a94d90c68a3ccc452f617908.ctex"]
 
 [params]
 

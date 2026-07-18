@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cb8b1y5gccm1m"]
 
 [ext_resource type="Shader" uid="uid://dvx5iwxhvqcve" path="res://Assets/Shaders/starShader.gdshader" id="1_681vb"]
-[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="1_x5ttp"]
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/tiles/tileSprites/blackSquare.png" id="1_x5ttp"]
 [ext_resource type="Script" uid="uid://co2aw6kbrl2u8" path="res://Scripts/ui/level_bg_image.gd" id="2_xr6be"]
 [ext_resource type="PackedScene" uid="uid://chp5eer56d5o1" path="res://Objects/misc/bg_glimmer_trail.tscn" id="3_exg6n"]
 

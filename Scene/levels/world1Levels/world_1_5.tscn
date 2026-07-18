@@ -1,0 +1,264 @@
+[gd_scene format=4 uid="uid://dhv5l3m4se62u"]
+
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_6y7y3"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="2_s77xs"]
+[ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="3_i6sta"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierResource.gd" id="3_tsp16"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierLineResource.gd" id="4_4gnwe"]
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_71kfn"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_lqyph"]
+[ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="5_tidri"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_e1faa"]
+[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/grid_button_door.tscn" id="9_tidri"]
+[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/grid_moving_button_platform_door.tscn" id="11_areqw"]
+
+[sub_resource type="Resource" id="Resource_areqw"]
+script = ExtResource("4_4gnwe")
+color = Color(1, 0.54901963, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_2lrja"]
+script = ExtResource("3_tsp16")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_areqw")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_llmdy"]
+script = ExtResource("5_tidri")
+buttonColor = Color(1, 0.54901963, 0, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformO"), NodePath("../../interactables/buttonPlatformO2")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_pkyhc"]
+script = ExtResource("3_tsp16")
+cellToModify = 3
+middleCellModify = SubResource("Resource_llmdy")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_5xloi"]
+script = ExtResource("4_4gnwe")
+color = Color(1, 0.54901963, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_4gnwe"]
+script = ExtResource("3_tsp16")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_5xloi")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_tidri"]
+script = ExtResource("4_4gnwe")
+color = Color(0, 0.68235296, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_7fybh"]
+script = ExtResource("3_tsp16")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_tidri")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_d60gf"]
+script = ExtResource("5_tidri")
+buttonColor = Color(0, 0.68235296, 1, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformB")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_88dft"]
+script = ExtResource("3_tsp16")
+cellToModify = 3
+middleCellModify = SubResource("Resource_d60gf")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_g8kcq"]
+script = ExtResource("4_4gnwe")
+color = Color(0, 0.68235296, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_ho7io"]
+script = ExtResource("3_tsp16")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_g8kcq")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_24vyd"]
+script = ExtResource("4_4gnwe")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_ir27j"]
+script = ExtResource("3_tsp16")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_24vyd")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_lmxhf"]
+script = ExtResource("5_tidri")
+buttonColor = Color(1, 0, 0, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformR")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_0yc2k"]
+script = ExtResource("3_tsp16")
+cellToModify = 3
+middleCellModify = SubResource("Resource_lmxhf")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_wuu0s"]
+script = ExtResource("4_4gnwe")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_snvlw"]
+script = ExtResource("3_tsp16")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_wuu0s")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_57sla"]
+script = ExtResource("4_4gnwe")
+color = Color(0.36862746, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_0h8a3"]
+script = ExtResource("3_tsp16")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_57sla")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_s0slx"]
+script = ExtResource("5_tidri")
+buttonColor = Color(0.36862746, 0, 1, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonDoorP"), NodePath("../../interactables/buttonDoorP2"), NodePath("../../interactables/buttonDoorP3")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_lqcwe"]
+script = ExtResource("3_tsp16")
+cellToModify = 3
+middleCellModify = SubResource("Resource_s0slx")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_o1w3a"]
+script = ExtResource("4_4gnwe")
+color = Color(0.36862746, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_afmf7"]
+script = ExtResource("3_tsp16")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_o1w3a")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcva0"]
+shader = ExtResource("3_i6sta")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[node name="world1-5" type="Node2D" unique_id=86753669 node_paths=PackedStringArray("playerSpawn", "goalPortal", "groundTileset", "gridParent")]
+script = ExtResource("1_6y7y3")
+playerSpawn = NodePath("playerSpawn")
+goalPortal = NodePath("levelPortal")
+groundTileset = NodePath("tilemaps/groundTiles")
+gridParent = NodePath("grids")
+worldName = "World 1"
+lvlName = "Control Room"
+
+[node name="grids" type="Node" parent="." unique_id=346834477]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_s77xs")]
+position = Vector2(818, 392)
+gridSizeY = 5
+gridModifiers = Array[ExtResource("3_tsp16")]([SubResource("Resource_2lrja"), SubResource("Resource_pkyhc"), SubResource("Resource_4gnwe")])
+
+[node name="grid2" parent="grids" unique_id=1240376378 instance=ExtResource("2_s77xs")]
+position = Vector2(882, 392)
+gridSizeY = 5
+gridModifiers = Array[ExtResource("3_tsp16")]([SubResource("Resource_7fybh"), SubResource("Resource_88dft"), SubResource("Resource_ho7io")])
+
+[node name="grid3" parent="grids" unique_id=534318489 instance=ExtResource("2_s77xs")]
+position = Vector2(946, 392)
+gridSizeY = 5
+gridModifiers = Array[ExtResource("3_tsp16")]([SubResource("Resource_ir27j"), SubResource("Resource_0yc2k"), SubResource("Resource_snvlw")])
+
+[node name="grid4" parent="grids" unique_id=947448653 instance=ExtResource("2_s77xs")]
+position = Vector2(1010, 392)
+gridSizeY = 5
+gridModifiers = Array[ExtResource("3_tsp16")]([SubResource("Resource_0h8a3"), SubResource("Resource_lqcwe"), SubResource("Resource_afmf7")])
+
+[node name="tilemaps" type="Node" parent="." unique_id=1553609311]
+
+[node name="groundTiles" type="TileMapLayer" parent="tilemaps" unique_id=1060725670]
+z_index = 1
+material = SubResource("ShaderMaterial_gcva0")
+tile_map_data = PackedByteArray("AAAPAA8AAAACAAAAAAAUAA8AAAAAAAEAAAAQABAAAAABAAAAAAARABAAAAABAAAAAAASABAAAAABAAAAAAATABAAAAABAAAAAAAOAA8AAAAAAAAAAAAVAA8AAAACAAEAAAAVABAAAAACAAEAAAAVABEAAAACAAEAAAAVABIAAAACAAEAAAAVABMAAAACAAEAAAAVABQAAAACAAEAAAAOABAAAAAAAAEAAAAOABEAAAAAAAEAAAAOABIAAAAAAAEAAAAOABMAAAAAAAEAAAAOABQAAAAAAAEAAAARABIAAAABAAEAAAARABEAAAABAAEAAAAQABEAAAABAAEAAAAPABEAAAABAAEAAAAPABAAAAAFAAQAAAAPABIAAAABAAEAAAAPABMAAAABAAEAAAAPABQAAAABAAEAAAAQABQAAAABAAEAAAAQABMAAAABAAEAAAAQABIAAAABAAEAAAARABMAAAABAAEAAAARABQAAAABAAEAAAASABQAAAABAAEAAAASABMAAAABAAEAAAASABIAAAABAAEAAAASABEAAAABAAEAAAATABEAAAABAAEAAAATABIAAAABAAEAAAATABMAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAUABMAAAABAAEAAAAUABIAAAABAAEAAAAUABEAAAABAAEAAAAUABAAAAAEAAQAAAAPAAQAAAAFAAQAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAASAAQAAAABAAAAAAATAAQAAAABAAAAAAAUAA4AAAAAAAEAAAAUAA0AAAAAAAEAAAAUAAwAAAAAAAEAAAAUAAsAAAAAAAEAAAAUAAoAAAAEAAUAAAAUAAUAAAABAAIAAAAVAA4AAAACAAEAAAAVAA0AAAACAAEAAAAVAAwAAAACAAEAAAAVAAsAAAACAAEAAAAVAAoAAAACAAEAAAAUAAQAAAABAAAAAAATAAUAAAABAAIAAAASAAUAAAABAAIAAAARAAUAAAABAAIAAAAQAAUAAAABAAIAAAAPAAUAAAABAAIAAAAOAAUAAAAAAAIAAAAOAAQAAAAAAAEAAAAOAAoAAAAAAAIAAAAPAAoAAAABAAIAAAAUAAAAAAABAAIAAAATAAAAAAABAAIAAAASAAAAAAABAAIAAAARAAAAAAABAAIAAAAQAAAAAAABAAIAAAAPAAAAAAAFAAUAAAAOAAAAAAAAAAEAAAAVAAAAAAACAAIAAAAVAP//AAAFAAUAAAAOAP//AAAEAAUAAAAPAP//AAABAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAASAP//AAABAAEAAAATAP//AAABAAEAAAAUAP//AAABAAEAAAAOAAEAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAMAAAAAAAEAAAAPAAEAAAACAAEAAAAPAAIAAAACAAEAAAAPAAMAAAACAAEAAAAQAAoAAAABAAIAAAARAAoAAAABAAIAAAASAAoAAAABAAIAAAATAAoAAAABAAIAAAAOAAkAAAAAAAAAAAAPAAkAAAABAAAAAAAQAAkAAAABAAAAAAARAAkAAAABAAAAAAASAAkAAAABAAAAAAATAAkAAAABAAAAAAAUAAkAAAABAAAAAAAVAAkAAAACAAAAAAAWAAQAAAACAAAAAAAWAAUAAAACAAIAAAAVAAUAAAABAAIAAAAVAAQAAAABAAAAAAAkAAAAAAAAAAEAAAAkAAEAAAAAAAEAAAAkAAIAAAAAAAEAAAAkAAMAAAAAAAEAAAAkAAQAAAAAAAEAAAAkAAUAAAAAAAEAAAAkAAYAAAAAAAEAAAAkAAcAAAAAAAEAAAAkAAgAAAAAAAEAAAAkAAkAAAAAAAEAAAAkAAoAAAAAAAEAAAAkAAsAAAAAAAEAAAAkAAwAAAAAAAEAAAAkAA0AAAAAAAEAAAAkAA4AAAAAAAEAAAAkAA8AAAAAAAEAAAAkABAAAAAAAAEAAAAkABEAAAAAAAEAAAAkABIAAAAAAAEAAAD//wAAAAACAAEAAAD//wEAAAACAAEAAAD//wIAAAACAAEAAAD//wMAAAACAAEAAAD//wQAAAACAAEAAAD//wUAAAACAAEAAAD//wYAAAACAAEAAAD//wcAAAACAAEAAAD//wgAAAACAAEAAAD//wkAAAACAAEAAAD//woAAAACAAEAAAD//wsAAAACAAEAAAD//wwAAAACAAEAAAD//w0AAAACAAEAAAD//w4AAAACAAEAAAD//w8AAAACAAEAAAD//xAAAAACAAEAAAD//xEAAAACAAEAAAD//xIAAAACAAEAAAAAAP//AAABAAIAAAABAP//AAABAAIAAAACAP//AAABAAIAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAABAAIAAAAJAP//AAABAAIAAAAKAP//AAABAAIAAAALAP//AAABAAIAAAAMAP//AAABAAIAAAANAP//AAABAAIAAAAWAP//AAABAAIAAAAXAP//AAABAAIAAAAYAP//AAABAAIAAAAZAP//AAABAAIAAAAaAP//AAABAAIAAAAbAP//AAABAAIAAAAcAP//AAABAAIAAAAdAP//AAABAAIAAAAeAP//AAABAAIAAAAfAP//AAABAAIAAAAgAP//AAABAAIAAAAhAP//AAABAAIAAAAiAP//AAABAAIAAAAjAP//AAABAAIAAAA=")
+tile_set = ExtResource("4_71kfn")
+
+[node name="resetTileset" type="TileMapLayer" parent="tilemaps" unique_id=732947869]
+z_index = 6
+tile_map_data = PackedByteArray("AAAAABIAAAAAAAAAAQABABIAAAAAAAAAAQACABIAAAAAAAAAAQADABIAAAAAAAAAAQAEABIAAAAAAAAAAQAFABIAAAAAAAAAAQAGABIAAAAAAAAAAQAHABIAAAAAAAAAAQAIABIAAAAAAAAAAQAJABIAAAAAAAAAAQAKABIAAAAAAAAAAQALABIAAAAAAAAAAQAMABIAAAAAAAAAAQANABIAAAAAAAAAAQAWABIAAAAAAAAAAQAXABIAAAAAAAAAAQAYABIAAAAAAAAAAQAZABIAAAAAAAAAAQAaABIAAAAAAAAAAQAbABIAAAAAAAAAAQAcABIAAAAAAAAAAQAdABIAAAAAAAAAAQAeABIAAAAAAAAAAQAfABIAAAAAAAAAAQAgABIAAAAAAAAAAQAhABIAAAAAAAAAAQAiABIAAAAAAAAAAQAjABIAAAAAAAAAAQAAABMAAQAAAAAAAAAAABQAAQAAAAAAAAABABMAAQAAAAAAAAABABQAAQAAAAAAAAACABMAAQAAAAAAAAACABQAAQAAAAAAAAADABMAAQAAAAAAAAADABQAAQAAAAAAAAAEABMAAQAAAAAAAAAEABQAAQAAAAAAAAAFABMAAQAAAAAAAAAFABQAAQAAAAAAAAAGABMAAQAAAAAAAAAGABQAAQAAAAAAAAAHABMAAQAAAAAAAAAHABQAAQAAAAAAAAAIABMAAQAAAAAAAAAIABQAAQAAAAAAAAAJABMAAQAAAAAAAAAJABQAAQAAAAAAAAAKABMAAQAAAAAAAAAKABQAAQAAAAAAAAALABMAAQAAAAAAAAALABQAAQAAAAAAAAAMABMAAQAAAAAAAAAMABQAAQAAAAAAAAANABMAAQAAAAAAAAANABQAAQAAAAAAAAAWABMAAQAAAAAAAAAWABQAAQAAAAAAAAAXABMAAQAAAAAAAAAXABQAAQAAAAAAAAAYABMAAQAAAAAAAAAYABQAAQAAAAAAAAAZABMAAQAAAAAAAAAZABQAAQAAAAAAAAAaABMAAQAAAAAAAAAaABQAAQAAAAAAAAAbABMAAQAAAAAAAAAbABQAAQAAAAAAAAAcABMAAQAAAAAAAAAcABQAAQAAAAAAAAAdABMAAQAAAAAAAAAdABQAAQAAAAAAAAAeABMAAQAAAAAAAAAeABQAAQAAAAAAAAAfABMAAQAAAAAAAAAfABQAAQAAAAAAAAAgABMAAQAAAAAAAAAgABQAAQAAAAAAAAAhABMAAQAAAAAAAAAhABQAAQAAAAAAAAAiABMAAQAAAAAAAAAiABQAAQAAAAAAAAAjABMAAQAAAAAAAAAjABQAAQAAAAAAAAAOAAgAAAAAAAAAAgAPAAgAAAAAAAAAAgAQAAgAAAAAAAAAAgARAAgAAAAAAAAAAgASAAgAAAAAAAAAAgATAAgAAAAAAAAAAgAUAAgAAAAAAAAAAgAVAAgAAAAAAAAAAgA=")
+tile_set = ExtResource("5_lqyph")
+
+[node name="interactables" type="Node" parent="." unique_id=1422961572]
+
+[node name="buttonDoorP" parent="interactables" unique_id=293482549 instance=ExtResource("9_tidri")]
+position = Vector2(457.00003, 352)
+ySize = 4
+doorColor = Color(0.36862746, 0, 1, 1)
+direction = 1
+magnitude = 175
+tweenTime = 0.75
+
+[node name="buttonDoorP2" parent="interactables" unique_id=1102153562 instance=ExtResource("9_tidri")]
+position = Vector2(649, -54)
+ySize = 3
+doorColor = Color(0.36862746, 0, 1, 1)
+magnitude = 87
+
+[node name="buttonDoorP3" parent="interactables" unique_id=24812548 instance=ExtResource("9_tidri")]
+position = Vector2(649, 184)
+ySize = 3
+doorColor = Color(0.36862746, 0, 1, 1)
+magnitude = 87
+
+[node name="buttonPlatformR" parent="interactables" unique_id=514740061 instance=ExtResource("11_areqw")]
+position = Vector2(351, 491)
+xSize = 4
+ySize = 2
+doorColor = Color(1, 0, 0, 1)
+direction = 2
+magnitude = 170
+tweenTime = 0.75
+
+[node name="buttonPlatformO" parent="interactables" unique_id=1825456086 instance=ExtResource("11_areqw")]
+position = Vector2(29, 256)
+xSize = 6
+ySize = 2
+doorColor = Color(1, 0.54901963, 0, 1)
+magnitude = 224
+tweenTime = 0.75
+
+[node name="buttonPlatformO2" parent="interactables" unique_id=1709396821 instance=ExtResource("11_areqw")]
+position = Vector2(918, 122)
+xSize = 4
+ySize = 1
+doorColor = Color(1, 0.54901963, 0, 1)
+magnitude = 200
+tweenTime = 0.75
+
+[node name="buttonPlatformB" parent="interactables" unique_id=2127009466 instance=ExtResource("11_areqw")]
+position = Vector2(173.00003, 256)
+xSize = 4
+ySize = 1
+doorColor = Color(0, 0.68235296, 1, 1)
+direction = 3
+magnitude = 530
+tweenTime = 3.0
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_e1faa")]
+position = Vector2(576, 84)
+
+[node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
+position = Vector2(576, 470)

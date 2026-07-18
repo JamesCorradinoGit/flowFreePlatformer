@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3cpvn7oelcrv"
-path="res://.godot/imported/blandTileset.png-e6f58895c6a0e4c2cc5db683bb97003e.ctex"
+uid="uid://c6224lbr5xhga"
+path="res://.godot/imported/fadeTile.png-25df0a2f1cb0b3d2188d2331ae5c01e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/blandTileset.png"
-dest_files=["res://.godot/imported/blandTileset.png-e6f58895c6a0e4c2cc5db683bb97003e.ctex"]
+source_file="res://Assets/tiles/tileSprites/fadeTile.png"
+dest_files=["res://.godot/imported/fadeTile.png-25df0a2f1cb0b3d2188d2331ae5c01e3.ctex"]
 
 [params]
 

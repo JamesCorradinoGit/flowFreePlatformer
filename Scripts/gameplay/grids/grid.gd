@@ -57,14 +57,13 @@ func _ready() -> void:
 					line.lineColor = modIndex.lineNodeAdd.color
 					line.reciever = modIndex.lineNodeAdd.reciver
 					instGNode.addedLine = line
-				elif modIndex.middleCellModify != null: #TODO implement
+				elif modIndex.middleCellModify != null: 
 					if modIndex.middleCellModify is gridMiddleModifierObject:
 						instGNode.middleNode = modIndex.middleCellModify.instanceGridObject()
-			match c:
-				0:
-					instGNode.leftObstacle = gridBorder
-				maxGridIndexX:
-					instGNode.rightObstacle = gridBorder
+			if c == 0:
+				instGNode.leftObstacle = gridBorder
+			if c == maxGridIndexX:
+				instGNode.rightObstacle = gridBorder
 			instGNode.position = Vector2(instPosX, instPosY)
 			if r == 0:
 				instGNode.topObstacle = gridBorder

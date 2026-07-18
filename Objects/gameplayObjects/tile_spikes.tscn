@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://bf4ibu1edk4hc"]
+[gd_scene format=3 uid="uid://vs10uvcaksi8"]
 
-[ext_resource type="Texture2D" uid="uid://c6224lbr5xhga" path="res://Assets/tiles/tileSprites/fadeTile.png" id="1_rtlot"]
-[ext_resource type="Script" uid="uid://c8euxfkdqgyd0" path="res://Scripts/gameplay/grids/void_block.gd" id="2_x02l0"]
+[ext_resource type="Texture2D" uid="uid://gdwxfajbdus3" path="res://Assets/tiles/tileSprites/spikeTile.png" id="1_eslpp"]
+[ext_resource type="Script" uid="uid://c8euxfkdqgyd0" path="res://Scripts/gameplay/grids/void_block.gd" id="2_jsw6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x02l0"]
 size = Vector2(32, 20)
 
-[node name="voidBlock" type="Sprite2D" unique_id=1476509691]
-texture = ExtResource("1_rtlot")
-script = ExtResource("2_x02l0")
+[node name="spikeTile" type="Sprite2D" unique_id=1476509691]
+texture = ExtResource("1_eslpp")
+script = ExtResource("2_jsw6k")
 
 [node name="voidArea" type="Area2D" parent="." unique_id=953056727]
 collision_layer = 2
