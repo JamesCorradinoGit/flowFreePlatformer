@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bmfnvrw17s2y1"]
+
+[ext_resource type="Script" uid="uid://31i2in0jxvqs" path="res://Scripts/gameplay/levelInteractions/grid_button_door.gd" id="1_ti8lw"]
+[ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="2_q1jdb"]
+[ext_resource type="Texture2D" uid="uid://3cpvn7oelcrv" path="res://Assets/blandTileset.png" id="2_uj122"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtv7u"]
+shader = ExtResource("2_q1jdb")
+shader_parameter/origin = Color(0, 0, 0, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[node name="buttonDoor" type="StaticBody2D" unique_id=293482549]
+scale = Vector2(0.75, 1)
+script = ExtResource("1_ti8lw")
+
+[node name="textures" type="NinePatchRect" parent="." unique_id=37629757]
+visible = false
+material = SubResource("ShaderMaterial_mtv7u")
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_uj122")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="collisionDoor" type="CollisionShape2D" parent="." unique_id=886213422]
+visible = false
+position = Vector2(32, 32)

@@ -1,16 +1,15 @@
 [gd_scene format=4 uid="uid://c6ypbjknvfh2g"]
 
 [ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_570a3"]
-[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grid.tscn" id="2_hsrw3"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="2_hsrw3"]
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="3_6irdr"]
 [ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierResource.gd" id="3_8btpu"]
 [ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierLineResource.gd" id="4_5dff2"]
 [ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_8btpu"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_5dff2"]
 [ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="5_sba6m"]
-[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/level_portal.tscn" id="6_sba6m"]
-[ext_resource type="Texture2D" uid="uid://doat2jt07804x" path="res://Assets/nodeImages/buttonActive.png" id="10_5dff2"]
-[ext_resource type="Script" uid="uid://coipv8o3kenn7" path="res://Scripts/gameplay/levelInteractions/grid_button_interactable_moving_platform.gd" id="11_sba6m"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_sba6m"]
+[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/grid_button_door.tscn" id="10_5dff2"]
 
 [sub_resource type="Resource" id="Resource_xaw1s"]
 script = ExtResource("4_5dff2")
@@ -26,7 +25,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 [sub_resource type="Resource" id="Resource_bb4vj"]
 script = ExtResource("5_sba6m")
 buttonColor = Color(0.6, 0.97333324, 1, 1)
-objToConnectTo = NodePath("../../ButtonActive")
+objToConnectTo = NodePath("../../buttonDoor")
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_8oxxu"]
@@ -71,9 +70,5 @@ position = Vector2(621, 159)
 [node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
 position = Vector2(98, 513)
 
-[node name="ButtonActive" type="Sprite2D" parent="." unique_id=1516978556]
-position = Vector2(724, 401)
-scale = Vector2(5, 5)
-texture = ExtResource("10_5dff2")
-script = ExtResource("11_sba6m")
-newPosOffset = Vector2(0, 200)
+[node name="buttonDoor" parent="." unique_id=293482549 instance=ExtResource("10_5dff2")]
+position = Vector2(815, 380)

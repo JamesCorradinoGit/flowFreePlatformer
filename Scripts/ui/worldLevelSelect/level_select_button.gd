@@ -78,7 +78,7 @@ func _on_mouse_exited() -> void:
 
 #region lock icon stuff
 func _on_lock_icon_pressed() -> void:
-	if doLockBasePressedState:
+	if doLockBasePressedState and lockAnimations.is_playing() == false:
 		lockAnimations.play("lockJiggle")
 		GlobalAudioManager.playGlobalSFX("uid://djei0iy7gunye", 3.0, randf_range(-0.25, 0.25)) #lock jiggle sfx
 

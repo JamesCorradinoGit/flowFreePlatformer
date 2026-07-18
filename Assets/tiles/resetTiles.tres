@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://c3audkiq4kknj"]
 
-[ext_resource type="PackedScene" uid="uid://bf4ibu1edk4hc" path="res://Objects/void_block.tscn" id="1_6wq00"]
+[ext_resource type="PackedScene" uid="uid://bf4ibu1edk4hc" path="res://Objects/gameplayObjects/void_block.tscn" id="1_6wq00"]
 [ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/blackSquare.png" id="2_6wq00"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lex0t"]

@@ -223,6 +223,7 @@ theme_override_font_sizes/font_size = 30
 text = "LEVEL NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="resetButton" type="Button" parent="endingPanel" unique_id=203538984]

@@ -2,7 +2,7 @@ extends gridMiddleModifierObject
 class_name gridButton
 
 @export var buttonColor:Color
-@export var objToConnectTo:NodePath
+@export var objToConnectTo:Array[NodePath]
 
 var buttonScene:PackedScene = load("uid://2ti80hg2dxt0")
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/nodeImages/circle.png" id="1_kf16i"]
 [ext_resource type="Texture2D" uid="uid://cqfscjrjcauc5" path="res://Assets/tempPortalMask.png" id="2_7he6r"]
 [ext_resource type="Script" uid="uid://m7qcdv2ggwvv" path="res://Scripts/gameplay/levels/level_portal.gd" id="4_28j0h"]
-[ext_resource type="PackedScene" uid="uid://bnh5u8ejm53hq" path="res://Objects/end_portal_particles.tscn" id="5_wy0ey"]
+[ext_resource type="PackedScene" uid="uid://bnh5u8ejm53hq" path="res://Objects/misc/end_portal_particles.tscn" id="5_wy0ey"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7he6r"]
 shader = ExtResource("1_cx32l")

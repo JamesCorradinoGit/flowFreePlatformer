@@ -16,5 +16,6 @@ func _on_portal_collision_body_entered(body: Node2D) -> void:
 		tween.play()
 		GlobalAudioManager.playGlobalSFX("uid://ctarj8nx4hm6m", -2, 0.2)
 		await tween.finished
-		body.queue_free()
+		if body != null:
+			body.queue_free()
 		goalReached.emit()
