@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="levelWorld" format=3 uid="uid://dt4sf18f7kn2v"]
-
-[ext_resource type="Script" uid="uid://bsovhyg06fsf8" path="res://Scripts/ui/worldLevelSelect/worldResource.gd" id="1_ios1m"]
-
-[resource]
-script = ExtResource("1_ios1m")
-worldName = "tutorial"
-metadata/_custom_type_script = "uid://bsovhyg06fsf8"

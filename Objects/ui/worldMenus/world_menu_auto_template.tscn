@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dnol85ea5mqof"]
+
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_jlnrt"]
+[ext_resource type="Script" uid="uid://bbo68pi8p8d76" path="res://Scripts/ui/worldLevelSelect/world_menu_auto_template.gd" id="2_iqr3v"]
+
+[node name="worldMenuAutoTemplate" type="Panel" unique_id=179274011 node_paths=PackedStringArray("worldNameLabel", "levelContainer", "levelLabel", "worldProgressBar")]
+custom_minimum_size = Vector2(655, 391)
+anchors_preset = -1
+anchor_right = 0.5685764
+anchor_bottom = 0.60339504
+offset_right = -615.0
+offset_bottom = -351.0
+theme = ExtResource("1_jlnrt")
+script = ExtResource("2_iqr3v")
+worldNameLabel = NodePath("worldNameLabel")
+levelContainer = NodePath("levelContainer")
+levelLabel = NodePath("worldCurrentLevelLabel")
+worldProgressBar = NodePath("worldProgress")
+metadata/_edit_use_anchors_ = true
+
+[node name="worldNameLabel" type="Label" parent="." unique_id=1197557427]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36412212
+anchor_top = 0.030690538
+anchor_right = 0.63587785
+anchor_bottom = 0.15345268
+offset_left = 25.500015
+offset_right = -25.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "WORLD NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="worldCurrentLevelLabel" type="Label" parent="." unique_id=1334546673]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36412212
+anchor_top = 0.120204605
+anchor_right = 0.63587785
+anchor_bottom = 0.24296676
+offset_left = 1.5258789e-05
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 21
+text = "CURRENT LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="levelContainer" type="GridContainer" parent="." unique_id=1989822494]
+custom_minimum_size = Vector2(515, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687023
+anchor_top = 0.3849105
+anchor_right = 0.89312977
+anchor_bottom = 0.61508954
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="worldProgress" type="ProgressBar" parent="." unique_id=1139764458]
+custom_minimum_size = Vector2(366, 27)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2206107
+anchor_top = 0.8567775
+anchor_right = 0.7793893
+anchor_bottom = 0.9258312
+grow_horizontal = 2
+grow_vertical = 0
+rounded = true
+metadata/_edit_use_anchors_ = true

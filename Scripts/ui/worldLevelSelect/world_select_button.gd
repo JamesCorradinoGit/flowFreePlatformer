@@ -3,7 +3,9 @@ extends Button
 @export var levelSelectMenuNode:levelSelectMenu
 @export var tweenOffset: Vector2
 @export var tweenTime: float = 0.25
-@export var worldMenu:PackedScene
+@export_category("World Menu")
+@export var autoMenuWorldResource: levelWorld
+@export var customWorldMenuScene:PackedScene ##only use if you want a custom world menu
 
 var originPos:Vector2
 
@@ -14,9 +16,12 @@ func _ready() -> void:
 	originPos = self.global_position
 
 func _on_pressed() -> void:
-	if worldMenu != null:
-		GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
-		levelSelectMenuNode.switchCurrentLoadedWorld.emit(self.worldMenu)
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
+	if levelSelectMenuNode.bannerInTransition == false:
+		if customWorldMenuScene != null:
+			levelSelectMenuNode.switchCurrentLoadedWorldCustom.emit(customWorldMenuScene)
+		else:
+			levelSelectMenuNode.switchCurrentLoadedWorldAuto.emit(autoMenuWorldResource)
 
 func _on_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

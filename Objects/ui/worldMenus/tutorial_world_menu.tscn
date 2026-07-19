@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vout7s22sw5"]
 
-[ext_resource type="PackedScene" uid="uid://caxx05yukbbbf" path="res://Objects/ui/world_dev_bg.tscn" id="1_untp1"]
-[ext_resource type="PackedScene" uid="uid://bexfihknk1j6j" path="res://Objects/ui/level_select_button.tscn" id="2_nx6uf"]
+[ext_resource type="PackedScene" uid="uid://caxx05yukbbbf" path="res://Objects/ui/bgs/world_dev_bg.tscn" id="1_untp1"]
+[ext_resource type="PackedScene" uid="uid://bexfihknk1j6j" path="res://Objects/ui/levelRelatedStuff/level_select_button.tscn" id="2_nx6uf"]
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="2_vyqs2"]
 [ext_resource type="Script" uid="uid://mp2l00a7qs6o" path="res://Scripts/ui/worldLevelSelect/worldMenuBase.gd" id="3_aad52"]
 [ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/levels/tutorialLevels/tutorial_1.tscn" id="4_vyqs2"]
@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://kw77c331n75d" path="res://Scene/levels/tutorialLevels/tutorial_4.tscn" id="8_k6580"]
 [ext_resource type="PackedScene" uid="uid://cvokm7rce33rh" path="res://Scene/levels/tutorialLevels/tutorial_5.tscn" id="9_rskkf"]
 
-[node name="tutorialWorldMenu" unique_id=2130001247 node_paths=PackedStringArray("levelButtons", "levelLabel") instance=ExtResource("1_untp1")]
+[node name="tutorialWorldMenu" unique_id=2130001247 node_paths=PackedStringArray("levelButtons", "levelLabel", "worldProgressBar") instance=ExtResource("1_untp1")]
 theme = ExtResource("2_vyqs2")
 script = ExtResource("3_aad52")
 levelButtons = [NodePath("levelsContainer/levelSelectButton"), NodePath("levelsContainer/levelSelectButton2"), NodePath("levelsContainer/levelSelectButton3"), NodePath("levelsContainer/levelSelectButton4"), NodePath("levelsContainer/levelSelectButton5")]
 levelLabel = NodePath("tutorialLevelWorldLabelName")
+worldProgressBar = NodePath("worldProgress")
 
 [node name="tutorialLabel" type="Label" parent="." index="0" unique_id=737483154]
 layout_mode = 1
@@ -84,3 +85,16 @@ text = "5"
 locked = true
 levelLockParam = NodePath("../levelSelectButton4")
 levelToSwitch = ExtResource("9_rskkf")
+
+[node name="worldProgress" type="ProgressBar" parent="." index="3" unique_id=1601210720]
+custom_minimum_size = Vector2(366, 27)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2206107
+anchor_top = 0.8567775
+anchor_right = 0.7793893
+anchor_bottom = 0.9258312
+grow_horizontal = 2
+grow_vertical = 0
+rounded = true
+metadata/_edit_use_anchors_ = true

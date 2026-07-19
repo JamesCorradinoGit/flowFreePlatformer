@@ -40,7 +40,8 @@ func fadeInMusicKeep(fadeTime:float = 0.25):
 	var tween = create_tween()
 	tween.tween_property(activeSong, "volume_linear", 1, fadeTime)
 func fadeOutMusicRemove(fadeTime:float = 0.25):
-	var tween = create_tween()
-	tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
-	await tween.finished
-	activeSong.queue_free()
+	if activeSong:
+		var tween = create_tween()
+		tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
+		await tween.finished
+		activeSong.queue_free()

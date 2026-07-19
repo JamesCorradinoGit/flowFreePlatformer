@@ -10,12 +10,14 @@ class_name levelSelectButton
 @onready var lockIcon: TextureButton = $lockIcon
 @onready var lockAnimations: AnimationPlayer = $lockAnimations
 
-var ownerMenuPanel: worldMenuBase
+var ownerMenuPanel:worldMenuBase
 var doLockBasePressedState:bool = true
 
 signal levelUnlocked
 
 func _ready() -> void:
+	if ownerMenuPanel == null:
+		ownerMenuPanel = owner
 	lockLevel()
 	if self.startUnlocked and checkIfLevelGlobalUnlocked(self.levelToSwitch) == false:
 		Globals.unlockedButtonLevels[self.levelToSwitch] = true
@@ -24,13 +26,19 @@ func _ready() -> void:
 	elif levelLockParam != null:
 		var tempLevelLockScene = levelLockParam.levelToSwitch.instantiate()
 		if checkIfLevelGlobalCompleted(tempLevelLockScene.name):
-			if owner is worldMenuBase:
-				await owner.introTweenComplete
+			if ownerMenuPanel:
+				await ownerMenuPanel.introTweenComplete #comment this for instant unlock test
 				if Globals.unlockedButtonLevels.has(self.levelToSwitch) == false:
 					Globals.unlockedButtonLevels[self.levelToSwitch] = false
 					unlockLevel(true, self.levelToSwitch)
-	if owner is worldMenuBase:
-		ownerMenuPanel = owner
+	
+	var completeTempInst = levelToSwitch.instantiate()
+	if checkIfLevelGlobalCompleted(completeTempInst.name):
+		if ownerMenuPanel is worldAutoMenu:
+			await ownerMenuPanel.levelButtonsLoaded
+		@warning_ignore("integer_division")
+		ownerMenuPanel.updProgressBar(100/ownerMenuPanel.levelButtons.size())
+	completeTempInst.queue_free()
 
 func lockLevel():
 	lockIcon.visible = true

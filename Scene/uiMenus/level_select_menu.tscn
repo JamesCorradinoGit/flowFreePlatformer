@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cs61ddbtdwywa"]
 
 [ext_resource type="Script" uid="uid://cdf68x5i50rcy" path="res://Scripts/ui/worldLevelSelect/level_select_menu.gd" id="1_myoex"]
-[ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/menu_bg_image.tscn" id="1_uw582"]
+[ext_resource type="PackedScene" uid="uid://d26gc0v3r14ju" path="res://Objects/ui/bgs/menu_bg_image.tscn" id="1_uw582"]
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="4_myoex"]
-[ext_resource type="PackedScene" uid="uid://m52nau0cwlhq" path="res://Objects/ui/world_select_button.tscn" id="4_uw582"]
+[ext_resource type="PackedScene" uid="uid://m52nau0cwlhq" path="res://Objects/ui/levelRelatedStuff/world_select_button.tscn" id="4_uw582"]
+[ext_resource type="Resource" uid="uid://dt4sf18f7kn2v" path="res://Objects/ui/worldMenus/world1.tres" id="6_hmedx"]
 [ext_resource type="PackedScene" uid="uid://vout7s22sw5" path="res://Objects/ui/worldMenus/tutorial_world_menu.tscn" id="6_qo37x"]
 
 [node name="levelSelectMenu" type="Control" unique_id=1720044366 node_paths=PackedStringArray("menuStartPos", "menuEndPos")]
@@ -43,7 +44,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "Tutorial"
 levelSelectMenuNode = NodePath("../../..")
-worldMenu = ExtResource("6_qo37x")
+customWorldMenuScene = ExtResource("6_qo37x")
+
+[node name="worldSelectButtonW1" parent="worldSelectBanner/worldVBox" unique_id=306393068 node_paths=PackedStringArray("levelSelectMenuNode") instance=ExtResource("4_uw582")]
+layout_mode = 2
+text = "World 1"
+levelSelectMenuNode = NodePath("../../..")
+autoMenuWorldResource = ExtResource("6_hmedx")
 
 [node name="worldMenuStartPos" type="Marker2D" parent="." unique_id=393691066]
 position = Vector2(1300, 86)

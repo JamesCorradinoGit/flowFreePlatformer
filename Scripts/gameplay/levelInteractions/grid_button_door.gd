@@ -18,6 +18,9 @@ var yPixelSize:int
 var originPos:Vector2
 var newPos:Vector2
 
+var activeMovingTween: Tween
+var activeTweenTimer: SceneTreeTimer
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		collisionDoor.visible = false
@@ -25,7 +28,6 @@ func _ready() -> void:
 		return
 	xPixelSize = Globals.globalSnap * self.xSize
 	yPixelSize = Globals.globalSnap * self.ySize
-	
 	originPos = position
 	
 	textures.visible = true
@@ -72,8 +74,22 @@ func _draw() -> void:
 			false)
 
 func onGridButtonPressed():
-	var tween = create_tween()
-	tween.tween_property(self, "position", newPos, tweenTime)
+	if activeMovingTween:
+		activeMovingTween.kill()
+	activeMovingTween = create_tween()
+	activeMovingTween.tween_property(self, "position", newPos, tweenTime)
 func onGridButtonUnpress():
-	var tween = create_tween()
-	tween.tween_property(self, "position", originPos, tweenTime)
+	if activeMovingTween:
+		activeMovingTween.kill()
+	activeMovingTween = create_tween()
+	activeMovingTween.tween_property(self, "position", originPos, tweenTime)
+
+func timeSinceLastTween() -> float:
+	var activeTweenElapsedTime
+	if activeTweenTimer:
+		activeTweenElapsedTime = tweenTime - activeTweenTimer.time_left
+		activeTweenTimer = null
+		return activeTweenElapsedTime
+	else:
+		activeTweenTimer = get_tree().create_timer(tweenTime)
+		return tweenTime
