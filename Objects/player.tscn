@@ -70,6 +70,18 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("2_3y5cq")
 region = Rect2(0, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfctp"]
+atlas = ExtResource("2_3y5cq")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl1fw"]
+atlas = ExtResource("2_3y5cq")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx5yh"]
+atlas = ExtResource("2_3y5cq")
+region = Rect2(0, 320, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3y5cq"]
 animations = [{
 "frames": [{
@@ -144,6 +156,20 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cfctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl1fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx5yh")
+}],
+"loop": false,
+"name": &"squish",
+"speed": 5.0
 }]
 
 [node name="player" type="CharacterBody2D" unique_id=1944998453 node_paths=PackedStringArray("coyoteTimer") groups=["flowLineObstacle"]]
@@ -166,7 +192,7 @@ z_index = 4
 z_as_relative = false
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_3y5cq")
-animation = &"run"
+animation = &"squish"
 autoplay = "idle"
 
 [node name="coyoteTimer" type="Timer" parent="." unique_id=1906630927]

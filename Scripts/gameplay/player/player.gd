@@ -53,19 +53,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction*SPEED, ACCEL*delta)
 		#endregion
 	#region animation
-	if is_on_floor() == false:
-		if velocity.y > 0.0:
-			playerSprite.animation = "fall"
-			playerSprite.play()
-		elif velocity.y < 0.0:
-			playerSprite.animation = "jump"
-	elif velocity.x != 0:
-		playerSprite.animation = "run"
-		playerSprite.play()
-	else:
-		playerSprite.animation = "idle"
-		playerSprite.play()
+	animateSprite()
 	#endregion
+	checkCollisionValid()
 	move_and_slide()
 	
 	if is_on_floor() == false:
@@ -82,6 +72,22 @@ func jump(jumpType:String):
 func onLand():
 	GlobalAudioManager.playGlobalSFX("uid://bxlxo4i5b2qj7", 0, 0.2)
 	wasLastFrameInAir = false
+
+func animateSprite():
+	if is_on_floor() == false:
+		if velocity.y > 0.0:
+			playerSprite.play("fall")
+		elif velocity.y < 0.0:
+			playerSprite.animation = "jump"
+	elif velocity.x != 0:
+		playerSprite.play("run")
+	else:
+		playerSprite.play("idle")
+func checkCollisionValid():
+	var isInWall:KinematicCollision2D = move_and_collide(Vector2.ZERO, true)
+	if isInWall and not isRespawning:
+		playerSprite.play("squish")
+		triggerRespawn.emit()
 
 func respawnFunc(): 
 	if get_parent() is level:

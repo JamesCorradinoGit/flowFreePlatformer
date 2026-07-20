@@ -17,9 +17,9 @@ var xPixelSize:int
 var yPixelSize:int
 var originPos:Vector2
 var newPos:Vector2
+var isTweening:bool = false
 
 var activeMovingTween: Tween
-var activeTweenTimer: SceneTreeTimer
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -74,22 +74,26 @@ func _draw() -> void:
 			false)
 
 func onGridButtonPressed():
+	isTweening = true
 	if activeMovingTween:
 		activeMovingTween.kill()
+	
+	var speedTDefault = originPos.distance_to(newPos) / tweenTime
+	var timeToTweenAccurate = position.distance_to(newPos) / (speedTDefault)
+	
 	activeMovingTween = create_tween()
-	activeMovingTween.tween_property(self, "position", newPos, tweenTime)
+	activeMovingTween.finished.connect(func(): isTweening = false)
+	
+	activeMovingTween.tween_property(self, "position", newPos, timeToTweenAccurate)
 func onGridButtonUnpress():
+	isTweening = true
 	if activeMovingTween:
 		activeMovingTween.kill()
+	
+	var speedTDefault = newPos.distance_to(originPos) / tweenTime
+	var timeToTweenAccurate = position.distance_to(originPos) / (speedTDefault)
+	
 	activeMovingTween = create_tween()
-	activeMovingTween.tween_property(self, "position", originPos, tweenTime)
-
-func timeSinceLastTween() -> float:
-	var activeTweenElapsedTime
-	if activeTweenTimer:
-		activeTweenElapsedTime = tweenTime - activeTweenTimer.time_left
-		activeTweenTimer = null
-		return activeTweenElapsedTime
-	else:
-		activeTweenTimer = get_tree().create_timer(tweenTime)
-		return tweenTime
+	activeMovingTween.finished.connect(func(): isTweening = false)
+	
+	activeMovingTween.tween_property(self, "position", originPos, timeToTweenAccurate)
