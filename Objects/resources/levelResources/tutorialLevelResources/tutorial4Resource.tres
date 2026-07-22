@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://cgjel458uyul0"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_3yugw"]
+[ext_resource type="PackedScene" uid="uid://kw77c331n75d" path="res://Scene/levels/tutorialLevels/tutorial_4.tscn" id="1_u87pk"]
+
+[resource]
+script = ExtResource("1_3yugw")
+levelName = "Climbing the Conduit Tower"
+levelScene = ExtResource("1_u87pk")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

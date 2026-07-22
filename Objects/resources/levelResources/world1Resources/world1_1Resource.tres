@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://dq5yn1e67ol8q"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_it785"]
+[ext_resource type="PackedScene" uid="uid://ct71lcyj0dog6" path="res://Scene/levels/world1Levels/world_1_1.tscn" id="1_ngsp8"]
+
+[resource]
+script = ExtResource("1_it785")
+levelName = "An Introduction to Buttons and Walls"
+levelScene = ExtResource("1_ngsp8")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

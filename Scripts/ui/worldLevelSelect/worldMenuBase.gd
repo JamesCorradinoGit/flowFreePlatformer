@@ -5,6 +5,8 @@ class_name worldMenuBase
 @export var levelLabel: Label
 @export var worldProgressBar:ProgressBar
 
+var worldResource:levelWorld
+
 @warning_ignore("unused_signal")
 signal introTweenComplete
 signal showLevelLabel(levelStr:String)

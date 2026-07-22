@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://d28nv67e5vvnh"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_8q0y1"]
+[ext_resource type="PackedScene" uid="uid://ble044m6go0wf" path="res://Scene/levels/world1Levels/world_1_4.tscn" id="1_ha4vc"]
+
+[resource]
+script = ExtResource("1_8q0y1")
+levelName = "Raise the Gates"
+levelScene = ExtResource("1_ha4vc")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

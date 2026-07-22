@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://belxlo7j4mkrm"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_q5yie"]
+[ext_resource type="PackedScene" uid="uid://cvokm7rce33rh" path="res://Scene/levels/tutorialLevels/tutorial_5.tscn" id="1_t7noj"]
+
+[resource]
+script = ExtResource("1_q5yie")
+levelName = "The Jump"
+levelScene = ExtResource("1_t7noj")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://tey4loiij3v1"]
+
+[ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/levels/tutorialLevels/tutorial_1.tscn" id="1_2v1eb"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_f0jn5"]
+
+[resource]
+script = ExtResource("1_f0jn5")
+levelName = "An Introduction to Platforming"
+levelScene = ExtResource("1_2v1eb")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

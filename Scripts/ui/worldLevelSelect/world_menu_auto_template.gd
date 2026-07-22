@@ -19,7 +19,7 @@ func _ready() -> void:
 			levelLabel.text = ""
 		var levelCount = 1
 		worldNameLabel.text = worldToLoad.worldName
-		for levelLoad in worldToLoad.levels:
+		for levelLoad in worldToLoad.levelsResource:
 			var newLevelButton:levelSelectButton = levelButtonRef.instantiate()
 			newLevelButton.name = "levelSelectButton" + str(levelCount)
 			
@@ -29,7 +29,7 @@ func _ready() -> void:
 				newLevelButton.locked = true
 				newLevelButton.levelLockParam = loadedLevelButtons[levelCount-2]
 			newLevelButton.text = str(levelCount)
-			newLevelButton.levelToSwitch = levelLoad
+			newLevelButton.levelResourceRef = levelLoad
 			newLevelButton.ownerMenuPanel = self
 			loadedLevelButtons.append(newLevelButton)
 			levelContainer.add_child(newLevelButton)

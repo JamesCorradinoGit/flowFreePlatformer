@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bsfnbublguw18"]
+
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_sggx1"]
+[ext_resource type="Texture2D" uid="uid://do2fxgvduwshy" path="res://Assets/ui/checkboxInactive.png" id="2_2u5f2"]
+[ext_resource type="Script" uid="uid://dveydr5wxko3p" path="res://Scripts/ui/uiObjects/level_info_display_panel.gd" id="2_7ajlj"]
+
+[node name="levelInfoDisplayPanel" type="Panel" unique_id=134258527 node_paths=PackedStringArray("levelNameLabel", "levelCompletedIcon", "levelUnlockedIcon")]
+custom_minimum_size = Vector2(267, 54)
+anchors_preset = -1
+anchor_right = 0.23177083
+anchor_bottom = 0.083333336
+theme = ExtResource("1_sggx1")
+script = ExtResource("2_7ajlj")
+levelNameLabel = NodePath("levelNamePanel")
+levelCompletedIcon = NodePath("completedCheck")
+levelUnlockedIcon = NodePath("unlockedCheck")
+metadata/_edit_use_anchors_ = true
+
+[node name="levelNamePanel" type="Label" parent="." unique_id=880277574]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074906364
+anchor_top = 0.11111111
+anchor_right = 0.92509365
+anchor_bottom = 0.42592594
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+text = "LEVEL NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="completedLabel" type="Label" parent="." unique_id=1258789449]
+custom_minimum_size = Vector2(56, 14)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033707865
+anchor_top = 0.5555555
+anchor_right = 0.2434457
+anchor_bottom = 0.8148148
+theme_override_font_sizes/font_size = 10
+text = "Completed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="unlockedLabel" type="Label" parent="." unique_id=1165686042]
+custom_minimum_size = Vector2(56, 14)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35205993
+anchor_top = 0.5555555
+anchor_right = 0.56179774
+anchor_bottom = 0.8148148
+theme_override_font_sizes/font_size = 10
+text = "Unlocked:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="completedCheck" type="TextureRect" parent="." unique_id=840161402]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25093633
+anchor_top = 0.5185185
+anchor_right = 0.31835207
+anchor_bottom = 0.8518519
+texture = ExtResource("2_2u5f2")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="unlockedCheck" type="TextureRect" parent="." unique_id=1293908424]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5543071
+anchor_top = 0.5185185
+anchor_right = 0.6217228
+anchor_bottom = 0.8518519
+texture = ExtResource("2_2u5f2")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

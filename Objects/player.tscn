@@ -192,7 +192,7 @@ z_index = 4
 z_as_relative = false
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_3y5cq")
-animation = &"squish"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="coyoteTimer" type="Timer" parent="." unique_id=1906630927]

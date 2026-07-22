@@ -19,7 +19,7 @@ func _ready() -> void:
 	if GlobalAudioManager.activeSong == null:
 		GlobalAudioManager.playMusic(GlobalAudioManager.songList["menuWithoutIntro"], -10)
 
-func switchWorldMenuCustom(newMenu:PackedScene):
+func switchWorldMenuCustom(newMenu:PackedScene, worldResource:levelWorld):
 	bannerInTransition = true
 	var instWM:worldMenuBase = newMenu.instantiate() 
 	if instWM.name != currentWorldString:
@@ -27,6 +27,8 @@ func switchWorldMenuCustom(newMenu:PackedScene):
 			await tweenOutCurrentWorldMenu()
 		currentWorldString = instWM.name
 		currentWorldSelectScreen = instWM
+		instWM.worldResource = worldResource
+		
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_IN_OUT)
@@ -34,6 +36,7 @@ func switchWorldMenuCustom(newMenu:PackedScene):
 		instWM.global_position = self.menuStartPos.global_position
 		tween.tween_property(instWM, "global_position", menuEndPos.position, 0.5)
 		await tween.finished
+		
 		instWM.introTweenComplete.emit()
 	else:
 		instWM.queue_free()
@@ -48,6 +51,7 @@ func switchWorldMenuAuto(worldResource:levelWorld):
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_IN_OUT)
+		instAutoWM.worldResource = worldResource
 		currentWorldString = worldResource.worldName
 		currentWorldSelectScreen = instAutoWM
 		instAutoWM.worldToLoad = worldResource

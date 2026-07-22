@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://dyo6wj6kdnuau"]
+
+[ext_resource type="PackedScene" uid="uid://dn4u8sujweox7" path="res://Scene/levels/world1Levels/world_1_3.tscn" id="1_dqrsb"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_tr8in"]
+
+[resource]
+script = ExtResource("1_tr8in")
+levelName = "Sailing!"
+levelScene = ExtResource("1_dqrsb")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

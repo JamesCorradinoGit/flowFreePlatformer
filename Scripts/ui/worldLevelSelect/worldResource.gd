@@ -3,6 +3,7 @@ class_name levelWorld
 
 @export var worldName:String
 @export var levels: Array[PackedScene]
+@export var levelsResource: Array[levelResource]
 
 func verifyLevels() -> bool:
 	for levelComp in levels:

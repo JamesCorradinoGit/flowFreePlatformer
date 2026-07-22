@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://d3bp13a00ba73"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_gf6gu"]
+[ext_resource type="PackedScene" uid="uid://4q723qfa1ncn" path="res://Scene/levels/tutorialLevels/tutorial_3.tscn" id="1_jagyg"]
+
+[resource]
+script = ExtResource("1_gf6gu")
+levelName = "Mixing Movement and Conduits"
+levelScene = ExtResource("1_jagyg")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

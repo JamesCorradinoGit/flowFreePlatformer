@@ -5,10 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dn4u8sujweox7" path="res://Scene/levels/world1Levels/world_1_3.tscn" id="3_cdhtv"]
 [ext_resource type="PackedScene" uid="uid://ble044m6go0wf" path="res://Scene/levels/world1Levels/world_1_4.tscn" id="4_xefnw"]
 [ext_resource type="PackedScene" uid="uid://dhv5l3m4se62u" path="res://Scene/levels/world1Levels/world_1_5.tscn" id="5_hk05d"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="6_rwx7f"]
 [ext_resource type="Script" uid="uid://bsovhyg06fsf8" path="res://Scripts/ui/worldLevelSelect/worldResource.gd" id="6_xweuo"]
+[ext_resource type="Resource" uid="uid://dq5yn1e67ol8q" path="res://Objects/resources/levelResources/world1Resources/world1_1Resource.tres" id="7_5p2y2"]
+[ext_resource type="Resource" uid="uid://dupgmnrsxe5sr" path="res://Objects/resources/levelResources/world1Resources/world1_2Resource.tres" id="8_am07g"]
+[ext_resource type="Resource" uid="uid://dyo6wj6kdnuau" path="res://Objects/resources/levelResources/world1Resources/world1_3Resource.tres" id="9_64wa2"]
+[ext_resource type="Resource" uid="uid://d28nv67e5vvnh" path="res://Objects/resources/levelResources/world1Resources/world1_4Resource.tres" id="10_ryyvp"]
+[ext_resource type="Resource" uid="uid://bbpe5a16s4kr" path="res://Objects/resources/levelResources/world1Resources/world1_5Resource.tres" id="11_ulf0t"]
 
 [resource]
 script = ExtResource("6_xweuo")
 worldName = "World 1"
 levels = Array[PackedScene]([ExtResource("1_2xvtl"), ExtResource("2_g00aj"), ExtResource("3_cdhtv"), ExtResource("4_xefnw"), ExtResource("5_hk05d")])
+levelsResource = Array[ExtResource("6_rwx7f")]([ExtResource("7_5p2y2"), ExtResource("8_am07g"), ExtResource("9_64wa2"), ExtResource("10_ryyvp"), ExtResource("11_ulf0t")])
 metadata/_custom_type_script = "uid://bsovhyg06fsf8"

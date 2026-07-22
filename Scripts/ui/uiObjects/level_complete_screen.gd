@@ -8,6 +8,7 @@ class_name endScreen
 
 var instWorldName:String = "N/A"
 var instLevelName:String = "N/A"
+var levelOwner:level
 
 func _ready() -> void:
 	blurRect.material = blurRect.material.duplicate()
@@ -18,17 +19,19 @@ func _ready() -> void:
 	tween.tween_property($blurRect, "material:shader_parameter/amount", 1.5, 1.5)
 
 func _on_menu_button_pressed() -> void:
+	if levelOwner:
+		levelOwner.onLevelExit()
 	GlobalSceneLoader.loadScene(str(menuScene.resource_path))
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalAudioManager.fadeOutMusicRemove()
-	Globals.isAlreadyDragging = false
 func _on_menu_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 
 func _on_reset_button_pressed() -> void:
+	if levelOwner:
+		levelOwner.onLevelRestart()
 	GlobalSceneLoader.loadScene(str(get_tree().current_scene.scene_file_path))
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalAudioManager.fadeOutMusicRemove()
-	Globals.isAlreadyDragging = false
 func _on_reset_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

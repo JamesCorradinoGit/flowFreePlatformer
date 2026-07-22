@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5pe1hsybkpns"]
 
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_7m6fj"]
-[ext_resource type="Script" uid="uid://6261oykd7sk" path="res://Scripts/ui/popup_message_object.gd" id="2_c5w6x"]
+[ext_resource type="Script" uid="uid://6261oykd7sk" path="res://Scripts/ui/uiObjects/popup_message_object.gd" id="2_c5w6x"]
 
 [node name="popupMessage" type="Control" unique_id=1163234895]
 z_index = 10

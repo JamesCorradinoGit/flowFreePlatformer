@@ -1,10 +1,10 @@
 extends Button
 class_name levelSelectButton
 
+@export var levelResourceRef:levelResource
 @export var startUnlocked: bool = false
 @export var locked: bool = false
 @export var levelLockParam: levelSelectButton
-@export var levelToSwitch: PackedScene
 @export var lockJettisonPositionCurve: Curve
 
 @onready var lockIcon: TextureButton = $lockIcon
@@ -19,37 +19,31 @@ func _ready() -> void:
 	if ownerMenuPanel == null:
 		ownerMenuPanel = owner
 	lockLevel()
-	if self.startUnlocked and checkIfLevelGlobalUnlocked(self.levelToSwitch) == false:
-		Globals.unlockedButtonLevels[self.levelToSwitch] = true
-	if self.locked == false or checkIfLevelGlobalUnlocked(self.levelToSwitch):
-		unlockLevel(false, self.levelToSwitch)
+	if self.startUnlocked or self.locked == false or levelResourceRef.unlocked:
+		unlockLevel(false)
 	elif levelLockParam != null:
-		var tempLevelLockScene = levelLockParam.levelToSwitch.instantiate()
-		if checkIfLevelGlobalCompleted(tempLevelLockScene.name):
+		if levelLockParam.levelResourceRef.completed == true:
 			if ownerMenuPanel:
-				await ownerMenuPanel.introTweenComplete #comment this for instant unlock test
-				if Globals.unlockedButtonLevels.has(self.levelToSwitch) == false:
-					Globals.unlockedButtonLevels[self.levelToSwitch] = false
-					unlockLevel(true, self.levelToSwitch)
+				await ownerMenuPanel.introTweenComplete #comment this for instant debug unlock test
+				if levelResourceRef.unlocked == false:
+					unlockLevel(true)
 	
-	var completeTempInst = levelToSwitch.instantiate()
-	if checkIfLevelGlobalCompleted(completeTempInst.name):
+	if levelResourceRef.completed:
 		if ownerMenuPanel is worldAutoMenu:
 			await ownerMenuPanel.levelButtonsLoaded
 		@warning_ignore("integer_division")
 		ownerMenuPanel.updProgressBar(100/ownerMenuPanel.levelButtons.size())
-	completeTempInst.queue_free()
 
 func lockLevel():
 	lockIcon.visible = true
 	self.disabled = true
-func unlockLevel(newUnlock: bool, levelComparison:PackedScene):
+func unlockLevel(newUnlock: bool):
 	doLockBasePressedState = false
 	lockAnimations.play("unlockIdle")
-	if newUnlock or Globals.unlockedButtonLevels[levelComparison] == false:
+	if newUnlock and levelResourceRef.unlocked == false:
 		await lockIcon.pressed
 		GlobalAudioManager.playGlobalSFX("uid://djei0iy7gunye", 3.0, randf_range(-0.25, 0.25)) #lock jiggle sfx
-		Globals.unlockedButtonLevels[levelComparison] = true
+		levelResourceRef.unlocked = true
 		lockAnimations.play("unlockClick")
 		await lockAnimations.animation_finished
 		GlobalAudioManager.playGlobalSFX("uid://cura2dyhxdgw", 3.0, randf_range(-0.25, 0.25)) #lock explo sfx
@@ -58,27 +52,18 @@ func unlockLevel(newUnlock: bool, levelComparison:PackedScene):
 	self.disabled = false
 	self.locked = false
 
-func checkIfLevelGlobalCompleted(levelName:String) -> bool:
-	if Globals.completedLevels.find(levelName) != -1:
-		return true
-	return false
-func checkIfLevelGlobalUnlocked(levelName:PackedScene) -> bool:
-	if Globals.unlockedButtonLevels.has(levelName) != false:
-		return true
-	return false
-
 func _on_pressed() -> void:
 	if self.locked == false:
 		GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
-		GlobalSceneLoader.loadScene(str(levelToSwitch.resource_path))
+		GlobalSceneLoader.loadScene(str(levelResourceRef.levelScene.resource_path))
 		GlobalAudioManager.fadeOutMusicRemove(0.25)
+		Globals.currentLvlResource = levelResourceRef
+		Globals.currentWorldResource = ownerMenuPanel.worldResource
 
 func _on_mouse_entered() -> void:
 	if self.locked == false:
 		GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
-		var levelInstTest:level = levelToSwitch.instantiate()
-		ownerMenuPanel.showLevelLabel.emit(levelInstTest.lvlName)
-		levelInstTest.queue_free()
+		ownerMenuPanel.showLevelLabel.emit(levelResourceRef.levelName)
 
 func _on_mouse_exited() -> void:
 	if ownerMenuPanel != null:

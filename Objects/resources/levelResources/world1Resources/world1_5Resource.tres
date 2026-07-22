@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://bbpe5a16s4kr"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_lo3s3"]
+[ext_resource type="PackedScene" uid="uid://dhv5l3m4se62u" path="res://Scene/levels/world1Levels/world_1_5.tscn" id="1_xpyqp"]
+
+[resource]
+script = ExtResource("1_lo3s3")
+levelName = "Control Room"
+levelScene = ExtResource("1_xpyqp")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

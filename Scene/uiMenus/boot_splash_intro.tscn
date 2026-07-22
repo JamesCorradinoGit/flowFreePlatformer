@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tgpsh0ga5l8b"]
 
-[ext_resource type="Script" uid="uid://s062gugchvcu" path="res://Scripts/ui/boot_splash_intro.gd" id="1_cqlia"]
+[ext_resource type="Script" uid="uid://s062gugchvcu" path="res://Scripts/ui/uiObjects/boot_splash_intro.gd" id="1_cqlia"]
 [ext_resource type="Texture2D" uid="uid://cfwltyv8i3ihq" path="res://Assets/ui/devImage.png" id="1_s2kx8"]
 [ext_resource type="Texture2D" uid="uid://x0hykuq3f072" path="res://Assets/ui/godotLogo.png" id="3_i8dnu"]
 

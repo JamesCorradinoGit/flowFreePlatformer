@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://lr2vwnf35d5u"]
 
 [ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_mn8it"]
-[ext_resource type="Script" uid="uid://csxkf4h5wg2i5" path="res://Scripts/ui/level_complete_screen.gd" id="2_hqtk5"]
+[ext_resource type="Script" uid="uid://csxkf4h5wg2i5" path="res://Scripts/ui/uiObjects/level_complete_screen.gd" id="2_hqtk5"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="3_fq745"]
 [ext_resource type="Texture2D" uid="uid://ci2y18bo7bvme" path="res://Assets/ui/resetIcon.png" id="3_x6av7"]
 [ext_resource type="Texture2D" uid="uid://b75bgm7ysll27" path="res://Assets/ui/menuIcon.png" id="4_26s4p"]
 [ext_resource type="Shader" uid="uid://xws8etdt7ct0" path="res://Assets/Shaders/simpleSimpleBlur.gdshader" id="6_2qrmw"]
+[ext_resource type="PackedScene" uid="uid://hsx1ryq17acy" path="res://Objects/ui/worldMenus/small_world_menu_panel.tscn" id="7_qniet"]
 
 [sub_resource type="Animation" id="Animation_hqtk5"]
 length = 0.001
@@ -42,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(292, -295.275)]
+"values": [Vector2(292, -500)]
 }
 
 [sub_resource type="Animation" id="Animation_x6av7"]
@@ -81,7 +82,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 3, 3.75),
 "transitions": PackedFloat32Array(1, -2, 1),
 "update": 0,
-"values": [Vector2(292, -306.24), Vector2(292, -306.24), Vector2(292, 167.815)]
+"values": [Vector2(292, -500), Vector2(292, -500), Vector2(292, 98.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26s4p"]
@@ -170,7 +171,7 @@ anchor_top = 0.40895063
 anchor_right = 2.3029513
 anchor_bottom = 0.5925926
 offset_left = -1.0
-offset_right = -0.9975586
+offset_right = -0.9970703
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
@@ -194,45 +195,46 @@ z_index = 6
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2534722
-anchor_top = -0.45567128
+anchor_top = -0.77160496
 anchor_right = 0.7465278
-anchor_bottom = -0.02269288
+anchor_bottom = -0.068989225
 metadata/_edit_use_anchors_ = true
 
 [node name="endWorldLabel" type="Label" parent="endingPanel" unique_id=1566321809]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.17253521
+anchor_left = 0.03521127
 anchor_top = 0.047314372
-anchor_right = 0.82922536
-anchor_bottom = 0.19700964
+anchor_right = 0.6919014
+anchor_bottom = 0.120800816
 theme_override_font_sizes/font_size = 23
 text = "WORLD NAME"
-horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="endNameLabel" type="Label" parent="endingPanel" unique_id=457956081]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.09683099
-anchor_top = 0.17918879
-anchor_right = 0.9049296
-anchor_bottom = 0.32888407
+anchor_left = 0.03521127
+anchor_top = 0.1186044
+anchor_right = 0.8433099
+anchor_bottom = 0.21085228
 theme_override_font_sizes/font_size = 30
 text = "LEVEL NAME"
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="resetButton" type="Button" parent="endingPanel" unique_id=203538984]
+custom_minimum_size = Vector2(208, 56)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.082746476
-anchor_top = 0.5819403
-anchor_right = 0.38908452
-anchor_bottom = 0.8100474
+anchor_left = 0.03697183
+anchor_top = 0.621575
+anchor_right = 0.403169
+anchor_bottom = 0.74457216
+offset_left = -1.0
+offset_right = -1.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
@@ -242,12 +244,13 @@ icon = ExtResource("3_x6av7")
 metadata/_edit_use_anchors_ = true
 
 [node name="menuButton" type="Button" parent="endingPanel" unique_id=156366199]
+custom_minimum_size = Vector2(208, 56)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.67077464
-anchor_top = 0.5819403
-anchor_right = 0.91021127
-anchor_bottom = 0.8100474
+anchor_left = 0.03521127
+anchor_top = 0.81046355
+anchor_right = 0.40140846
+anchor_bottom = 0.9334607
 theme_override_styles/normal = SubResource("StyleBoxFlat_hqtk5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x6av7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_26s4p")
@@ -255,6 +258,15 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_fq745")
 text = "MENU"
 icon = ExtResource("4_26s4p")
 metadata/_edit_use_anchors_ = true
+
+[node name="smallWorldMenuPanel" parent="endingPanel" unique_id=955193141 instance=ExtResource("7_qniet")]
+layout_mode = 1
+anchor_left = 0.4823943
+anchor_top = 0.24819075
+anchor_right = 0.95246476
+anchor_bottom = 0.929068
+offset_left = 3.0517578e-05
+offset_bottom = 0.0
 
 [connection signal="mouse_entered" from="endingPanel/resetButton" to="." method="_on_reset_button_mouse_entered"]
 [connection signal="pressed" from="endingPanel/resetButton" to="." method="_on_reset_button_pressed"]

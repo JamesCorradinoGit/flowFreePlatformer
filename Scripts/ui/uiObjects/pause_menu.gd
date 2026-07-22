@@ -4,6 +4,8 @@ class_name pauseMenu
 @onready var pausePanel: Panel = $pausePanel
 @onready var blurRect: ColorRect = $blurRect
 
+var levelOwner:level
+
 signal hidePauseMenu
 
 func _ready() -> void:
@@ -34,19 +36,21 @@ func _on_continue_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 
 func _on_restart_button_pressed() -> void:
+	if levelOwner:
+		levelOwner.onLevelRestart()
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalSceneLoader.loadScene(str(get_tree().current_scene.scene_file_path))
 	GlobalAudioManager.fadeOutMusicRemove(0.25)
-	Globals.isAlreadyDragging = false
 	get_tree().paused = false
 func _on_restart_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
 
 func _on_menu_button_pressed() -> void:
+	if levelOwner:
+		levelOwner.onLevelExit()
 	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
 	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")
 	GlobalAudioManager.fadeOutMusicRemove()
-	Globals.isAlreadyDragging = false
 	get_tree().paused = false
 func _on_menu_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

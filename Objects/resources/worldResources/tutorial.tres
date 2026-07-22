@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="levelWorld" format=3 uid="uid://ckrtvixrsj2lg"]
+
+[ext_resource type="Script" uid="uid://bsovhyg06fsf8" path="res://Scripts/ui/worldLevelSelect/worldResource.gd" id="1_scu2d"]
+[ext_resource type="PackedScene" uid="uid://cx8nmhiasairv" path="res://Scene/levels/tutorialLevels/tutorial_1.tscn" id="1_u6xx6"]
+[ext_resource type="PackedScene" uid="uid://ct6q02ydlyr4m" path="res://Scene/levels/tutorialLevels/tutorial_2.tscn" id="2_idia2"]
+[ext_resource type="PackedScene" uid="uid://4q723qfa1ncn" path="res://Scene/levels/tutorialLevels/tutorial_3.tscn" id="3_ufmi1"]
+[ext_resource type="PackedScene" uid="uid://kw77c331n75d" path="res://Scene/levels/tutorialLevels/tutorial_4.tscn" id="4_cu4rs"]
+[ext_resource type="PackedScene" uid="uid://cvokm7rce33rh" path="res://Scene/levels/tutorialLevels/tutorial_5.tscn" id="5_n0ftt"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="6_vlkux"]
+[ext_resource type="Resource" uid="uid://tey4loiij3v1" path="res://Objects/resources/levelResources/tutorialLevelResources/tutorial1Resource.tres" id="7_8388f"]
+[ext_resource type="Resource" uid="uid://dblo8nig7t31j" path="res://Objects/resources/levelResources/tutorialLevelResources/tutorial2Resource.tres" id="8_o3kjc"]
+[ext_resource type="Resource" uid="uid://d3bp13a00ba73" path="res://Objects/resources/levelResources/tutorialLevelResources/tutorial3Resource.tres" id="9_8dw0f"]
+[ext_resource type="Resource" uid="uid://cgjel458uyul0" path="res://Objects/resources/levelResources/tutorialLevelResources/tutorial4Resource.tres" id="10_wn6b1"]
+[ext_resource type="Resource" uid="uid://belxlo7j4mkrm" path="res://Objects/resources/levelResources/tutorialLevelResources/tutorial5Resource.tres" id="11_4258q"]
+
+[resource]
+script = ExtResource("1_scu2d")
+worldName = "Tutorial"
+levels = Array[PackedScene]([ExtResource("1_u6xx6"), ExtResource("2_idia2"), ExtResource("3_ufmi1"), ExtResource("4_cu4rs"), ExtResource("5_n0ftt")])
+levelsResource = Array[ExtResource("6_vlkux")]([ExtResource("7_8388f"), ExtResource("8_o3kjc"), ExtResource("9_8dw0f"), ExtResource("10_wn6b1"), ExtResource("11_4258q")])
+metadata/_custom_type_script = "uid://bsovhyg06fsf8"

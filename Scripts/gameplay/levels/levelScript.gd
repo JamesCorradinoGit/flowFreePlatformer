@@ -8,8 +8,8 @@ class_name level
 @export var hasGrids:bool = true
 @export var gridParent:Node
 @export_category("Level Details")
-@export var worldName:String = ""
-@export var lvlName:String = ""
+#@export var worldName:String = ""
+#@export var lvlName:String = ""
 @export var lvlSongDictionaryKey:String = ""
 @export_category("Popup Starters")
 @export var startWithPopup:bool = false
@@ -75,11 +75,18 @@ func _shortcut_input(event: InputEvent) -> void:
 		var localPauseMenuInst:pauseMenu = pauseMenuInst.instantiate()
 		localPauseMenuInst.hidePauseMenu.connect(pauseMenuHidden)
 		localPauseMenuInst.global_position = Vector2.ZERO
+		localPauseMenuInst.levelOwner = self
 		add_child(localPauseMenuInst)
 		activePauseMenu = localPauseMenuInst
 func pauseMenuHidden():
 	pauseMenuVisible = false
 	activePauseMenu = null
+func onLevelExit():
+	Globals.isAlreadyDragging = false
+	Globals.currentLvlResource = null
+	Globals.currentWorldResource = null
+func onLevelRestart():
+	Globals.isAlreadyDragging = false
 
 func gridComplete():
 	instGridsCompleted += 1
@@ -99,12 +106,12 @@ func onAllCompleted():
 	canPause = false
 	if self.hasGrids:
 		disableAllGrids()
-	if Globals.completedLevels.find(self.name) == -1:
-		Globals.completedLevels.append(self.name)
-		print(Globals.completedLevels)
+	if Globals.currentLvlResource.completed == false:
+		Globals.currentLvlResource.completed = true
 	var endInst:endScreen = endScreenS.instantiate()
-	endInst.instLevelName = self.lvlName
-	endInst.instWorldName = self.worldName
+	endInst.instLevelName = Globals.currentLvlResource.levelName
+	endInst.instWorldName = Globals.currentWorldResource.worldName
+	endInst.levelOwner = self
 	endInst.position = Vector2.ZERO
 	add_child(endInst)
 

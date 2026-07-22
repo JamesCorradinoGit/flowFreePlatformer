@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://dupgmnrsxe5sr"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_ax2e5"]
+[ext_resource type="PackedScene" uid="uid://c86lo7t6stob0" path="res://Scene/levels/world1Levels/world_1_2.tscn" id="1_lemsj"]
+
+[resource]
+script = ExtResource("1_ax2e5")
+levelName = "One Button, Two Doors"
+levelScene = ExtResource("1_lemsj")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

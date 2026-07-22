@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b2acnyaxkdyls" path="res://Scripts/ui/mainMenu/mainMenuUiCanvas.gd" id="4_m7716"]
 [ext_resource type="PackedScene" uid="uid://ctlqu1nu1jcwk" path="res://Scene/uiMenus/settings_menu.tscn" id="4_nnr2v"]
 [ext_resource type="PackedScene" uid="uid://divs03fvdqklu" path="res://Scene/uiMenus/extras_menu.tscn" id="5_5yh7n"]
-[ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/sceneSwitcherButton.gd" id="7_pfmvt"]
+[ext_resource type="Script" uid="uid://dd0rejuakcp5e" path="res://Scripts/ui/uiObjects/sceneSwitcherButton.gd" id="7_pfmvt"]
 [ext_resource type="PackedScene" uid="uid://cs61ddbtdwywa" path="res://Scene/uiMenus/level_select_menu.tscn" id="8_5yh7n"]
 [ext_resource type="Script" uid="uid://2glkqs1b2uci" path="res://Scripts/ui/mainMenu/extras_button.gd" id="8_41dew"]
 [ext_resource type="Script" uid="uid://dy0o8wf26oywm" path="res://Scripts/ui/mainMenu/settings_button.gd" id="9_ubbdm"]
