@@ -13,7 +13,7 @@ func _ready() -> void:
 		if levelResourceToLoad.completed:
 			levelCompletedIcon.texture = checkIcon
 		if levelResourceToLoad.unlocked:
-			levelCompletedIcon.texture = checkIcon
+			levelUnlockedIcon.texture = checkIcon
 			levelNameLabel.text = levelResourceToLoad.levelName
 		else:
 			levelNameLabel.text = "Unlock level to view name!"

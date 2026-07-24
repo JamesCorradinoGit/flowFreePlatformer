@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_eh1l6"]
 script = ExtResource("4_bijoy")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0.49378967, 0.6529275, 1, 1)
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
 [sub_resource type="Resource" id="Resource_wetuh"]
@@ -45,7 +45,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_q4a1n"]
 script = ExtResource("4_bijoy")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0.49378967, 0.6529275, 1, 1)
 reciver = true
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
@@ -205,8 +205,6 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/resetTiles")
 groundTileset = NodePath("tiles/groundTiles")
 gridParent = NodePath("grids")
-worldName = "Tutorial"
-lvlName = "Climbing the Conduit Tower"
 lvlSongDictionaryKey = "tutorial"
 
 [node name="grids" type="Node" parent="." unique_id=282028762]

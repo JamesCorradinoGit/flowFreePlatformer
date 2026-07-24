@@ -22,7 +22,7 @@ var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
 var levelBG:PackedScene = load("uid://cb8b1y5gccm1m")
 var pauseMenuInst:PackedScene = load("uid://0jki0fjckxxy")
 var numGrids:int = 0
-var instGridsCompleted:int = 0
+var instGridsCompleted:int
 
 var pauseMenuVisible: bool = false
 var canPause:bool = true
@@ -34,6 +34,7 @@ var portalInteracted:bool = false
 @warning_ignore("unused_signal")
 signal completeLevel
 signal updateGroundColors(colorChange: Color)
+signal gridsCompletedUpdate(amount: int)
 
 func _ready() -> void:
 	if groundTileset.material:
@@ -58,7 +59,7 @@ func _ready() -> void:
 	
 	if self.lvlSongDictionaryKey != "" and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey) and GlobalAudioManager.activeSong == null:
 		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -12.0)
-	else:
+	elif self.lvlSongDictionaryKey == "":
 		push_warning("No song loaded in level")
 	
 	if self.startWithPopup:
@@ -90,6 +91,7 @@ func onLevelRestart():
 
 func gridComplete():
 	instGridsCompleted += 1
+	gridsCompletedUpdate.emit(instGridsCompleted)
 	if self.hasGrids and instGridsCompleted == numGrids:
 		gridsComplete = true
 func gridBreak():

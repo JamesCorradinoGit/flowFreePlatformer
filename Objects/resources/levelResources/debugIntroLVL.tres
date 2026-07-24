@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://c6donbtdygh2r"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_rypod"]
+
+[resource]
+script = ExtResource("1_rypod")
+levelName = "debug"
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bupgd37fsmrvo"]
+
+[ext_resource type="Texture2D" uid="uid://do2fxgvduwshy" path="res://Assets/ui/checkboxInactive.png" id="1_ueyed"]
+[ext_resource type="Script" uid="uid://b3kqkj6xcrxpl" path="res://Scripts/miscObjects/keyboard_tutorial_key.gd" id="2_kt4rf"]
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/tiles/tileSprites/blackSquare.png" id="3_gfxy1"]
+
+[node name="keyboardTutorialKey" type="Sprite2D" unique_id=1671623431]
+texture = ExtResource("1_ueyed")
+script = ExtResource("2_kt4rf")
+
+[node name="keyLabel" type="Label" parent="." unique_id=424703507]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+text = "N/A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackSquare" type="Sprite2D" parent="." unique_id=2066275676]
+z_index = -1
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("3_gfxy1")

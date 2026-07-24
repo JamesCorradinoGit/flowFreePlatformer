@@ -48,6 +48,8 @@ func unlockLevel(newUnlock: bool):
 		await lockAnimations.animation_finished
 		GlobalAudioManager.playGlobalSFX("uid://cura2dyhxdgw", 3.0, randf_range(-0.25, 0.25)) #lock explo sfx
 		await jettisonLock(100)
+	if levelResourceRef.unlocked == false:
+		levelResourceRef.unlocked = true
 	lockIcon.visible = false
 	self.disabled = false
 	self.locked = false

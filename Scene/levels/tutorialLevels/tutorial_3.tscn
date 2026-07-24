@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="4_kqb1r"]
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="5_dtcub"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="5_guouh"]
+[ext_resource type="PackedScene" uid="uid://bvioqbtwr5xk2" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_level_grids_left_ind.tscn" id="9_6pgad"]
 
 [sub_resource type="Resource" id="Resource_671pk"]
 script = ExtResource("4_dtcub")
@@ -57,7 +58,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_ihgej"]
 script = ExtResource("4_dtcub")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0, 0.68235296, 1, 1)
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
 [sub_resource type="Resource" id="Resource_nxxgy"]
@@ -68,7 +69,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_l5gw7"]
 script = ExtResource("4_dtcub")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0, 0.68235296, 1, 1)
 reciver = true
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
@@ -136,13 +137,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
 groundTileset = NodePath("tiles/groundTiles")
 gridParent = NodePath("grids")
-worldName = "Tutorial"
-lvlName = "Mixing Movement and Conduits"
 lvlSongDictionaryKey = "tutorial"
-startWithPopup = true
-startingPopupName = "Tutorial"
-startingPopupMessage = "Levels can contain multiple grids, which all need to be completed before a level can be finished.
-Your player is under this text box."
 
 [node name="grids" type="Node" parent="." unique_id=1531433660]
 
@@ -174,3 +169,10 @@ position = Vector2(952, 425)
 
 [node name="spawnPoint" type="Marker2D" parent="." unique_id=84939368]
 position = Vector2(129, 427)
+
+[node name="tutorialLevelGridsLeftInd" parent="." unique_id=2014493893 node_paths=PackedStringArray("levelToMonitor") instance=ExtResource("9_6pgad")]
+offset_left = 457.0
+offset_top = 36.0
+offset_right = 581.0
+offset_bottom = 97.0
+levelToMonitor = NodePath("..")

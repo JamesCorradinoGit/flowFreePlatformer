@@ -5,8 +5,6 @@ const globalSnap:int = 32
 var isAlreadyDragging:bool = false
 var selectedLine:Node2D = null
 var selectedLineArea:Area2D = null
-var completedLevels = []
-var unlockedButtonLevels := {} #dictionary with level names and if theyve been unlocked
 var levelResources:Array[levelResource] = []
 
 #globals for what level and world the player is in if in one

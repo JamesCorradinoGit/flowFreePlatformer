@@ -13,12 +13,16 @@ class_name gridObject
 @onready var totalCells = self.gridSizeX*self.gridSizeY
 @onready var lineNodeTscn:PackedScene = load("uid://ccugvwenhhjgr")
 @onready var flowLinesVar: Node = $flowLines
+@onready var gridProgress: ProgressBar = $gridProgress
 
 var cellNumsToModify:Array[int] = []
 var linesToFill:int = 0
 var currentFilledLines:int = 0
 var gridCompleted:bool = false
 var levelParent: level
+
+var completeRatio:float
+var gridProgressTweenTime:float = 0.1
 
 signal gridCompletedSig
 signal gridCompleteBreakSig
@@ -80,6 +84,7 @@ func _ready() -> void:
 		if line.reciever == false:
 			line.connect("connectSuccess", onLineConnect)
 			line.connect("connectBreak", onLineDisconnect)
+	completeRatio = (100.0 / linesToFill)
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -100,11 +105,20 @@ func _draw() -> void:
 
 func onLineConnect():
 	currentFilledLines += 1
+	
+	var tween = create_tween()
+	tween.tween_property(gridProgress, "value", gridProgress.value + completeRatio, gridProgressTweenTime)
+	
 	if currentFilledLines == linesToFill:
+		gridProgress.value = gridProgress.max_value
 		gridCompleted = true
 		self.gridCompletedSig.emit()
 func onLineDisconnect():
 	currentFilledLines -= 1
+	
+	var tween = create_tween()
+	tween.tween_property(gridProgress, "value", gridProgress.value - completeRatio, gridProgressTweenTime)
+	
 	if currentFilledLines == linesToFill - 1:
 		gridCompleted = false
 		self.gridCompleteBreakSig.emit()

@@ -86,6 +86,8 @@ func animateSprite():
 func checkCollisionValid():
 	var isInWall:KinematicCollision2D = move_and_collide(Vector2.ZERO, true)
 	if isInWall and not isRespawning:
+		if isInWall.get_collider_velocity().y < 0:
+			return
 		playerSprite.play("squish")
 		triggerRespawn.emit()
 

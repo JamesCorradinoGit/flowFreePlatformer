@@ -12,29 +12,26 @@ var loadedLevelButtons:Array[levelSelectButton] = []
 signal levelButtonsLoaded
 
 func _ready() -> void:
-	if worldToLoad.verifyLevels():
-		showLevelLabel.connect(updLevelLabel)
-		updateProgressBar.connect(updProgressBar)
-		if levelLabel:
-			levelLabel.text = ""
-		var levelCount = 1
-		worldNameLabel.text = worldToLoad.worldName
-		for levelLoad in worldToLoad.levelsResource:
-			var newLevelButton:levelSelectButton = levelButtonRef.instantiate()
-			newLevelButton.name = "levelSelectButton" + str(levelCount)
-			
-			if levelCount == 1:
-				newLevelButton.startUnlocked = true
-			else:
-				newLevelButton.locked = true
-				newLevelButton.levelLockParam = loadedLevelButtons[levelCount-2]
-			newLevelButton.text = str(levelCount)
-			newLevelButton.levelResourceRef = levelLoad
-			newLevelButton.ownerMenuPanel = self
-			loadedLevelButtons.append(newLevelButton)
-			levelContainer.add_child(newLevelButton)
-			levelCount += 1
-		levelButtons = loadedLevelButtons
-		levelButtonsLoaded.emit()
-	else:
-		push_error("One or more levels are not valid in world "+worldToLoad.resource_name)
+	showLevelLabel.connect(updLevelLabel)
+	updateProgressBar.connect(updProgressBar)
+	if levelLabel:
+		levelLabel.text = ""
+	var levelCount = 1
+	worldNameLabel.text = worldToLoad.worldName
+	for levelLoad in worldToLoad.levelsResource:
+		var newLevelButton:levelSelectButton = levelButtonRef.instantiate()
+		newLevelButton.name = "levelSelectButton" + str(levelCount)
+		
+		if levelCount == 1:
+			newLevelButton.startUnlocked = true
+		else:
+			newLevelButton.locked = true
+			newLevelButton.levelLockParam = loadedLevelButtons[levelCount-2]
+		newLevelButton.text = str(levelCount)
+		newLevelButton.levelResourceRef = levelLoad
+		newLevelButton.ownerMenuPanel = self
+		loadedLevelButtons.append(newLevelButton)
+		levelContainer.add_child(newLevelButton)
+		levelCount += 1
+	levelButtons = loadedLevelButtons
+	levelButtonsLoaded.emit()

@@ -4,9 +4,29 @@
 [ext_resource type="PackedScene" uid="uid://bv270jvy7v0b3" path="res://Objects/grids/grid_space.tscn" id="2_f6ty6"]
 [ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/grids/gridObstacles/grid_obstacle_wall.tscn" id="3_pvrk4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrgii"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqsgm"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="grid" type="Node2D" unique_id=1092430806]
 script = ExtResource("1_f6ty6")
 gridNode = ExtResource("2_f6ty6")
 gridBorder = ExtResource("3_pvrk4")
 
 [node name="flowLines" type="Node" parent="." unique_id=654317257]
+
+[node name="gridProgress" type="ProgressBar" parent="." unique_id=253438351]
+offset_left = -17.0
+offset_top = -26.0
+offset_right = 17.0
+offset_bottom = -16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mrgii")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqsgm")
+rounded = true
+show_percentage = false

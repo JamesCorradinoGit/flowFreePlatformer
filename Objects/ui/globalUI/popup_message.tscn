@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_7m6fj")
 script = ExtResource("2_c5w6x")
 
@@ -19,9 +20,9 @@ script = ExtResource("2_c5w6x")
 custom_minimum_size = Vector2(342, 209)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.3141493
+anchor_left = -0.31414932
 anchor_top = 0.6419753
-anchor_right = -0.0172743
+anchor_right = -0.017274328
 anchor_bottom = 0.96450615
 offset_top = 3.0517578e-05
 metadata/_edit_use_anchors_ = true
@@ -62,3 +63,9 @@ theme_override_font_sizes/font_size = 16
 text = "POPUP TEXT"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="popupLeftPos" type="Marker2D" parent="." unique_id=1822793856]
+position = Vector2(-361.9, 416)
+
+[node name="popupRightPos" type="Marker2D" parent="." unique_id=161051386]
+position = Vector2(1172, 416)

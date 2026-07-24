@@ -163,8 +163,6 @@ playerSpawn = NodePath("playerSpawn")
 goalPortal = NodePath("levelPortal")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
-worldName = "World 1"
-lvlName = "Control Room"
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 

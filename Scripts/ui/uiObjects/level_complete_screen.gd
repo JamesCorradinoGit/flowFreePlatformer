@@ -35,3 +35,20 @@ func _on_reset_button_pressed() -> void:
 	GlobalAudioManager.fadeOutMusicRemove()
 func _on_reset_button_mouse_entered() -> void:
 	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx
+
+func _on_next_level_button_pressed() -> void:
+	var currentLvlIndex = Globals.currentWorldResource.levelsResource.find(Globals.currentLvlResource)
+	var nextLevel:PackedScene
+	if currentLvlIndex == Globals.currentWorldResource.levelsResource.size()-1:
+		nextLevel = load("uid://cs61ddbtdwywa")
+		levelOwner.onLevelExit()
+		GlobalAudioManager.fadeOutMusicRemove()
+	else:
+		Globals.currentLvlResource = Globals.currentWorldResource.levelsResource[currentLvlIndex+1]
+		nextLevel = Globals.currentWorldResource.levelsResource[currentLvlIndex+1].levelScene
+		Globals.currentWorldResource.levelsResource[currentLvlIndex+1].unlocked = true
+	GlobalAudioManager.playGlobalSFX("uid://cuye2nxn50u2y", 3.0) #press sfx
+	GlobalSceneLoader.loadScene(str(nextLevel.resource_path))
+	
+func _on_next_level_button_mouse_entered() -> void:
+	GlobalAudioManager.playGlobalSFX("uid://cdh404qobufe4", 3.0) #hover sfx

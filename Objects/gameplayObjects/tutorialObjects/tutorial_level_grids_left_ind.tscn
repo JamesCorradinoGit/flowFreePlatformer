@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bvioqbtwr5xk2"]
+
+[ext_resource type="Texture2D" uid="uid://do2fxgvduwshy" path="res://Assets/ui/checkboxInactive.png" id="1_pg4wo"]
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/tiles/tileSprites/blackSquare.png" id="2_obwu4"]
+[ext_resource type="Script" uid="uid://bmmjkxq2flfiv" path="res://Scripts/miscObjects/tutorial_level_grids_left_ind.gd" id="2_tyfuk"]
+
+[node name="tutorialLevelGridsLeftInd" type="NinePatchRect" unique_id=2014493893]
+offset_right = 124.0
+offset_bottom = 61.0
+texture = ExtResource("1_pg4wo")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("2_tyfuk")
+
+[node name="BlackSquare" type="Sprite2D" parent="." unique_id=1907339507]
+z_index = -1
+position = Vector2(62, 30)
+scale = Vector2(3.8125, 1.8125)
+texture = ExtResource("2_obwu4")
+
+[node name="numLabelDone" type="Label" parent="." unique_id=1766788262]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="numLabelMax" type="Label" parent="." unique_id=509624744]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 8.0
+offset_right = 103.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="slashLabel" type="Label" parent="." unique_id=1584097801]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.5
+offset_top = -22.5
+offset_right = 12.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "/"
+horizontal_alignment = 1

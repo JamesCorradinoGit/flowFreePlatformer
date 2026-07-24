@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="2_ufvvh"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="3_8p3xh"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="4_3646x"]
+[ext_resource type="PackedScene" uid="uid://bupgd37fsmrvo" path="res://Objects/gameplayObjects/tutorialObjects/keyboard_tutorial_key.tscn" id="6_yunsb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3646x"]
 shader = ExtResource("2_ufvvh")
@@ -18,14 +19,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
 groundTileset = NodePath("tiles/groundTiles")
 hasGrids = false
-worldName = "Tutorial"
-lvlName = "An Introduction to Platforming"
 lvlSongDictionaryKey = "tutorial"
-startWithPopup = true
-startingPopupName = "Tutorial"
-startingPopupMessage = "Welcome to Flob!
-Move with A & S and jump with W or SPACE! Reach the portal to complete the platforming section of a level.
-Your player is under this text box."
 
 [node name="tiles" type="Node" parent="." unique_id=1256479140]
 
@@ -40,8 +34,28 @@ tile_map_data = PackedByteArray("AAAOABQAAQAAAAAAAAAPABQAAQAAAAAAAAAOABMAAAAAAAA
 tile_set = ExtResource("4_3646x")
 
 [node name="spawnMarker" type="Marker2D" parent="." unique_id=1473410260]
-position = Vector2(96, 435)
+position = Vector2(121, 435)
 
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("3_8p3xh")]
 position = Vector2(207, 222)
 tweenDuration = 0.75
+
+[node name="kbTutorials" type="Node" parent="." unique_id=898176603]
+
+[node name="keyboardTutorialKey" parent="kbTutorials" unique_id=1671623431 instance=ExtResource("6_yunsb")]
+position = Vector2(157, 375)
+scale = Vector2(1.8125, 1.8125)
+letterToDisplay = "D"
+inputToTrack = "moveRight"
+
+[node name="keyboardTutorialKey3" parent="kbTutorials" unique_id=1784993578 instance=ExtResource("6_yunsb")]
+position = Vector2(447, 375)
+scale = Vector2(1.8125, 1.8125)
+letterToDisplay = "W"
+inputToTrack = "jump"
+
+[node name="keyboardTutorialKey2" parent="kbTutorials" unique_id=1665333348 instance=ExtResource("6_yunsb")]
+position = Vector2(85, 375)
+scale = Vector2(1.8125, 1.8125)
+letterToDisplay = "A"
+inputToTrack = "moveLeft"

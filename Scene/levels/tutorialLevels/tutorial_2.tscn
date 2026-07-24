@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="4_82c8r"]
 [ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierLineResource.gd" id="4_nu16w"]
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="5_nu16w"]
+[ext_resource type="PackedScene" uid="uid://bupgd37fsmrvo" path="res://Objects/gameplayObjects/tutorialObjects/keyboard_tutorial_key.tscn" id="9_30w72"]
+[ext_resource type="Script" uid="uid://b5js7shwbo84s" path="res://Scripts/gameplay/levelInteractions/kbGrid_tutorial_popups.gd" id="9_mhiyw"]
+[ext_resource type="PackedScene" uid="uid://d0utnui84m33c" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_conduit_sign.tscn" id="11_pg58q"]
+[ext_resource type="Texture2D" uid="uid://dgkcsyock7w83" path="res://Assets/ui/guideArrow.png" id="12_lvmkd"]
 
 [sub_resource type="Resource" id="Resource_yh16e"]
 script = ExtResource("4_nu16w")
@@ -57,7 +61,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_1kn8y"]
 script = ExtResource("4_nu16w")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0, 0.68235296, 1, 1)
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
 [sub_resource type="Resource" id="Resource_8pgcg"]
@@ -68,7 +72,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="Resource" id="Resource_bq5pj"]
 script = ExtResource("4_nu16w")
-color = Color(0.03137255, 0, 1, 1)
+color = Color(0, 0.68235296, 1, 1)
 reciver = true
 metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
 
@@ -113,13 +117,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tiles/deathTiles")
 groundTileset = NodePath("tiles/groundTiles")
 gridParent = NodePath("grids")
-worldName = "Tutorial"
-lvlName = "An Introduction to Conduits"
 lvlSongDictionaryKey = "tutorial"
-startWithPopup = true
-startingPopupName = "Tutorial"
-startingPopupMessage = "This level introduces conduits, a platform that YOU control! Click on an empty conduit and connect it to the reciever of the same color! Submit your line using SPACE or ENTER. Connect all conduits to complete a grid."
-startingPopupDuration = 10.0
 
 [node name="grids" type="Node" parent="." unique_id=498071362]
 
@@ -147,3 +145,48 @@ position = Vector2(78, 209)
 
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("4_82c8r")]
 position = Vector2(1063, 214)
+
+[node name="kbTutorialPopups" type="Node2D" parent="." unique_id=824706020]
+position = Vector2(-34, 0)
+script = ExtResource("9_mhiyw")
+
+[node name="keyboardTutorialKey" parent="kbTutorialPopups" unique_id=1671623431 instance=ExtResource("9_30w72")]
+position = Vector2(571, 47)
+letterToDisplay = "W"
+inputToTrack = "moveUp"
+keyTweenTime = 0.025
+
+[node name="keyboardTutorialKey2" parent="kbTutorialPopups" unique_id=728192921 instance=ExtResource("9_30w72")]
+position = Vector2(571, 84)
+letterToDisplay = "S"
+inputToTrack = "moveDown"
+keyTweenTime = 0.025
+
+[node name="keyboardTutorialKey3" parent="kbTutorialPopups" unique_id=255174691 instance=ExtResource("9_30w72")]
+position = Vector2(534, 84)
+letterToDisplay = "A"
+inputToTrack = "moveLeft"
+keyTweenTime = 0.025
+
+[node name="keyboardTutorialKey4" parent="kbTutorialPopups" unique_id=1698117854 instance=ExtResource("9_30w72")]
+position = Vector2(608, 84)
+letterToDisplay = "D"
+inputToTrack = "moveRight"
+keyTweenTime = 0.025
+
+[node name="keyboardTutorialKey5" parent="kbTutorialPopups" unique_id=251795134 instance=ExtResource("9_30w72")]
+position = Vector2(672, 84)
+letterToDisplay = "↵"
+inputToTrack = "moveDone"
+keyTweenTime = 0.025
+
+[node name="conduitSign" parent="." unique_id=830625728 instance=ExtResource("11_pg58q")]
+offset_left = 171.0
+offset_top = 118.0
+offset_right = 308.0
+offset_bottom = 170.0
+
+[node name="GuideArrow" type="Sprite2D" parent="." unique_id=1675249268]
+position = Vector2(428, 234)
+rotation = 0.5235988
+texture = ExtResource("12_lvmkd")
