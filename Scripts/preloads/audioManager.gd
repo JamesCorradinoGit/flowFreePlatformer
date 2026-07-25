@@ -4,7 +4,8 @@ class_name AudioManager
 var activeSong: AudioStreamPlayer
 var songList: Dictionary = {
 	"menuWithoutIntro": "uid://dr5uum6ondds8",
-	"tutorial": "uid://qkj24y50dgh"
+	"tutorial": "uid://qkj24y50dgh",
+	"world1": "uid://bkxt8kuofi6cc"
 }
 
 #Created by Potheterr

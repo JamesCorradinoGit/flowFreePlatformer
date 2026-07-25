@@ -143,6 +143,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tilemaps/resetTileset")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
+lvlSongDictionaryKey = "world1"
 startWithPopup = true
 startingPopupName = "World 1 Tutorial"
 startingPopupMessage = "Introducing buttons and walls!

@@ -144,8 +144,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tilemaps/resetTileset")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
-worldName = "World 1"
-lvlName = "Sailing!"
+lvlSongDictionaryKey = "world1"
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://djtu1ecr2uy0"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_jji7h"]
+[ext_resource type="PackedScene" uid="uid://coucbhikulnop" path="res://Scene/levels/world1Levels/world_1_8.tscn" id="1_lpbgr"]
+
+[resource]
+script = ExtResource("1_jji7h")
+levelName = "The Maintenance Closet"
+levelScene = ExtResource("1_lpbgr")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

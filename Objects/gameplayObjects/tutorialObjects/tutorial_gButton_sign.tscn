@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://oubxn18utdci"]
+
+[ext_resource type="Texture2D" uid="uid://do2fxgvduwshy" path="res://Assets/ui/checkboxInactive.png" id="1_c3vqr"]
+[ext_resource type="Texture2D" uid="uid://da04a0wpk4ko7" path="res://Assets/nodeImages/circle.png" id="2_k7xhj"]
+[ext_resource type="Texture2D" uid="uid://bgpahoibcxxeh" path="res://Assets/nodeImages/receiveNode.png" id="3_qvfoe"]
+[ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/tiles/tileSprites/blackSquare.png" id="4_uqnq1"]
+[ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="5_h0h6f"]
+[ext_resource type="Texture2D" uid="uid://drdxj1mf8d515" path="res://Assets/nodeImages/buttonInactive.png" id="6_k7xhj"]
+
+[node name="conduitSign" type="NinePatchRect" unique_id=830625728]
+anchors_preset = -1
+anchor_right = 0.11892361
+anchor_bottom = 0.25925925
+texture = ExtResource("1_c3vqr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="conMock" type="Sprite2D" parent="." unique_id=908545390]
+position = Vector2(27, 26)
+texture = ExtResource("2_k7xhj")
+
+[node name="recMock" type="Sprite2D" parent="." unique_id=708483141]
+position = Vector2(27, 135)
+texture = ExtResource("2_k7xhj")
+
+[node name="ReceiveNode" type="Sprite2D" parent="recMock" unique_id=601977063]
+modulate = Color(1, 1, 1, 0.49411765)
+position = Vector2(0, 1.66893e-06)
+scale = Vector2(1.000001, 1.000001)
+texture = ExtResource("3_qvfoe")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=612140209]
+z_index = -1
+position = Vector2(68.5, 84)
+scale = Vector2(4.21875, 5.1875)
+texture = ExtResource("4_uqnq1")
+metadata/_edit_lock_ = true
+
+[node name="progressLineSign" type="Sprite2D" parent="." unique_id=1042198846]
+position = Vector2(27, 40)
+rotation = 1.5707964
+scale = Vector2(0.03124997, 0.375)
+texture = ExtResource("5_h0h6f")
+
+[node name="ButtonInactive" type="Sprite2D" parent="." unique_id=149001842]
+position = Vector2(27, 79)
+texture = ExtResource("6_k7xhj")

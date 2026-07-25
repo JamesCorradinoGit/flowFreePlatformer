@@ -21,4 +21,7 @@ func _ready() -> void:
 func updLevelLabel(levelStr):
 	levelLabel.text = levelStr
 func updProgressBar(val:float):
-	worldProgressBar.value += val
+	if worldResource.checkIfWorldCompleted():
+		worldProgressBar.value = worldProgressBar.max_value
+	else:
+		worldProgressBar.value += val

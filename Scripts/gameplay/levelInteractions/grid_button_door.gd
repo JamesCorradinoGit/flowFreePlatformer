@@ -5,6 +5,7 @@ extends gridButtonInteractable
 @export var ySize:int = 6
 @export var doorColor:Color = Color(1.0, 1.0, 1.0, 1.0)
 @export var doorDisabled:bool = false
+@export var allowPlayerButtonDisabling:bool = true
 @export_subgroup("Door Movements")
 @export_enum("Down", "Up", "Left", "Right") var direction:int = 0
 @export var magnitude: int = 100
@@ -21,11 +22,13 @@ var yPixelSize:int
 var originPos:Vector2
 var newPos:Vector2
 var isTweening:bool = false
+var connectedGridButtonIsActive:bool = false
 
 var activeMovingTween: Tween
 
 var doorDisabledSprite = load("uid://bv0th8ahcj1n8")
 var tweenDisableTime = 0.25
+
 signal disableDoor
 signal enableDoor
 
@@ -94,58 +97,88 @@ func disableDoorFunc():
 	tempColor.v /= 2
 	innerTempColor.v /= 4
 	doorDisabled = true
+	if directionSprite:
+		directionSprite.texture = doorDisabledSprite
+		directionSprite.self_modulate.a = 0.0
 	
 	tween.set_parallel()
 	tween.tween_method(shiftNewColTexture, doorColor, tempColor, tweenDisableTime)
 	tween.tween_property(textures, "self_modulate", innerTempColor, tweenDisableTime)
-	tween.tween_property(directionSprite, "self_modulate:a", 0.0, tweenDisableTime)
-	await tween.finished
-	tween = create_tween()
 	tween.tween_property(directionSprite, "self_modulate:a", 1.0, tweenDisableTime)
-	if directionSprite:
-		directionSprite.texture = doorDisabledSprite
 func enableDoorFunc():
 	var tween = create_tween()
 	var innerTempColor = doorColor
 	innerTempColor.a /= 2
+	doorDisabled = false
+	if directionSprite:
+		directionSprite.texture = arrowSprite
+		directionSprite.self_modulate.a = 0.0
 	
 	tween.set_parallel()
 	tween.tween_method(shiftNewColTexture, textures.material.get_shader_parameter("newColor"), doorColor, tweenDisableTime)
 	tween.tween_property(textures, "self_modulate", innerTempColor, tweenDisableTime)
-	tween.tween_property(directionSprite, "self_modulate:a", 0.0, tweenDisableTime)
-	await tween.finished
-	tween = create_tween()
 	tween.tween_property(directionSprite, "self_modulate:a", 1.0, tweenDisableTime)
-	if directionSprite:
-		directionSprite.texture = arrowSprite
-	await tween.finished
-	doorDisabled = false
+	
+	if connectedGridButtonIsActive:
+		onGridButtonPressed()
+	else:
+		onGridButtonUnpress()
+func moveDoorToNewLoc():
+	isTweening = true
+	if activeMovingTween:
+		activeMovingTween.kill()
+		
+	var speedTDefault = originPos.distance_to(newPos) / tweenTime
+	var timeToTweenAccurate = position.distance_to(newPos) / (speedTDefault)
+		
+	activeMovingTween = create_tween()
+	activeMovingTween.finished.connect(func(): isTweening = false)
+		
+	activeMovingTween.tween_property(self, "position", newPos, timeToTweenAccurate)
+func moveDoorToOldLoc():
+	isTweening = true
+	if activeMovingTween:
+		activeMovingTween.kill()
+	
+	var speedTDefault = newPos.distance_to(originPos) / tweenTime
+	var timeToTweenAccurate = position.distance_to(originPos) / (speedTDefault)
+	
+	activeMovingTween = create_tween()
+	activeMovingTween.finished.connect(func(): isTweening = false)
+	
+	activeMovingTween.tween_property(self, "position", originPos, timeToTweenAccurate)
+
 func shiftNewColTexture(col:Color):
 	textures.material.set_shader_parameter("newColor", col)
 
 func onGridButtonPressed():
+	connectedGridButtonIsActive = true
 	if self.doorDisabled == false:
-		isTweening = true
-		if activeMovingTween:
-			activeMovingTween.kill()
-		
-		var speedTDefault = originPos.distance_to(newPos) / tweenTime
-		var timeToTweenAccurate = position.distance_to(newPos) / (speedTDefault)
-		
-		activeMovingTween = create_tween()
-		activeMovingTween.finished.connect(func(): isTweening = false)
-		
-		activeMovingTween.tween_property(self, "position", newPos, timeToTweenAccurate)
+		moveDoorToNewLoc()
 func onGridButtonUnpress():
+	connectedGridButtonIsActive = false
 	if self.doorDisabled == false:
-		isTweening = true
-		if activeMovingTween:
-			activeMovingTween.kill()
-		
-		var speedTDefault = newPos.distance_to(originPos) / tweenTime
-		var timeToTweenAccurate = position.distance_to(originPos) / (speedTDefault)
-		
-		activeMovingTween = create_tween()
-		activeMovingTween.finished.connect(func(): isTweening = false)
-		
-		activeMovingTween.tween_property(self, "position", originPos, timeToTweenAccurate)
+		moveDoorToOldLoc()
+
+func onPlayerButtonPressed(type:int):
+	match type:
+		0:
+			if self.allowPlayerButtonDisabling:
+				doorDisabled = !doorDisabled
+				if doorDisabled:
+					disableDoor.emit()
+				else:
+					enableDoor.emit()
+		1:
+			moveDoorToNewLoc()
+func onPlayerButtonReleased(type:int):
+	match type:
+		0: #disable
+			if self.allowPlayerButtonDisabling:
+				doorDisabled = !doorDisabled
+				if doorDisabled:
+					disableDoor.emit()
+				else:
+					enableDoor.emit()
+		1: #move
+			moveDoorToOldLoc()

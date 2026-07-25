@@ -1,0 +1,253 @@
+[gd_scene format=4 uid="uid://cj3x1fdnn3aoh"]
+
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_vre8n"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="2_s3mv5"]
+[ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="3_f3j8n"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierResource.gd" id="3_l2sbr"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierLineResource.gd" id="4_ba1ec"]
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_sn0tp"]
+[ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/grids/gridObstacles/grid_obstacle_wall.tscn" id="5_ba1ec"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_ri1h8"]
+[ext_resource type="PackedScene" uid="uid://dmlxjxuby8apf" path="res://Objects/gameplayObjects/player_button.tscn" id="6_mdr6w"]
+[ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="6_t3veb"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_uhfxy"]
+[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/grid_moving_button_platform_door.tscn" id="7_srdpc"]
+
+[sub_resource type="Resource" id="Resource_t3veb"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_bj32f"]
+script = ExtResource("3_l2sbr")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_t3veb")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_yc4y4"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_08pyp"]
+script = ExtResource("3_l2sbr")
+cellToModify = 17
+lineNodeAdd = SubResource("Resource_yc4y4")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_l2sbr"]
+script = ExtResource("4_ba1ec")
+color = Color(0, 0.68235296, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_p6rwm"]
+script = ExtResource("3_l2sbr")
+cellToModify = 7
+lineNodeAdd = SubResource("Resource_l2sbr")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_ba1ec"]
+script = ExtResource("4_ba1ec")
+color = Color(0, 0.68235296, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_id8dr"]
+script = ExtResource("3_l2sbr")
+cellToModify = 9
+lineNodeAdd = SubResource("Resource_ba1ec")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_vutgd"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0.54901963, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_5jalo"]
+script = ExtResource("3_l2sbr")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_vutgd")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_kk8ea"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0.54901963, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_fbh72"]
+script = ExtResource("3_l2sbr")
+cellToModify = 19
+lineNodeAdd = SubResource("Resource_kk8ea")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_pxo8y"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0.88235295, 0, 0.99215686)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_gc5k3"]
+script = ExtResource("3_l2sbr")
+cellToModify = 8
+lineNodeAdd = SubResource("Resource_pxo8y")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_bkx21"]
+script = ExtResource("4_ba1ec")
+color = Color(1, 0.88235295, 0, 0.99215686)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_mbvxb"]
+script = ExtResource("3_l2sbr")
+cellToModify = 18
+lineNodeAdd = SubResource("Resource_bkx21")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_jaa0v"]
+script = ExtResource("4_ba1ec")
+color = Color(0.9843137, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_e1njf"]
+script = ExtResource("3_l2sbr")
+cellToModify = 16
+rightModify = ExtResource("5_ba1ec")
+topModify = ExtResource("5_ba1ec")
+lineNodeAdd = SubResource("Resource_jaa0v")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_hji6t"]
+script = ExtResource("4_ba1ec")
+color = Color(0.9843137, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_2ekin"]
+script = ExtResource("3_l2sbr")
+cellToModify = 20
+leftModify = ExtResource("5_ba1ec")
+topModify = ExtResource("5_ba1ec")
+lineNodeAdd = SubResource("Resource_hji6t")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_vdxdy"]
+script = ExtResource("6_t3veb")
+buttonColor = Color(0.52, 0.984, 1, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformB")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_pvf0u"]
+script = ExtResource("3_l2sbr")
+cellToModify = 25
+middleCellModify = SubResource("Resource_vdxdy")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_axdww"]
+script = ExtResource("6_t3veb")
+buttonColor = Color(0.71000004, 0.42000002, 1, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformP"), NodePath("../../interactables/buttonPlatformP2")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_ojnoi"]
+script = ExtResource("3_l2sbr")
+cellToModify = 13
+middleCellModify = SubResource("Resource_axdww")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcva0"]
+shader = ExtResource("3_f3j8n")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[node name="world1-7" type="Node2D" unique_id=86753669 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "groundTileset", "gridParent")]
+script = ExtResource("1_vre8n")
+playerSpawn = NodePath("playerSpawn")
+goalPortal = NodePath("levelPortal")
+resetTileset = NodePath("tilemaps/resetTileset")
+groundTileset = NodePath("tilemaps/groundTiles")
+gridParent = NodePath("grids")
+lvlSongDictionaryKey = "world1"
+
+[node name="grids" type="Node" parent="." unique_id=346834477]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_s3mv5")]
+position = Vector2(560, 144)
+gridSizeX = 5
+gridSizeY = 5
+gridModifiers = Array[ExtResource("3_l2sbr")]([SubResource("Resource_bj32f"), SubResource("Resource_08pyp"), SubResource("Resource_p6rwm"), SubResource("Resource_id8dr"), SubResource("Resource_5jalo"), SubResource("Resource_fbh72"), SubResource("Resource_gc5k3"), SubResource("Resource_mbvxb"), SubResource("Resource_e1njf"), SubResource("Resource_2ekin"), SubResource("Resource_pvf0u"), SubResource("Resource_ojnoi")])
+
+[node name="tilemaps" type="Node" parent="." unique_id=1553609311]
+
+[node name="groundTiles" type="TileMapLayer" parent="tilemaps" unique_id=1060725670]
+z_index = 1
+material = SubResource("ShaderMaterial_gcva0")
+tile_map_data = PackedByteArray("AAAGAAYAAAACAAAAAAAFAAYAAAABAAAAAAAEAAYAAAABAAAAAAADAAYAAAABAAAAAAACAAYAAAABAAAAAAABAAYAAAABAAAAAAAAAAYAAAABAAAAAAAGAAcAAAACAAEAAAAGAAgAAAACAAIAAAAFAAgAAAABAAIAAAAEAAgAAAABAAIAAAADAAgAAAAFAAUAAAADAAkAAAACAAEAAAADAAoAAAACAAEAAAADAAsAAAACAAEAAAADAAwAAAACAAEAAAADAA0AAAACAAEAAAADAA8AAAACAAEAAAADABAAAAACAAEAAAADABEAAAACAAEAAAADABIAAAACAAEAAAADABMAAAACAAEAAAADAA4AAAACAAEAAAADABQAAAACAAEAAAABAAoAAAABAAEAAAABAAkAAAABAAEAAAABAAgAAAABAAEAAAABAAcAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAAAAAAoAAAABAAEAAAAAAAsAAAABAAEAAAAAAAwAAAABAAEAAAAAAA0AAAABAAEAAAAAAA4AAAABAAEAAAAAAA8AAAABAAEAAAAAABAAAAABAAEAAAAAABEAAAABAAEAAAAAABIAAAABAAEAAAAAABMAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAABABMAAAABAAEAAAABABIAAAABAAEAAAABABEAAAABAAEAAAABABAAAAABAAEAAAABAA8AAAABAAEAAAABAA4AAAABAAEAAAABAA0AAAABAAEAAAABAAwAAAABAAEAAAABAAsAAAABAAEAAAACAAsAAAABAAEAAAACAAoAAAABAAEAAAACAAkAAAABAAEAAAACAAgAAAABAAEAAAACAAcAAAABAAEAAAADAAcAAAABAAEAAAAEAAcAAAABAAEAAAAFAAcAAAABAAEAAAACAAwAAAABAAEAAAACAA0AAAABAAEAAAACAA4AAAABAAEAAAACAA8AAAABAAEAAAACABAAAAABAAEAAAACABEAAAABAAEAAAACABIAAAABAAEAAAACABMAAAABAAEAAAACABQAAAABAAEAAAAPAAAAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAgAAAAAAAEAAAAQAAgAAAACAAEAAAAQAAcAAAACAAEAAAAQAAYAAAACAAEAAAAQAAUAAAACAAEAAAAQAAQAAAACAAEAAAAQAAMAAAACAAEAAAAQAAIAAAACAAEAAAAQAAEAAAACAAEAAAAQAAAAAAAFAAUAAAAXAAAAAAABAAEAAAAXAAEAAAABAAEAAAAXAAIAAAABAAEAAAAXAAMAAAABAAEAAAAXAAQAAAABAAEAAAAXAAUAAAABAAEAAAAXAAYAAAABAAEAAAAXAAcAAAABAAEAAAAXAAgAAAABAAEAAAAWAAAAAAAEAAUAAAAWAAEAAAAAAAEAAAAWAAIAAAAAAAEAAAAWAAMAAAAAAAEAAAAWAAQAAAAAAAEAAAAWAAUAAAAAAAEAAAAWAAYAAAAAAAEAAAAWAAcAAAAAAAEAAAAWAAgAAAAAAAEAAAARAAAAAAABAAIAAAASAAAAAAABAAIAAAATAAAAAAABAAIAAAAUAAAAAAABAAIAAAAVAAAAAAABAAIAAAAPAAkAAAAAAAIAAAAWAAkAAAAAAAIAAAAXAAkAAAABAAIAAAAQAAkAAAACAAIAAAD//wAAAAACAAEAAAD//wEAAAACAAEAAAD//wIAAAACAAEAAAD//wMAAAACAAEAAAD//wQAAAACAAEAAAD//wUAAAACAAEAAAD//wYAAAAFAAQAAAAAAP//AAABAAIAAAABAP//AAABAAIAAAACAP//AAABAAIAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAABAAIAAAAJAP//AAABAAIAAAAKAP//AAABAAIAAAALAP//AAABAAIAAAAMAP//AAABAAIAAAANAP//AAABAAIAAAAOAP//AAABAAIAAAD/////AAAFAAUAAAAPAP//AAAEAAUAAAAPABAAAAAAAAAAAAAXABAAAAAGAAEAAAAQABAAAAACAAAAAAAPABMAAAAAAAEAAAAPABQAAAAAAAEAAAAQABMAAAABAAEAAAAQABQAAAABAAEAAAARABQAAAABAAEAAAARABMAAAAFAAQAAAAVABQAAAABAAEAAAAVABMAAAABAAAAAAAWABMAAAABAAAAAAAWABQAAAABAAEAAAAWABAAAAAEAAEAAAASABQAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAeABQAAAAAAAEAAAAeABMAAAAAAAEAAAAeABIAAAAAAAEAAAAeABEAAAAAAAEAAAAeABAAAAAAAAAAAAAeAA0AAAAAAAIAAAAeAAwAAAAAAAEAAAAeAAsAAAAAAAEAAAAeAAoAAAAAAAEAAAAeAAkAAAAEAAUAAAAeAAgAAAABAAEAAAAeAAcAAAABAAEAAAAeAAYAAAABAAEAAAAeAAUAAAABAAEAAAAeAAQAAAABAAEAAAAeAAMAAAABAAEAAAAeAAIAAAABAAEAAAAeAAEAAAABAAEAAAAeAAAAAAABAAEAAAAeAP//AAABAAEAAAAfAP//AAABAAEAAAAfAAAAAAABAAEAAAAfAAEAAAABAAEAAAAfAAIAAAABAAEAAAAfAAMAAAABAAEAAAAfAAQAAAABAAEAAAAfAAUAAAABAAEAAAAfAAYAAAABAAEAAAAfAAcAAAABAAEAAAAfAAgAAAABAAEAAAAfAAkAAAABAAEAAAAfAAoAAAABAAEAAAAfAAsAAAABAAEAAAAfAAwAAAABAAEAAAAfAA0AAAABAAIAAAAfABAAAAABAAAAAAAfABEAAAABAAEAAAAfABIAAAABAAEAAAAfABMAAAABAAEAAAAfABQAAAABAAEAAAAgAP//AAABAAEAAAAgAAAAAAABAAEAAAAgAAEAAAABAAEAAAAgAAIAAAABAAEAAAAgAAMAAAABAAEAAAAgAAQAAAABAAEAAAAgAAUAAAABAAEAAAAgAAYAAAABAAEAAAAgAAcAAAABAAEAAAAgAAgAAAABAAEAAAAgAAkAAAABAAEAAAAgAAoAAAABAAEAAAAgAAsAAAABAAEAAAAgAAwAAAABAAEAAAAgAA0AAAABAAIAAAAgABAAAAABAAAAAAAgABEAAAABAAEAAAAgABIAAAABAAEAAAAgABMAAAABAAEAAAAgABQAAAABAAEAAAAhAP//AAABAAEAAAAhAAAAAAABAAEAAAAhAAEAAAABAAEAAAAhAAIAAAABAAEAAAAhAAMAAAABAAEAAAAhAAQAAAABAAEAAAAhAAUAAAABAAEAAAAhAAYAAAABAAEAAAAhAAcAAAABAAEAAAAhAAgAAAABAAEAAAAhAAkAAAABAAEAAAAhAAoAAAABAAEAAAAhAAsAAAABAAEAAAAhAAwAAAABAAEAAAAhAA0AAAABAAIAAAAhABAAAAABAAAAAAAhABEAAAABAAEAAAAhABIAAAABAAEAAAAhABMAAAABAAEAAAAhABQAAAABAAEAAAAiAP//AAABAAEAAAAiAAAAAAABAAEAAAAiAAEAAAABAAEAAAAiAAIAAAABAAEAAAAiAAMAAAABAAEAAAAiAAQAAAABAAEAAAAiAAUAAAABAAEAAAAiAAYAAAABAAEAAAAiAAcAAAABAAEAAAAiAAgAAAABAAEAAAAiAAkAAAABAAEAAAAiAAoAAAABAAEAAAAiAAsAAAABAAEAAAAiAAwAAAABAAEAAAAiAA0AAAAEAAUAAAAiAA4AAAAAAAEAAAAiAA8AAAAAAAEAAAAiABAAAAAEAAQAAAAiABEAAAABAAEAAAAiABIAAAABAAEAAAAiABMAAAABAAEAAAAiABQAAAABAAEAAAAjAP//AAABAAEAAAAjAAAAAAABAAEAAAAjAAEAAAABAAEAAAAjAAIAAAABAAEAAAAjAAMAAAABAAEAAAAjAAQAAAABAAEAAAAjAAUAAAABAAEAAAAjAAYAAAABAAEAAAAjAAcAAAABAAEAAAAjAAgAAAABAAEAAAAjAAkAAAABAAEAAAAjAAoAAAABAAEAAAAjAAsAAAABAAEAAAAjAAwAAAABAAEAAAAjAA0AAAABAAEAAAAjAA4AAAABAAEAAAAjAA8AAAABAAEAAAAjABAAAAABAAEAAAAjABEAAAABAAEAAAAjABIAAAABAAEAAAAjABMAAAABAAEAAAAjABQAAAABAAEAAAAkAP//AAABAAEAAAAkAAAAAAABAAEAAAAkAAEAAAABAAEAAAAkAAIAAAABAAEAAAAkAAMAAAABAAEAAAAkAAQAAAABAAEAAAAkAAUAAAABAAEAAAAkAAYAAAABAAEAAAAkAAcAAAABAAEAAAAkAAgAAAABAAEAAAAkAAkAAAABAAEAAAAkAAoAAAABAAEAAAAkAAsAAAABAAEAAAAkAAwAAAABAAEAAAAkAA0AAAABAAEAAAAkAA4AAAABAAEAAAAkAA8AAAABAAEAAAAkABAAAAABAAEAAAAkABEAAAABAAEAAAAkABIAAAABAAEAAAAkABMAAAABAAEAAAAkABQAAAABAAEAAAAYAP//AAABAAEAAAAZAP//AAABAAEAAAAaAP//AAABAAEAAAAbAP//AAABAAEAAAAcAP//AAABAAEAAAAdAP//AAABAAEAAAAXAP//AAABAAEAAAASABMAAAABAAAAAAATABMAAAABAAAAAAAUABMAAAABAAAAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAASAP//AAABAAEAAAATAP//AAABAAEAAAAUAP//AAABAAEAAAAVAP//AAABAAEAAAAWAP//AAABAAEAAAAXABMAAAACAAAAAAAXABQAAAACAAEAAAARABIAAAACAAAAAAAQABIAAAAFAAQAAAAPABIAAAAAAAEAAAAPABEAAAAAAAEAAAAQABEAAAACAAEAAAAYAAkAAAABAAIAAAAZAAkAAAABAAIAAAAaAAkAAAABAAIAAAAbAAkAAAABAAIAAAAcAAkAAAABAAIAAAAdAAkAAAABAAIAAAAZAAYAAAABAAEAAAAZAAUAAAABAAEAAAAZAAQAAAABAAEAAAAZAAMAAAABAAEAAAAZAAIAAAABAAEAAAAZAAEAAAABAAEAAAAZAAAAAAABAAEAAAAYAAAAAAABAAEAAAAYAAEAAAABAAEAAAAYAAIAAAABAAEAAAAYAAMAAAABAAEAAAAYAAQAAAABAAEAAAAYAAUAAAABAAEAAAAYAAYAAAABAAEAAAAYAAcAAAABAAEAAAAYAAgAAAABAAEAAAAZAAgAAAABAAEAAAAZAAcAAAABAAEAAAAaAAcAAAABAAEAAAAaAAYAAAABAAEAAAAaAAUAAAABAAEAAAAaAAQAAAABAAEAAAAaAAMAAAABAAEAAAAaAAIAAAABAAEAAAAaAAEAAAABAAEAAAAaAAAAAAABAAEAAAAbAAAAAAABAAEAAAAbAAEAAAABAAEAAAAbAAIAAAABAAEAAAAbAAMAAAABAAEAAAAbAAQAAAABAAEAAAAbAAUAAAABAAEAAAAbAAYAAAABAAEAAAAbAAcAAAABAAEAAAAbAAgAAAABAAEAAAAaAAgAAAABAAEAAAAcAAgAAAABAAEAAAAcAAcAAAABAAEAAAAcAAYAAAABAAEAAAAcAAUAAAABAAEAAAAcAAQAAAABAAEAAAAcAAMAAAABAAEAAAAcAAIAAAABAAEAAAAcAAEAAAABAAEAAAAcAAAAAAABAAEAAAAdAAAAAAABAAEAAAAdAAEAAAABAAEAAAAdAAIAAAABAAEAAAAdAAMAAAABAAEAAAAdAAQAAAABAAEAAAAdAAUAAAABAAEAAAAdAAYAAAABAAEAAAAdAAcAAAABAAEAAAAdAAgAAAABAAEAAAA=")
+tile_set = ExtResource("4_sn0tp")
+
+[node name="resetTileset" type="TileMapLayer" parent="tilemaps" unique_id=732947869]
+z_index = 6
+tile_map_data = PackedByteArray("AAAPAA8AAAAAAAAAAgAQAA8AAAAAAAAAAgAWAA8AAAAAAAAAAgAXAA8AAAAAAAAAAgAEABMAAAAAAAAAAQAFABMAAAAAAAAAAQAGABMAAAAAAAAAAQAHABMAAAAAAAAAAQAIABMAAAAAAAAAAQAJABMAAAAAAAAAAQAKABMAAAAAAAAAAQALABMAAAAAAAAAAQAMABMAAAAAAAAAAQANABMAAAAAAAAAAQAEABQAAQAAAAAAAAAFABQAAQAAAAAAAAAGABQAAQAAAAAAAAAHABQAAQAAAAAAAAAIABQAAQAAAAAAAAAJABQAAQAAAAAAAAAKABQAAQAAAAAAAAALABQAAQAAAAAAAAAMABQAAQAAAAAAAAANABQAAQAAAAAAAAAZABMAAAAAAAAAAQAaABMAAAAAAAAAAQAbABMAAAAAAAAAAQAcABMAAAAAAAAAAQAdABMAAAAAAAAAAQAZABQAAQAAAAAAAAAaABQAAQAAAAAAAAAbABQAAQAAAAAAAAAcABQAAQAAAAAAAAAdABQAAQAAAAAAAAAOABMAAAAAAAAAAQAOABQAAQAAAAAAAAAYABMAAAAAAAAAAQAYABQAAQAAAAAAAAA=")
+tile_set = ExtResource("5_ri1h8")
+
+[node name="interactables" type="Node" parent="." unique_id=513775111]
+
+[node name="playerButtonP" parent="interactables" unique_id=677964297 node_paths=PackedStringArray("objToConnectTo") instance=ExtResource("6_mdr6w")]
+position = Vector2(180, 168)
+buttonColor = Color(0.71000004, 0.42000002, 1, 1)
+objToConnectTo = NodePath("../buttonPlatformP")
+
+[node name="playerButtonP2" parent="interactables" unique_id=686366506 node_paths=PackedStringArray("objToConnectTo") instance=ExtResource("6_mdr6w")]
+position = Vector2(624, 584)
+buttonColor = Color(0.71000004, 0.42000002, 1, 1)
+objToConnectTo = NodePath("../buttonPlatformP")
+
+[node name="buttonPlatformP" parent="interactables" unique_id=514740061 instance=ExtResource("7_srdpc")]
+position = Vector2(540, 512)
+xSize = 7
+ySize = 1
+doorColor = Color(0.71000004, 0.42000002, 1, 1)
+doorDisabled = true
+direction = 1
+magnitude = 190
+tweenTime = 7.5
+
+[node name="buttonPlatformP2" parent="interactables" unique_id=1697597377 instance=ExtResource("7_srdpc")]
+position = Vector2(780, 334)
+xSize = 7
+ySize = 1
+doorColor = Color(0.71000004, 0.42000002, 1, 1)
+magnitude = 256
+tweenTime = 2.0
+
+[node name="buttonPlatformB" parent="interactables" unique_id=332895956 instance=ExtResource("7_srdpc")]
+position = Vector2(960, 448)
+xSize = 6
+ySize = 2
+doorColor = Color(0.52, 0.984, 1, 1)
+direction = 2
+magnitude = 726
+tweenTime = 6.0
+
+[node name="detail" type="Node" parent="." unique_id=266693697]
+
+[node name="buttonConnectLineP" type="Line2D" parent="detail" unique_id=156860703]
+z_index = 1
+points = PackedVector2Array(179, 195, 179, 236, 56, 236, 56, 657, 512, 657, 512, 530, 538, 530)
+width = 5.0
+default_color = Color(0.71000004, 0.42000002, 1, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineP2" type="Line2D" parent="detail" unique_id=1896800438]
+z_index = 1
+points = PackedVector2Array(624, 612, 624, 633, 512, 633)
+width = 5.0
+default_color = Color(0.71000004, 0.42000002, 1, 1)
+end_cap_mode = 2
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_uhfxy")]
+position = Vector2(624, 64)
+
+[node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
+position = Vector2(57, 162)
