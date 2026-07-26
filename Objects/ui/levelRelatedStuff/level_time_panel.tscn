@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://43jaybfe2dnb"]
+
+[ext_resource type="Shader" uid="uid://cxxnaqtmbs86p" path="res://Assets/Shaders/rainnbowShiftWLineShader.gdshader" id="1_73u0h"]
+[ext_resource type="Theme" uid="uid://dgxtrauffty57" path="res://Assets/ui/uiThemes/mainButtonTheme/mainTheme.tres" id="1_uql4i"]
+[ext_resource type="Script" uid="uid://bi11e2jix7ohe" path="res://Scripts/ui/uiObjects/level_time_panel.gd" id="3_jbwvr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbwvr"]
+shader = ExtResource("1_73u0h")
+shader_parameter/isEffectVisible = false
+shader_parameter/shiftTimeMod = 0.12800000608
+shader_parameter/bgRotateAngle = 0.0
+shader_parameter/shiftPositionMod = 0.40000000596048
+shader_parameter/showLine = true
+shader_parameter/color_one = Color(1, 1, 1, 1)
+shader_parameter/switchLineColor = true
+shader_parameter/lineRotateAngle = 98.10000146180772
+shader_parameter/line_count = 5.0
+shader_parameter/lineSpeed = 2.5
+shader_parameter/lineBlur = 2.0
+
+[node name="levelTimePanel" type="Panel" unique_id=1323853800]
+material = SubResource("ShaderMaterial_jbwvr")
+custom_minimum_size = Vector2(251, 55)
+anchors_preset = -1
+anchor_right = 0.21788195
+anchor_bottom = 0.084876545
+theme = ExtResource("1_uql4i")
+script = ExtResource("3_jbwvr")
+metadata/_edit_use_anchors_ = true
+
+[node name="timeLabel" type="Label" parent="." unique_id=1640289235]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087649405
+anchor_top = 0.07272727
+anchor_right = 0.31075698
+anchor_bottom = 0.6363636
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "99:99"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="flairLabel" type="Label" parent="." unique_id=509492452]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27091634
+anchor_top = 0.07272727
+anchor_right = 0.8884462
+anchor_bottom = 0.6363636
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "spent in level"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="highscoreLabel" type="Label" parent="." unique_id=186678466]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24501993
+anchor_top = 0.5454545
+anchor_right = 0.7549801
+anchor_bottom = 0.94545454
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "N/A"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true

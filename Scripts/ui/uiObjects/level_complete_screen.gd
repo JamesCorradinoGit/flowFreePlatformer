@@ -2,21 +2,32 @@ extends Control
 class_name endScreen
 
 @export var menuScene:PackedScene
+
 @onready var endWorldLabel: Label = $endingPanel/endWorldLabel
 @onready var endNameLabel: Label = $endingPanel/endNameLabel
 @onready var blurRect: ColorRect = $blurRect
+@onready var levelTimePanelInst: levelTimePanel = $endingPanel/levelTimePanel
 
 var instWorldName:String = "N/A"
 var instLevelName:String = "N/A"
 var levelOwner:level
 
+var isLevelTimeNewHighScore:bool = false
+var timeToDisplay:float
+
+signal updateTimeLabel(isHS:bool, time:float)
+
 func _ready() -> void:
+	var instHS:bool = false
 	blurRect.material = blurRect.material.duplicate()
 	blurRect.material.set_shader_parameter("amount", 0.0)
 	endWorldLabel.text = instWorldName
 	endNameLabel.text = instLevelName
 	var tween = create_tween()
 	tween.tween_property($blurRect, "material:shader_parameter/amount", 1.5, 1.5)
+	if isLevelTimeNewHighScore:
+		instHS = true
+	updateTimeLabel.emit(instHS, timeToDisplay)
 
 func _on_menu_button_pressed() -> void:
 	if levelOwner:

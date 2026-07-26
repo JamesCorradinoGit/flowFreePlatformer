@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/grids/gridObstacles/grid_obstacle_wall.tscn" id="5_o860r"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_r1w1i"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_doimq"]
+[ext_resource type="PackedScene" uid="uid://oubxn18utdci" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_gButton_sign.tscn" id="12_mfa4d"]
+[ext_resource type="PackedScene" uid="uid://byqcwwqksc7t5" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_conduitWall_sign.tscn" id="13_qvy56"]
 
 [sub_resource type="Resource" id="Resource_o860r"]
 script = ExtResource("4_3n1sn")
@@ -144,13 +146,6 @@ resetTileset = NodePath("tilemaps/resetTileset")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
 lvlSongDictionaryKey = "world1"
-startWithPopup = true
-startingPopupName = "World 1 Tutorial"
-startingPopupMessage = "Introducing buttons and walls!
-Conduits cannot pass through walls, but your player can!
-Conduits can also trigger grid buttons when they intersect.
-!!! Grids can now be partially empty !!!"
-startingPopupDuration = 7.5
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 
@@ -186,3 +181,15 @@ position = Vector2(996, 271)
 
 [node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
 position = Vector2(124, 301)
+
+[node name="conduitSign" parent="." unique_id=830625728 instance=ExtResource("12_mfa4d")]
+offset_left = 117.0
+offset_top = 71.0
+offset_right = 254.0
+offset_bottom = 239.0
+
+[node name="conduitSign2" parent="." unique_id=1792235760 instance=ExtResource("13_qvy56")]
+offset_left = 274.0
+offset_top = 139.0
+offset_right = 411.0
+offset_bottom = 191.0

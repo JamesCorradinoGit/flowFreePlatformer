@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+uniform bool isEffectVisible;
 group_uniforms rainbowBackground;
 uniform float shiftTimeMod: hint_range(0.0, 1.0) = 0.5;
 uniform float bgRotateAngle: hint_range(0.0, 360, 0.1) = 0.0;
@@ -41,30 +42,32 @@ vec3 shift_hue(in vec4 color, in float shift) {
 }
 
 void fragment() {
-	vec2 bgUVToRotate = vec2(1.0, 0.5);
-	
-	vec2 curLocation = UV;
-	vec3 rainbowColor = shift_hue(vec4(bgUVToRotate, 1.0, 1.0), mod(curLocation.x * shiftPositionMod, 1.0) + (TIME*shiftTimeMod));
-	
-	if(showLine){
-		vec2 uv = UV;
-		vec3 col;
-		float a = TEXTURE_PIXEL_SIZE.x / TEXTURE_PIXEL_SIZE.y;
+	if(isEffectVisible){
+		vec2 bgUVToRotate = vec2(1.0, 0.5);
 		
-		uv.x *= a;
-		uv = lineRotate(uv, lineRotateAngle);
-		float g = stripe(uv);
+		vec2 curLocation = UV;
+		vec3 rainbowColor = shift_hue(vec4(bgUVToRotate, 1.0, 1.0), mod(curLocation.x * shiftPositionMod, 1.0) + (TIME*shiftTimeMod));
 		
-		if(switchLineColor == true){
-			col = mix(rainbowColor, color_one, smoothstep(0.0, lineBlur, g));
+		if(showLine){
+			vec2 uv = UV;
+			vec3 col;
+			float a = TEXTURE_PIXEL_SIZE.x / TEXTURE_PIXEL_SIZE.y;
+			
+			uv.x *= a;
+			uv = lineRotate(uv, lineRotateAngle);
+			float g = stripe(uv);
+			
+			if(switchLineColor == true){
+				col = mix(rainbowColor, color_one, smoothstep(0.0, lineBlur, g));
+			}
+			else{
+				col = mix(color_one, rainbowColor, smoothstep(0.0, lineBlur, g));
+			}
+			
+			COLOR = vec4(col, 1.0);
 		}
 		else{
-			col = mix(color_one, rainbowColor, smoothstep(0.0, lineBlur, g));
+			COLOR = vec4(rainbowColor, 1.0);
 		}
-		
-		COLOR = vec4(col, 1.0);
-	}
-	else{
-		COLOR = vec4(rainbowColor, 1.0);
 	}
 }

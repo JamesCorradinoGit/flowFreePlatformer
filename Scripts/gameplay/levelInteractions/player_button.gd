@@ -38,6 +38,7 @@ func _ready() -> void:
 
 func _on_button_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		GlobalAudioManager.playGlobalSFX("uid://obo52s32r5f0", -2.0, randf_range(-0.25, 0.25))
 		activeTween = create_tween()
 		activeTween.set_parallel()
 		activeTween.tween_property(self, "position:y", newYPos, tweenTime)
@@ -45,6 +46,7 @@ func _on_button_area_body_entered(body: Node2D) -> void:
 
 func _on_button_area_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		GlobalAudioManager.playGlobalSFX("uid://bqwaoxf3r1yfj", -2.0, randf_range(-0.25, 0.25))
 		activeTween = create_tween()
 		activeTween.set_parallel()
 		activeTween.tween_property(self, "position:y", originYPos, tweenTime)

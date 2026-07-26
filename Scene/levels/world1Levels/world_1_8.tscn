@@ -238,6 +238,22 @@ direction = 2
 magnitude = 360
 tweenTime = 5.0
 
+[node name="detail" type="Node" parent="." unique_id=1210297245]
+
+[node name="buttonConnectLineP" type="Line2D" parent="detail" unique_id=1167823613]
+z_index = 1
+points = PackedVector2Array(308, 321, 308, 346, 382, 346, 382, -18, 985, -19, 985, 187)
+width = 5.0
+default_color = Color(1, 0.48000002, 0.97400016, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineG" type="Line2D" parent="detail" unique_id=1538916586]
+z_index = 1
+points = PackedVector2Array(108, 320, 108, 632, 1003, 632, 1003, 486, 962, 486)
+width = 5.0
+default_color = Color(0.030000044, 0.6, 0, 1)
+end_cap_mode = 2
+
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_4pha7")]
 position = Vector2(1050, 240)
 

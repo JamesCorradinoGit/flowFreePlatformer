@@ -29,6 +29,7 @@ func _ready() -> void:
 
 func _on_button_col_area_area_entered(area: Area2D) -> void:
 	if area.name == "colArea":
+		GlobalAudioManager.playGlobalSFX("uid://obo52s32r5f0", -2.0, randf_range(-0.25, 0.25))
 		buttonActivated = true
 		texture = buttonActiveSprite
 		activateButton.emit()
@@ -38,6 +39,7 @@ func _on_button_col_area_area_exited(area: Area2D) -> void:
 	if buttonColArea.get_overlapping_areas():
 		return
 	elif area.name == "colArea":
+		GlobalAudioManager.playGlobalSFX("uid://bqwaoxf3r1yfj", -2.0, randf_range(-0.25, 0.25))
 		texture = buttonInactiveSprite
 		buttonActivated = false
 		deactivateButton.emit()

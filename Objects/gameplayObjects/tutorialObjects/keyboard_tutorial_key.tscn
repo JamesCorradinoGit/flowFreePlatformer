@@ -9,7 +9,7 @@ texture = ExtResource("1_ueyed")
 script = ExtResource("2_kt4rf")
 
 [node name="keyLabel" type="Label" parent="." unique_id=424703507]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -16.0
@@ -22,6 +22,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="BlackSquare" type="Sprite2D" parent="." unique_id=2066275676]
-z_index = -1
+z_index = -5
 scale = Vector2(0.8125, 0.8125)
 texture = ExtResource("3_gfxy1")

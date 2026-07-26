@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b75bgm7ysll27" path="res://Assets/ui/menuIcon.png" id="4_26s4p"]
 [ext_resource type="Shader" uid="uid://xws8etdt7ct0" path="res://Assets/Shaders/simpleSimpleBlur.gdshader" id="6_2qrmw"]
 [ext_resource type="PackedScene" uid="uid://hsx1ryq17acy" path="res://Objects/ui/worldMenus/small_world_menu_panel.tscn" id="7_qniet"]
+[ext_resource type="PackedScene" uid="uid://43jaybfe2dnb" path="res://Objects/ui/levelRelatedStuff/level_time_panel.tscn" id="8_7ruv0"]
 
 [sub_resource type="Animation" id="Animation_hqtk5"]
 length = 0.001
@@ -277,14 +278,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="smallWorldMenuPanel" parent="endingPanel" unique_id=955193141 instance=ExtResource("7_qniet")]
 layout_mode = 1
-anchor_left = 0.42781684
+anchor_left = 0.5176056
 anchor_top = 0.21744145
-anchor_right = 0.9683099
+anchor_right = 1.0580986
 anchor_bottom = 0.9334608
 offset_left = 3.0517578e-05
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="levelTimePanel" parent="endingPanel" unique_id=1323853800 node_paths=PackedStringArray("completeScreen") instance=ExtResource("8_7ruv0")]
+layout_mode = 1
+anchor_left = 0.03521127
+anchor_top = 0.3118857
+anchor_right = 0.47711268
+anchor_bottom = 0.4326865
+completeScreen = NodePath("../..")
 
 [connection signal="mouse_entered" from="endingPanel/nextLevelButton" to="." method="_on_next_level_button_mouse_entered"]
 [connection signal="pressed" from="endingPanel/nextLevelButton" to="." method="_on_next_level_button_pressed"]

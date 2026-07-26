@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_0mkq7")
-levelName = "An Introduction to Player Activated Buttons"
+levelName = "P.A.B.S."
 levelScene = ExtResource("1_du3wd")
 metadata/_custom_type_script = "uid://c75d7qublmsl0"

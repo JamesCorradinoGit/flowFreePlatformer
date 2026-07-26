@@ -24,6 +24,9 @@ var pauseMenuInst:PackedScene = load("uid://0jki0fjckxxy")
 var numGrids:int = 0
 var instGridsCompleted:int
 
+var countTime:bool = true
+var timeInLevel:float = 0.0
+
 var pauseMenuVisible: bool = false
 var canPause:bool = true
 var activePauseMenu: Control
@@ -64,7 +67,9 @@ func _ready() -> void:
 	
 	if self.startWithPopup:
 		GlobalPopup.showMessage(self.startingPopupName, self.startingPopupMessage, self.startingPopupDuration, self)
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if countTime:
+		timeInLevel += delta
 	if gridsComplete and portalInteracted:
 		onAllCompleted()
 		completeLevel.emit()
@@ -106,6 +111,7 @@ func onPortalReached():
 
 func onAllCompleted():
 	canPause = false
+	countTime = false
 	if self.hasGrids:
 		disableAllGrids()
 	if Globals.currentLvlResource.completed == false:
@@ -115,6 +121,10 @@ func onAllCompleted():
 	endInst.instWorldName = Globals.currentWorldResource.worldName
 	endInst.levelOwner = self
 	endInst.position = Vector2.ZERO
+	if Globals.currentLvlResource.bestTimeInSec == 0.0 or Globals.currentLvlResource.bestTimeInSec > timeInLevel:
+		Globals.currentLvlResource.bestTimeInSec = timeInLevel
+		endInst.isLevelTimeNewHighScore = true
+	endInst.timeToDisplay = timeInLevel
 	add_child(endInst)
 
 func changeGroundColors(colorChange:Color):
