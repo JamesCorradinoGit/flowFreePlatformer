@@ -73,7 +73,8 @@ text = "Inspirations / Games I took stuff from directly:"
 layout_mode = 2
 text = "Flow Free by Big Duck Games and Noodlecake Games (Conduit System)
 Pico Park (Inspiration)
-Portal 2 (Inspiration)"
+Portal 2 (Inspiration)
+Fireboy and Watergirl (Inspiration)"
 
 [node name="scriptsCreditsLabel" type="Label" parent="extrasScroll/creditsVbox" unique_id=2020682924]
 layout_mode = 2

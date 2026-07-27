@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmlxjxuby8apf"]
 
-[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/playerButtonBase.png" id="1_fbhew"]
+[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/miscObjectImages/playerButtonBase.png" id="1_fbhew"]
 [ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="2_rv88d"]
 [ext_resource type="Script" uid="uid://c3jptyompq1cj" path="res://Scripts/gameplay/levelInteractions/player_button.gd" id="2_xptcx"]
 

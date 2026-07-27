@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://do2fxgvduwshy" path="res://Assets/ui/checkboxInactive.png" id="1_u14bs"]
 [ext_resource type="Texture2D" uid="uid://c7b30t5y42lkn" path="res://Assets/tiles/tileSprites/blackSquare.png" id="4_s1e6i"]
-[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/playerButtonBase.png" id="5_apfva"]
+[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/miscObjectImages/playerButtonBase.png" id="5_apfva"]
 [ext_resource type="Texture2D" uid="uid://bv0th8ahcj1n8" path="res://Assets/ui/uiXIcon.png" id="5_kytml"]
 [ext_resource type="Texture2D" uid="uid://cq701671i5sjo" path="res://Assets/blobbySprite.png" id="6_xi8rx"]
 [ext_resource type="Texture2D" uid="uid://3iigp300to3s" path="res://Assets/nodeImages/outlinedSquare.png" id="8_1p4x5"]

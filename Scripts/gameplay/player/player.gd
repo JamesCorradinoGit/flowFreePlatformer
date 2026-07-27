@@ -1,8 +1,11 @@
 extends CharacterBody2D
+class_name defaultPlayer
 
 @export var coyoteTimer:Timer
 @export var tweenTime:float = 0.5
+
 @onready var playerSprite: AnimatedSprite2D = $playerSprite
+@onready var playerCollision: CollisionShape2D = $playerCollision
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -425.0

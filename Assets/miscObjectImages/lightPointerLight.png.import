@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqxlctny3vgjv"
-path="res://.godot/imported/playerButtonBase.png-c6b66519ffe78c7406e16fca39cca041.ctex"
+uid="uid://6ijvctr7kn8u"
+path="res://.godot/imported/lightPointerLight.png-86edad2234e8cb2a5015d59dd6bbccfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/playerButtonBase.png"
-dest_files=["res://.godot/imported/playerButtonBase.png-c6b66519ffe78c7406e16fca39cca041.ctex"]
+source_file="res://Assets/miscObjectImages/lightPointerLight.png"
+dest_files=["res://.godot/imported/lightPointerLight.png-86edad2234e8cb2a5015d59dd6bbccfa.ctex"]
 
 [params]
 
