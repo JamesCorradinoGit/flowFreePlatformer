@@ -2,7 +2,7 @@ extends StaticBody2D
 class_name laserPoinerReciever
 
 @export var colorToRecieve = Color.WHITE
-@export var objToConnectTo:interactableMechanism
+@export var objToConnectTo:Array[interactableMechanism]
 @export var mechanismID:int = 0
 
 @onready var recieverEnergyColor: Sprite2D = $recieverEnergyColor
@@ -19,6 +19,11 @@ func _ready() -> void:
 	recieverEnergyColor.self_modulate = colorToRecieve
 
 func onSelfLaserConnect():
-	objToConnectTo.mechanismConnect.emit(mechanismID)
+	if objToConnectTo:
+		for obj in objToConnectTo:
+			obj.mechanismConnect.emit(mechanismID)
 func onSelfLaserDisconnect():
-	objToConnectTo.mechanismDisconnect.emit(mechanismID)
+	isConnected = false
+	if objToConnectTo:
+		for obj in objToConnectTo:
+			obj.mechanismDisconnect.emit(mechanismID)

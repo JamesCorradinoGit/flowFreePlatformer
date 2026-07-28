@@ -136,6 +136,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("6_t3veb")
 buttonColor = Color(0.52, 0.984, 1, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformB")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_pvf0u"]
@@ -148,6 +149,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("6_t3veb")
 buttonColor = Color(0.71000004, 0.42000002, 1, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformP"), NodePath("../../interactables/buttonPlatformP2")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_ojnoi"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpd6n0qgqve4c"]
+
+[ext_resource type="Texture2D" uid="uid://drdxj1mf8d515" path="res://Assets/nodeImages/buttonInactive.png" id="1_1p7ed"]
+[ext_resource type="Script" uid="uid://cdr8kjs4gc66e" path="res://Scripts/gameplay/levelInteractions/mechanisms/grid_button_mechanism.gd" id="2_1p7ed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbmim"]
+size = Vector2(21.999998, 21.999998)
+
+[node name="gridButtonMechanism" type="Sprite2D" unique_id=1371744768 groups=["flowLineInteractableObstacle"]]
+texture = ExtResource("1_1p7ed")
+script = ExtResource("2_1p7ed")
+
+[node name="buttonColArea" type="Area2D" parent="." unique_id=1132122289]
+
+[node name="buttonColShape" type="CollisionShape2D" parent="buttonColArea" unique_id=925588222]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_pbmim")
+debug_color = Color(0, 0.7, 0.011666656, 0.41960785)
+
+[connection signal="area_entered" from="buttonColArea" to="." method="_on_button_col_area_area_entered"]
+[connection signal="area_exited" from="buttonColArea" to="." method="_on_button_col_area_area_exited"]

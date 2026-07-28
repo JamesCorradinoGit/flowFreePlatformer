@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="2_7mn5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syb5v"]
-size = Vector2(28, 20)
+size = Vector2(28, 6)
 
 [node name="laserPointerReciever" type="StaticBody2D" unique_id=814222754]
 collision_layer = 2
@@ -16,7 +16,7 @@ script = ExtResource("1_romtu")
 texture = ExtResource("1_syb5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=106196349]
-position = Vector2(0, 12)
+position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_syb5v")
 debug_color = Color(0.011666656, 0.7, 0, 0.41960785)
 

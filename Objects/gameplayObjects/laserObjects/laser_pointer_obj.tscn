@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="4_ms7ng"]
 
 [sub_resource type="Curve" id="Curve_s0xbb"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.8953068, 1), 0.0, 1.3436569, 0, 0, Vector2(1, 0), -19.2935, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.8953068, 1), 0.0, -1.3173102, 0, 0, Vector2(1, 0.4858209), -19.2935, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_s0xbb"]
-offsets = PackedFloat32Array(0, 0.80753136, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_ms7ng"]
+offsets = PackedFloat32Array(0, 0.8577406, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.34901962)
 
 [node name="laserPointerObj" type="Sprite2D" unique_id=696941337]
 texture = ExtResource("1_wubh3")
@@ -27,7 +27,7 @@ collision_mask = 3
 z_index = -1
 position = Vector2(0, 3)
 width_curve = SubResource("Curve_s0xbb")
-gradient = SubResource("Gradient_s0xbb")
+gradient = SubResource("Gradient_ms7ng")
 joint_mode = 1
 end_cap_mode = 2
 

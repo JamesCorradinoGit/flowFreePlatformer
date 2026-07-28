@@ -47,7 +47,7 @@ goalPortal = NodePath("levelPortal")
 groundTileset = NodePath("tilemaps/groundTiles")
 lvlSongDictionaryKey = "world1"
 
-[node name="grids" type="Node2D" parent="." unique_id=988448575]
+[node name="grids" type="Node" parent="." unique_id=2030443186]
 
 [node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_hsrw3")]
 position = Vector2(225, 121)

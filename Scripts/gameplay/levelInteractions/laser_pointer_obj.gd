@@ -62,7 +62,12 @@ func _process(_delta: float) -> void:
 						pointRec.isConnected = true
 						pointRec.laserConnect.emit()
 				break
-			
+			if collision is not laserPoinerReciever and recentLaserConnection and currentlyConnected:
+				recentLaserConnection.laserDisconnect.emit()
+				recentLaserConnection = null
+				currentlyConnected = false
+				break
+				
 			if not collision.is_in_group("laserPointerReflect"):
 				break
 			

@@ -9,7 +9,8 @@ class_name defaultPlayer
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -425.0
-const ACCEL = 2200
+const ACCEL = 15
+const FRICTION = 2200
 
 var heldJump:bool = false
 var canJump:bool = true
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		#endregion
 		#region baseMovement
 		var direction := Input.get_axis("moveLeft", "moveRight")
+		var accelVeloWeight: float = delta*ACCEL
 		
 		if direction > 0:
 			playerSprite.flip_h = false
@@ -51,9 +53,9 @@ func _physics_process(delta: float) -> void:
 			playerSprite.flip_h = true
 		
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = lerp(velocity.x, direction*SPEED, accelVeloWeight)
 		else:
-			velocity.x = move_toward(velocity.x, direction*SPEED, ACCEL*delta)
+			velocity.x = move_toward(velocity.x, direction*SPEED, FRICTION*delta)
 		#endregion
 	#region animation
 	animateSprite()

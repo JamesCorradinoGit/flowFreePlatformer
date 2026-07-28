@@ -121,6 +121,11 @@ func enableDoorFunc():
 	tween.tween_method(shiftNewColTexture, textures.material.get_shader_parameter("newColor"), doorColor, tweenDisableTime)
 	tween.tween_property(textures, "self_modulate", innerTempColor, tweenDisableTime)
 	tween.tween_property(directionSprite, "self_modulate:a", 1.0, tweenDisableTime)
+	
+	if connectedGridButtonIsActive:
+		moveDoorToNewLoc()
+	else:
+		moveDoorToOldLoc()
 func moveDoorToNewLoc():
 	isTweening = true
 	if activeMovingTween:
@@ -152,24 +157,29 @@ func shiftNewColTexture(col:Color):
 func onMechanismConnect(id:int):
 	match id:
 		0:
-			moveDoorToNewLoc()
+			if doorDisabled == false:
+				moveDoorToNewLoc()
 		1:
 			if doorDisabled:
 				enableDoor.emit()
 			else:
 				disableDoor.emit()
-			doorDisabled = !doorDisabled
 		_:
 			pass
 func onMechanismDisconnect(id:int):
 	match id:
 		0:
-			moveDoorToOldLoc()
+			if doorDisabled == false:
+				moveDoorToOldLoc()
 		1:
 			if doorDisabled:
 				enableDoor.emit()
 			else:
 				disableDoor.emit()
-			doorDisabled = !doorDisabled
 		_:
 			pass
+
+func enableGridButtonVar(_id:int):
+	connectedGridButtonIsActive = true
+func disableGridButtonVar(_id:int):
+	connectedGridButtonIsActive = false

@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://dmlxjxuby8apf"]
+[gd_scene format=3 uid="uid://b2xw4r84ye66w"]
 
-[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/miscObjectImages/playerButtonBase.png" id="1_fbhew"]
-[ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="2_rv88d"]
-[ext_resource type="Script" uid="uid://dl7olgfetqmui" path="res://Scripts/gameplay/levelInteractions/player_button_nonMech.gd" id="2_xptcx"]
+[ext_resource type="Texture2D" uid="uid://cqxlctny3vgjv" path="res://Assets/miscObjectImages/playerButtonBase.png" id="1_k8mjy"]
+[ext_resource type="Script" uid="uid://c3jptyompq1cj" path="res://Scripts/gameplay/levelInteractions/player_button.gd" id="2_1wsn8"]
+[ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="3_isjy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xptcx"]
 size = Vector2(26.666668, 18)
 
 [node name="playerButton" type="Sprite2D" unique_id=677964297]
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_fbhew")
-script = ExtResource("2_xptcx")
+texture = ExtResource("1_k8mjy")
+script = ExtResource("2_1wsn8")
 
 [node name="innerLight" type="Sprite2D" parent="." unique_id=1473620956]
 z_index = -1
 position = Vector2(-2.3841858e-07, 9)
 scale = Vector2(0.62499994, 0.125)
-texture = ExtResource("2_rv88d")
+texture = ExtResource("3_isjy3")
 
 [node name="buttonArea" type="Area2D" parent="." unique_id=1585200687]
 

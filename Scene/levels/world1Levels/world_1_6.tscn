@@ -137,6 +137,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("6_4pbv2")
 buttonColor = Color(0.35000002, 1, 0.7833334, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonDoor")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_n3i81"]

@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("5_tidri")
 buttonColor = Color(1, 0.54901963, 0, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformO"), NodePath("../../interactables/buttonPlatformO2")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_pkyhc"]
@@ -62,6 +63,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("5_tidri")
 buttonColor = Color(0, 0.68235296, 1, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformB")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_88dft"]
@@ -97,6 +99,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("5_tidri")
 buttonColor = Color(1, 0, 0, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformR")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_0yc2k"]
@@ -132,6 +135,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("5_tidri")
 buttonColor = Color(0.36862746, 0, 1, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonDoorP"), NodePath("../../interactables/buttonDoorP2"), NodePath("../../interactables/buttonDoorP3")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_lqcwe"]

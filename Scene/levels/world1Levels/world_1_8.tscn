@@ -135,6 +135,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("6_pcfn7")
 buttonColor = Color(1, 0.6793333, 0.26, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonPlatformO")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_q3w14"]
@@ -155,6 +156,7 @@ metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 script = ExtResource("6_pcfn7")
 buttonColor = Color(1, 0.48000002, 0.97400016, 1)
 objToConnectTo = Array[NodePath]([NodePath("../../interactables/buttonDoorP")])
+useMechanismButton = false
 metadata/_custom_type_script = "uid://vh8a0nml6fav"
 
 [sub_resource type="Resource" id="Resource_7jewb"]
@@ -219,7 +221,6 @@ objToConnectTo = NodePath("../buttonDoorP")
 position = Vector2(109, 296)
 buttonColor = Color(0.030000044, 0.6, 0, 1)
 objToConnectTo = NodePath("../buttonPlatformG")
-buttonType = 1
 
 [node name="buttonDoorP" parent="interactables" unique_id=293482549 instance=ExtResource("8_br4k8")]
 position = Vector2(960, 192)
