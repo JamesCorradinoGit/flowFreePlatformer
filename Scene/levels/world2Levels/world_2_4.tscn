@@ -1,0 +1,73 @@
+[gd_scene format=4 uid="uid://fs634vxgqep8"]
+
+[ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_o33u1"]
+[ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="2_bj1tr"]
+[ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="3_60jiw"]
+[ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_3j455"]
+[ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_2vv64"]
+[ext_resource type="PackedScene" uid="uid://bueasspm3dia8" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_obj.tscn" id="6_ggfh0"]
+[ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_q7llv"]
+[ext_resource type="PackedScene" uid="uid://651o750v486i" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_reciever.tscn" id="7_6vjlf"]
+[ext_resource type="PackedScene" uid="uid://bbp6w0n3yhump" path="res://Objects/gameplayObjects/mechanisms/mechanism_door_platform.tscn" id="7_g1x4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcva0"]
+shader = ExtResource("3_60jiw")
+shader_parameter/origin = Color(1, 1, 1, 1)
+shader_parameter/newColor = Color(1, 1, 1, 1)
+
+[node name="world2_4" type="Node2D" unique_id=86753669 node_paths=PackedStringArray("playerSpawn", "goalPortal", "resetTileset", "groundTileset", "gridParent")]
+script = ExtResource("1_o33u1")
+playerSpawn = NodePath("playerSpawn")
+goalPortal = NodePath("levelPortal")
+resetTileset = NodePath("tilemaps/resetTileset")
+groundTileset = NodePath("tilemaps/groundTiles")
+gridParent = NodePath("grids")
+
+[node name="grids" type="Node" parent="." unique_id=346834477]
+
+[node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_bj1tr")]
+position = Vector2(513, 163)
+gridSizeX = 5
+gridSizeY = 5
+
+[node name="tilemaps" type="Node" parent="." unique_id=1553609311]
+
+[node name="groundTiles" type="TileMapLayer" parent="tilemaps" unique_id=1060725670]
+z_index = 1
+material = SubResource("ShaderMaterial_gcva0")
+tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAAAUAA4AAAAAAAEAAAAUAA0AAAAAAAEAAAAPAA4AAAACAAEAAAAPAA0AAAACAAEAAAAQAA8AAAACAAAAAAARABAAAAABAAAAAAASABAAAAABAAAAAAATABAAAAAEAAQAAAAUAA8AAAAEAAQAAAAQABAAAAAFAAQAAAAPAA8AAAAFAAQAAAAUABAAAAABAAEAAAAPABAAAAABAAEAAAAOAA0AAAAAAAEAAAAOAA4AAAAAAAEAAAAOAA8AAAAAAAEAAAAOABAAAAAAAAEAAAAPABEAAAABAAIAAAAQABEAAAABAAIAAAARABEAAAABAAIAAAASABEAAAABAAIAAAATABEAAAABAAIAAAAPABMAAAABAAAAAAAQABMAAAABAAAAAAARABMAAAABAAAAAAASABMAAAABAAAAAAATABMAAAABAAAAAAAUABMAAAABAAAAAAAUABEAAAABAAIAAAAOABEAAAAAAAIAAAAOABMAAAABAAAAAAANABMAAAABAAAAAAAMABMAAAABAAAAAAALAA0AAAACAAEAAAALAA4AAAACAAEAAAALAA8AAAACAAEAAAALABAAAAACAAEAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAAFAAQAAAAKAA0AAAAAAAEAAAAKAA4AAAAAAAEAAAAKAA8AAAAAAAEAAAAKABAAAAAAAAEAAAAKABEAAAAAAAEAAAAKABIAAAAAAAEAAAAKABMAAAAAAAEAAAAZAA0AAAACAAEAAAAZAA4AAAACAAEAAAAZAA8AAAACAAEAAAAZABAAAAACAAEAAAAZABEAAAACAAEAAAAZABIAAAACAAEAAAAZABMAAAACAAEAAAAZABQAAAACAAEAAAAKABQAAAAAAAEAAAALABQAAAABAAEAAAAMABQAAAABAAEAAAANABQAAAABAAEAAAAOABQAAAABAAEAAAAPABQAAAABAAEAAAAQABQAAAABAAEAAAARABQAAAABAAEAAAASABQAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAVABQAAAABAAEAAAAWABQAAAABAAEAAAAXABQAAAABAAEAAAAYABQAAAABAAEAAAAVABMAAAABAAAAAAAWABMAAAABAAAAAAAXABMAAAABAAAAAAAYAA0AAAAAAAEAAAAYAA4AAAAAAAEAAAAYAA8AAAAAAAEAAAAYABAAAAAAAAEAAAAYABEAAAAAAAEAAAAYABIAAAAAAAEAAAAVAA0AAAACAAEAAAAVAA4AAAACAAEAAAAVAA8AAAACAAEAAAAVABAAAAACAAEAAAAVABEAAAACAAIAAAAYABMAAAAEAAQAAAAKAAsAAAAAAAAAAAAKAAwAAAAAAAEAAAALAAsAAAABAAAAAAALAAwAAAAFAAUAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAOAAwAAAAEAAUAAAAPAAsAAAACAAAAAAAPAAwAAAACAAEAAAAUAAsAAAAAAAAAAAAUAAwAAAAAAAEAAAAVAAsAAAABAAAAAAAVAAwAAAAFAAUAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAYAAwAAAAEAAUAAAAZAAsAAAACAAAAAAAZAAwAAAACAAEAAAAMAAwAAAABAAIAAAANAAwAAAABAAIAAAAWAAwAAAABAAIAAAAXAAwAAAABAAIAAAAQAAAAAAACAAEAAAAQAAEAAAACAAEAAAAQAAIAAAACAAIAAAAOAAIAAAAAAAIAAAAOAAEAAAAAAAEAAAAOAAAAAAAAAAEAAAAPAAIAAAABAAIAAAAPAAEAAAABAAEAAAAPAAAAAAABAAEAAAATAAAAAAAAAAEAAAATAAEAAAAAAAEAAAATAAIAAAAAAAIAAAAUAAAAAAABAAEAAAAUAAEAAAABAAEAAAAUAAIAAAABAAIAAAAVAAAAAAACAAEAAAAVAAEAAAACAAEAAAAVAAIAAAACAAIAAAARAP//AAABAAIAAAASAP//AAABAAIAAAA=")
+tile_set = ExtResource("4_3j455")
+
+[node name="resetTileset" type="TileMapLayer" parent="tilemaps" unique_id=732947869]
+z_index = 6
+tile_map_data = PackedByteArray("AAAKAAoAAAAAAAAAAgALAAoAAAAAAAAAAgAMAAoAAAAAAAAAAgANAAoAAAAAAAAAAgAOAAoAAAAAAAAAAgAPAAoAAAAAAAAAAgAUAAoAAAAAAAAAAgAVAAoAAAAAAAAAAgAWAAoAAAAAAAAAAgAXAAoAAAAAAAAAAgAYAAoAAAAAAAAAAgAZAAoAAAAAAAAAAgA=")
+tile_set = ExtResource("5_2vv64")
+
+[node name="laserPointerObj" parent="tilemaps" unique_id=696941337 instance=ExtResource("6_ggfh0")]
+position = Vector2(416, 448)
+rotation = 3.1415927
+
+[node name="laserPointerReciever" parent="tilemaps" unique_id=814222754 instance=ExtResource("7_6vjlf")]
+position = Vector2(736, 448)
+rotation = 3.1415927
+
+[node name="interactables" type="Node" parent="." unique_id=2088184218]
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_q7llv")]
+position = Vector2(577, 46)
+
+[node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
+position = Vector2(576, 460)
+
+[node name="mechanismDoor" parent="." unique_id=98121298 instance=ExtResource("7_g1x4j")]
+position = Vector2(540, 480)
+xSize = 3
+ySize = 1
+direction = 1
+tweenTime = 1.0
+
+[node name="mechanismDoor2" parent="." unique_id=567101760 instance=ExtResource("7_g1x4j")]
+position = Vector2(565, 576)
+xSize = 1
+ySize = 1
+doorColor = Color(1, 0.38, 0.38, 1)

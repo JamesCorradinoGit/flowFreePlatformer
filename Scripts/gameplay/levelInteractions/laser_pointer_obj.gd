@@ -1,5 +1,5 @@
 @tool
-extends Sprite2D
+extends interactableMechanism
 class_name laserPoinerObj
 
 @export var lineColor: Color = Color.WHITE
@@ -15,12 +15,17 @@ class_name laserPoinerObj
 var recentLaserConnection:laserPoinerReciever = null
 var currentlyConnected:bool = false
 
+signal disableLaser
+signal enableLaser
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	laserLine.self_modulate = lineColor
 	poinerLightSprite.self_modulate = lineColor
 	bottomEnergyColor.self_modulate = lineColor
+	disableLaser.connect(disableLaserFunc)
+	enableLaser.connect(enableLaserFunc)
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -42,8 +47,8 @@ func _process(_delta: float) -> void:
 		
 		while true:
 			if not laserRay.is_colliding():
-				var linePoint = laserRay.global_position + laserRay.target_position
-				laserLine.add_point(laserLine.to_local(linePoint).rotated(rotation))
+				var linePoint = laserRay.global_position + laserRay.target_position.rotated(rotation)
+				laserLine.add_point(laserLine.to_local(linePoint))
 				if currentlyConnected:
 					currentlyConnected = false
 				break
@@ -56,13 +61,14 @@ func _process(_delta: float) -> void:
 			if collision is laserPoinerReciever:
 				var pointRec:laserPoinerReciever = collision
 				if pointRec.colorToRecieve == self.lineColor:
-					if pointRec.isConnected == false:
+					if pointRec.isConnected == false and currentlyConnected == false:
 						currentlyConnected = true
 						recentLaserConnection = pointRec
-						pointRec.isConnected = true
 						pointRec.laserConnect.emit()
 				break
-			if collision is not laserPoinerReciever and recentLaserConnection and currentlyConnected:
+			if collision.is_in_group("laserPointerReflect"):
+				pass
+			elif collision is not laserPoinerReciever and recentLaserConnection and currentlyConnected:
 				recentLaserConnection.laserDisconnect.emit()
 				recentLaserConnection = null
 				currentlyConnected = false
@@ -78,8 +84,8 @@ func _process(_delta: float) -> void:
 			
 			#checks and solves improper bouncing
 			if prev != null:
-				prev.collision_mask = 3
-				prev.collision_layer = 3
+				prev.collision_mask = 4
+				prev.collision_layer = 4
 			prev = collision
 			prev.collision_mask = 0
 			prev.collision_layer = 0
@@ -93,14 +99,44 @@ func _process(_delta: float) -> void:
 			if localBounces >= maxBounces:
 				break
 		if prev != null:
-				prev.collision_mask = 3
-				prev.collision_layer = 3
-		if recentLaserConnection and !currentlyConnected:
+				prev.collision_mask = 4
+				prev.collision_layer = 4
+		if recentLaserConnection and currentlyConnected == false:
 			recentLaserConnection.laserDisconnect.emit()
 			recentLaserConnection = null
+		
 	else:
 		if poinerLightSprite.visible == true:
 			poinerLightSprite.visible = false
 func _draw() -> void:
 	if Engine.is_editor_hint():
 		draw_line(Vector2.ZERO, Vector2(0, -100), Color.WHITE)
+
+func disableLaserFunc():
+	isEmitting = false
+	laserLine.clear_points()
+	if recentLaserConnection:
+		recentLaserConnection.laserDisconnect.emit()
+	recentLaserConnection = null
+	currentlyConnected = false
+func enableLaserFunc():
+	isEmitting = true
+
+func onMechanismConnect(id:int):
+	match id:
+		0:
+			if isEmitting:
+				disableLaser.emit()
+			else:
+				enableLaser.emit()
+		_:
+			pass
+func onMechanismDisconnect(id:int):
+	match id:
+		0:
+			if isEmitting:
+				disableLaser.emit()
+			else:
+				enableLaser.emit()
+		_:
+			pass

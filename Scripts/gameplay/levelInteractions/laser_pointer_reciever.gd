@@ -19,6 +19,7 @@ func _ready() -> void:
 	recieverEnergyColor.self_modulate = colorToRecieve
 
 func onSelfLaserConnect():
+	isConnected = true
 	if objToConnectTo:
 		for obj in objToConnectTo:
 			obj.mechanismConnect.emit(mechanismID)

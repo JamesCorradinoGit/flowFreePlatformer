@@ -176,6 +176,8 @@ animations = [{
 z_index = 4
 z_as_relative = false
 scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_y0qk3")
 coyoteTimer = NodePath("coyoteTimer")
 

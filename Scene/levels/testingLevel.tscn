@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bueasspm3dia8" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_obj.tscn" id="10_5dff2"]
 [ext_resource type="PackedScene" uid="uid://651o750v486i" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_reciever.tscn" id="11_sba6m"]
 [ext_resource type="PackedScene" uid="uid://bbp6w0n3yhump" path="res://Objects/gameplayObjects/mechanisms/mechanism_door_platform.tscn" id="12_xaw1s"]
+[ext_resource type="PackedScene" uid="uid://c75i4wdm04rgf" path="res://Objects/gameplayObjects/laserObjects/mirror_base.tscn" id="13_sq1cc"]
 
 [sub_resource type="Resource" id="Resource_xaw1s"]
 script = ExtResource("4_5dff2")
@@ -82,12 +83,16 @@ lineColor = Color(1, 0.66400003, 0.27999997, 1)
 [node name="laserPointerObj3" parent="." unique_id=910913333 instance=ExtResource("10_5dff2")]
 position = Vector2(873, 544)
 lineColor = Color(0.9040001, 0.27999997, 1, 1)
-isEmitting = false
+maxLength = 250
 
-[node name="laserPointerReciever" parent="." unique_id=814222754 node_paths=PackedStringArray("objToConnectTo") instance=ExtResource("11_sba6m")]
+[node name="laserPointerReciever" parent="." unique_id=814222754 instance=ExtResource("11_sba6m")]
 position = Vector2(637, 544)
 colorToRecieve = Color(0.27999997, 1, 0.868, 1)
-objToConnectTo = NodePath("../mechanismDoor")
 
 [node name="mechanismDoor" parent="." unique_id=293482549 instance=ExtResource("12_xaw1s")]
 position = Vector2(953, 209)
+
+[node name="mirrorBase" parent="." unique_id=1238323287 instance=ExtResource("13_sq1cc")]
+position = Vector2(744, 261)
+rotation = 0.7853982
+ySize = 1

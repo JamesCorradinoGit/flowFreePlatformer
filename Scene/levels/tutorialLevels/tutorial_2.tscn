@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b5js7shwbo84s" path="res://Scripts/gameplay/levelInteractions/kbGrid_tutorial_popups.gd" id="9_mhiyw"]
 [ext_resource type="PackedScene" uid="uid://d0utnui84m33c" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_conduit_sign.tscn" id="11_pg58q"]
 [ext_resource type="Texture2D" uid="uid://dgkcsyock7w83" path="res://Assets/ui/guideArrow.png" id="12_lvmkd"]
+[ext_resource type="PackedScene" uid="uid://bvioqbtwr5xk2" path="res://Objects/gameplayObjects/tutorialObjects/tutorial_level_grids_left_ind.tscn" id="13_h44a1"]
 
 [sub_resource type="Resource" id="Resource_yh16e"]
 script = ExtResource("4_nu16w")
@@ -190,3 +191,10 @@ offset_bottom = 170.0
 position = Vector2(428, 234)
 rotation = 0.5235988
 texture = ExtResource("12_lvmkd")
+
+[node name="tutorialLevelGridsLeftInd" parent="." unique_id=2014493893 node_paths=PackedStringArray("levelToMonitor") instance=ExtResource("13_h44a1")]
+offset_left = 509.0
+offset_top = 302.0
+offset_right = 633.0
+offset_bottom = 363.0
+levelToMonitor = NodePath("..")

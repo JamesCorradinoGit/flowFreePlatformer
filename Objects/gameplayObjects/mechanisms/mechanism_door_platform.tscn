@@ -9,7 +9,7 @@ shader = ExtResource("1_mc38v")
 shader_parameter/origin = Color(0, 0, 0, 1)
 shader_parameter/newColor = Color(1, 1, 1, 1)
 
-[node name="mechanismDoor" type="StaticBody2D" unique_id=293482549]
+[node name="mechanismDoor" type="AnimatableBody2D" unique_id=98121298]
 scale = Vector2(0.75, 1)
 script = ExtResource("1_5x5mg")
 

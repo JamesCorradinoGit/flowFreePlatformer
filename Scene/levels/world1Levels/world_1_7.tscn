@@ -8,10 +8,10 @@
 [ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_sn0tp"]
 [ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/grids/gridObstacles/grid_obstacle_wall.tscn" id="5_ba1ec"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_ri1h8"]
-[ext_resource type="PackedScene" uid="uid://dmlxjxuby8apf" path="res://Objects/gameplayObjects/player_button.tscn" id="6_mdr6w"]
+[ext_resource type="PackedScene" uid="uid://dmlxjxuby8apf" path="res://Objects/gameplayObjects/oldButtons/player_button.tscn" id="6_mdr6w"]
 [ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="6_t3veb"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_uhfxy"]
-[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/grid_moving_button_platform_door.tscn" id="7_srdpc"]
+[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/oldButtons/grid_moving_button_platform_door.tscn" id="7_srdpc"]
 
 [sub_resource type="Resource" id="Resource_t3veb"]
 script = ExtResource("4_ba1ec")

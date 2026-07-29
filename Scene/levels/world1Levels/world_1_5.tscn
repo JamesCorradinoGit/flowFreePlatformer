@@ -9,8 +9,8 @@
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_lqyph"]
 [ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="5_tidri"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_e1faa"]
-[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/grid_button_door.tscn" id="9_tidri"]
-[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/grid_moving_button_platform_door.tscn" id="11_areqw"]
+[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/oldButtons/grid_button_door.tscn" id="9_tidri"]
+[ext_resource type="PackedScene" uid="uid://dxq8ls7nolr1d" path="res://Objects/gameplayObjects/oldButtons/grid_moving_button_platform_door.tscn" id="11_areqw"]
 
 [sub_resource type="Resource" id="Resource_areqw"]
 script = ExtResource("4_4gnwe")

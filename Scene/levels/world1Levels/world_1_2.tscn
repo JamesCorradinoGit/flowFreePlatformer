@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_qb6eg"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_aarxr"]
 [ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="6_euntb"]
-[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/grid_button_door.tscn" id="7_u6xuq"]
+[ext_resource type="PackedScene" uid="uid://bmfnvrw17s2y1" path="res://Objects/gameplayObjects/oldButtons/grid_button_door.tscn" id="7_u6xuq"]
 
 [sub_resource type="Resource" id="Resource_euntb"]
 script = ExtResource("4_3vgyq")
@@ -162,9 +162,6 @@ goalPortal = NodePath("levelPortal")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
 lvlSongDictionaryKey = "world1"
-startWithPopup = true
-startingPopupName = "World 1 Tutorial"
-startingPopupMessage = "One button can control multiple things, check out these doors!"
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 
