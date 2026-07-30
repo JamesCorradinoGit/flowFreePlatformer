@@ -127,6 +127,36 @@ ySize = 3
 doorColor = Color(1, 0.604, 0.33999997, 1)
 magnitude = 87
 
+[node name="detail" type="Node" parent="." unique_id=1719763963]
+
+[node name="buttonConnectLineB" type="Line2D" parent="detail" unique_id=847981806]
+z_index = 1
+points = PackedVector2Array(380, 386, 380, 434, 570, 434, 570, 473)
+width = 5.0
+default_color = Color(0.32759997, 0.8058399, 0.84, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineB2" type="Line2D" parent="detail" unique_id=2012909010]
+z_index = 1
+points = PackedVector2Array(754, 385, 754, 434, 568, 434)
+width = 5.0
+default_color = Color(0.32759997, 0.8058399, 0.84, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineO" type="Line2D" parent="detail" unique_id=1312691865]
+z_index = 1
+points = PackedVector2Array(867, 527, 1110, 527, 1110, 202, 877, 202, 877, 117, 623, 117, 623, 283)
+width = 5.0
+default_color = Color(1, 0.604, 0.33999997, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineO2" type="Line2D" parent="detail" unique_id=1184018047]
+z_index = 1
+points = PackedVector2Array(877, 202, 877, 280)
+width = 5.0
+default_color = Color(1, 0.604, 0.33999997, 1)
+end_cap_mode = 2
+
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_pkm35")]
 position = Vector2(999, 336)
 

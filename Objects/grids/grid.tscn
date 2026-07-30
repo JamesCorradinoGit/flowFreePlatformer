@@ -18,6 +18,7 @@ bg_color = Color(1, 1, 1, 1)
 script = ExtResource("1_f6ty6")
 gridNode = ExtResource("2_f6ty6")
 gridBorder = ExtResource("3_pvrk4")
+metadata/lightLevelScale = Vector2(0, 0)
 
 [node name="flowLines" type="Node" parent="." unique_id=654317257]
 

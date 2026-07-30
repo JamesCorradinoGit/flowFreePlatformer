@@ -17,6 +17,9 @@ shader = ExtResource("1_34qoq")
 shader_parameter/origin = Color(1, 1, 1, 1)
 shader_parameter/newColor = Color(1, 1, 1, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o3qg"]
+radius = 12.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fock"]
 radius = 14.0
 
@@ -49,6 +52,15 @@ texture_hover = ExtResource("4_qake6")
 texture_disabled = ExtResource("4_qake6")
 texture_focused = ExtResource("4_qake6")
 
+[node name="laserButtonDetector" type="StaticBody2D" parent="kbDragButton" unique_id=1841479408]
+visible = false
+position = Vector2(16, 16)
+collision_layer = 4
+collision_mask = 0
+
+[node name="laserButtonDetectorCol" type="CollisionShape2D" parent="kbDragButton/laserButtonDetector" unique_id=1203503637]
+shape = SubResource("CircleShape2D_6o3qg")
+
 [node name="connectLine" type="Line2D" parent="." unique_id=868076600]
 z_index = 2
 z_as_relative = false
@@ -66,6 +78,7 @@ z_as_relative = false
 
 [node name="lineNodeCollision" type="Area2D" parent="." unique_id=180066249]
 z_as_relative = false
+collision_priority = 1.2
 
 [node name="nodeColBody" type="CollisionShape2D" parent="lineNodeCollision" unique_id=775791932]
 z_index = 4
@@ -81,6 +94,14 @@ texture = ExtResource("4_22m4q")
 [node name="lineHighlightSprite" type="Sprite2D" parent="." unique_id=613685492]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_ite5n")
+
+[node name="laserMainDetector" type="StaticBody2D" parent="." unique_id=963817827]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laserMainDetector" unique_id=981393241]
+shape = SubResource("CircleShape2D_6o3qg")
 
 [connection signal="pressed" from="kbDragButton" to="." method="_on_kb_drag_button_pressed"]
 [connection signal="area_entered" from="connectLine/colArea" to="." method="_on_col_area_area_entered"]

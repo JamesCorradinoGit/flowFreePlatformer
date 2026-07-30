@@ -46,7 +46,7 @@ script = ExtResource("1_570a3")
 playerSpawn = NodePath("playerSpawn")
 goalPortal = NodePath("levelPortal")
 groundTileset = NodePath("tilemaps/groundTiles")
-lvlSongDictionaryKey = "world1"
+darkLevel = true
 
 [node name="grids" type="Node" parent="." unique_id=2030443186]
 
@@ -75,6 +75,7 @@ position = Vector2(98, 513)
 [node name="laserPointerObj" parent="." unique_id=696941337 instance=ExtResource("10_5dff2")]
 position = Vector2(741, 544)
 lineColor = Color(0.27999997, 1, 0.868, 1)
+maxBounces = 5
 
 [node name="laserPointerObj2" parent="." unique_id=902351741 instance=ExtResource("10_5dff2")]
 position = Vector2(807, 544)
@@ -90,9 +91,10 @@ position = Vector2(637, 544)
 colorToRecieve = Color(0.27999997, 1, 0.868, 1)
 
 [node name="mechanismDoor" parent="." unique_id=293482549 instance=ExtResource("12_xaw1s")]
-position = Vector2(953, 209)
+position = Vector2(1023, 212)
+doorColor = Color(1, 0.22000003, 0.22000003, 1)
 
 [node name="mirrorBase" parent="." unique_id=1238323287 instance=ExtResource("13_sq1cc")]
-position = Vector2(744, 261)
+position = Vector2(744, 203.00003)
 rotation = 0.7853982
 ySize = 1

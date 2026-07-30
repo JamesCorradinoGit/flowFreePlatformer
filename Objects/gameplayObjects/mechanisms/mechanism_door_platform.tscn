@@ -12,6 +12,7 @@ shader_parameter/newColor = Color(1, 1, 1, 1)
 [node name="mechanismDoor" type="AnimatableBody2D" unique_id=98121298]
 scale = Vector2(0.75, 1)
 script = ExtResource("1_5x5mg")
+metadata/lightLevelScale = Vector2(3, 3)
 
 [node name="textures" type="NinePatchRect" parent="." unique_id=37629757]
 visible = false

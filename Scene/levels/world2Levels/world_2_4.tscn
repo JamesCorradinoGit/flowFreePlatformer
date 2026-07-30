@@ -3,12 +3,105 @@
 [ext_resource type="Script" uid="uid://bchpibkhxwta0" path="res://Scripts/gameplay/levels/levelScript.gd" id="1_o33u1"]
 [ext_resource type="PackedScene" uid="uid://cn2l4bfyirf14" path="res://Objects/grids/grid.tscn" id="2_bj1tr"]
 [ext_resource type="Shader" uid="uid://b5qmky05aufd4" path="res://Assets/Shaders/colorChanger.gdshader" id="3_60jiw"]
+[ext_resource type="Script" uid="uid://bcgskijuiw8sd" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierResource.gd" id="3_hhjkg"]
 [ext_resource type="TileSet" uid="uid://bb4wd0m31eu5i" path="res://Assets/tiles/normalGroundTileset.tres" id="4_3j455"]
+[ext_resource type="Script" uid="uid://bmvvpy1i1tn4b" path="res://Scripts/gameplay/grids/gridModifiers/gridModifierLineResource.gd" id="4_4ko7t"]
 [ext_resource type="TileSet" uid="uid://c3audkiq4kknj" path="res://Assets/tiles/resetTiles.tres" id="5_2vv64"]
+[ext_resource type="Script" uid="uid://vh8a0nml6fav" path="res://Scripts/gameplay/grids/gridModifiers/button/gridModifierButtonResource.gd" id="5_4ko7t"]
+[ext_resource type="PackedScene" uid="uid://ca2ys2d1rvs3o" path="res://Objects/grids/gridObstacles/grid_obstacle_wall.tscn" id="6_7w8bd"]
 [ext_resource type="PackedScene" uid="uid://bueasspm3dia8" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_obj.tscn" id="6_ggfh0"]
 [ext_resource type="PackedScene" uid="uid://dwknq61gwy020" path="res://Objects/gameplayObjects/level_portal.tscn" id="6_q7llv"]
 [ext_resource type="PackedScene" uid="uid://651o750v486i" path="res://Objects/gameplayObjects/laserObjects/laser_pointer_reciever.tscn" id="7_6vjlf"]
 [ext_resource type="PackedScene" uid="uid://bbp6w0n3yhump" path="res://Objects/gameplayObjects/mechanisms/mechanism_door_platform.tscn" id="7_g1x4j"]
+[ext_resource type="PackedScene" uid="uid://c75i4wdm04rgf" path="res://Objects/gameplayObjects/laserObjects/mirror_base.tscn" id="10_h6rnn"]
+
+[sub_resource type="Resource" id="Resource_7w8bd"]
+script = ExtResource("4_4ko7t")
+color = Color(0.9843137, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_tvr7i"]
+script = ExtResource("3_hhjkg")
+cellToModify = 1
+lineNodeAdd = SubResource("Resource_7w8bd")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_eknms"]
+script = ExtResource("4_4ko7t")
+color = Color(0.9843137, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_6cijc"]
+script = ExtResource("3_hhjkg")
+cellToModify = 25
+lineNodeAdd = SubResource("Resource_eknms")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_hhjkg"]
+script = ExtResource("4_4ko7t")
+color = Color(0.2, 1, 0, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_4ko7t"]
+script = ExtResource("3_hhjkg")
+cellToModify = 8
+lineNodeAdd = SubResource("Resource_hhjkg")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_qxxxl"]
+script = ExtResource("4_4ko7t")
+color = Color(0.2, 1, 0, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_u8sf3"]
+script = ExtResource("3_hhjkg")
+cellToModify = 5
+lineNodeAdd = SubResource("Resource_qxxxl")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_0q5yu"]
+script = ExtResource("4_4ko7t")
+color = Color(0.36862746, 0, 1, 1)
+reciver = true
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_gohh6"]
+script = ExtResource("3_hhjkg")
+cellToModify = 9
+lineNodeAdd = SubResource("Resource_0q5yu")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_egbo8"]
+script = ExtResource("4_4ko7t")
+color = Color(0.36862746, 0, 1, 1)
+metadata/_custom_type_script = "uid://bmvvpy1i1tn4b"
+
+[sub_resource type="Resource" id="Resource_atqr4"]
+script = ExtResource("3_hhjkg")
+cellToModify = 20
+lineNodeAdd = SubResource("Resource_egbo8")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_i2j3h"]
+script = ExtResource("5_4ko7t")
+buttonColor = Color(1, 0.38, 0.38, 1)
+objToConnectTo = Array[NodePath]([NodePath("../../interactables/mechanismDoorR")])
+metadata/_custom_type_script = "uid://vh8a0nml6fav"
+
+[sub_resource type="Resource" id="Resource_hm7sr"]
+script = ExtResource("3_hhjkg")
+cellToModify = 21
+middleCellModify = SubResource("Resource_i2j3h")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
+
+[sub_resource type="Resource" id="Resource_cqd5p"]
+script = ExtResource("3_hhjkg")
+cellToModify = 17
+leftModify = ExtResource("6_7w8bd")
+bottomModify = ExtResource("6_7w8bd")
+metadata/_custom_type_script = "uid://bcgskijuiw8sd"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcva0"]
 shader = ExtResource("3_60jiw")
@@ -26,48 +119,117 @@ gridParent = NodePath("grids")
 [node name="grids" type="Node" parent="." unique_id=346834477]
 
 [node name="grid" parent="grids" unique_id=1092430806 instance=ExtResource("2_bj1tr")]
-position = Vector2(513, 163)
+position = Vector2(512, 144)
 gridSizeX = 5
 gridSizeY = 5
+gridModifiers = Array[ExtResource("3_hhjkg")]([SubResource("Resource_tvr7i"), SubResource("Resource_6cijc"), SubResource("Resource_4ko7t"), SubResource("Resource_u8sf3"), SubResource("Resource_gohh6"), SubResource("Resource_atqr4"), SubResource("Resource_hm7sr"), SubResource("Resource_cqd5p")])
 
 [node name="tilemaps" type="Node" parent="." unique_id=1553609311]
 
 [node name="groundTiles" type="TileMapLayer" parent="tilemaps" unique_id=1060725670]
 z_index = 1
 material = SubResource("ShaderMaterial_gcva0")
-tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAAAUAA4AAAAAAAEAAAAUAA0AAAAAAAEAAAAPAA4AAAACAAEAAAAPAA0AAAACAAEAAAAQAA8AAAACAAAAAAARABAAAAABAAAAAAASABAAAAABAAAAAAATABAAAAAEAAQAAAAUAA8AAAAEAAQAAAAQABAAAAAFAAQAAAAPAA8AAAAFAAQAAAAUABAAAAABAAEAAAAPABAAAAABAAEAAAAOAA0AAAAAAAEAAAAOAA4AAAAAAAEAAAAOAA8AAAAAAAEAAAAOABAAAAAAAAEAAAAPABEAAAABAAIAAAAQABEAAAABAAIAAAARABEAAAABAAIAAAASABEAAAABAAIAAAATABEAAAABAAIAAAAPABMAAAABAAAAAAAQABMAAAABAAAAAAARABMAAAABAAAAAAASABMAAAABAAAAAAATABMAAAABAAAAAAAUABMAAAABAAAAAAAUABEAAAABAAIAAAAOABEAAAAAAAIAAAAOABMAAAABAAAAAAANABMAAAABAAAAAAAMABMAAAABAAAAAAALAA0AAAACAAEAAAALAA4AAAACAAEAAAALAA8AAAACAAEAAAALABAAAAACAAEAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAAFAAQAAAAKAA0AAAAAAAEAAAAKAA4AAAAAAAEAAAAKAA8AAAAAAAEAAAAKABAAAAAAAAEAAAAKABEAAAAAAAEAAAAKABIAAAAAAAEAAAAKABMAAAAAAAEAAAAZAA0AAAACAAEAAAAZAA4AAAACAAEAAAAZAA8AAAACAAEAAAAZABAAAAACAAEAAAAZABEAAAACAAEAAAAZABIAAAACAAEAAAAZABMAAAACAAEAAAAZABQAAAACAAEAAAAKABQAAAAAAAEAAAALABQAAAABAAEAAAAMABQAAAABAAEAAAANABQAAAABAAEAAAAOABQAAAABAAEAAAAPABQAAAABAAEAAAAQABQAAAABAAEAAAARABQAAAABAAEAAAASABQAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAVABQAAAABAAEAAAAWABQAAAABAAEAAAAXABQAAAABAAEAAAAYABQAAAABAAEAAAAVABMAAAABAAAAAAAWABMAAAABAAAAAAAXABMAAAABAAAAAAAYAA0AAAAAAAEAAAAYAA4AAAAAAAEAAAAYAA8AAAAAAAEAAAAYABAAAAAAAAEAAAAYABEAAAAAAAEAAAAYABIAAAAAAAEAAAAVAA0AAAACAAEAAAAVAA4AAAACAAEAAAAVAA8AAAACAAEAAAAVABAAAAACAAEAAAAVABEAAAACAAIAAAAYABMAAAAEAAQAAAAKAAsAAAAAAAAAAAAKAAwAAAAAAAEAAAALAAsAAAABAAAAAAALAAwAAAAFAAUAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAOAAwAAAAEAAUAAAAPAAsAAAACAAAAAAAPAAwAAAACAAEAAAAUAAsAAAAAAAAAAAAUAAwAAAAAAAEAAAAVAAsAAAABAAAAAAAVAAwAAAAFAAUAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAYAAwAAAAEAAUAAAAZAAsAAAACAAAAAAAZAAwAAAACAAEAAAAMAAwAAAABAAIAAAANAAwAAAABAAIAAAAWAAwAAAABAAIAAAAXAAwAAAABAAIAAAAQAAAAAAACAAEAAAAQAAEAAAACAAEAAAAQAAIAAAACAAIAAAAOAAIAAAAAAAIAAAAOAAEAAAAAAAEAAAAOAAAAAAAAAAEAAAAPAAIAAAABAAIAAAAPAAEAAAABAAEAAAAPAAAAAAABAAEAAAATAAAAAAAAAAEAAAATAAEAAAAAAAEAAAATAAIAAAAAAAIAAAAUAAAAAAABAAEAAAAUAAEAAAABAAEAAAAUAAIAAAABAAIAAAAVAAAAAAACAAEAAAAVAAEAAAACAAEAAAAVAAIAAAACAAIAAAARAP//AAABAAIAAAASAP//AAABAAIAAAA=")
+tile_map_data = PackedByteArray("AAAUAA4AAAAAAAEAAAAUAA0AAAAAAAEAAAAPAA4AAAACAAEAAAAPAA0AAAACAAEAAAAUAA8AAAAEAAQAAAAUABAAAAABAAEAAAAPABAAAAAFAAQAAAAOAA0AAAAAAAEAAAAOAA4AAAAAAAEAAAAOAA8AAAAAAAEAAAAOABAAAAAAAAEAAAAPABEAAAABAAIAAAAQABEAAAABAAIAAAARABEAAAABAAIAAAASABEAAAABAAIAAAATABEAAAABAAIAAAAPABMAAAABAAAAAAAQABMAAAABAAAAAAARABMAAAABAAAAAAASABMAAAABAAAAAAATABMAAAABAAAAAAAUABMAAAABAAAAAAAUABEAAAABAAIAAAAOABEAAAAAAAIAAAAOABMAAAABAAAAAAANABMAAAABAAAAAAAMABMAAAABAAAAAAALAA0AAAACAAEAAAALAA4AAAACAAEAAAALAA8AAAACAAEAAAALABAAAAACAAEAAAALABEAAAACAAEAAAALABIAAAACAAEAAAALABMAAAAFAAQAAAAKAA0AAAAAAAEAAAAKAA4AAAAAAAEAAAAKAA8AAAAAAAEAAAAKABAAAAAAAAEAAAAKABEAAAAAAAEAAAAKABIAAAAAAAEAAAAKABMAAAAAAAEAAAAZAA0AAAACAAEAAAAZAA4AAAACAAEAAAAZAA8AAAACAAEAAAAZABAAAAACAAEAAAAZABEAAAACAAEAAAAZABIAAAACAAEAAAAZABMAAAACAAEAAAAZABQAAAACAAEAAAAKABQAAAAAAAEAAAALABQAAAABAAEAAAAMABQAAAABAAEAAAANABQAAAABAAEAAAAOABQAAAABAAEAAAAPABQAAAABAAEAAAAQABQAAAABAAEAAAARABQAAAABAAEAAAASABQAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAVABQAAAABAAEAAAAWABQAAAABAAEAAAAXABQAAAABAAEAAAAYABQAAAABAAEAAAAVABMAAAABAAAAAAAWABMAAAABAAAAAAAXABMAAAABAAAAAAAYAA0AAAAAAAEAAAAYAA4AAAAAAAEAAAAYAA8AAAAAAAEAAAAYABAAAAAAAAEAAAAYABEAAAAAAAEAAAAYABIAAAAAAAEAAAAVAA0AAAACAAEAAAAVAA4AAAACAAEAAAAVAA8AAAACAAEAAAAVABAAAAACAAEAAAAVABEAAAACAAIAAAAYABMAAAAEAAQAAAAKAAsAAAAAAAAAAAAKAAwAAAAAAAEAAAALAAsAAAABAAAAAAALAAwAAAAFAAUAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAOAAwAAAAEAAUAAAAPAAsAAAAHAAQAAAAPAAwAAAACAAEAAAAUAAsAAAAHAAQAABAUAAwAAAAAAAEAAAAVAAsAAAABAAAAAAAVAAwAAAAFAAUAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAYAAwAAAAEAAUAAAAZAAsAAAACAAAAAAAZAAwAAAACAAEAAAAMAAwAAAABAAIAAAANAAwAAAABAAIAAAAWAAwAAAABAAIAAAAXAAwAAAABAAIAAAAQAAAAAAACAAEAAAAQAAEAAAACAAEAAAAQAAIAAAACAAIAAAAOAAIAAAAAAAIAAAAOAAEAAAAAAAEAAAAOAAAAAAAAAAEAAAAPAAIAAAABAAIAAAAPAAEAAAABAAEAAAAPAAAAAAABAAEAAAATAAAAAAAAAAEAAAATAAEAAAAAAAEAAAATAAIAAAAAAAIAAAAUAAAAAAABAAEAAAAUAAEAAAABAAEAAAAUAAIAAAABAAIAAAAVAAAAAAACAAEAAAAVAAEAAAACAAEAAAAVAAIAAAACAAIAAAARAP//AAABAAIAAAASAP//AAABAAIAAAACABIAAAAAAAAAAAAFABIAAAACAAAAAAAFABMAAAACAAEAAAAFABQAAAACAAEAAAACABMAAAAAAAEAAAACABQAAAAAAAEAAAADABIAAAABAAAAAAAEABIAAAABAAAAAAAEABMAAAABAAEAAAADABMAAAABAAEAAAADABQAAAABAAEAAAAEABQAAAABAAEAAAAeABIAAAAAAAAAAAAeABMAAAAAAAEAAAAeABQAAAAAAAEAAAAfABIAAAABAAAAAAAfABMAAAABAAEAAAAfABQAAAABAAEAAAAgABIAAAABAAAAAAAgABMAAAABAAEAAAAgABQAAAABAAEAAAAhABIAAAACAAAAAAAhABMAAAACAAEAAAAhABQAAAACAAEAAAAQAP//AAAFAAUAAAATAP//AAAEAAUAAAAOAP//AAAEAAUAAAAVAP//AAAFAAUAAAANAP//AAABAAIAAAAMAP//AAABAAIAAAALAP//AAABAAIAAAAKAP//AAABAAIAAAAJAP//AAABAAIAAAAIAP//AAABAAIAAAAHAP//AAABAAIAAAAGAP//AAABAAIAAAAFAP//AAABAAIAAAAEAP//AAABAAIAAAADAP//AAABAAIAAAACAP//AAABAAIAAAABAP//AAABAAIAAAAAAP//AAABAAIAAAD//wAAAAACAAEAAAD//wEAAAACAAEAAAD//wIAAAACAAEAAAD//wMAAAACAAEAAAD//wQAAAACAAEAAAD//wUAAAACAAEAAAD//wYAAAACAAEAAAD//wcAAAACAAEAAAD//wgAAAACAAEAAAD//wkAAAACAAEAAAD//woAAAACAAEAAAD//wsAAAACAAEAAAD//wwAAAACAAEAAAD//w0AAAACAAEAAAD//w4AAAACAAEAAAD//w8AAAACAAEAAAD//xAAAAACAAEAAAD//xEAAAACAAEAAAD//xIAAAACAAEAAAD//xMAAAACAAEAAAD//xQAAAACAAEAAAAkABQAAAAAAAEAAAAkABMAAAAAAAEAAAAkABIAAAAAAAEAAAAkABEAAAAAAAEAAAAkABAAAAAAAAEAAAAkAA8AAAAAAAEAAAAkAA4AAAAAAAEAAAAkAA0AAAAAAAEAAAAkAAwAAAAAAAEAAAAkAAsAAAAAAAEAAAAkAAoAAAAAAAEAAAAkAAkAAAAAAAEAAAAkAAgAAAAAAAEAAAAkAAcAAAAAAAEAAAAkAAYAAAAAAAEAAAAkAAUAAAAAAAEAAAAkAAQAAAAAAAEAAAAkAAMAAAAAAAEAAAAkAAIAAAAAAAEAAAAkAAEAAAAAAAEAAAAkAAAAAAAAAAEAAAAjAP//AAABAAIAAAAiAP//AAABAAIAAAAhAP//AAABAAIAAAAgAP//AAABAAIAAAAfAP//AAABAAIAAAAeAP//AAABAAIAAAAdAP//AAABAAIAAAAcAP//AAABAAIAAAAbAP//AAABAAIAAAAaAP//AAABAAIAAAAZAP//AAABAAIAAAAYAP//AAABAAIAAAAXAP//AAABAAIAAAAWAP//AAABAAIAAAAQABAAAAABAAAAAAARABAAAAABAAAAAAASAA8AAAAAAAAAAAASABAAAAAEAAQAAAAPAA8AAAACAAEAAAATAA8AAAABAAAAAAATABAAAAABAAEAAAAUAP//AAABAAEAAAAPAP//AAABAAEAAAAkAP//AAAEAAUAAAD/////AAAFAAUAAAAPAAoAAAAFAAAAAAAUAAoAAAAFAAAAAAA=")
 tile_set = ExtResource("4_3j455")
 
 [node name="resetTileset" type="TileMapLayer" parent="tilemaps" unique_id=732947869]
 z_index = 6
-tile_map_data = PackedByteArray("AAAKAAoAAAAAAAAAAgALAAoAAAAAAAAAAgAMAAoAAAAAAAAAAgANAAoAAAAAAAAAAgAOAAoAAAAAAAAAAgAPAAoAAAAAAAAAAgAUAAoAAAAAAAAAAgAVAAoAAAAAAAAAAgAWAAoAAAAAAAAAAgAXAAoAAAAAAAAAAgAYAAoAAAAAAAAAAgAZAAoAAAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAKAAoAAAAAAAAAAgALAAoAAAAAAAAAAgAMAAoAAAAAAAAAAgANAAoAAAAAAAAAAgAOAAoAAAAAAAAAAgAVAAoAAAAAAAAAAgAWAAoAAAAAAAAAAgAXAAoAAAAAAAAAAgAYAAoAAAAAAAAAAgAZAAoAAAAAAAAAAgAFABEAAAAAAAAAAgACABEAAAAAAAAAAgAhABEAAAAAAAAAAgAeABEAAAAAAAAAAgAaABIAAAAAAAAAAQAbABIAAAAAAAAAAQAcABIAAAAAAAAAAQAdABIAAAAAAAAAAQAGABIAAAAAAAAAAQAHABIAAAAAAAAAAQAIABIAAAAAAAAAAQAJABIAAAAAAAAAAQABABIAAAAAAAAAAQAAABIAAAAAAAAAAQAiABIAAAAAAAAAAQAjABIAAAAAAAAAAQAiABMAAQAAAAAAAAAiABQAAQAAAAAAAAAjABMAAQAAAAAAAAAjABQAAQAAAAAAAAAaABMAAQAAAAAAAAAaABQAAQAAAAAAAAAbABMAAQAAAAAAAAAbABQAAQAAAAAAAAAcABMAAQAAAAAAAAAcABQAAQAAAAAAAAAdABMAAQAAAAAAAAAdABQAAQAAAAAAAAAGABMAAQAAAAAAAAAGABQAAQAAAAAAAAAHABMAAQAAAAAAAAAHABQAAQAAAAAAAAAIABMAAQAAAAAAAAAIABQAAQAAAAAAAAAJABMAAQAAAAAAAAAJABQAAQAAAAAAAAAAABMAAQAAAAAAAAAAABQAAQAAAAAAAAABABMAAQAAAAAAAAABABQAAQAAAAAAAAA=")
 tile_set = ExtResource("5_2vv64")
-
-[node name="laserPointerObj" parent="tilemaps" unique_id=696941337 instance=ExtResource("6_ggfh0")]
-position = Vector2(416, 448)
-rotation = 3.1415927
-
-[node name="laserPointerReciever" parent="tilemaps" unique_id=814222754 instance=ExtResource("7_6vjlf")]
-position = Vector2(736, 448)
-rotation = 3.1415927
 
 [node name="interactables" type="Node" parent="." unique_id=2088184218]
 
-[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_q7llv")]
-position = Vector2(577, 46)
+[node name="laserPointerRecieverB" parent="interactables" unique_id=814222754 node_paths=PackedStringArray("objToConnectTo") instance=ExtResource("7_6vjlf")]
+position = Vector2(736, 448)
+rotation = -3.1415925
+colorToRecieve = Color(0.45, 0.65166676, 1, 1)
+objToConnectTo = [NodePath("../mechanismDoorB")]
 
-[node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
-position = Vector2(576, 460)
+[node name="laserPointerObjB" parent="interactables" unique_id=696941337 instance=ExtResource("6_ggfh0")]
+position = Vector2(416, 448)
+rotation = -3.1415925
+lineColor = Color(0.45, 0.65166676, 1, 1)
 
-[node name="mechanismDoor" parent="." unique_id=98121298 instance=ExtResource("7_g1x4j")]
-position = Vector2(540, 480)
+[node name="mechanismDoorB" parent="interactables" unique_id=98121298 instance=ExtResource("7_g1x4j")]
+position = Vector2(508, 480)
 xSize = 3
 ySize = 1
+doorColor = Color(0.45, 0.65166676, 1, 1)
 direction = 1
+magnitude = 128
 tweenTime = 1.0
 
-[node name="mechanismDoor2" parent="." unique_id=567101760 instance=ExtResource("7_g1x4j")]
+[node name="mechanismDoorR" parent="interactables" unique_id=567101760 instance=ExtResource("7_g1x4j")]
 position = Vector2(565, 576)
 xSize = 1
 ySize = 1
 doorColor = Color(1, 0.38, 0.38, 1)
+magnitude = 28
+
+[node name="mirrorBase" parent="interactables" unique_id=1238323287 instance=ExtResource("10_h6rnn")]
+position = Vector2(395, 592.00006)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+xSize = 1
+ySize = 3
+
+[node name="mirrorBase2" parent="interactables" unique_id=109005677 instance=ExtResource("10_h6rnn")]
+position = Vector2(755, 594)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+xSize = 1
+ySize = 3
+
+[node name="laserPointerObjO" parent="interactables" unique_id=210312688 instance=ExtResource("6_ggfh0")]
+position = Vector2(128, 544)
+lineColor = Color(1, 0.6146667, 0.32, 1)
+maxLength = 1000
+
+[node name="laserPointerRecieverO" parent="interactables" unique_id=1890421265 node_paths=PackedStringArray("objToConnectTo") instance=ExtResource("7_6vjlf")]
+position = Vector2(1024, 544)
+colorToRecieve = Color(1, 0.6146667, 0.32, 1)
+objToConnectTo = [NodePath("../mechanismDoorO")]
+
+[node name="mirrorBase3" parent="interactables" unique_id=1217577694 instance=ExtResource("10_h6rnn")]
+position = Vector2(120, 195.00002)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+xSize = 5
+ySize = 1
+
+[node name="mirrorBase4" parent="interactables" unique_id=1199223894 instance=ExtResource("10_h6rnn")]
+position = Vector2(1032, 195)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+xSize = 5
+ySize = 1
+
+[node name="mechanismDoorO" parent="interactables" unique_id=1180255724 instance=ExtResource("7_g1x4j")]
+position = Vector2(539, 63)
+xSize = 3
+ySize = 1
+doorColor = Color(1, 0.6146667, 0.32, 1)
+direction = 2
+magnitude = 60
+
+[node name="details" type="Node" parent="." unique_id=2077090928]
+
+[node name="buttonConnectLineB" type="Line2D" parent="details" unique_id=51369765]
+z_index = 1
+points = PackedVector2Array(736, 412, 736, 386, 672, 386, 672, 555, 477, 555, 477, 498, 508, 498)
+width = 5.0
+default_color = Color(0.45, 0.65166676, 1, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineO" type="Line2D" parent="details" unique_id=1783906967]
+z_index = 1
+points = PackedVector2Array(1023, 580, 1023, 641, 1166, 641, 1168, -14, 660, -18, 660, 78, 611, 78)
+width = 5.0
+default_color = Color(1, 0.6146667, 0.32, 1)
+end_cap_mode = 2
+
+[node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_q7llv")]
+position = Vector2(577, 30)
+
+[node name="playerSpawn" type="Marker2D" parent="." unique_id=746431025]
+position = Vector2(610, 460)

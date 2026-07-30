@@ -6,5 +6,5 @@ func getNodeAtPath(parentNode:Node2D, path:NodePath):
 		return null
 	return parentNode.get_node(path)
 
-func instanceGridObject():
-	pass
+func instanceGridObject() -> Node2D:
+	return

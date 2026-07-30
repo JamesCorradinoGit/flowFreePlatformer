@@ -1,16 +1,17 @@
-@tool
 extends StaticBody2D
-class_name scalableMirrorBase
+class_name scalableMirrorBaseGrid
 
-@export var xSize:int = 2
-@export var ySize:int = 2
+@export var degToRotate:float = 0.0
 
 @onready var mirrorCol: CollisionShape2D = $mirrorCol
 @onready var textures: NinePatchRect = $textures
 
-var xPixelSize:int
-var yPixelSize:int
+var xSize:float = 0.5
+var ySize:float = 1
+var xPixelSize:float
+var yPixelSize:float
 
+"""
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		mirrorCol.visible = false
@@ -29,13 +30,4 @@ func _ready() -> void:
 	var fillShape = RectangleShape2D.new()
 	fillShape.size = Vector2(xPixelSize, yPixelSize)
 	mirrorCol.shape = fillShape
-
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		queue_redraw()
-func _draw() -> void:
-	if Engine.is_editor_hint():
-		draw_rect(
-			Rect2(Vector2((-32*xSize)/2.0, (-32*ySize)/2.0), Vector2i(Globals.globalSnap * self.xSize, Globals.globalSnap * self.ySize)),
-			Color.WHITE,
-			false)
+"""

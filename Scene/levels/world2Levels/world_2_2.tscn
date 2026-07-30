@@ -175,6 +175,13 @@ magnitude = 89
 
 [node name="detail" type="Node" parent="." unique_id=492161878]
 
+[node name="buttonConnectLineR" type="Line2D" parent="detail" unique_id=1575585321]
+z_index = 1
+points = PackedVector2Array(802, 127, 832, 127, 832, 189)
+width = 5.0
+default_color = Color(1, 0.29000002, 0.29000002, 1)
+end_cap_mode = 2
+
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_2j0wm")]
 position = Vector2(991, 241)
 

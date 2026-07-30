@@ -15,6 +15,9 @@ class_name laserPoinerObj
 var recentLaserConnection:laserPoinerReciever = null
 var currentlyConnected:bool = false
 
+var lightBeamSprite = load("uid://dlvbfage45w5e")
+var activeLight:PointLight2D
+
 signal disableLaser
 signal enableLaser
 
@@ -37,6 +40,9 @@ func _process(_delta: float) -> void:
 		
 		laserLine.clear_points()
 		laserLine.add_point(Vector2.ZERO)
+		if activeLight:
+			activeLight.queue_free()
+			activeLight = null
 		
 		laserRay.global_position = laserLine.global_position
 		laserRay.target_position = Vector2.UP.normalized() * maxLength
@@ -94,6 +100,14 @@ func _process(_delta: float) -> void:
 			laserRay.global_position = point
 			laserRay.target_position = laserRay.target_position.bounce(rayNormal).rotated(-rotation*2)
 			laserRay.force_raycast_update()
+			
+			var instColLight = PointLight2D.new()
+			instColLight.texture = lightBeamSprite
+			instColLight.global_position = to_local(point)
+			instColLight.blend_mode = Light2D.BLEND_MODE_MIX
+			instColLight.texture_scale = 2
+			add_child(instColLight)
+			activeLight = instColLight
 			
 			localBounces += 1
 			if localBounces >= maxBounces:

@@ -12,7 +12,7 @@ shader_parameter/overwrite_color = false
 shader_parameter/default_color = Color(1, 1, 1, 1)
 shader_parameter/shine_color = Color(0.93, 0.93, 0.93, 1)
 shader_parameter/shine_angle = -45.0
-shader_parameter/shine_duration = 2.5
+shader_parameter/shine_duration = 5.0
 shader_parameter/shine_speed = 300.0
 shader_parameter/shine_width = 15.0
 
@@ -24,6 +24,7 @@ script = ExtResource("1_801aj")
 
 [node name="mirrorCol" type="CollisionShape2D" parent="." unique_id=1299890632]
 visible = false
+z_index = 1
 shape = SubResource("RectangleShape2D_qsb3s")
 
 [node name="textures" type="NinePatchRect" parent="." unique_id=942833806]

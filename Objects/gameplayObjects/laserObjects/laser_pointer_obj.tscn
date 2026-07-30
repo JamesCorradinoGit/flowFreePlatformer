@@ -11,20 +11,22 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_ms7ng"]
 offsets = PackedFloat32Array(0, 0.8577406, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.34901962)
+colors = PackedColorArray(1, 1, 1, 0.78431374, 1, 1, 1, 0.78431374, 1, 1, 1, 0.34901962)
 
 [node name="laserPointerObj" type="Sprite2D" unique_id=696941337]
 texture = ExtResource("1_wubh3")
 script = ExtResource("2_s0xbb")
 isEmitting = true
 maxLength = 500
+metadata/lightLevelScale = Vector2(4, 4)
 
-[node name="laserRay" type="RayCast2D" parent="." unique_id=1923445952]
+[node name="laserRay" type="RayCast2D" parent="." unique_id=3943296]
 target_position = Vector2(0, -50)
 collision_mask = 7
 
 [node name="laserLine" type="Line2D" parent="." unique_id=296251295]
-z_index = -1
+self_modulate = Color(1, 1, 1, 0.7019608)
+z_index = 2
 position = Vector2(0, 3)
 width_curve = SubResource("Curve_s0xbb")
 gradient = SubResource("Gradient_ms7ng")

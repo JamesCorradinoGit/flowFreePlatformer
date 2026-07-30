@@ -11,6 +11,7 @@ size = Vector2(28, 6)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_romtu")
+metadata/lightLevelScale = Vector2(3, 3)
 
 [node name="recieverSpriteLaser" type="Sprite2D" parent="." unique_id=1495707060]
 texture = ExtResource("1_syb5v")
