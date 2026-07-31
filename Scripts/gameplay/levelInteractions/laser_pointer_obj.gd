@@ -29,6 +29,8 @@ func _ready() -> void:
 	bottomEnergyColor.self_modulate = lineColor
 	disableLaser.connect(disableLaserFunc)
 	enableLaser.connect(enableLaserFunc)
+	mechanismConnect.connect(onMechanismConnect)
+	mechanismDisconnect.connect(onMechanismDisconnect)
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -118,8 +120,10 @@ func _process(_delta: float) -> void:
 		if recentLaserConnection and currentlyConnected == false:
 			recentLaserConnection.laserDisconnect.emit()
 			recentLaserConnection = null
-		
 	else:
+		if activeLight:
+			activeLight.queue_free()
+			activeLight = null
 		if poinerLightSprite.visible == true:
 			poinerLightSprite.visible = false
 func _draw() -> void:

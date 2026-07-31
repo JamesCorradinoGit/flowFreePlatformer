@@ -112,8 +112,8 @@ func makeLevelDark():
 			if c.name == "grids":
 				for cChildG in c.get_children():
 					if cChildG is gridObject:
-						var lightScaleX = cChildG.gridSizeX + 4
-						var lightScaleY = cChildG.gridSizeY + 4
+						var lightScaleX = cChildG.gridSizeX + 2
+						var lightScaleY = cChildG.gridSizeY + 2
 						
 						var instLight = PointLight2D.new()
 						instLight.texture = lightSprite
@@ -127,7 +127,6 @@ func makeLevelDark():
 				for cChildI in c.get_children():
 					addLight(cChildI)
 		addLight(c)
-		
 func addLight(c:Node):
 	if c.has_meta("lightLevelScale") and c.get_meta("lightLevelScale") is Vector2:
 			var instLight = PointLight2D.new()

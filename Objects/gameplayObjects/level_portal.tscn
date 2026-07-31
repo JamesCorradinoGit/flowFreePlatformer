@@ -20,7 +20,7 @@ radius = 18.0
 material = SubResource("ShaderMaterial_7he6r")
 texture = ExtResource("1_kf16i")
 script = ExtResource("4_28j0h")
-metadata/lightLevelScale = Vector2(2, 2)
+metadata/lightLevelScale = Vector2(3, 3)
 
 [node name="portalCollision" type="Area2D" parent="." unique_id=57223023]
 

@@ -11,6 +11,7 @@ size = Vector2(26.666668, 18)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_k8mjy")
 script = ExtResource("2_1wsn8")
+metadata/lightLevelScale = Vector2(2, 2)
 
 [node name="innerLight" type="Sprite2D" parent="." unique_id=1473620956]
 z_index = -1
