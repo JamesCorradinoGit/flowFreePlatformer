@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://b72pv1v4le8t1"]
+
+[ext_resource type="PackedScene" uid="uid://ckb1cqbhvvfsb" path="res://Scene/levels/world2Levels/world_2_2.tscn" id="1_gqjw0"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_kriwy"]
+
+[resource]
+script = ExtResource("1_kriwy")
+levelName = "Laser Reflection"
+levelScene = ExtResource("1_gqjw0")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

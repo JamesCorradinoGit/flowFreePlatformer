@@ -288,6 +288,15 @@ ySize = 1
 doorColor = Color(0.38250005, 1, 0.35000002, 1)
 tweenTime = 0.75
 
+[node name="detail" type="Node" parent="." unique_id=813068729]
+
+[node name="buttonConnectLineG" type="Line2D" parent="detail" unique_id=966754234]
+z_index = 1
+points = PackedVector2Array(284, 465, 257, 465, 257, 337, 226, 337)
+width = 5.0
+default_color = Color(0.38250005, 1, 0.35000002, 1)
+end_cap_mode = 2
+
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_0sv4w")]
 position = Vector2(160, 413)
 

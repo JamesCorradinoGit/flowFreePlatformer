@@ -209,6 +209,22 @@ doorColor = Color(0.5309998, 0.32999998, 1, 1)
 magnitude = 172
 tweenTime = 1.0
 
+[node name="detail" type="Node" parent="." unique_id=611202933]
+
+[node name="buttonConnectLineB" type="Line2D" parent="detail" unique_id=333568851]
+z_index = 1
+points = PackedVector2Array(384, 94, 384, -20, 148, -21, 148, 189)
+width = 5.0
+default_color = Color(0.35000002, 0.5341667, 1, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineP" type="Line2D" parent="detail" unique_id=1989891222]
+z_index = 1
+points = PackedVector2Array(672, 94, 672, -21, 67, -19, 67, 149, -14, 149, -14, 305, 157, 305)
+width = 5.0
+default_color = Color(0.5309998, 0.32999998, 1, 1)
+end_cap_mode = 2
+
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_lggyc")]
 position = Vector2(68, 246)
 

@@ -132,6 +132,7 @@ resetTileset = NodePath("tilemaps/resetTileset")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
 darkLevel = true
+startWithInterference = true
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 
@@ -214,6 +215,22 @@ ySize = 2
 doorColor = Color(1, 0.5693333, 0.24000001, 1)
 magnitude = 60
 tweenTime = 0.75
+
+[node name="detail" type="Node" parent="." unique_id=664889539]
+
+[node name="buttonConnectLineG" type="Line2D" parent="detail" unique_id=1686793878]
+z_index = 1
+points = PackedVector2Array(879, 92, 879, 65, 1015, 65, 1015, 253)
+width = 5.0
+default_color = Color(0.62832, 0.88, 0.4928, 1)
+end_cap_mode = 2
+
+[node name="buttonConnectLineG2" type="Line2D" parent="detail" unique_id=906822151]
+z_index = 1
+points = PackedVector2Array(879, 92, 879, 65, 756, 65, 756, 252)
+width = 5.0
+default_color = Color(0.62832, 0.88, 0.4928, 1)
+end_cap_mode = 2
 
 [node name="levelPortal" parent="." unique_id=607780592 instance=ExtResource("6_cpecg")]
 position = Vector2(1082, 304)

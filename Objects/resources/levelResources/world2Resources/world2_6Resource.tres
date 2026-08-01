@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://ca8ohw0guwn3q"]
+
+[ext_resource type="PackedScene" uid="uid://dircstrqpxhbf" path="res://Scene/levels/world2Levels/world_2_6.tscn" id="1_h2kpn"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_sptb7"]
+
+[resource]
+script = ExtResource("1_sptb7")
+levelName = "Clear that Laser Path!"
+levelScene = ExtResource("1_h2kpn")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

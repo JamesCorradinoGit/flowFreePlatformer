@@ -10,6 +10,7 @@ class_name level
 @export_category("Level Details")
 @export var lvlSongDictionaryKey:String = ""
 @export var darkLevel:bool = false
+@export var startWithInterference:bool = false
 @export_category("Popup Starters")
 @export var startWithPopup:bool = false
 @export var startingPopupName:String
@@ -20,6 +21,7 @@ var player:PackedScene = load("uid://cvslsain1kjbi")
 var endScreenS:PackedScene = load("uid://lr2vwnf35d5u")
 var levelBG:PackedScene = load("uid://cb8b1y5gccm1m")
 var pauseMenuInst:PackedScene = load("uid://0jki0fjckxxy")
+var rogueInter:PackedScene = load("uid://ctj68rbe75kmj")
 var numGrids:int = 0
 var instGridsCompleted:int
 
@@ -34,7 +36,7 @@ var timeInLevel:float = 0.0
 
 var pauseMenuVisible: bool = false
 var canPause:bool = true
-var activePauseMenu: Control
+var activePauseMenu: CanvasLayer
 
 var gridsComplete:bool = false
 var portalInteracted:bool = false
@@ -75,6 +77,8 @@ func _ready() -> void:
 	
 	if self.darkLevel == true:
 		makeLevelDark()
+	if self.startWithInterference:
+		addInterference()
 func _process(delta: float) -> void:
 	if countTime:
 		timeInLevel += delta
@@ -88,7 +92,7 @@ func _shortcut_input(event: InputEvent) -> void:
 		pauseMenuVisible = true
 		var localPauseMenuInst:pauseMenu = pauseMenuInst.instantiate()
 		localPauseMenuInst.hidePauseMenu.connect(pauseMenuHidden)
-		localPauseMenuInst.global_position = Vector2.ZERO
+		#localPauseMenuInst.global_position = Vector2.ZERO
 		localPauseMenuInst.levelOwner = self
 		add_child(localPauseMenuInst)
 		activePauseMenu = localPauseMenuInst
@@ -112,8 +116,8 @@ func makeLevelDark():
 			if c.name == "grids":
 				for cChildG in c.get_children():
 					if cChildG is gridObject:
-						var lightScaleX = cChildG.gridSizeX + 2
-						var lightScaleY = cChildG.gridSizeY + 2
+						var lightScaleX = cChildG.gridSizeX + 3
+						var lightScaleY = cChildG.gridSizeY + 3
 						
 						var instLight = PointLight2D.new()
 						instLight.texture = lightSprite
@@ -136,6 +140,15 @@ func addLight(c:Node):
 			if c is mechanismDoor:
 				instLight.position = c.directionSprite.position
 			c.add_child(instLight)
+
+func addInterference():
+	canPause = false
+	var instRInt = rogueInter.instantiate().duplicate()
+	add_child(instRInt)
+	
+	await instRInt.tweenDoneToQueue
+	instRInt.queue_free()
+	canPause = true
 
 func gridComplete():
 	instGridsCompleted += 1
@@ -163,7 +176,7 @@ func onAllCompleted():
 	endInst.instLevelName = Globals.currentLvlResource.levelName
 	endInst.instWorldName = Globals.currentWorldResource.worldName
 	endInst.levelOwner = self
-	endInst.position = Vector2.ZERO
+#	endInst.position = Vector2.ZERO
 	if Globals.currentLvlResource.bestTimeInSec == 0.0 or Globals.currentLvlResource.bestTimeInSec > timeInLevel:
 		Globals.currentLvlResource.bestTimeInSec = timeInLevel
 		endInst.isLevelTimeNewHighScore = true

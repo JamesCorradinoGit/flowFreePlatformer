@@ -95,12 +95,12 @@ texture = ExtResource("4_22m4q")
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_ite5n")
 
-[node name="laserMainDetector" type="StaticBody2D" parent="." unique_id=963817827]
+[node name="laserMainDetector" type="StaticBody2D" parent="." unique_id=193099168]
 visible = false
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laserMainDetector" unique_id=981393241]
+[node name="laserMainDetectorCol" type="CollisionShape2D" parent="laserMainDetector" unique_id=2056671701]
 shape = SubResource("CircleShape2D_6o3qg")
 
 [connection signal="pressed" from="kbDragButton" to="." method="_on_kb_drag_button_pressed"]

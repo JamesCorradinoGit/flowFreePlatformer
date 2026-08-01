@@ -181,6 +181,12 @@ letterToDisplay = "↵"
 inputToTrack = "moveDone"
 keyTweenTime = 0.025
 
+[node name="keyboardTutorialKey6" parent="kbTutorialPopups" unique_id=230034246 instance=ExtResource("9_30w72")]
+position = Vector2(672, 47)
+letterToDisplay = "␣"
+inputToTrack = "moveDone"
+keyTweenTime = 0.025
+
 [node name="conduitSign" parent="." unique_id=830625728 instance=ExtResource("11_pg58q")]
 offset_left = 171.0
 offset_top = 118.0

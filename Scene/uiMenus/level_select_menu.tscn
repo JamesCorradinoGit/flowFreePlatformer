@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://ckrtvixrsj2lg" path="res://Objects/resources/worldResources/tutorial.tres" id="5_hmedx"]
 [ext_resource type="Resource" uid="uid://dt4sf18f7kn2v" path="res://Objects/resources/worldResources/world1.tres" id="6_hmedx"]
 [ext_resource type="PackedScene" uid="uid://vout7s22sw5" path="res://Objects/ui/worldMenus/tutorial_world_menu.tscn" id="6_qo37x"]
+[ext_resource type="Resource" uid="uid://cu65ghmbp2v7" path="res://Objects/resources/worldResources/world2.tres" id="8_awaok"]
 
 [node name="levelSelectMenu" type="Control" unique_id=1720044366 node_paths=PackedStringArray("menuStartPos", "menuEndPos")]
 layout_mode = 3
@@ -53,6 +54,12 @@ layout_mode = 2
 text = "World 1"
 levelSelectMenuNode = NodePath("../../..")
 menuWorldResource = ExtResource("6_hmedx")
+
+[node name="worldSelectButtonW2" parent="worldSelectBanner/worldVBox" unique_id=472756343 node_paths=PackedStringArray("levelSelectMenuNode") instance=ExtResource("4_uw582")]
+layout_mode = 2
+text = "World 2"
+levelSelectMenuNode = NodePath("../../..")
+menuWorldResource = ExtResource("8_awaok")
 
 [node name="worldMenuStartPos" type="Marker2D" parent="." unique_id=393691066]
 position = Vector2(1300, 86)

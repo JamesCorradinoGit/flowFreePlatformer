@@ -190,5 +190,6 @@ texture = ExtResource("6_6341s")
 
 [node name="UiXIcon" type="Sprite2D" parent="." unique_id=391752026]
 visible = false
-position = Vector2(79, 26)
+position = Vector2(64, 39)
+scale = Vector2(0.5625, 0.5625)
 texture = ExtResource("7_vul7p")

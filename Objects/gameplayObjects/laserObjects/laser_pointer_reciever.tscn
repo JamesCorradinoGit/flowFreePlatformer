@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://0c124hxar8ir" path="res://Scripts/gameplay/levelInteractions/laser_pointer_reciever.gd" id="1_romtu"]
 [ext_resource type="Texture2D" uid="uid://12c7xfgqwsl3" path="res://Assets/miscObjectImages/flobLightReciever.png" id="1_syb5v"]
 [ext_resource type="Texture2D" uid="uid://ceeec6nqqgxfd" path="res://Assets/whiteSquare.png" id="2_7mn5r"]
+[ext_resource type="PackedScene" uid="uid://dqn7in8itdt17" path="res://Objects/misc/laser_pointer_connected_particle.tscn" id="4_ip1rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syb5v"]
 size = Vector2(28, 6)
@@ -27,3 +28,7 @@ z_index = -1
 position = Vector2(0, 29)
 scale = Vector2(0.9375, 0.125)
 texture = ExtResource("2_7mn5r")
+
+[node name="laserPointerConnectedParticle" parent="." unique_id=1487543472 instance=ExtResource("4_ip1rq")]
+visible = false
+position = Vector2(0, 14)

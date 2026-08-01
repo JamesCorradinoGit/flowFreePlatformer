@@ -142,14 +142,14 @@ tile_set = ExtResource("5_7o7cb")
 [node name="interactables" type="Node" parent="." unique_id=81102401]
 
 [node name="mirrorBase" parent="interactables" unique_id=1238323287 instance=ExtResource("7_nu72q")]
-position = Vector2(552.00006, 552.00006)
+position = Vector2(590.00006, 520.00006)
 rotation = -0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 xSize = 3
 ySize = 1
 
 [node name="mirrorBase2" parent="interactables" unique_id=2070010690 instance=ExtResource("7_nu72q")]
-position = Vector2(549, 126)
+position = Vector2(568, 112.000046)
 rotation = -0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 6

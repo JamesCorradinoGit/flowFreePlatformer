@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://mmkwyi56nbu4"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_b3bxd"]
+[ext_resource type="PackedScene" uid="uid://cm1bp836areou" path="res://Scene/levels/world2Levels/world_2_7.tscn" id="1_npjb6"]
+
+[resource]
+script = ExtResource("1_b3bxd")
+levelName = "A Laser's Allen Wrench"
+levelScene = ExtResource("1_npjb6")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

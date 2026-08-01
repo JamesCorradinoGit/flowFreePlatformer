@@ -13,6 +13,9 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.8577406, 1)
 colors = PackedColorArray(1, 1, 1, 0.78431374, 1, 1, 1, 0.78431374, 1, 1, 1, 0.34901962)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms7ng"]
+size = Vector2(54, 35)
+
 [node name="laserPointerObj" type="Sprite2D" unique_id=696941337]
 texture = ExtResource("1_wubh3")
 script = ExtResource("2_s0xbb")
@@ -42,3 +45,13 @@ z_index = -1
 position = Vector2(0, 29)
 scale = Vector2(0.9375, 0.125)
 texture = ExtResource("4_ms7ng")
+
+[node name="disableLaserArea" type="Area2D" parent="." unique_id=1255496496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="disableLaserArea" unique_id=559233762]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_ms7ng")
+debug_color = Color(0.7, 0.175, 0, 0.41960785)
+
+[connection signal="body_entered" from="disableLaserArea" to="." method="_on_disable_laser_area_body_entered"]
+[connection signal="body_exited" from="disableLaserArea" to="." method="_on_disable_laser_area_body_exited"]

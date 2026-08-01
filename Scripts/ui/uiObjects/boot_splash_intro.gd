@@ -4,4 +4,4 @@ extends Control
 
 func _ready() -> void:
 	await customBootSplashAnim.animation_finished
-	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")
+	GlobalSceneLoader.loadScene("uid://cat33bc0fo871")

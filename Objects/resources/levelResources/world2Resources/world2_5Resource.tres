@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="levelResource" format=3 uid="uid://2el2pyktfxtt"]
+
+[ext_resource type="PackedScene" uid="uid://h2v3xb5rv0r1" path="res://Scene/levels/world2Levels/world_2_5.tscn" id="1_0q6cg"]
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_3735l"]
+
+[resource]
+script = ExtResource("1_3735l")
+levelName = "Reflections Mid-Grid"
+levelScene = ExtResource("1_0q6cg")
+metadata/_custom_type_script = "uid://c75d7qublmsl0"

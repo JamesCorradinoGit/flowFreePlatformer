@@ -16,7 +16,7 @@ var recentLaserConnection:laserPoinerReciever = null
 var currentlyConnected:bool = false
 
 var lightBeamSprite = load("uid://dlvbfage45w5e")
-var activeLight:PointLight2D
+var activeLights:Array[PointLight2D]
 
 signal disableLaser
 signal enableLaser
@@ -42,9 +42,11 @@ func _process(_delta: float) -> void:
 		
 		laserLine.clear_points()
 		laserLine.add_point(Vector2.ZERO)
-		if activeLight:
-			activeLight.queue_free()
-			activeLight = null
+		if activeLights:
+			for li in activeLights:
+				li.queue_free()
+				li = null
+		activeLights.clear()
 		
 		laserRay.global_position = laserLine.global_position
 		laserRay.target_position = Vector2.UP.normalized() * maxLength
@@ -109,7 +111,7 @@ func _process(_delta: float) -> void:
 			instColLight.blend_mode = Light2D.BLEND_MODE_MIX
 			instColLight.texture_scale = 2
 			add_child(instColLight)
-			activeLight = instColLight
+			activeLights.append(instColLight)
 			
 			localBounces += 1
 			if localBounces >= maxBounces:
@@ -121,9 +123,11 @@ func _process(_delta: float) -> void:
 			recentLaserConnection.laserDisconnect.emit()
 			recentLaserConnection = null
 	else:
-		if activeLight:
-			activeLight.queue_free()
-			activeLight = null
+		if activeLights:
+			for li in activeLights:
+				li.queue_free()
+				li = null
+			activeLights.clear()
 		if poinerLightSprite.visible == true:
 			poinerLightSprite.visible = false
 func _draw() -> void:
@@ -158,3 +162,10 @@ func onMechanismDisconnect(id:int):
 				enableLaser.emit()
 		_:
 			pass
+
+func _on_disable_laser_area_body_entered(body: Node2D) -> void:
+	if body is defaultPlayer:
+		disableLaser.emit()
+func _on_disable_laser_area_body_exited(body: Node2D) -> void:
+	if body is defaultPlayer:
+		enableLaser.emit()

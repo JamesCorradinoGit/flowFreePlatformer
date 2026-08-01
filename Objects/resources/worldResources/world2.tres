@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="levelWorld" format=3 uid="uid://cu65ghmbp2v7"]
+
+[ext_resource type="Script" uid="uid://c75d7qublmsl0" path="res://Scripts/gameplay/levels/levelResource.gd" id="1_ixhqt"]
+[ext_resource type="Resource" uid="uid://ctxj23y5lnapq" path="res://Objects/resources/levelResources/world2Resources/world2_1Resource.tres" id="2_3hfpu"]
+[ext_resource type="Script" uid="uid://bsovhyg06fsf8" path="res://Scripts/ui/worldLevelSelect/worldResource.gd" id="2_o4td8"]
+[ext_resource type="Resource" uid="uid://b72pv1v4le8t1" path="res://Objects/resources/levelResources/world2Resources/world2_2Resource.tres" id="3_pwyyr"]
+[ext_resource type="Resource" uid="uid://bqt2buqw5tg0y" path="res://Objects/resources/levelResources/world2Resources/world2_3Resource.tres" id="4_tggp1"]
+[ext_resource type="Resource" uid="uid://b5hwjsspgsu3j" path="res://Objects/resources/levelResources/world2Resources/world2_4Resource.tres" id="5_d7nwf"]
+[ext_resource type="Resource" uid="uid://2el2pyktfxtt" path="res://Objects/resources/levelResources/world2Resources/world2_5Resource.tres" id="6_p6nej"]
+[ext_resource type="Resource" uid="uid://ca8ohw0guwn3q" path="res://Objects/resources/levelResources/world2Resources/world2_6Resource.tres" id="7_s3hvv"]
+[ext_resource type="Resource" uid="uid://mmkwyi56nbu4" path="res://Objects/resources/levelResources/world2Resources/world2_7Resource.tres" id="8_467nl"]
+[ext_resource type="Resource" uid="uid://dukt31k6aq3wm" path="res://Objects/resources/levelResources/world2Resources/world2_8Resource.tres" id="9_aliuv"]
+
+[resource]
+script = ExtResource("2_o4td8")
+worldName = "World 2"
+levelsResource = Array[ExtResource("1_ixhqt")]([ExtResource("2_3hfpu"), ExtResource("3_pwyyr"), ExtResource("4_tggp1"), ExtResource("5_d7nwf"), ExtResource("6_p6nej"), ExtResource("7_s3hvv"), ExtResource("8_467nl"), ExtResource("9_aliuv")])
+metadata/_custom_type_script = "uid://bsovhyg06fsf8"

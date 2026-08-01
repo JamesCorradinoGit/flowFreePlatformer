@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 class_name pauseMenu
 
 @onready var pausePanel: Panel = $pausePanel

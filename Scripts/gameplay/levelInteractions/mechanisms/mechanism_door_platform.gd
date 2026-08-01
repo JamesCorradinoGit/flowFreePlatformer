@@ -25,6 +25,7 @@ var isTweening:bool = false
 var connectedGridButtonIsActive:bool = false
 
 var activeMovingTween: Tween
+var movingToNewLoc:bool = false
 
 var doorDisabledSprite = load("uid://bv0th8ahcj1n8")
 var tweenDisableTime = 0.25
@@ -122,12 +123,13 @@ func enableDoorFunc():
 	tween.tween_property(textures, "self_modulate", innerTempColor, tweenDisableTime)
 	tween.tween_property(directionSprite, "self_modulate:a", 1.0, tweenDisableTime)
 	
-	if connectedGridButtonIsActive:
+	if movingToNewLoc:
 		moveDoorToNewLoc()
 	else:
 		moveDoorToOldLoc()
 func moveDoorToNewLoc():
 	isTweening = true
+	movingToNewLoc = true
 	if activeMovingTween:
 		activeMovingTween.kill()
 		
@@ -140,6 +142,7 @@ func moveDoorToNewLoc():
 	activeMovingTween.tween_property(self, "position", newPos, timeToTweenAccurate)
 func moveDoorToOldLoc():
 	isTweening = true
+	movingToNewLoc = false
 	if activeMovingTween:
 		activeMovingTween.kill()
 	
@@ -158,7 +161,10 @@ func onMechanismConnect(id:int):
 	match id:
 		0:
 			if doorDisabled == false:
-				moveDoorToNewLoc()
+				#if movingToNewLoc == false:
+					moveDoorToNewLoc()
+				#else:
+				#	moveDoorToOldLoc()
 		1:
 			if doorDisabled:
 				enableDoor.emit()
@@ -170,7 +176,10 @@ func onMechanismDisconnect(id:int):
 	match id:
 		0:
 			if doorDisabled == false:
-				moveDoorToOldLoc()
+				#if movingToNewLoc == false:
+				#	moveDoorToNewLoc()
+				#else:
+					moveDoorToOldLoc()
 		1:
 			if doorDisabled:
 				enableDoor.emit()

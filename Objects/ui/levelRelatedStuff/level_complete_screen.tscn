@@ -134,16 +134,7 @@ border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 25
 corner_radius_bottom_right = 25
 
-[node name="levelCompleteScreen" type="Control" unique_id=240577353]
-z_index = 15
-custom_minimum_size = Vector2(1152, 648)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_mn8it")
+[node name="levelCompleteScreen" type="CanvasLayer" unique_id=1523529267]
 script = ExtResource("2_hqtk5")
 menuScene = ExtResource("3_fq745")
 
@@ -154,7 +145,6 @@ autoplay = &"endCutscene"
 [node name="blurRect" type="ColorRect" parent="." unique_id=1973047092]
 z_index = 5
 material = SubResource("ShaderMaterial_k258f")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -165,7 +155,6 @@ metadata/_edit_use_anchors_ = true
 [node name="completeBanner" type="Panel" parent="." unique_id=40717971]
 z_index = 6
 custom_minimum_size = Vector2(1500, 119)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0008681
 anchor_top = 0.40895063
@@ -174,6 +163,7 @@ anchor_bottom = 0.5925926
 offset_left = -1.0
 offset_right = -0.9970703
 grow_horizontal = 2
+theme = ExtResource("1_mn8it")
 metadata/_edit_use_anchors_ = true
 
 [node name="completeBannerLabel" type="Label" parent="completeBanner" unique_id=1573652815]
@@ -193,12 +183,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="endingPanel" type="Panel" parent="." unique_id=86343407]
 z_index = 6
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2534722
 anchor_top = -0.77160496
 anchor_right = 0.7465278
 anchor_bottom = -0.068989225
+theme = ExtResource("1_mn8it")
 metadata/_edit_use_anchors_ = true
 
 [node name="endWorldLabel" type="Label" parent="endingPanel" unique_id=1566321809]
