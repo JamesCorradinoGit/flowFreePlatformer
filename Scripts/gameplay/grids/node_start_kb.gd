@@ -199,12 +199,14 @@ func getLineNodesAtPoint(pos:Vector2):
 	queryTemp.collide_with_bodies = true
 	
 	var resu = world2D.intersect_point(queryTemp)
+	resu.reverse()
 	if resu != []:
 		for result in resu:
+			if result["collider"].name == "AlaserButtonDetector":
+				return null
 			if result["collider"].owner is lineNodeKB:
 				return result["collider"].owner
-			if result["collider"].name == "laserButtonDetector":
-				return null
+			
 	return null
 func getObstacleNodesAtPoint(pos:Vector2):
 	var world2D = get_world_2d().direct_space_state

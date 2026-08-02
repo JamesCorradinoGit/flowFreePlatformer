@@ -60,6 +60,7 @@ playerSpawn = NodePath("playerSpawn")
 goalPortal = NodePath("levelPortal")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
+lvlSongDictionaryKey = "world2On"
 
 [node name="grids" type="Node" parent="." unique_id=346834477]
 

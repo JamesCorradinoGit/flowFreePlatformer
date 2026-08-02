@@ -18,7 +18,7 @@ shader_parameter/origin = Color(1, 1, 1, 1)
 shader_parameter/newColor = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6o3qg"]
-radius = 12.0
+radius = 11.045361
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fock"]
 radius = 14.0
@@ -52,13 +52,13 @@ texture_hover = ExtResource("4_qake6")
 texture_disabled = ExtResource("4_qake6")
 texture_focused = ExtResource("4_qake6")
 
-[node name="laserButtonDetector" type="StaticBody2D" parent="kbDragButton" unique_id=1841479408]
-visible = false
+[node name="AlaserButtonDetector" type="StaticBody2D" parent="kbDragButton" unique_id=1841479408]
 position = Vector2(16, 16)
 collision_layer = 4
 collision_mask = 0
+collision_priority = 0.5
 
-[node name="laserButtonDetectorCol" type="CollisionShape2D" parent="kbDragButton/laserButtonDetector" unique_id=1203503637]
+[node name="laserButtonDetectorCol" type="CollisionShape2D" parent="kbDragButton/AlaserButtonDetector" unique_id=1203503637]
 shape = SubResource("CircleShape2D_6o3qg")
 
 [node name="connectLine" type="Line2D" parent="." unique_id=868076600]
@@ -99,6 +99,7 @@ texture = ExtResource("6_ite5n")
 visible = false
 collision_layer = 4
 collision_mask = 0
+collision_priority = 0.5
 
 [node name="laserMainDetectorCol" type="CollisionShape2D" parent="laserMainDetector" unique_id=2056671701]
 shape = SubResource("CircleShape2D_6o3qg")

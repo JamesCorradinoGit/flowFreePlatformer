@@ -2,10 +2,13 @@ extends Node
 class_name AudioManager
 
 var activeSong: AudioStreamPlayer
+var activeSongString:String = ""
 var songList: Dictionary = {
 	"menuWithoutIntro": "uid://dr5uum6ondds8",
 	"tutorial": "uid://qkj24y50dgh",
-	"world1": "uid://bkxt8kuofi6cc"
+	"world1": "uid://bkxt8kuofi6cc",
+	"world2On": "uid://dyjvqcer5l686",
+	"world2Off": "uid://dpxgvoi0kgs8s"
 }
 
 #Created by Potheterr
@@ -29,6 +32,7 @@ func playMusic(songPath:String, decibels:float, fadeIn:bool = true):
 	audioInst.autoplay = true
 	audioInst.bus = "Music"
 	activeSong = audioInst
+	activeSongString = songPath
 	add_child(audioInst)
 	if fadeIn:
 		audioInst.volume_linear = 0.0
@@ -46,3 +50,4 @@ func fadeOutMusicRemove(fadeTime:float = 0.25):
 		tween.tween_property(activeSong, "volume_linear", 0, fadeTime)
 		await tween.finished
 		activeSong.queue_free()
+		activeSongString = ""

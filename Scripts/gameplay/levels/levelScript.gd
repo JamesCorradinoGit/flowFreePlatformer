@@ -69,6 +69,10 @@ func _ready() -> void:
 	
 	if self.lvlSongDictionaryKey != "" and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey) and GlobalAudioManager.activeSong == null:
 		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -12.0)
+	elif GlobalAudioManager.activeSongString != GlobalAudioManager.songList[lvlSongDictionaryKey] and GlobalAudioManager.songList.has(self.lvlSongDictionaryKey):
+		GlobalAudioManager.fadeOutMusicRemove(0.0001)
+		await get_tree().create_timer(0.02).timeout
+		GlobalAudioManager.playMusic(GlobalAudioManager.songList[lvlSongDictionaryKey], -12.0, true)
 	elif self.lvlSongDictionaryKey == "":
 		push_warning("No song loaded in level")
 	
@@ -176,7 +180,6 @@ func onAllCompleted():
 	endInst.instLevelName = Globals.currentLvlResource.levelName
 	endInst.instWorldName = Globals.currentWorldResource.worldName
 	endInst.levelOwner = self
-#	endInst.position = Vector2.ZERO
 	if Globals.currentLvlResource.bestTimeInSec == 0.0 or Globals.currentLvlResource.bestTimeInSec > timeInLevel:
 		Globals.currentLvlResource.bestTimeInSec = timeInLevel
 		endInst.isLevelTimeNewHighScore = true

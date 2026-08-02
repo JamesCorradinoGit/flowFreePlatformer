@@ -131,6 +131,7 @@ goalPortal = NodePath("levelPortal")
 resetTileset = NodePath("tilemaps/resetTileset")
 groundTileset = NodePath("tilemaps/groundTiles")
 gridParent = NodePath("grids")
+lvlSongDictionaryKey = "world2Off"
 darkLevel = true
 startWithInterference = true
 
