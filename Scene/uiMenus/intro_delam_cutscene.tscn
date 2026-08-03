@@ -431,3 +431,7 @@ offset_top = 1.5258789e-05
 texture = ExtResource("6_hooeu")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="waitTime" type="Timer" parent="." unique_id=1379642282]
+wait_time = 10.0
+one_shot = true

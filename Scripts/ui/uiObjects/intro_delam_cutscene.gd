@@ -5,6 +5,7 @@ extends Control
 @onready var delamLogo: TextureRect = $delamLogo
 @onready var flobLogo: TextureRect = $flobLogo
 @onready var introCutsceneAnim: AnimationPlayer = $introCutsceneAnim
+@onready var waitTime: Timer = $waitTime
 
 var cutsceneTween:Tween
 var delamIntroSFX = "uid://fdpfde1wduyr"
@@ -28,6 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			loadMenuScene()
 	elif event.is_pressed():
 		if canContiue and transitioned == false:
+			waitTime.stop()
 			transitioned = true
 			loadMenuScene()
 
@@ -44,7 +46,8 @@ func enableNextSceneClick():
 	canContiue = true
 	canSkip = false
 	#GlobalAudioManager.fadeOutMusicRemove(9.5)
-	await get_tree().create_timer(10).timeout
+	waitTime.start()
+	await waitTime.timeout
 	loadMenuScene()
 func loadMenuScene():
 	GlobalSceneLoader.loadScene("uid://cm0dmoglwp1ru")

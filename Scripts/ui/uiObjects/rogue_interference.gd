@@ -10,6 +10,7 @@ signal tweenDoneToQueue
 
 func _ready() -> void:
 	staticRect.material = staticRect.material.duplicate()
+	GlobalAudioManager.playGlobalSFX("uid://60234j05j7c", -2.0, -0.1)
 	
 	canvasTween = create_tween()
 	canvasTween.set_parallel()
